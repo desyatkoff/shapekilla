@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="Shapekilla"
+run/main_scene="uid://cg7xcaxjfwb54"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=512
+window/stretch/mode="viewport"
 
 [physics]
 
@@ -20,6 +28,7 @@ config/icon="res://icon.svg"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
