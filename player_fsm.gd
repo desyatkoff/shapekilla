@@ -28,8 +28,12 @@ func _get_transition() -> int:
 	
 	return -1
 
-func _enter_state(_prev_state: int, _new_state: int) -> void:
-	pass
+func _enter_state(_prev_state: int, new_state: int) -> void:
+	match new_state:
+		states.idle:
+			pass
+		states.moving:
+			pass
 
 func _exit_state(_state_exited: int) -> void:
 	pass
