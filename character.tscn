@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dua7hhrku0eli"]
+
+[ext_resource type="Script" uid="uid://bcas464q6kt75" path="res://character.gd" id="1_pjt0s"]
+[ext_resource type="Script" uid="uid://c8a6ug81mbv6b" path="res://fsm.gd" id="3_wa5vi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa5vi"]
+size = Vector2(24, 24)
+
+[node name="Character" type="CharacterBody2D" unique_id=757774300]
+motion_mode = 1
+script = ExtResource("1_pjt0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2120351308]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720041274]
+shape = SubResource("RectangleShape2D_pjt0s")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=982098483]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=957830478]
+shape = SubResource("RectangleShape2D_wa5vi")
+
+[node name="FiniteStateMachine" type="Node" parent="." unique_id=1331044783]
+script = ExtResource("3_wa5vi")
+metadata/_custom_type_script = "uid://c8a6ug81mbv6b"

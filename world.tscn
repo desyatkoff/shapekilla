@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cg7xcaxjfwb54"]
 
 [ext_resource type="PackedScene" uid="uid://meaq8epj1der" path="res://map.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://ckgm7bvp3wqxy" path="res://player.tscn" id="2_fj7yv"]
+[ext_resource type="FontFile" uid="uid://b8ihw4m1hlbic" path="res://m6x11plus.ttf" id="3_tlwt5"]
 
 [sub_resource type="Gradient" id="Gradient_f3sb7"]
 offsets = PackedFloat32Array(0)
@@ -18,4 +20,18 @@ texture = SubResource("GradientTexture1D_fj7yv")
 
 [node name="Map" parent="." unique_id=1249936917 instance=ExtResource("1_f3sb7")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1127100336]
+[node name="Player" parent="." unique_id=757774300 instance=ExtResource("2_fj7yv")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=640747172]
+
+[node name="DebugInfo" type="RichTextLabel" parent="HUD" unique_id=1412469551]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+theme_override_colors/font_outline_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("3_tlwt5")
+theme_override_font_sizes/normal_font_size = 32
