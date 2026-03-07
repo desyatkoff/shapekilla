@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dlanlp75wlarq"]
+
+[ext_resource type="PackedScene" uid="uid://db0bhbdokayuk" path="res://enemy_character.tscn" id="1_vn61j"]
+[ext_resource type="Script" uid="uid://ds3yvigget18g" path="res://melee_enemy.gd" id="2_kj6g3"]
+[ext_resource type="Texture2D" uid="uid://b5w6fxsokc21y" path="res://enemy.png" id="2_legso"]
+[ext_resource type="Script" uid="uid://cwpfyx8gj57aa" path="res://melee_enemy_fsm.gd" id="4_j2cp2"]
+
+[node name="MeleeEnemy" unique_id=757774300 instance=ExtResource("1_vn61j")]
+script = ExtResource("2_kj6g3")
+
+[node name="Sprite2D" parent="." index="0" unique_id=2120351308]
+texture = ExtResource("2_legso")
+
+[node name="FiniteStateMachine" parent="." index="5" unique_id=1331044783]
+script = ExtResource("4_j2cp2")

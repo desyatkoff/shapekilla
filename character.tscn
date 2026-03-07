@@ -17,6 +17,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_pjt0s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2120351308]
+light_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720041274]
 shape = SubResource("RectangleShape2D_pjt0s")

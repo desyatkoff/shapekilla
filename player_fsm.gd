@@ -8,7 +8,7 @@ func _ready() -> void:
 	set_state(states.idle)
 
 func _process(_delta: float) -> void:
-	get_parent().get_parent().get_node("HUD").get_node("DebugInfo").text = """states = %s
+	get_tree().current_scene.get_node("HUD").get_node("DebugInfo").text = """states = %s
 prev_state = %s
 state = %s
 	""" % [states, prev_state, state]

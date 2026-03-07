@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://db0bhbdokayuk"]
+
+[ext_resource type="PackedScene" uid="uid://dua7hhrku0eli" path="res://character.tscn" id="1_jip7v"]
+[ext_resource type="Script" uid="uid://din8reg3e43b7" path="res://enemy_character.gd" id="2_10xie"]
+
+[node name="EnemyCharacter" unique_id=757774300 instance=ExtResource("1_jip7v")]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("2_10xie")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="3" unique_id=1852310886]
+path_postprocessing = 1
+
+[node name="NavigationTimer" type="Timer" parent="." index="4" unique_id=1724313359]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="NavigationTimer" to="." method="_on_navigation_timer_timeout"]
