@@ -11,5 +11,5 @@ script = ExtResource("2_kj6g3")
 [node name="Sprite2D" parent="." index="0" unique_id=2120351308]
 texture = ExtResource("2_legso")
 
-[node name="FiniteStateMachine" parent="." index="5" unique_id=1331044783]
+[node name="FiniteStateMachine" parent="." index="2" unique_id=1331044783]
 script = ExtResource("4_j2cp2")

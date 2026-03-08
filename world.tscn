@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://meaq8epj1der" path="res://map.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://ckgm7bvp3wqxy" path="res://player.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://dlanlp75wlarq" path="res://melee_enemy.tscn" id="3_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://b72872psfpjl0" path="res://key.tscn" id="3_tlwt5"]
 
 [sub_resource type="Gradient" id="Gradient_aqk2v"]
 offsets = PackedFloat32Array(0)
@@ -20,18 +20,8 @@ texture = SubResource("GradientTexture2D_036b0")
 
 [node name="Map" parent="." unique_id=1249936917 instance=ExtResource("1_f3sb7")]
 
-[node name="Debris" type="Node2D" parent="." unique_id=1097455209]
-
 [node name="Player" parent="." unique_id=757774300 instance=ExtResource("2_fj7yv")]
-collision_layer = 1
-collision_mask = 1
-wall_min_slide_angle = 0.2617994
+position = Vector2(-64, 0)
 
-[node name="MeleeEnemy" parent="." unique_id=1328517740 instance=ExtResource("3_aqk2v")]
-position = Vector2(704, -192)
-
-[node name="MeleeEnemy2" parent="." unique_id=1210899829 instance=ExtResource("3_aqk2v")]
-position = Vector2(704, 0)
-
-[node name="MeleeEnemy3" parent="." unique_id=1386817815 instance=ExtResource("3_aqk2v")]
-position = Vector2(704, 192)
+[node name="Key" parent="." unique_id=239523185 instance=ExtResource("3_tlwt5")]
+position = Vector2(64, 0)

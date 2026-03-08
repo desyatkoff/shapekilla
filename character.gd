@@ -8,6 +8,8 @@ class_name Character
 @export var friction = 0.16
 
 var direction = Vector2.ZERO
+var current_room_slot: Node2D
+var current_room_slot_id: int
 
 func _physics_process(_delta: float) -> void:
 	velocity = lerp(velocity, Vector2.ZERO, friction)

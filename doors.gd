@@ -7,9 +7,9 @@ class_name Doors
 
 @export var move_offset = 32
 @export var move_time = 0.5
+@export var is_locked = true
+@export var is_open = false
 
-var is_locked = true
-var is_open = false
 var door0_closed_y: float
 var door1_closed_y: float
 var tween: Tween
@@ -17,10 +17,17 @@ var tween: Tween
 func _ready() -> void:
 	door0_closed_y = door0.position.y
 	door1_closed_y = door1.position.y
-	
-	close()
-	lock()
 	lock_sprite.global_rotation = 0
+	
+	if is_locked:
+		lock()
+	else:
+		unlock()
+	
+	if is_open:
+		open()
+	else:
+		close()
 
 func toggle_lock() -> void:
 	if is_locked:
@@ -72,8 +79,15 @@ func _move_doors(door0_y: float, door1_y: float) -> void:
 	tween.parallel().tween_property(door1, "position:y", door1_y, move_time)
 
 func _on_character_detector_body_entered(body: Node2D) -> void:
-	if body is Character and not is_locked and not is_open:
-		open()
+	if body is Character:
+		if body is PlayerCharacter:
+			for child in body.get_children():
+				if child is Key and is_locked:
+					child.queue_free()
+					unlock()
+		
+		if not is_locked and not is_open:
+			open()
 
 func _on_character_detector_body_exited(body: Node2D) -> void:
 	if body is Character and is_open:

@@ -18,31 +18,26 @@ fill_to = Vector2(0.5, 0)
 
 [node name="Player" unique_id=757774300 instance=ExtResource("1_onrkg")]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 23
 script = ExtResource("2_i3pqv")
 
 [node name="Sprite2D" parent="." index="0" unique_id=2120351308]
 texture = ExtResource("1_4flbx")
 
-[node name="Camera2D" type="Camera2D" parent="." index="3" unique_id=682037787]
+[node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=682037787]
 zoom = Vector2(4, 4)
-limit_enabled = false
-limit_left = -256
-limit_top = -256
-limit_right = 256
-limit_bottom = 256
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 editor_draw_limits = true
 
-[node name="PointLight2D" type="PointLight2D" parent="." index="4" unique_id=1195821963]
+[node name="PointLight2D" type="PointLight2D" parent="." index="3" unique_id=1195821963]
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_sweqy")
 
-[node name="AttackCooldownTimer" type="Timer" parent="." index="5" unique_id=1732105827]
+[node name="AttackCooldownTimer" type="Timer" parent="." index="4" unique_id=1732105827]
 wait_time = 0.25
 one_shot = true
 
-[node name="FiniteStateMachine" parent="." index="6" unique_id=1331044783]
+[node name="FiniteStateMachine" parent="." index="5" unique_id=1331044783]
 script = ExtResource("4_hqtel")

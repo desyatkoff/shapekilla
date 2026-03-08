@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c5ff7sygd66gb"]
+
+[ext_resource type="PackedScene" uid="uid://c6a5ttcrn7ld7" path="res://room.tscn" id="1_i7rmm"]
+[ext_resource type="FontFile" uid="uid://b8ihw4m1hlbic" path="res://m6x11plus.ttf" id="1_onsg0"]
+[ext_resource type="PackedScene" uid="uid://dlanlp75wlarq" path="res://melee_enemy.tscn" id="3_i7rmm"]
+
+[node name="Room_00" unique_id=835384101 instance=ExtResource("1_i7rmm")]
+
+[node name="Label" type="Label" parent="." index="1" unique_id=638385916]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+theme_override_colors/font_outline_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("1_onsg0")
+theme_override_font_sizes/font_size = 32
+text = "Room_00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MeleeEnemy" parent="EnemiesContainer" parent_id_path=PackedInt32Array(1297941406) index="0" unique_id=757774300 instance=ExtResource("3_i7rmm")]

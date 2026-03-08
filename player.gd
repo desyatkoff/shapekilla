@@ -1,20 +1,78 @@
 extends Character
 class_name PlayerCharacter
 
+@onready var camera = $Camera2D
 @onready var attack_cd_timer = $AttackCooldownTimer
 
 @onready var projectile_scene = preload("res://projectile.tscn")
 
 func _process(_delta: float) -> void:
-	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
-	
 	look_at(get_global_mouse_position())
+	
+	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	
 	if mouse_direction.x > 0 and sprite.flip_v:
 		sprite.flip_v = false
 	
 	if mouse_direction.x < 0 and not sprite.flip_v:
 		sprite.flip_v = true
+	
+	match current_room_slot_id:
+		0:
+			camera.limit_left = -256
+			camera.limit_top = -128
+			camera.limit_right = 288
+			camera.limit_bottom = 128
+		1:
+			camera.limit_left = 256
+			camera.limit_top = -768
+			camera.limit_right = 800
+			camera.limit_bottom = -224
+		2:
+			camera.limit_left = 736
+			camera.limit_top = -768
+			camera.limit_right = 1312
+			camera.limit_bottom = -224
+		3:
+			camera.limit_left = 1248
+			camera.limit_top = -768
+			camera.limit_right = 1792
+			camera.limit_bottom = -224
+		4:
+			camera.limit_left = 224
+			camera.limit_top = -288
+			camera.limit_right = 800
+			camera.limit_bottom = 288
+		5:
+			camera.limit_left = 736
+			camera.limit_top = -288
+			camera.limit_right = 1312
+			camera.limit_bottom = 288
+		6:
+			camera.limit_left = 1248
+			camera.limit_top = -288
+			camera.limit_right = 1824
+			camera.limit_bottom = 288
+		7:
+			camera.limit_left = 256
+			camera.limit_top = 224
+			camera.limit_right = 800
+			camera.limit_bottom = 768
+		8:
+			camera.limit_left = 736
+			camera.limit_top = 224
+			camera.limit_right = 1312
+			camera.limit_bottom = 768
+		9:
+			camera.limit_left = 1248
+			camera.limit_top = 224
+			camera.limit_right = 1792
+			camera.limit_bottom = 768
+		10:
+			camera.limit_left = 1760
+			camera.limit_top = -128
+			camera.limit_right = 2304
+			camera.limit_bottom = 128
 
 func get_input() -> void:
 	direction = Vector2.ZERO
@@ -39,4 +97,4 @@ func get_input() -> void:
 		projectile.global_rotation = global_rotation
 		projectile.who_shot = $"."
 		
-		get_tree().current_scene.get_node("Debris").add_child(projectile)
+		get_tree().current_scene.add_child(projectile)

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cx4vjivg6og4a"]
+
+[ext_resource type="Script" uid="uid://dh5ydkc3x3u2d" path="res://room_slot.gd" id="1_5fj78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fj78"]
+size = Vector2(512, 512)
+
+[node name="RoomSlot" type="Node2D" unique_id=835384101]
+script = ExtResource("1_5fj78")
+
+[node name="CharacterDetector" type="Area2D" parent="." unique_id=673609008]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDetector" unique_id=873338593]
+shape = SubResource("RectangleShape2D_5fj78")
+
+[connection signal="body_entered" from="CharacterDetector" to="." method="_on_character_detector_body_entered"]

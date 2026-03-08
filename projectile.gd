@@ -7,10 +7,7 @@ func _process(delta: float) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body != who_shot:
-		if body.get_parent() is Doors:
-			body.get_parent().unlock()
-		
 		if body is Character:
-			body.queue_free()
+			body.die()
 		
 		queue_free()
