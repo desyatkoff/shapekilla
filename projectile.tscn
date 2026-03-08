@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://thl2wr6hngl4"]
+
+[ext_resource type="Texture2D" uid="uid://2elv3qiyo4x5" path="res://projectile.png" id="1_a85iw"]
+[ext_resource type="Script" uid="uid://reyr5ga3n6b1" path="res://projectile.gd" id="2_qxf0c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
+radius = 8.0
+
+[node name="Projectile" type="Sprite2D" unique_id=482472342]
+light_mask = 0
+texture = ExtResource("1_a85iw")
+script = ExtResource("2_qxf0c")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1107550211]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1174327932]
+shape = SubResource("CircleShape2D_qxf0c")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

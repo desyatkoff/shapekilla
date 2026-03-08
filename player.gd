@@ -1,4 +1,9 @@
 extends Character
+class_name PlayerCharacter
+
+@onready var attack_cd_timer = $AttackCooldownTimer
+
+@onready var projectile_scene = preload("res://projectile.tscn")
 
 func _process(_delta: float) -> void:
 	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
@@ -25,3 +30,13 @@ func get_input() -> void:
 	
 	if Input.is_action_pressed("right"):
 		direction += Vector2.RIGHT
+	
+	if Input.is_action_just_pressed("shoot") and attack_cd_timer.is_stopped():
+		attack_cd_timer.start()
+		
+		var projectile = projectile_scene.instantiate()
+		projectile.global_position = global_position
+		projectile.global_rotation = global_rotation
+		projectile.who_shot = $"."
+		
+		get_tree().current_scene.get_node("Debris").add_child(projectile)

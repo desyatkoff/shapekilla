@@ -24,8 +24,7 @@ func _get_path_to_player() -> void:
 	nav_agent.target_position = player.position
 
 func chase() -> void:
-	if not nav_agent.is_target_reached():
-		direction = (nav_agent.get_next_path_position() - global_position).normalized()
+	direction = (nav_agent.get_next_path_position() - global_position).normalized()
 
 func _on_navigation_timer_timeout() -> void:
 	if is_instance_valid(player):

@@ -1,1 +1,2 @@
 extends EnemyCharacter
+class_name MeleeEnemy

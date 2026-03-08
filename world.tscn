@@ -3,43 +3,35 @@
 [ext_resource type="PackedScene" uid="uid://meaq8epj1der" path="res://map.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://ckgm7bvp3wqxy" path="res://player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://dlanlp75wlarq" path="res://melee_enemy.tscn" id="3_aqk2v"]
-[ext_resource type="FontFile" uid="uid://b8ihw4m1hlbic" path="res://m6x11plus.ttf" id="3_tlwt5"]
 
-[sub_resource type="Gradient" id="Gradient_f3sb7"]
+[sub_resource type="Gradient" id="Gradient_aqk2v"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_fj7yv"]
-gradient = SubResource("Gradient_f3sb7")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_036b0"]
+gradient = SubResource("Gradient_aqk2v")
+width = 8192
+height = 8192
 
 [node name="World" type="Node2D" unique_id=280090846]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1620153669]
-position = Vector2(-9.059906e-06, -5.722046e-06)
-scale = Vector2(2, 512)
-texture = SubResource("GradientTexture1D_fj7yv")
+[node name="Background" type="Sprite2D" parent="." unique_id=480246919]
+texture = SubResource("GradientTexture2D_036b0")
 
 [node name="Map" parent="." unique_id=1249936917 instance=ExtResource("1_f3sb7")]
 
+[node name="Debris" type="Node2D" parent="." unique_id=1097455209]
+
 [node name="Player" parent="." unique_id=757774300 instance=ExtResource("2_fj7yv")]
-position = Vector2(-96, 0)
 collision_layer = 1
 collision_mask = 1
 wall_min_slide_angle = 0.2617994
 
-[node name="MeleeEnemy" parent="." unique_id=1902679369 instance=ExtResource("3_aqk2v")]
-position = Vector2(96, 0)
+[node name="MeleeEnemy" parent="." unique_id=1328517740 instance=ExtResource("3_aqk2v")]
+position = Vector2(704, -192)
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=640747172]
+[node name="MeleeEnemy2" parent="." unique_id=1210899829 instance=ExtResource("3_aqk2v")]
+position = Vector2(704, 0)
 
-[node name="DebugInfo" type="RichTextLabel" parent="HUD" unique_id=1412469551]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
-theme_override_colors/font_outline_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
-theme_override_constants/outline_size = 16
-theme_override_fonts/normal_font = ExtResource("3_tlwt5")
-theme_override_font_sizes/normal_font_size = 32
+[node name="MeleeEnemy3" parent="." unique_id=1386817815 instance=ExtResource("3_aqk2v")]
+position = Vector2(704, 192)

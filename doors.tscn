@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bar62osuq8p07"]
+
+[ext_resource type="Script" uid="uid://b566pcp7mf3g5" path="res://doors.gd" id="1_4ybfh"]
+[ext_resource type="Texture2D" uid="uid://cyne7ptrtdpss" path="res://door.png" id="1_ik3nm"]
+[ext_resource type="Texture2D" uid="uid://b70pfdidh70t0" path="res://lock.png" id="3_cb6k2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ybfh"]
+size = Vector2(18, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cb6k2"]
+polygon = PackedVector2Array(-9, -16, 9, -16, 9, 16, -9, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb6k2"]
+size = Vector2(64, 64)
+
+[node name="Doors" type="Node2D" unique_id=985820572]
+script = ExtResource("1_4ybfh")
+
+[node name="Door0" type="StaticBody2D" parent="." unique_id=597804216]
+position = Vector2(0, -16)
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="Door0" unique_id=1112253851]
+light_mask = 0
+texture = ExtResource("1_ik3nm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door0" unique_id=2002861486]
+shape = SubResource("RectangleShape2D_4ybfh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Door0" unique_id=2040644573]
+occluder = SubResource("OccluderPolygon2D_cb6k2")
+
+[node name="Door1" type="StaticBody2D" parent="." unique_id=1016420803]
+position = Vector2(0, 16)
+rotation = 3.1415925
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="Door1" unique_id=247574123]
+light_mask = 0
+texture = ExtResource("1_ik3nm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1" unique_id=766873988]
+shape = SubResource("RectangleShape2D_4ybfh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Door1" unique_id=192878580]
+occluder = SubResource("OccluderPolygon2D_cb6k2")
+
+[node name="Lock" type="Sprite2D" parent="." unique_id=503869081]
+visible = false
+texture = ExtResource("3_cb6k2")
+
+[node name="CharacterDetector" type="Area2D" parent="." unique_id=1726779399]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDetector" unique_id=1718209461]
+shape = SubResource("RectangleShape2D_cb6k2")
+
+[connection signal="body_entered" from="CharacterDetector" to="." method="_on_character_detector_body_entered"]
+[connection signal="body_exited" from="CharacterDetector" to="." method="_on_character_detector_body_exited"]
