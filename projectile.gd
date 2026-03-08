@@ -2,6 +2,9 @@ extends Sprite2D
 
 var who_shot: Character
 
+func _ready() -> void:
+	reparent(get_tree().current_scene.get_node("Debris"))
+
 func _process(delta: float) -> void:
 	move_local_x(320 * delta)
 

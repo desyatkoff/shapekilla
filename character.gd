@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Character
 
-@onready var sprite = $Sprite2D
+@onready var body_sprite = $Body
 
 @export var max_speed = 80
 @export var acceleration = 40

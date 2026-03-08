@@ -11,8 +11,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	rotate(delta)
+	
+	if get_parent() is PlayerCharacter:
+		position = get_parent().get_node("Body").get_node("Shotgun").transform.x.normalized() * 32
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is PlayerCharacter:
 		call_deferred("reparent", body)
-		call_deferred("set_position", Vector2(16, 0))

@@ -28,11 +28,11 @@ func _process(_delta: float) -> void:
 	if fsm.state == fsm.states.chase:
 		var player_direction = (player.global_position - global_position).normalized()
 		
-		if player_direction.x > 0 and sprite.flip_h:
-			sprite.flip_h = false
+		if player_direction.x > 0 and body_sprite.flip_h:
+			body_sprite.flip_h = false
 		
-		if player_direction.x < 0 and not sprite.flip_h:
-			sprite.flip_h = true
+		if player_direction.x < 0 and not body_sprite.flip_h:
+			body_sprite.flip_h = true
 
 func _get_path_to_player() -> void:
 	nav_agent.target_position = player.position

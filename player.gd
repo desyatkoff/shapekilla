@@ -1,21 +1,19 @@
 extends Character
 class_name PlayerCharacter
 
+@onready var shotgun_sprite = $Body/Shotgun
 @onready var camera = $Camera2D
 @onready var attack_cd_timer = $AttackCooldownTimer
 
-@onready var projectile_scene = preload("res://projectile.tscn")
+@onready var shotgun_projectile_scene = preload("res://shotgun_projectile.tscn")
 
-func _process(_delta: float) -> void:
-	look_at(get_global_mouse_position())
+func _process(delta: float) -> void:
+	shotgun_sprite.rotation = lerp_angle(shotgun_sprite.rotation, global_position.angle_to_point(get_global_mouse_position()), 10.0 * delta)
 	
 	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	
-	if mouse_direction.x > 0 and sprite.flip_v:
-		sprite.flip_v = false
-	
-	if mouse_direction.x < 0 and not sprite.flip_v:
-		sprite.flip_v = true
+	body_sprite.flip_h = mouse_direction.x < 0
+	shotgun_sprite.flip_v = mouse_direction.x < 0
 	
 	match current_room_slot_id:
 		0:
@@ -92,9 +90,18 @@ func get_input() -> void:
 	if Input.is_action_just_pressed("shoot") and attack_cd_timer.is_stopped():
 		attack_cd_timer.start()
 		
-		var projectile = projectile_scene.instantiate()
-		projectile.global_position = global_position
-		projectile.global_rotation = global_rotation
-		projectile.who_shot = $"."
+		var shotgun_position = shotgun_sprite.position
+		var shotgun_direction = shotgun_sprite.transform.x.normalized()
 		
-		get_tree().current_scene.add_child(projectile)
+		shotgun_sprite.position -= shotgun_direction * 8
+		velocity -= shotgun_direction * 64
+		
+		create_tween().tween_property(shotgun_sprite, "position", shotgun_position, 0.2)
+		
+		for i in range(-2, 2):
+			var shotgun_projectile = shotgun_projectile_scene.instantiate()
+			shotgun_projectile.global_position = shotgun_sprite.global_position
+			shotgun_projectile.global_rotation = shotgun_sprite.global_rotation + i * 0.2
+			shotgun_projectile.who_shot = $"."
+			
+			get_tree().current_scene.get_node("Debris").add_child(shotgun_projectile)

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dua7hhrku0eli" path="res://character.tscn" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://cdreyve11bldu" path="res://player.gd" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://b0wcwomavy0sd" path="res://player_fsm.gd" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://gea8002m8yab" path="res://shotgun.png" id="5_sweqy"]
 
 [sub_resource type="Gradient" id="Gradient_hqtel"]
 colors = PackedColorArray(0.93333334, 0.93333334, 0.93333334, 1, 0.12941177, 0.12941177, 0.12941177, 0)
@@ -21,8 +22,13 @@ collision_layer = 2
 collision_mask = 23
 script = ExtResource("2_i3pqv")
 
-[node name="Sprite2D" parent="." index="0" unique_id=2120351308]
+[node name="Body" parent="." index="0" unique_id=2120351308]
 texture = ExtResource("1_4flbx")
+
+[node name="Shotgun" type="Sprite2D" parent="Body" index="0" unique_id=540395407]
+light_mask = 0
+position = Vector2(0, 5)
+texture = ExtResource("5_sweqy")
 
 [node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=682037787]
 zoom = Vector2(4, 4)
