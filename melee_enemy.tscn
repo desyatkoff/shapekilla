@@ -5,11 +5,27 @@
 [ext_resource type="Texture2D" uid="uid://b5w6fxsokc21y" path="res://enemy.png" id="2_legso"]
 [ext_resource type="Script" uid="uid://cwpfyx8gj57aa" path="res://melee_enemy_fsm.gd" id="4_j2cp2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj6g3"]
+size = Vector2(32, 32)
+
 [node name="MeleeEnemy" unique_id=757774300 instance=ExtResource("1_vn61j")]
 script = ExtResource("2_kj6g3")
 
 [node name="Body" parent="." index="0" unique_id=2120351308]
 texture = ExtResource("2_legso")
 
-[node name="FiniteStateMachine" parent="." index="4" unique_id=1331044783]
+[node name="Hitbox" type="Area2D" parent="." index="2" unique_id=251164309]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=382674697]
+shape = SubResource("RectangleShape2D_kj6g3")
+
+[node name="AttackCooldownTimer" parent="." index="5" unique_id=1642942915]
+one_shot = false
+autostart = true
+
+[node name="FiniteStateMachine" parent="." index="6" unique_id=1331044783]
 script = ExtResource("4_j2cp2")
+
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]

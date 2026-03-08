@@ -3,12 +3,24 @@ class_name PlayerCharacter
 
 @onready var shotgun_sprite = $Body/Shotgun
 @onready var camera = $Camera2D
-@onready var attack_cd_timer = $AttackCooldownTimer
+@onready var light = $PointLight2D
 
 @onready var shotgun_projectile_scene = preload("res://shotgun_projectile.tscn")
 
+var shotgun_shots = 4
+
 func _process(delta: float) -> void:
-	shotgun_sprite.rotation = lerp_angle(shotgun_sprite.rotation, global_position.angle_to_point(get_global_mouse_position()), 10.0 * delta)
+	if health > max_health:
+		health = max_health
+	
+	if health <= 0:
+		die()
+	
+	shotgun_sprite.rotation = lerp_angle(
+		shotgun_sprite.rotation,
+		global_position.angle_to_point(get_global_mouse_position()),
+		10.0 * delta
+	)
 	
 	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	
@@ -87,8 +99,8 @@ func get_input() -> void:
 	if Input.is_action_pressed("right"):
 		direction += Vector2.RIGHT
 	
-	if Input.is_action_just_pressed("shoot") and attack_cd_timer.is_stopped():
-		attack_cd_timer.start()
+	if Input.is_action_just_pressed("shoot") and attack_cooldown_timer.is_stopped():
+		attack_cooldown_timer.start()
 		
 		var shotgun_position = shotgun_sprite.position
 		var shotgun_direction = shotgun_sprite.transform.x.normalized()
@@ -98,10 +110,19 @@ func get_input() -> void:
 		
 		create_tween().tween_property(shotgun_sprite, "position", shotgun_position, 0.2)
 		
-		for i in range(-2, 2):
+		for i in range(shotgun_shots / -2, shotgun_shots / 2):
 			var shotgun_projectile = shotgun_projectile_scene.instantiate()
 			shotgun_projectile.global_position = shotgun_sprite.global_position
 			shotgun_projectile.global_rotation = shotgun_sprite.global_rotation + i * 0.2
-			shotgun_projectile.who_shot = $"."
+			shotgun_projectile.who_shot = self
 			
 			get_tree().current_scene.get_node("Debris").add_child(shotgun_projectile)
+
+func die() -> void:
+	camera.limit_smoothed = false
+	camera.position_smoothing_enabled = false
+	camera.reparent(get_tree().current_scene)
+	
+	light.reparent(get_tree().current_scene)
+	
+	queue_free()

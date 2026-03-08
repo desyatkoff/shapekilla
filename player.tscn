@@ -41,9 +41,5 @@ editor_draw_limits = true
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_sweqy")
 
-[node name="AttackCooldownTimer" type="Timer" parent="." index="4" unique_id=1732105827]
-wait_time = 0.25
-one_shot = true
-
 [node name="FiniteStateMachine" parent="." index="5" unique_id=1331044783]
 script = ExtResource("4_hqtel")

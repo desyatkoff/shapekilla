@@ -16,7 +16,8 @@ func _process(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body != who_shot:
 		if body is Character:
-			body.die()
+			body.health -= 1
+			body.velocity -= body.direction * 128
 		
 		queue_free()
 
