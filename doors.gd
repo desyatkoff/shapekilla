@@ -80,7 +80,7 @@ func _move_doors(door0_y: float, door1_y: float) -> void:
 
 func _on_character_detector_body_entered(body: Node2D) -> void:
 	if body is Character:
-		if body is PlayerCharacter:
+		if body is Player:
 			for child in body.get_children():
 				if child is Key and is_locked:
 					child.queue_free()

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://2fdiq0rhw0pm"]
+
+[ext_resource type="Script" uid="uid://cwajcf8lhhqwx" path="res://blood_particles.gd" id="1_h5v43"]
+
+[sub_resource type="Gradient" id="Gradient_h5v43"]
+interpolation_mode = 2
+colors = PackedColorArray(0.8666667, 0.09803922, 0.11372549, 1, 0.6901961, 0.07058824, 0.039215688, 1)
+
+[node name="BloodParticles" type="CPUParticles2D" unique_id=1563915323]
+light_mask = 0
+amount = 32
+lifetime = 0.2
+speed_scale = 0.4
+explosiveness = 0.5
+randomness = 1.0
+draw_order = 1
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 128.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_h5v43")
+hue_variation_max = 1.0
+script = ExtResource("1_h5v43")
+
+[node name="Timer" type="Timer" parent="." unique_id=1381359349]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

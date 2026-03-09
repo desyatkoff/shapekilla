@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Character
 
 @onready var body_sprite = $Body
-@onready var attack_cooldown_timer = $AttackCooldownTimer
+@onready var fsm = $FiniteStateMachine
 
 @export var max_health = 10
 @export var health = 10
@@ -10,15 +10,16 @@ class_name Character
 @export var acceleration = 40
 @export var friction = 0.16
 
+var weapon: Weapon
+
 var direction = Vector2.ZERO
 var current_room_slot: Node2D
 var current_room_slot_id: int
 
 func _process(_delta: float) -> void:
-	if health > max_health:
-		health = max_health
+	health = clamp(health, 0, max_health)
 	
-	if health <= 0:
+	if health == 0 and fsm.state != fsm.states.dead:
 		die()
 
 func _physics_process(_delta: float) -> void:
@@ -29,4 +30,4 @@ func move() -> void:
 	velocity += (direction.normalized() * acceleration).limit_length(max_speed)
 
 func die() -> void:
-	queue_free()
+	fsm.set_state(fsm.states.dead)

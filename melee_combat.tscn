@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dnuhasoonmgj6"]
+
+[ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_e6f3t"]
+[ext_resource type="Script" uid="uid://ngrl4tqpyyrv" path="res://melee_combat.gd" id="2_to0tj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wiex"]
+size = Vector2(32, 32)
+
+[node name="MeleeCombat" unique_id=760112493 instance=ExtResource("1_e6f3t")]
+script = ExtResource("2_to0tj")
+
+[node name="Hitbox" type="Area2D" parent="." index="1" unique_id=1379685490]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1777917182]
+shape = SubResource("RectangleShape2D_8wiex")
+
+[node name="CooldownTimer" parent="." index="2" unique_id=1453833404]
+wait_time = 0.25
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -7,6 +7,7 @@
 [node name="Room_00" unique_id=835384101 instance=ExtResource("1_i7rmm")]
 
 [node name="Label" type="Label" parent="." index="1" unique_id=638385916]
+light_mask = 0
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

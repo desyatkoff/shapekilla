@@ -3,13 +3,15 @@ extends FiniteStateMachine
 func _init() -> void:
 	_add_state("idle")
 	_add_state("move")
+	_add_state("dead")
 
 func _ready() -> void:
 	set_state(states.idle)
 
 func _state_logic(_delta: float) -> void:
-	get_parent().get_input()
-	get_parent().move()
+	if state != states.dead:
+		get_parent().get_input()
+		get_parent().move()
 
 func _get_transition() -> int:
 	match state:

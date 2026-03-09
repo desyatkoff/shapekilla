@@ -2,24 +2,42 @@ extends Sprite2D
 
 @onready var lifetime_timer = $Lifetime
 
-var who_shot: Character
+@onready var blood_scene = preload("res://blood_particles.tscn")
+
+var weapon_owner: Character
+var tween: Tween
+
+var damage: int
 
 func _ready() -> void:
-	lifetime_timer.wait_time = clamp(randf() * 2, 0.25, 1)
+	lifetime_timer.wait_time = clamp(randf(), 0.25, 1)
 	lifetime_timer.start()
-	
-	reparent(get_tree().current_scene.get_node("Debris"))
 
 func _process(delta: float) -> void:
 	move_local_x(320 * delta)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body != who_shot:
+	if body != weapon_owner:
 		if body is Character:
-			body.health -= 1
+			body.health -= damage
 			body.velocity -= body.direction * 128
-		
-		queue_free()
+					
+			body.modulate = Color("#dd191d")
+			
+			if tween and tween.is_running():
+				tween.kill()
+			
+			tween = create_tween()
+			tween.set_trans(Tween.TRANS_SINE)
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property(body, "modulate", Color.WHITE, 0.5)
+			
+			var blood_instance = blood_scene.instantiate()
+			blood_instance.global_position = body.global_position
+			
+			get_tree().current_scene.get_node("Debris").add_child(blood_instance)
+		else:
+			queue_free()
 
 func _on_lifetime_timeout() -> void:
 	queue_free()

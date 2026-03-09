@@ -18,9 +18,9 @@ height = 8192
 [node name="Background" type="Sprite2D" parent="." unique_id=480246919]
 texture = SubResource("GradientTexture2D_036b0")
 
-[node name="Map" parent="." unique_id=1249936917 instance=ExtResource("1_f3sb7")]
-
 [node name="Debris" type="Node2D" parent="." unique_id=1849396936]
+
+[node name="Map" parent="." unique_id=1249936917 instance=ExtResource("1_f3sb7")]
 
 [node name="Player" parent="." unique_id=757774300 instance=ExtResource("2_fj7yv")]
 position = Vector2(-64, 0)

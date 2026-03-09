@@ -19,10 +19,6 @@ light_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720041274]
 shape = SubResource("RectangleShape2D_pjt0s")
 
-[node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1642942915]
-wait_time = 0.25
-one_shot = true
-
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1331044783]
 script = ExtResource("3_wa5vi")
 metadata/_custom_type_script = "uid://c8a6ug81mbv6b"

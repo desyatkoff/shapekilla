@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dnyqao0288vix"]
+
+[ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_5bb75"]
+[ext_resource type="Texture2D" uid="uid://gea8002m8yab" path="res://shotgun.png" id="2_7oeqp"]
+[ext_resource type="Script" uid="uid://bprf670i1b7la" path="res://shotgun.gd" id="2_a8mn3"]
+
+[node name="Shotgun" unique_id=760112493 instance=ExtResource("1_5bb75")]
+script = ExtResource("2_a8mn3")
+
+[node name="Sprite" parent="." index="0" unique_id=14667561]
+texture = ExtResource("2_7oeqp")
+
+[node name="ProjectileSpawnPoint" type="Node2D" parent="Sprite" index="0" unique_id=1327158568]
+position = Vector2(24, 0)
+
+[node name="CooldownTimer" parent="." index="1" unique_id=1453833404]
+wait_time = 0.5
