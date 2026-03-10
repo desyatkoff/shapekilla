@@ -3,6 +3,8 @@ class_name MeleeCombat
 
 @onready var hitbox = $Hitbox
 
+@onready var debris_container = get_tree().current_scene.get_node("DebrisContainer")
+
 @onready var blood_scene = preload("res://blood_particles.tscn")
 
 var tween: Tween
@@ -28,4 +30,4 @@ func _on_cooldown_timer_timeout() -> void:
 					var blood_instance = blood_scene.instantiate()
 					blood_instance.global_position = body.global_position
 					
-					get_tree().current_scene.get_node("Debris").add_child(blood_instance)
+					debris_container.add_child(blood_instance)

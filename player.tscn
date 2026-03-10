@@ -27,19 +27,21 @@ texture = ExtResource("1_4flbx")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Shotgun" parent="Body" index="0" unique_id=760112493 instance=ExtResource("4_sweqy")]
+[node name="Shotgun" parent="WeaponSlot" parent_id_path=PackedInt32Array(1732380290) index="0" unique_id=760112493 instance=ExtResource("4_sweqy")]
 position = Vector2(0, 5)
 
-[node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=682037787]
+[node name="ItemSlot" type="Node2D" parent="." index="2" unique_id=1292593457]
+
+[node name="Camera2D" type="Camera2D" parent="." index="3" unique_id=682037787]
 zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 editor_draw_limits = true
 
-[node name="PointLight2D" type="PointLight2D" parent="." index="3" unique_id=1195821963]
+[node name="PointLight2D" type="PointLight2D" parent="." index="4" unique_id=1195821963]
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_sweqy")
 
-[node name="FiniteStateMachine" parent="." index="4" unique_id=1331044783]
+[node name="FiniteStateMachine" parent="." index="6" unique_id=1331044783]
 script = ExtResource("4_hqtel")

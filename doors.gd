@@ -78,17 +78,10 @@ func _move_doors(door0_y: float, door1_y: float) -> void:
 	tween.tween_property(door0, "position:y", door0_y, move_time)
 	tween.parallel().tween_property(door1, "position:y", door1_y, move_time)
 
-func _on_character_detector_body_entered(body: Node2D) -> void:
-	if body is Character:
-		if body is Player:
-			for child in body.get_children():
-				if child is Key and is_locked:
-					child.queue_free()
-					unlock()
-		
-		if not is_locked and not is_open:
-			open()
+func _on_detector_body_entered(body: Node2D) -> void:
+	if body is Character and not is_locked:
+		open()
 
-func _on_character_detector_body_exited(body: Node2D) -> void:
-	if body is Character and is_open:
+func _on_detector_body_exited(body: Node2D) -> void:
+	if body is Character:
 		close()

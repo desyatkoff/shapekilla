@@ -49,11 +49,11 @@ occluder = SubResource("OccluderPolygon2D_cb6k2")
 visible = false
 texture = ExtResource("3_cb6k2")
 
-[node name="CharacterDetector" type="Area2D" parent="." unique_id=1726779399]
-collision_mask = 7
+[node name="Detector" type="Area2D" parent="." unique_id=1726779399]
+collision_mask = 23
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDetector" unique_id=1718209461]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=1718209461]
 shape = SubResource("RectangleShape2D_cb6k2")
 
-[connection signal="body_entered" from="CharacterDetector" to="." method="_on_character_detector_body_entered"]
-[connection signal="body_exited" from="CharacterDetector" to="." method="_on_character_detector_body_exited"]
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
+[connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]

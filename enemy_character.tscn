@@ -8,10 +8,10 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("2_10xie")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="2" unique_id=1852310886]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="3" unique_id=1852310886]
 path_postprocessing = 1
 
-[node name="NavigationTimer" type="Timer" parent="." index="3" unique_id=1724313359]
+[node name="NavigationTimer" type="Timer" parent="." index="4" unique_id=1724313359]
 wait_time = 0.5
 autostart = true
 

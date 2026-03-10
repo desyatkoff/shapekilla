@@ -1,6 +1,8 @@
 extends Weapon
 class_name Shotgun
 
+@onready var debris_container = get_tree().current_scene.get_node("DebrisContainer")
+
 @onready var shotgun_projectile_scene = preload("res://shotgun_projectile.tscn")
 
 var shotgun_shots = 4
@@ -20,9 +22,9 @@ func attack():
 		
 		for i in range(shotgun_shots / -2.0, shotgun_shots / 2.0):
 			var shotgun_projectile_instance = shotgun_projectile_scene.instantiate()
+			shotgun_projectile_instance.projectile_owner = weapon_owner
+			shotgun_projectile_instance.damage = damage
 			shotgun_projectile_instance.global_position = sprite.get_node("ProjectileSpawnPoint").global_position - Vector2(0.0, 3.0)
 			shotgun_projectile_instance.global_rotation = sprite.global_rotation + i * 0.2
-			shotgun_projectile_instance.weapon_owner = weapon_owner
-			shotgun_projectile_instance.damage = damage
 			
-			get_tree().current_scene.get_node("Debris").add_child(shotgun_projectile_instance)
+			debris_container.add_child(shotgun_projectile_instance)

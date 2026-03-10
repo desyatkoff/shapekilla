@@ -1,26 +1,17 @@
 [gd_scene format=3 uid="uid://bkvjj3xowhwyy"]
 
 [ext_resource type="Texture2D" uid="uid://c45wfdiljfrmu" path="res://shotgun_projectile.png" id="1_54cou"]
-[ext_resource type="Script" uid="uid://k81ngf7h0ec0" path="res://shotgun_projectile.gd" id="2_54cou"]
+[ext_resource type="PackedScene" uid="uid://thl2wr6hngl4" path="res://projectile.tscn" id="1_tqiwh"]
+[ext_resource type="Script" uid="uid://bhqr2kwx1jm7o" path="res://shotgun_projectile.gd" id="2_54cou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54cou"]
 size = Vector2(6, 4)
 
-[node name="ShotgunProjectile" type="Sprite2D" unique_id=1789406845]
-light_mask = 0
-texture = ExtResource("1_54cou")
+[node name="ShotgunProjectile" unique_id=1269338056 instance=ExtResource("1_tqiwh")]
 script = ExtResource("2_54cou")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1789854053]
-collision_layer = 8
-collision_mask = 7
+[node name="Sprite" parent="." index="0" unique_id=2099972394]
+texture = ExtResource("1_54cou")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=864096442]
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(536078275) index="0" unique_id=626829708]
 shape = SubResource("RectangleShape2D_54cou")
-
-[node name="Lifetime" type="Timer" parent="." unique_id=938931211]
-one_shot = true
-autostart = true
-
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

@@ -1,8 +1,11 @@
 extends Character
 class_name Player
 
+@onready var item_slot = $ItemSlot
 @onready var camera = $Camera2D
 @onready var light = $PointLight2D
+
+var item: Item
 
 func _process(delta: float) -> void:
 	health = clamp(health, 0, max_health)
@@ -16,7 +19,13 @@ func _process(delta: float) -> void:
 	weapon.sprite.rotation = lerp_angle(
 		weapon.sprite.rotation,
 		global_position.angle_to_point(get_global_mouse_position()),
-		10.0 * delta
+		8.0 * delta
+	)
+	
+	item_slot.rotation = lerp_angle(
+		item_slot.rotation,
+		global_position.angle_to_point(get_global_mouse_position()),
+		4.0 * delta
 	)
 	
 	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
@@ -98,6 +107,12 @@ func get_input() -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		weapon.attack()
+	
+	if Input.is_action_just_pressed("drop") and item:
+		item.drop()
+	
+	if Input.is_action_just_pressed("use") and item:
+		item.use()
 
 func die() -> void:
 	fsm.set_state(fsm.states.dead)
