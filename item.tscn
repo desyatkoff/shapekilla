@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://l2mfkmpjnyar"]
 
 [ext_resource type="Script" uid="uid://ch60iu85jug2c" path="res://item.gd" id="1_tnite"]
+[ext_resource type="PackedScene" uid="uid://3k7nwl7nuw8y" path="res://item_particles.tscn" id="2_ttk8k"]
 
 [node name="Item" type="Node2D" unique_id=23840998]
 script = ExtResource("1_tnite")
+
+[node name="ItemParticles" parent="." unique_id=1042161929 instance=ExtResource("2_ttk8k")]
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1005126698]
 light_mask = 0

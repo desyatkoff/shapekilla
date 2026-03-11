@@ -4,6 +4,11 @@ class_name Key
 func use() -> void:
 	for area in hitbox.get_overlapping_areas():
 		if area.get_parent() is Doors:
+			item_owner.item = null
+			item_owner = null
+			
+			call_deferred("reparent", items_container)
+			
 			if tween and tween.is_running():
 				tween.kill()
 			

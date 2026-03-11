@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://meaq8epj1der" path="res://map.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://ckgm7bvp3wqxy" path="res://player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://b72872psfpjl0" path="res://key.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://ckyph8pg700pf" path="res://hud.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://dnyqao0288vix" path="res://shotgun.tscn" id="5_036b0"]
 
 [sub_resource type="Gradient" id="Gradient_aqk2v"]
 offsets = PackedFloat32Array(0)
@@ -22,10 +24,16 @@ texture = SubResource("GradientTexture2D_036b0")
 
 [node name="Map" parent="." unique_id=1249936917 instance=ExtResource("1_f3sb7")]
 
+[node name="EnemiesContainer" type="Node2D" parent="." unique_id=1506378097]
+
 [node name="ItemsContainer" type="Node2D" parent="." unique_id=1203922790]
 
 [node name="Key" parent="ItemsContainer" unique_id=23840998 instance=ExtResource("3_tlwt5")]
-position = Vector2(64, 0)
 
 [node name="Player" parent="." unique_id=757774300 instance=ExtResource("2_fj7yv")]
 position = Vector2(-64, 0)
+
+[node name="Shotgun" parent="Player" unique_id=760112493 instance=ExtResource("5_036b0")]
+position = Vector2(-1.5258789e-05, -7.6293945e-06)
+
+[node name="HUD" parent="." unique_id=93772059 instance=ExtResource("4_aqk2v")]

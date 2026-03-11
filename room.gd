@@ -7,11 +7,9 @@ signal cleared
 
 @onready var key_scene = preload("res://key.tscn")
 
-var enemies_alive = 0
+@export var type: String
 
-func register_enemy(enemy):
-	enemies_alive += 1
-	enemy.died.connect(_on_enemy_died)
+var enemies_alive = 0
 
 func _on_enemy_died():
 	enemies_alive -= 1
@@ -24,3 +22,7 @@ func _on_enemy_died():
 		key_instance.global_rotation = get_parent().global_rotation
 		
 		items_container.call_deferred("add_child", key_instance)
+
+func register_enemy(enemy):
+	enemies_alive += 1
+	enemy.died.connect(_on_enemy_died)

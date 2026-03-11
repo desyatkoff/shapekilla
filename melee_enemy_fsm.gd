@@ -1,16 +1,16 @@
 extends FiniteStateMachine
 
 func _init() -> void:
-	_add_state("idle")
-	_add_state("chase")
-	_add_state("attack")
-	_add_state("dead")
+	_add_state("IDLE")
+	_add_state("CHASE")
+	_add_state("ATTACK")
+	_add_state("DEAD")
 
 func _ready() -> void:
-	set_state(states.idle)
+	set_state(states.IDLE)
 
 func _state_logic(_delta: float) -> void:
 	match state:
-		states.chase:
+		states.CHASE:
 			get_parent().chase()
 			get_parent().move()

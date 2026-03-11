@@ -22,7 +22,6 @@ initial_velocity_max = 128.0
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_h5v43")
-hue_variation_max = 1.0
 script = ExtResource("1_h5v43")
 
 [node name="Timer" type="Timer" parent="." unique_id=1381359349]

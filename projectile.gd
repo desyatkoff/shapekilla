@@ -22,10 +22,9 @@ func _process(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body != projectile_owner:
 		if body is Character:
-			body.health -= damage
-			body.velocity -= body.direction * 128
+			body.velocity += Vector2.RIGHT.rotated(rotation) * 128
 			
-			body.modulate = Color("#dd191d")
+			body.modulate = Color.RED
 			
 			if tween and tween.is_running():
 				tween.kill()
@@ -33,12 +32,15 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			tween = create_tween()
 			tween.set_trans(Tween.TRANS_SINE)
 			tween.set_ease(Tween.EASE_IN_OUT)
-			tween.tween_property(body, "modulate", Color.WHITE, 0.5)
+			tween.tween_property(body, "modulate", Color.WHITE, 0.4)
 			
-			var blood_instance = blood_scene.instantiate()
-			blood_instance.global_position = body.global_position
-			
-			debris_container.add_child(blood_instance)
+			if body.fsm.state != body.fsm.states.DEAD:
+				body.health -= damage
+				
+				var blood_instance = blood_scene.instantiate()
+				blood_instance.global_position = body.global_position
+				
+				debris_container.add_child(blood_instance)
 		else:
 			queue_free()
 

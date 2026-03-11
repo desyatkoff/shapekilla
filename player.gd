@@ -10,17 +10,18 @@ var item: Item
 func _process(delta: float) -> void:
 	health = clamp(health, 0, max_health)
 	
-	if health == 0 and fsm.state != fsm.states.dead:
+	if health == 0 and fsm.state != fsm.states.DEAD:
 		die()
 	
-	if fsm.state == fsm.states.dead:
+	if fsm.state == fsm.states.DEAD:
 		return
 	
-	weapon.sprite.rotation = lerp_angle(
-		weapon.sprite.rotation,
-		global_position.angle_to_point(get_global_mouse_position()),
-		8.0 * delta
-	)
+	if weapon:
+		weapon.rotation = lerp_angle(
+			weapon.rotation,
+			global_position.angle_to_point(get_global_mouse_position()),
+			8.0 * delta
+		)
 	
 	item_slot.rotation = lerp_angle(
 		item_slot.rotation,
@@ -31,7 +32,9 @@ func _process(delta: float) -> void:
 	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	
 	body_sprite.flip_h = mouse_direction.x < 0
-	weapon.sprite.flip_v = mouse_direction.x < 0
+	
+	if weapon:
+		weapon.sprite.flip_v = mouse_direction.x < 0
 	
 	match current_room_slot_id:
 		0:
@@ -105,7 +108,7 @@ func get_input() -> void:
 	if Input.is_action_pressed("right"):
 		direction += Vector2.RIGHT
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and weapon:
 		weapon.attack()
 	
 	if Input.is_action_just_pressed("drop") and item:
@@ -115,6 +118,13 @@ func get_input() -> void:
 		item.use()
 
 func die() -> void:
-	fsm.set_state(fsm.states.dead)
+	fsm.set_state(fsm.states.DEAD)
+	
 	body_sprite.region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
+	
 	set_collision_layer_value(2, false)
+	set_collision_layer_value(3, false)
+	set_collision_mask_value(2, false)
+	set_collision_mask_value(3, false)
+	
+	call_deferred("reparent", debris_container)

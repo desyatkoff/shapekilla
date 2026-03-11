@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dua7hhrku0eli" path="res://character.tscn" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://cdreyve11bldu" path="res://player.gd" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://b0wcwomavy0sd" path="res://player_fsm.gd" id="4_hqtel"]
-[ext_resource type="PackedScene" uid="uid://dnyqao0288vix" path="res://shotgun.tscn" id="4_sweqy"]
 
 [sub_resource type="Gradient" id="Gradient_hqtel"]
 colors = PackedColorArray(0.93333334, 0.93333334, 0.93333334, 1, 0.12941177, 0.12941177, 0.12941177, 0)
@@ -27,19 +26,16 @@ texture = ExtResource("1_4flbx")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Shotgun" parent="WeaponSlot" parent_id_path=PackedInt32Array(1732380290) index="0" unique_id=760112493 instance=ExtResource("4_sweqy")]
-position = Vector2(0, 5)
-
 [node name="ItemSlot" type="Node2D" parent="." index="2" unique_id=1292593457]
 
-[node name="Camera2D" type="Camera2D" parent="." index="3" unique_id=682037787]
+[node name="Camera2D" type="Camera2D" parent="." index="4" unique_id=682037787]
 zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 editor_draw_limits = true
 
-[node name="PointLight2D" type="PointLight2D" parent="." index="4" unique_id=1195821963]
+[node name="PointLight2D" type="PointLight2D" parent="." index="5" unique_id=1195821963]
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_sweqy")
 

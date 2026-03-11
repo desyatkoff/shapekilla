@@ -2,8 +2,9 @@ extends Node
 class_name FiniteStateMachine
 
 var states = {}
+
+var previous_state = -1
 var state = -1
-var prev_state = -1
 
 func _physics_process(delta: float) -> void:
 	if state != -1:
@@ -32,7 +33,7 @@ func _exit_state(_state_exited: int) -> void:
 func set_state(new_state: int) -> void:
 	_exit_state(state)
 	
-	prev_state = state
+	previous_state = state
 	state = new_state
 	
-	_enter_state(prev_state, state)
+	_enter_state(previous_state, state)

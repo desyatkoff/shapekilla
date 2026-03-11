@@ -3,8 +3,11 @@ class_name Item
 
 @onready var sprite = $Sprite
 @onready var hitbox = $Hitbox
+@onready var item_particles = $ItemParticles
 
 @onready var items_container = get_tree().current_scene.get_node("ItemsContainer")
+
+@export var is_rotating = true
 
 var item_owner: Player
 
@@ -22,7 +25,8 @@ func _ready() -> void:
 	tween.tween_property(sprite, "self_modulate", Color.WHITE, 0.25)
 
 func _process(delta: float) -> void:
-	rotate(delta)
+	if is_rotating:
+		rotate(delta)
 	
 	if item_owner:
 		global_position = global_position.move_toward(
@@ -44,6 +48,11 @@ func drop() -> void:
 	call_deferred("reparent", items_container)
 
 func use() -> void:
+	item_owner.item = null
+	item_owner = null
+	
+	call_deferred("reparent", items_container)
+	
 	if tween and tween.is_running():
 		tween.kill()
 	
@@ -51,8 +60,4 @@ func use() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite, "self_modulate", Color.TRANSPARENT, 0.25)
-	
-	item_owner.item = null
-	item_owner = null
-	
-	queue_free()
+	tween.finished.connect(queue_free)

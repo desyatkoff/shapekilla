@@ -3,15 +3,30 @@
 [ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_5bb75"]
 [ext_resource type="Texture2D" uid="uid://gea8002m8yab" path="res://shotgun.png" id="2_7oeqp"]
 [ext_resource type="Script" uid="uid://bprf670i1b7la" path="res://shotgun.gd" id="2_a8mn3"]
+[ext_resource type="PackedScene" uid="uid://3k7nwl7nuw8y" path="res://item_particles.tscn" id="3_a8mn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7oeqp"]
+size = Vector2(50, 12)
 
 [node name="Shotgun" unique_id=760112493 instance=ExtResource("1_5bb75")]
 script = ExtResource("2_a8mn3")
 
-[node name="Sprite" parent="." index="0" unique_id=14667561]
+[node name="ItemParticles" parent="." index="0" unique_id=1042161929 instance=ExtResource("3_a8mn3")]
+
+[node name="Sprite" parent="." index="1" unique_id=14667561]
 texture = ExtResource("2_7oeqp")
 
 [node name="ProjectileSpawnPoint" type="Node2D" parent="Sprite" index="0" unique_id=1327158568]
 position = Vector2(24, 0)
 
-[node name="CooldownTimer" parent="." index="1" unique_id=1453833404]
+[node name="Hitbox" type="Area2D" parent="." index="2" unique_id=342302196]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=975730474]
+shape = SubResource("RectangleShape2D_7oeqp")
+
+[node name="CooldownTimer" parent="." index="3" unique_id=1453833404]
 wait_time = 0.5
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
