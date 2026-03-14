@@ -5,6 +5,8 @@ class_name Player
 @onready var camera = $Camera2D
 @onready var light = $PointLight2D
 
+var can_play = false
+
 var item: Item
 
 func _process(delta: float) -> void:
@@ -16,25 +18,25 @@ func _process(delta: float) -> void:
 	if fsm.state == fsm.states.DEAD:
 		return
 	
-	if weapon:
-		weapon.rotation = lerp_angle(
-			weapon.rotation,
-			global_position.angle_to_point(get_global_mouse_position()),
-			8.0 * delta
-		)
-	
-	item_slot.rotation = lerp_angle(
-		item_slot.rotation,
-		global_position.angle_to_point(get_global_mouse_position()),
-		4.0 * delta
-	)
-	
 	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	
-	body_sprite.flip_h = mouse_direction.x < 0
-	
-	if weapon:
-		weapon.sprite.flip_v = mouse_direction.x < 0
+	if can_play:
+		if weapon:
+			weapon.rotation = lerp_angle(
+				weapon.rotation,
+				global_position.angle_to_point(get_global_mouse_position()),
+				8.0 * delta
+			)
+			
+			weapon.sprite.flip_v = mouse_direction.x < 0
+		
+		item_slot.rotation = lerp_angle(
+			item_slot.rotation,
+			global_position.angle_to_point(get_global_mouse_position()),
+			4.0 * delta
+		)
+		
+		body_sprite.flip_h = mouse_direction.x < 0
 	
 	match current_room_slot_id:
 		0:
@@ -126,5 +128,3 @@ func die() -> void:
 	set_collision_layer_value(3, false)
 	set_collision_mask_value(2, false)
 	set_collision_mask_value(3, false)
-	
-	call_deferred("reparent", debris_container)

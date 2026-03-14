@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://wh2hxggss4hs"]
+
+[ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://bxtope1xe8gxr" path="res://main_menu.gd" id="2_glbon"]
+[ext_resource type="Texture2D" uid="uid://v5ryrfw3b21v" path="res://logo.png" id="2_jix8l"]
+[ext_resource type="Texture2D" uid="uid://dkuccaoe4wntf" path="res://button.png" id="3_glbon"]
+
+[node name="MainMenu" type="Control" unique_id=1166539871]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+script = ExtResource("2_glbon")
+
+[node name="Background" type="ColorRect" parent="." unique_id=764543590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="Logo" type="TextureRect" parent="." unique_id=2044429766]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -315.0
+offset_right = 315.0
+offset_bottom = 500.0
+grow_horizontal = 2
+theme = ExtResource("1_fu7sn")
+texture = ExtResource("2_jix8l")
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=587676720]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+texture_normal = ExtResource("3_glbon")
+
+[node name="Label" type="Label" parent="PlayButton" unique_id=1476608680]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_font_sizes/font_size = 96
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="." unique_id=102346248]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 100.0
+offset_right = 192.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+texture_normal = ExtResource("3_glbon")
+
+[node name="Label" type="Label" parent="QuitButton" unique_id=1033005664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_font_sizes/font_size = 96
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

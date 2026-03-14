@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b5r1fvowdpklr"]
+
+[ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_fda56"]
+[ext_resource type="Script" uid="uid://bdervk75ewpv4" path="res://end_menu.gd" id="2_n0xmy"]
+[ext_resource type="Texture2D" uid="uid://dkuccaoe4wntf" path="res://button.png" id="4_jopyb"]
+
+[node name="EndMenu" type="Control" unique_id=1166539871]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fda56")
+script = ExtResource("2_n0xmy")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1160814605]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fda56")
+theme_override_font_sizes/font_size = 96
+text = "THE GAME IS OVER
+
+
+
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="." unique_id=102346248]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fda56")
+texture_normal = ExtResource("4_jopyb")
+
+[node name="Label" type="Label" parent="QuitButton" unique_id=1033005664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fda56")
+theme_override_font_sizes/font_size = 96
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

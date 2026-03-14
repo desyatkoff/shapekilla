@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://b72872psfpjl0" path="res://key.tscn" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://ckyph8pg700pf" path="res://hud.tscn" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://dnyqao0288vix" path="res://shotgun.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://qwp8dtxo5bn2" path="res://mouse_cursor.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://b5r1fvowdpklr" path="res://end_menu.tscn" id="7_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://wh2hxggss4hs" path="res://main_menu.tscn" id="7_pkg7o"]
 
 [sub_resource type="Gradient" id="Gradient_aqk2v"]
 offsets = PackedFloat32Array(0)
@@ -36,3 +39,11 @@ position = Vector2(-64, 0)
 [node name="Shotgun" parent="Player" unique_id=760112493 instance=ExtResource("5_036b0")]
 
 [node name="HUD" parent="." unique_id=93772059 instance=ExtResource("4_aqk2v")]
+
+[node name="MainMenu" parent="HUD" unique_id=1166539871 instance=ExtResource("7_pkg7o")]
+visible = false
+
+[node name="EndMenu" parent="HUD" unique_id=1031296966 instance=ExtResource("7_gbfbk")]
+visible = false
+
+[node name="MouseCursor" parent="HUD" unique_id=1856643083 instance=ExtResource("6_dwbse")]
