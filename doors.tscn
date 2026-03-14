@@ -16,33 +16,33 @@ size = Vector2(64, 64)
 [node name="Doors" type="Node2D" unique_id=985820572]
 script = ExtResource("1_4ybfh")
 
-[node name="Door0" type="StaticBody2D" parent="." unique_id=597804216]
+[node name="Door_00" type="StaticBody2D" parent="." unique_id=597804216]
 position = Vector2(0, -16)
 collision_mask = 7
 
-[node name="Sprite2D" type="Sprite2D" parent="Door0" unique_id=1112253851]
+[node name="Sprite2D" type="Sprite2D" parent="Door_00" unique_id=1112253851]
 light_mask = 0
 texture = ExtResource("1_ik3nm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door0" unique_id=2002861486]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_00" unique_id=2002861486]
 shape = SubResource("RectangleShape2D_4ybfh")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Door0" unique_id=2040644573]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Door_00" unique_id=2040644573]
 occluder = SubResource("OccluderPolygon2D_cb6k2")
 
-[node name="Door1" type="StaticBody2D" parent="." unique_id=1016420803]
+[node name="Door_01" type="StaticBody2D" parent="." unique_id=1016420803]
 position = Vector2(0, 16)
 rotation = 3.1415925
 collision_mask = 7
 
-[node name="Sprite2D" type="Sprite2D" parent="Door1" unique_id=247574123]
+[node name="Sprite2D" type="Sprite2D" parent="Door_01" unique_id=247574123]
 light_mask = 0
 texture = ExtResource("1_ik3nm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1" unique_id=766873988]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_01" unique_id=766873988]
 shape = SubResource("RectangleShape2D_4ybfh")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Door1" unique_id=192878580]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Door_01" unique_id=192878580]
 occluder = SubResource("OccluderPolygon2D_cb6k2")
 
 [node name="Lock" type="Sprite2D" parent="." unique_id=503869081]

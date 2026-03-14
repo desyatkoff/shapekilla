@@ -34,6 +34,5 @@ texture = SubResource("GradientTexture2D_036b0")
 position = Vector2(-64, 0)
 
 [node name="Shotgun" parent="Player" unique_id=760112493 instance=ExtResource("5_036b0")]
-position = Vector2(-1.5258789e-05, -7.6293945e-06)
 
 [node name="HUD" parent="." unique_id=93772059 instance=ExtResource("4_aqk2v")]

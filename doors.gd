@@ -1,8 +1,8 @@
 extends Node2D
 class_name Doors
 
-@onready var door0 = $Door0
-@onready var door1 = $Door1
+@onready var door0 = $Door_00
+@onready var door1 = $Door_01
 @onready var lock_sprite = $Lock
 
 @export var move_offset = 32
