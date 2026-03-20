@@ -27,6 +27,13 @@ velocity = %s
 direction = %s
 current_room_slot = %s
 current_room_slot_id = %s
+
+can_play = %s
+timer_enabled = %s
+
+time = %s
+kills = %s
+rooms_cleared = %s
 """ % \
 	[
 		Engine.get_frames_per_second(),
@@ -45,4 +52,9 @@ current_room_slot_id = %s
 		player.direction,
 		player.current_room_slot,
 		player.current_room_slot_id,
+		player.can_play,
+		player.timer_enabled,
+		player.time,
+		player.kills,
+		player.rooms_cleared
 	]

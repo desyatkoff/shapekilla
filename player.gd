@@ -6,6 +6,11 @@ class_name Player
 @onready var light = $PointLight2D
 
 var can_play = false
+var timer_enabled = false
+
+var time = 0.0
+var kills = 0
+var rooms_cleared = 0
 
 var item: Item
 
@@ -14,9 +19,6 @@ func _process(delta: float) -> void:
 	
 	if health == 0 and fsm.state != fsm.states.DEAD:
 		die()
-	
-	if fsm.state == fsm.states.DEAD:
-		return
 	
 	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	
@@ -37,6 +39,9 @@ func _process(delta: float) -> void:
 		)
 		
 		body_sprite.flip_h = mouse_direction.x < 0
+	
+	if timer_enabled:
+		time += delta
 	
 	match current_room_slot_id:
 		0:
@@ -121,6 +126,9 @@ func get_input() -> void:
 
 func die() -> void:
 	fsm.set_state(fsm.states.DEAD)
+	
+	can_play = false
+	timer_enabled = false
 	
 	body_sprite.region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
 	

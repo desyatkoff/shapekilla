@@ -4,6 +4,7 @@ class_name Room
 signal cleared
 
 @onready var items_container = get_tree().current_scene.get_node("ItemsContainer")
+@onready var player = get_tree().current_scene.get_node("Player")
 
 @onready var key_scene = preload("res://key.tscn")
 
@@ -13,9 +14,11 @@ var enemies_alive = 0
 
 func _on_enemy_died():
 	enemies_alive -= 1
-
+	
 	if enemies_alive == 0:
 		cleared.emit()
+		
+		player.rooms_cleared += 1
 		
 		var key_instance = key_scene.instantiate()
 		key_instance.global_position = get_parent().global_position

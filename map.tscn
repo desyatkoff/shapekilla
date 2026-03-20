@@ -233,34 +233,6 @@ position = Vector2(2048, 0)
 id = 10
 type = "end"
 
-[node name="BloodParticles_00" parent="RoomSlots/RoomSlot_10" unique_id=627099825 instance=ExtResource("16_a6rn7")]
-position = Vector2(96, -16)
-preprocess = 0.1
-
-[node name="BloodParticles_01" parent="RoomSlots/RoomSlot_10" unique_id=568755489 instance=ExtResource("16_a6rn7")]
-position = Vector2(96, 0)
-preprocess = 0.1
-
-[node name="BloodParticles_02" parent="RoomSlots/RoomSlot_10" unique_id=2110267740 instance=ExtResource("16_a6rn7")]
-position = Vector2(96, 16)
-preprocess = 0.1
-
-[node name="BloodParticles_03" parent="RoomSlots/RoomSlot_10" unique_id=173291995 instance=ExtResource("16_a6rn7")]
-position = Vector2(112, -32)
-preprocess = 0.1
-
-[node name="BloodParticles_04" parent="RoomSlots/RoomSlot_10" unique_id=1672555842 instance=ExtResource("16_a6rn7")]
-position = Vector2(112, 0)
-preprocess = 0.1
-
-[node name="BloodParticles_05" parent="RoomSlots/RoomSlot_10" unique_id=544826536 instance=ExtResource("16_a6rn7")]
-position = Vector2(112, 32)
-preprocess = 0.1
-
-[node name="BloodParticles_06" parent="RoomSlots/RoomSlot_10" unique_id=2097213326 instance=ExtResource("16_a6rn7")]
-position = Vector2(128, 0)
-preprocess = 0.1
-
 [node name="Doors" parent="RoomSlots/RoomSlot_10" unique_id=2065529788 instance=ExtResource("1_wijl4")]
 position = Vector2(240, 0)
 is_locked = false

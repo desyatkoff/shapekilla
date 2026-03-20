@@ -2,6 +2,8 @@ extends Control
 
 @onready var bg = $Background
 
+@onready var player = get_tree().current_scene.get_node("Player")
+
 func _ready() -> void:
 	visible = true
 	
@@ -16,7 +18,7 @@ func _on_play_button_pressed() -> void:
 	
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(self, "modulate", Color.TRANSPARENT, 1.0)
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.4)
 	
 	tween.finished.connect(play)
 
@@ -24,7 +26,9 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func play() -> void:
-	get_tree().current_scene.get_node("Player").can_play = true
+	player.can_play = true
+	player.timer_enabled = true
+	
 	get_parent().get_node("MouseCursor").region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
 	
 	queue_free()

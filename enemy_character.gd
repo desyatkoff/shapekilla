@@ -15,7 +15,8 @@ var should_chase_player = false
 func _ready() -> void:
 	max_speed /= 4
 	
-	get_parent().register_enemy(self)
+	if get_parent() is Room:
+		get_parent().register_enemy(self)
 	
 	call_deferred("reparent", enemies_container)
 
@@ -64,6 +65,8 @@ func chase() -> void:
 func die() -> void:
 	fsm.set_state(fsm.states.DEAD)
 	died.emit()
+	
+	player.kills += 1
 	
 	direction = Vector2.ZERO
 	should_chase_player = false
