@@ -136,3 +136,5 @@ func die() -> void:
 	set_collision_layer_value(3, false)
 	set_collision_mask_value(2, false)
 	set_collision_mask_value(3, false)
+	
+	get_tree().current_scene.get_node("HUD").get_node("EndMenu").show_menu()

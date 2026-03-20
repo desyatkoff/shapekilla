@@ -14,10 +14,9 @@ config/name="Shapekilla"
 run/main_scene="uid://cg7xcaxjfwb54"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.12941177, 0.12941177, 0.12941177, 1)
+boot_splash/show_image=false
 boot_splash/use_filter=false
-boot_splash/image="uid://v5ryrfw3b21v"
 config/icon="uid://cnsm4xwhvqlsc"
-boot_splash/minimum_display_time=1000
 
 [display]
 

@@ -43,7 +43,7 @@ position = Vector2(-64, 0)
 [node name="MainMenu" parent="HUD" unique_id=1166539871 instance=ExtResource("7_pkg7o")]
 visible = false
 
-[node name="EndMenu" parent="HUD" unique_id=1031296966 instance=ExtResource("7_gbfbk")]
+[node name="EndMenu" parent="HUD" unique_id=1834054541 instance=ExtResource("7_gbfbk")]
 visible = false
 
 [node name="MouseCursor" parent="HUD" unique_id=1856643083 instance=ExtResource("6_dwbse")]

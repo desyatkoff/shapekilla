@@ -15,8 +15,6 @@ func _state_logic(_delta: float) -> void:
 			get_parent().get_input()
 		
 		get_parent().move()
-	else:
-		get_tree().current_scene.get_node("HUD").get_node("EndMenu").show_menu()
 
 func _get_transition() -> int:
 	match state:

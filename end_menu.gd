@@ -24,7 +24,7 @@ func show_menu() -> void:
 	
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(bg, "color", Color("#212121"), 0.4)
+	tween.tween_property(bg, "color", Color("#212121"), 4.0)
 	
 	get_parent().get_node("MouseCursor").region_rect = Rect2(0.0, 0.0, 32.0, 32.0)
 
