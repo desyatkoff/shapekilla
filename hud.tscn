@@ -6,8 +6,9 @@
 [node name="HUD" type="CanvasLayer" unique_id=93772059]
 script = ExtResource("1_64ctp")
 
-[node name="Control" type="Control" parent="." unique_id=126509729]
+[node name="Debug" type="Control" parent="." unique_id=126509729]
 light_mask = 0
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DebugInfoLabel" type="Label" parent="Control" unique_id=629839584]
+[node name="DebugInfoLabel" type="Label" parent="Debug" unique_id=629839584]
 visible = false
 layout_mode = 0
 offset_right = 40.0

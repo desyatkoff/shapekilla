@@ -3,8 +3,6 @@ class_name Shotgun
 
 @onready var item_particles = $ItemParticles
 
-@onready var debris_container = get_tree().current_scene.get_node("DebrisContainer")
-
 @onready var shotgun_projectile_scene = preload("res://shotgun_projectile.tscn")
 @onready var shoot_particles_scene = preload("res://shoot_particles.tscn")
 
@@ -38,7 +36,7 @@ func attack():
 		shoot_particles_instance.global_rotation = global_rotation
 		shoot_particles_instance.emitting = true
 		
-		debris_container.add_child(shoot_particles_instance)
+		Game.world.get_node("DebrisContainer").add_child(shoot_particles_instance)
 		
 		var shotgun_position = position
 		var shotgun_direction = transform.x.normalized()
@@ -55,6 +53,6 @@ func attack():
 			shotgun_projectile_instance.global_position = sprite.get_node("ProjectileSpawnPoint").global_position - Vector2(0.0, 3.0)
 			shotgun_projectile_instance.global_rotation = global_rotation + i * 0.2
 			
-			debris_container.add_child(shotgun_projectile_instance)
+			Game.world.get_node("DebrisContainer").add_child(shotgun_projectile_instance)
 		
 		weapon_owner.fsm.set_state(weapon_owner.fsm.previous_state)

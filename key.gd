@@ -7,7 +7,7 @@ func use() -> void:
 			item_owner.item = null
 			item_owner = null
 			
-			call_deferred("reparent", items_container)
+			call_deferred("reparent", Game.world.get_node("ItemsContainer"))
 			
 			if tween and tween.is_running():
 				tween.kill()

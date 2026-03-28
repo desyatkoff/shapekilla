@@ -5,8 +5,6 @@ class_name Character
 @onready var weapon_slot = $WeaponSlot
 @onready var fsm = $FiniteStateMachine
 
-@onready var debris_container = get_tree().current_scene.get_node("DebrisContainer")
-
 @export var max_health = 10
 @export var health = 10
 @export var max_speed = 80
@@ -42,4 +40,4 @@ func die() -> void:
 	set_collision_mask_value(2, false)
 	set_collision_mask_value(3, false)
 	
-	call_deferred("reparent", debris_container)
+	call_deferred("reparent", Game.world.get_node("DebrisContainer"))

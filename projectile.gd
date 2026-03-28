@@ -3,8 +3,6 @@ class_name Projectile
 
 @onready var lifetime_timer = $LifetimeTimer
 
-@onready var debris_container = get_tree().current_scene.get_node("DebrisContainer")
-
 @onready var blood_scene = preload("res://blood_particles.tscn")
 
 var projectile_owner: Character
@@ -40,7 +38,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 				var blood_instance = blood_scene.instantiate()
 				blood_instance.global_position = body.global_position
 				
-				debris_container.add_child(blood_instance)
+				Game.world.get_node("DebrisContainer").add_child(blood_instance)
 		else:
 			queue_free()
 

@@ -8,9 +8,16 @@ class_name Player
 var can_play = false
 var timer_enabled = false
 
-var time = 0.0
-var kills = 0
-var rooms_cleared = 0
+var run_time = 0.0
+var run_kills = 0
+var run_rooms_cleared = 0
+
+var floor_time = 0.0
+var floor_kills = 0
+var floor_rooms_cleared = 0
+
+var current_floor = 1
+var floors_cleared = 0
 
 var item: Item
 
@@ -41,7 +48,8 @@ func _process(delta: float) -> void:
 		body_sprite.flip_h = mouse_direction.x < 0
 	
 	if timer_enabled:
-		time += delta
+		run_time += delta
+		floor_time += delta
 	
 	match current_room_slot_id:
 		0:
@@ -137,4 +145,16 @@ func die() -> void:
 	set_collision_mask_value(2, false)
 	set_collision_mask_value(3, false)
 	
-	get_tree().current_scene.get_node("HUD").get_node("EndMenu").show_menu()
+	Game.hud.get_node("EndMenu").show_menu()
+
+func revive() -> void:
+	health = max_health
+	
+	fsm.set_state(fsm.states.IDLE)
+	
+	body_sprite.region_rect = Rect2(0.0, 0.0, 32.0, 32.0)
+	
+	set_collision_layer_value(2, true)
+	set_collision_layer_value(3, false)
+	set_collision_mask_value(2, true)
+	set_collision_mask_value(3, true)

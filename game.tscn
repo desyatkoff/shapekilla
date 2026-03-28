@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cg7xcaxjfwb54"]
+
+[ext_resource type="PackedScene" uid="uid://20hdxyt73715" path="res://world.tscn" id="1_eow3j"]
+[ext_resource type="Script" uid="uid://crfnw86kfd12m" path="res://game.gd" id="1_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://ckgm7bvp3wqxy" path="res://player.tscn" id="3_hve3p"]
+[ext_resource type="PackedScene" uid="uid://dnyqao0288vix" path="res://shotgun.tscn" id="4_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://ckyph8pg700pf" path="res://hud.tscn" id="5_iotsf"]
+[ext_resource type="PackedScene" uid="uid://wh2hxggss4hs" path="res://main_menu.tscn" id="6_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://b5r1fvowdpklr" path="res://end_menu.tscn" id="7_215e1"]
+[ext_resource type="PackedScene" uid="uid://qwp8dtxo5bn2" path="res://mouse_cursor.tscn" id="8_7sc4i"]
+
+[node name="Game" type="Node2D" unique_id=280090846]
+script = ExtResource("1_j5wjh")
+
+[node name="World" parent="." unique_id=1894890612 instance=ExtResource("1_eow3j")]
+
+[node name="Player" parent="." unique_id=757774300 instance=ExtResource("3_hve3p")]
+position = Vector2(-64, 0)
+
+[node name="Shotgun" parent="Player" unique_id=760112493 instance=ExtResource("4_mfdv2")]
+
+[node name="HUD" parent="." unique_id=93772059 instance=ExtResource("5_iotsf")]
+
+[node name="MainMenu" parent="HUD" unique_id=1166539871 instance=ExtResource("6_lc2xo")]
+visible = false
+
+[node name="EndMenu" parent="HUD" unique_id=1834054541 instance=ExtResource("7_215e1")]
+visible = false
+
+[node name="MouseCursor" parent="HUD" unique_id=1856643083 instance=ExtResource("8_7sc4i")]

@@ -2,8 +2,6 @@ extends Control
 
 @onready var bg = $Background
 
-@onready var player = get_tree().current_scene.get_node("Player")
-
 func _ready() -> void:
 	visible = true
 	
@@ -26,8 +24,8 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func play() -> void:
-	player.can_play = true
-	player.timer_enabled = true
+	Game.player.can_play = true
+	Game.player.timer_enabled = true
 	
 	get_parent().get_node("MouseCursor").region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
 	

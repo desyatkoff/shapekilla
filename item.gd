@@ -5,8 +5,6 @@ class_name Item
 @onready var hitbox = $Hitbox
 @onready var item_particles = $ItemParticles
 
-@onready var items_container = get_tree().current_scene.get_node("ItemsContainer")
-
 @export var is_rotating = true
 
 var item_owner: Player
@@ -45,13 +43,13 @@ func drop() -> void:
 	item_owner.item = null
 	item_owner = null
 	
-	call_deferred("reparent", items_container)
+	call_deferred("reparent", Game.world.get_node("ItemsContainer"))
 
 func use() -> void:
 	item_owner.item = null
 	item_owner = null
 	
-	call_deferred("reparent", items_container)
+	call_deferred("reparent", Game.world.get_node("ItemsContainer"))
 	
 	if tween and tween.is_running():
 		tween.kill()

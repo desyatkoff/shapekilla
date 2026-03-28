@@ -7,4 +7,4 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		body.direction = Vector2.RIGHT
 		
-		get_tree().current_scene.get_node("HUD").get_node("EndMenu").show_menu()
+		Game.hud.get_node("EndMenu").show_menu()
