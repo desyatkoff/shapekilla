@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cvfkfbyb0mo10"]
+
+[ext_resource type="PackedScene" uid="uid://db0bhbdokayuk" path="res://enemy_character.tscn" id="1_676on"]
+[ext_resource type="Script" uid="uid://c7wme67a512j5" path="res://knife_enemy.gd" id="2_qw3tx"]
+[ext_resource type="Texture2D" uid="uid://3buaryqjemkl" path="res://triangle_enemy.png" id="3_gxg3k"]
+[ext_resource type="PackedScene" uid="uid://bf2cncfapj62p" path="res://knife.tscn" id="4_vvoqc"]
+[ext_resource type="Script" uid="uid://ch8tyivhy4d3i" path="res://knife_enemy_fsm.gd" id="5_qw3tx"]
+
+[node name="KnifeEnemy" unique_id=757774300 instance=ExtResource("1_676on")]
+script = ExtResource("2_qw3tx")
+max_health = 10
+health = 10
+max_speed = 80
+acceleration = 40
+friction = 0.16
+
+[node name="Body" parent="." index="0" unique_id=2120351308]
+texture = ExtResource("3_gxg3k")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Knife" parent="WeaponSlot" parent_id_path=PackedInt32Array(1732380290) index="0" unique_id=760112493 instance=ExtResource("4_vvoqc")]
+position = Vector2(0, 7)
+
+[node name="FiniteStateMachine" parent="." index="5" unique_id=1331044783]
+script = ExtResource("5_qw3tx")

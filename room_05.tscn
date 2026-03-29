@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6a5ttcrn7ld7" path="res://room.tscn" id="1_035x2"]
 [ext_resource type="PackedScene" uid="uid://dlanlp75wlarq" path="res://melee_enemy.tscn" id="2_cvid3"]
+[ext_resource type="PackedScene" uid="uid://cvfkfbyb0mo10" path="res://knife_enemy.tscn" id="3_cvid3"]
 
 [node name="Room_05" unique_id=835384101 instance=ExtResource("1_035x2")]
 
@@ -14,5 +15,5 @@ position = Vector2(-192, -192)
 [node name="MeleeEnemy_01" parent="." index="2" unique_id=795640486 instance=ExtResource("2_cvid3")]
 position = Vector2(192, -192)
 
-[node name="MeleeEnemy_02" parent="." index="3" unique_id=102310570 instance=ExtResource("2_cvid3")]
+[node name="KnifeEnemy_00" parent="." index="3" unique_id=1612750828 instance=ExtResource("3_cvid3")]
 position = Vector2(-176, 176)

@@ -34,10 +34,11 @@ func _process(delta: float) -> void:
 		var player_direction = (Game.player.global_position - global_position).normalized()
 		
 		body_sprite.flip_h = player_direction.x < 0
+		weapon.sprite.flip_v = player_direction.x < 0
 		
-		weapon.sprite.rotation = lerp_angle(
-			weapon.sprite.rotation,
-			global_position.angle_to_point(player_direction),
+		weapon.rotation = lerp_angle(
+			weapon.rotation,
+			global_position.angle_to_point(Game.player.global_position),
 			8.0 * delta
 		)
 
