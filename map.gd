@@ -36,3 +36,7 @@ func _ready() -> void:
 			room_instance.position = Vector2.ZERO
 			
 			slot.add_child(room_instance)
+			
+			for child in room_instance.get_children():
+				if child is EnemySpawnPoint:
+					child.spawn_enemy()

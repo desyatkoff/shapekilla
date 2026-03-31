@@ -20,6 +20,7 @@ position = Vector2(-64, 0)
 [node name="Shotgun" parent="Player" unique_id=760112493 instance=ExtResource("4_mfdv2")]
 
 [node name="HUD" parent="." unique_id=93772059 instance=ExtResource("5_iotsf")]
+visible = false
 
 [node name="MainMenu" parent="HUD" unique_id=1166539871 instance=ExtResource("6_lc2xo")]
 visible = false
