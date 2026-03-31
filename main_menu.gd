@@ -29,4 +29,6 @@ func play() -> void:
 	
 	get_parent().get_node("MouseCursor").region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
 	
+	Game.hud.main.visible = true
+	
 	queue_free()

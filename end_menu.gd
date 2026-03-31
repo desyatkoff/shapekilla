@@ -71,6 +71,8 @@ func show_menu() -> void:
 	
 	visible = true
 	
+	Game.hud.main.visible = false
+	
 	var tween = create_tween()
 	
 	tween.set_trans(Tween.TRANS_SINE)
@@ -100,6 +102,11 @@ func play() -> void:
 	Game.player.can_play = true
 	Game.player.timer_enabled = true
 	
+	Game.player.velocity = Vector2.ZERO
+	Game.player.direction = Vector2.ZERO
+	
 	get_parent().get_node("MouseCursor").region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
 	
 	visible = false
+	
+	Game.hud.main.visible = true

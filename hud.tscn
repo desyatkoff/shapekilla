@@ -6,7 +6,8 @@
 [node name="HUD" type="CanvasLayer" unique_id=93772059]
 script = ExtResource("1_64ctp")
 
-[node name="Debug" type="Control" parent="." unique_id=126509729]
+[node name="DebugHUD" type="Control" parent="." unique_id=126509729]
+visible = false
 light_mask = 0
 z_index = 1
 layout_mode = 3
@@ -16,11 +17,123 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DebugInfoLabel" type="Label" parent="Debug" unique_id=629839584]
-visible = false
+[node name="DebugInfoLabel" type="Label" parent="DebugHUD" unique_id=629839584]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme = ExtResource("1_37p78")
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 24
+text = "fps = %s
+delta = %s
+states = %s
+previous_state = %s
+state = %s
+
+max_health = %s
+health = %s
+max_speed = %s
+acceleration = %s
+friction = %s
+weapon = %s
+item = %s
+velocity = %s
+direction = %s
+current_room_slot = %s
+current_room_slot_id = %s
+
+can_play = %s
+timer_enabled = %s
+
+run_time = %s
+run_kills = %s
+run_rooms_cleared = %s
+
+floor_time = %s
+floor_kills = %s
+floor_rooms_cleared = %s
+
+current_floor = %s
+floors_cleared = %s"
+
+[node name="MainHUD" type="Control" parent="." unique_id=1353498364]
+light_mask = 0
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_37p78")
+
+[node name="RunTimeLabel" type="Label" parent="MainHUD" unique_id=1662315610]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 480.0
+offset_bottom = 128.0
+theme = ExtResource("1_37p78")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "00:00.000"
+vertical_alignment = 1
+
+[node name="RunKillsLabel" type="Label" parent="MainHUD" unique_id=1372812199]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 128.0
+offset_right = 480.0
+offset_bottom = 161.0
+theme = ExtResource("1_37p78")
+text = "0 Kills"
+vertical_alignment = 1
+
+[node name="RunRoomsClearedLabel" type="Label" parent="MainHUD" unique_id=688444279]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 193.0
+theme = ExtResource("1_37p78")
+text = "0 Rooms Cleared"
+vertical_alignment = 1
+
+[node name="FloorsClearedLabel" type="Label" parent="MainHUD" unique_id=995619584]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 192.0
+offset_right = 480.0
+offset_bottom = 225.0
+theme = ExtResource("1_37p78")
+text = "0 Floors Cleared"
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="MainHUD" unique_id=2013988028]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -120.0
+offset_right = 256.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_37p78")
+max_value = 10.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="HealthValueLabel" type="Label" parent="MainHUD/HealthBar" unique_id=222750694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5 / 10"
+horizontal_alignment = 1
+vertical_alignment = 1
