@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://bpe4kkrmudca7" path="res://enemy_spawn_point.gd" id="1_qpgxs"]
 [ext_resource type="PackedScene" uid="uid://dlanlp75wlarq" path="res://melee_enemy.tscn" id="2_nifkb"]
 [ext_resource type="PackedScene" uid="uid://cvfkfbyb0mo10" path="res://knife_enemy.tscn" id="3_boi4e"]
+[ext_resource type="PackedScene" uid="uid://dwixok7tusfg0" path="res://explosive_enemy.tscn" id="4_boi4e"]
 
 [node name="EnemySpawnPoint" type="Node2D" unique_id=1463788061]
 script = ExtResource("1_qpgxs")
-enemy_scenes = Array[PackedScene]([ExtResource("2_nifkb"), ExtResource("3_boi4e")])
+enemy_scenes = Array[PackedScene]([ExtResource("2_nifkb"), ExtResource("3_boi4e"), ExtResource("4_boi4e")])

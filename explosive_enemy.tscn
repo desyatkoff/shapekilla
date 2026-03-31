@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dwixok7tusfg0"]
+
+[ext_resource type="PackedScene" uid="uid://db0bhbdokayuk" path="res://enemy_character.tscn" id="1_miri2"]
+[ext_resource type="Script" uid="uid://c6wowf5otmxcy" path="res://explosive_enemy.gd" id="2_fwoqn"]
+[ext_resource type="PackedScene" uid="uid://c6mij57i7dy2i" path="res://self_explosion.tscn" id="2_whedj"]
+[ext_resource type="Texture2D" uid="uid://cxl4hrge2xj1g" path="res://pentagon_enemy.png" id="3_fwoqn"]
+[ext_resource type="Script" uid="uid://b0n7wvl7qjc75" path="res://explosive_enemy_fsm.gd" id="5_884op"]
+
+[node name="ExplosiveEnemy" unique_id=757774300 instance=ExtResource("1_miri2")]
+script = ExtResource("2_fwoqn")
+max_health = 4
+health = 4
+max_speed = 80
+acceleration = 40
+friction = 0.16
+
+[node name="Body" parent="." index="0" unique_id=2120351308]
+texture = ExtResource("3_fwoqn")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="SelfExplosion" parent="WeaponSlot" parent_id_path=PackedInt32Array(1732380290) index="0" unique_id=760112493 instance=ExtResource("2_whedj")]
+
+[node name="FiniteStateMachine" parent="." index="5" unique_id=1331044783]
+script = ExtResource("5_884op")
