@@ -3,22 +3,39 @@
 [ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_p0yg6"]
 [ext_resource type="Texture2D" uid="uid://cdt181rywfujr" path="res://key.png" id="1_up4cr"]
 [ext_resource type="Script" uid="uid://5obb4sy2npwd" path="res://key.gd" id="2_p0yg6"]
-[ext_resource type="AudioStream" uid="uid://cchy0c3w3qcvl" path="res://click_03.wav" id="4_wp5jh"]
-[ext_resource type="AudioStream" uid="uid://u02rdnt6b7gw" path="res://power_up_02.wav" id="5_4kguk"]
-[ext_resource type="AudioStream" uid="uid://bg8k3x8gjrf3m" path="res://click_02.wav" id="6_jo2lc"]
+[ext_resource type="AudioStream" uid="uid://cdbrmll35xn4t" path="res://key_pickup_00.wav" id="4_4hxpy"]
+[ext_resource type="AudioStream" uid="uid://cr27dppydu4ui" path="res://key_pickup_01.wav" id="5_kdlab"]
+[ext_resource type="AudioStream" uid="uid://d27o60qcial7c" path="res://key_pickup_02.wav" id="6_lrotk"]
+[ext_resource type="AudioStream" uid="uid://cpbjmynt44111" path="res://key_pickup_03.wav" id="7_6y7fx"]
+[ext_resource type="AudioStream" uid="uid://bk2fftlwmne6y" path="res://key_pickup_04.wav" id="8_htl1e"]
+[ext_resource type="AudioStream" uid="uid://0i1vmuw6tn1k" path="res://key_pickup_05.wav" id="9_g6wqb"]
+[ext_resource type="AudioStream" uid="uid://b4ydwtpdivbq8" path="res://key_use_00.wav" id="10_lchjj"]
+[ext_resource type="AudioStream" uid="uid://125lcq2qtngm" path="res://key_use_01.wav" id="11_q4r3n"]
+[ext_resource type="AudioStream" uid="uid://c483js1yde8vl" path="res://key_use_02.wav" id="12_o04q6"]
+[ext_resource type="AudioStream" uid="uid://dumf45ajrpplm" path="res://key_use_03.wav" id="13_21j0w"]
+[ext_resource type="AudioStream" uid="uid://bcjw8g5n6rsbd" path="res://key_use_04.wav" id="14_e6e4t"]
+[ext_resource type="AudioStream" uid="uid://duel20l1cwsue" path="res://key_use_05.wav" id="15_kx4t7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krfvd"]
 size = Vector2(16, 8)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cr1a6"]
-streams_count = 2
-stream_0/stream = ExtResource("4_wp5jh")
-stream_1/stream = ExtResource("5_4kguk")
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qif7y"]
+streams_count = 6
+stream_0/stream = ExtResource("4_4hxpy")
+stream_1/stream = ExtResource("5_kdlab")
+stream_2/stream = ExtResource("6_lrotk")
+stream_3/stream = ExtResource("7_6y7fx")
+stream_4/stream = ExtResource("8_htl1e")
+stream_5/stream = ExtResource("9_g6wqb")
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_alhm2"]
-streams_count = 2
-stream_0/stream = ExtResource("6_jo2lc")
-stream_1/stream = ExtResource("4_wp5jh")
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vkf0s"]
+streams_count = 6
+stream_0/stream = ExtResource("10_lchjj")
+stream_1/stream = ExtResource("11_q4r3n")
+stream_2/stream = ExtResource("12_o04q6")
+stream_3/stream = ExtResource("13_21j0w")
+stream_4/stream = ExtResource("14_e6e4t")
+stream_5/stream = ExtResource("15_kx4t7")
 
 [node name="Key" unique_id=23840998 instance=ExtResource("1_p0yg6")]
 script = ExtResource("2_p0yg6")
@@ -30,7 +47,7 @@ texture = ExtResource("1_up4cr")
 shape = SubResource("RectangleShape2D_krfvd")
 
 [node name="PickupSFXPlayer" parent="." index="3" unique_id=787883369]
-stream = SubResource("AudioStreamRandomizer_cr1a6")
+stream = SubResource("AudioStreamRandomizer_qif7y")
 
 [node name="UseSFXPlayer" parent="." index="4" unique_id=184674765]
-stream = SubResource("AudioStreamRandomizer_alhm2")
+stream = SubResource("AudioStreamRandomizer_vkf0s")

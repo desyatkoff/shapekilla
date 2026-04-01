@@ -1,23 +1,25 @@
 [gd_scene format=3 uid="uid://dua7hhrku0eli"]
 
 [ext_resource type="Script" uid="uid://bcas464q6kt75" path="res://character.gd" id="1_pjt0s"]
-[ext_resource type="AudioStream" uid="uid://cxny6au0kulqu" path="res://hit_hurt_00.wav" id="2_yxww1"]
+[ext_resource type="AudioStream" uid="uid://bwte5egb4pvyv" path="res://hurt_00.wav" id="2_wdpcj"]
+[ext_resource type="AudioStream" uid="uid://bu13bntf0ve1b" path="res://hurt_01.wav" id="3_qi5as"]
 [ext_resource type="Script" uid="uid://c8a6ug81mbv6b" path="res://fsm.gd" id="3_wa5vi"]
-[ext_resource type="AudioStream" uid="uid://b1q1qyina5q0h" path="res://hit_hurt_01.wav" id="3_wdpcj"]
-[ext_resource type="AudioStream" uid="uid://dm2muqyjo2t0h" path="res://hit_hurt_02.wav" id="4_qi5as"]
-[ext_resource type="AudioStream" uid="uid://cqolws6fwag1s" path="res://hit_hurt_03.wav" id="5_jb3kq"]
-[ext_resource type="AudioStream" uid="uid://drekfptakghp0" path="res://hit_hurt_04.wav" id="6_c1b4b"]
+[ext_resource type="AudioStream" uid="uid://c6rq2pfoe0owu" path="res://hurt_02.wav" id="4_jb3kq"]
+[ext_resource type="AudioStream" uid="uid://cdbroxnpovia1" path="res://hurt_03.wav" id="5_c1b4b"]
+[ext_resource type="AudioStream" uid="uid://ci7kipl6ys4f6" path="res://hurt_04.wav" id="6_7tnxx"]
+[ext_resource type="AudioStream" uid="uid://c23e6emye1bfd" path="res://hurt_05.wav" id="7_bwfjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
 size = Vector2(24, 24)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7tnxx"]
-streams_count = 5
-stream_0/stream = ExtResource("2_yxww1")
-stream_1/stream = ExtResource("3_wdpcj")
-stream_2/stream = ExtResource("4_qi5as")
-stream_3/stream = ExtResource("5_jb3kq")
-stream_4/stream = ExtResource("6_c1b4b")
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pjt0s"]
+streams_count = 6
+stream_0/stream = ExtResource("2_wdpcj")
+stream_1/stream = ExtResource("3_qi5as")
+stream_2/stream = ExtResource("4_jb3kq")
+stream_3/stream = ExtResource("5_c1b4b")
+stream_4/stream = ExtResource("6_7tnxx")
+stream_5/stream = ExtResource("7_bwfjh")
 
 [node name="Character" type="CharacterBody2D" unique_id=757774300]
 z_index = 1
@@ -35,8 +37,8 @@ light_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720041274]
 shape = SubResource("RectangleShape2D_pjt0s")
 
-[node name="HitSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1773307561]
-stream = SubResource("AudioStreamRandomizer_7tnxx")
+[node name="HurtSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1773307561]
+stream = SubResource("AudioStreamRandomizer_pjt0s")
 bus = &"SFX"
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1331044783]

@@ -8,9 +8,11 @@ extends Control
 @onready var floors_cleared = $FloorsClearedLabel/ValueLabel
 @onready var try_again_button = $TryAgainButton
 @onready var next_floor_button = $NextFloorButton
+@onready var win_sfx_player = $WinSFXPlayer
+@onready var lose_sfx_player = $LoseSFXPlayer
 
 func _on_try_again_button_pressed() -> void:
-	get_parent().click_sfx_player.play()
+	Game.hud.click_sfx_player.play()
 	
 	Game.reload_world()
 	Game.reload_player()
@@ -27,7 +29,7 @@ func _on_try_again_button_pressed() -> void:
 	hide_menu()
 
 func _on_next_floor_button_pressed() -> void:
-	get_parent().click_sfx_player.play()
+	Game.hud.click_sfx_player.play()
 	
 	Game.reload_world()
 	Game.reload_player()
@@ -37,7 +39,7 @@ func _on_next_floor_button_pressed() -> void:
 	hide_menu()
 
 func _on_quit_button_pressed() -> void:
-	get_parent().click_sfx_player.play()
+	Game.hud.click_sfx_player.play()
 	
 	get_tree().quit()
 
@@ -51,6 +53,8 @@ func show_menu() -> void:
 	floors_cleared.text = str(Game.player.floors_cleared)
 	
 	if Game.player.fsm.state == Game.player.fsm.states.DEAD:
+		lose_sfx_player.play()
+		
 		title_label.text = "YOU DIED. RUN RESULTS:"
 	
 		time.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)
@@ -62,6 +66,8 @@ func show_menu() -> void:
 		try_again_button.visible = true
 		next_floor_button.visible = false
 	else:
+		win_sfx_player.play()
+		
 		Game.player.floors_cleared += 1
 		
 		title_label.text = "FLOOR #%s RESULTS:" % Game.player.current_floor

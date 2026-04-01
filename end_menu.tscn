@@ -2,6 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_fda56"]
 [ext_resource type="Script" uid="uid://bdervk75ewpv4" path="res://end_menu.gd" id="2_n0xmy"]
+[ext_resource type="AudioStream" uid="uid://dxj2v4rafg8kq" path="res://end_menu_show_00.wav" id="3_fda56"]
+[ext_resource type="AudioStream" uid="uid://c3n0yt2js32lc" path="res://end_menu_show_01.wav" id="4_t7occ"]
 
 [node name="EndMenu" type="Control" unique_id=1166539871]
 layout_mode = 3
@@ -233,6 +235,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_fda56")
 text = "Quit"
+
+[node name="WinSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1671022896]
+stream = ExtResource("3_fda56")
+bus = &"SFX"
+
+[node name="LoseSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1550577336]
+stream = ExtResource("4_t7occ")
+bus = &"SFX"
 
 [connection signal="pressed" from="TryAgainButton" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="NextFloorButton" to="." method="_on_next_floor_button_pressed"]

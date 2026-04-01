@@ -3,7 +3,7 @@ class_name Character
 
 @onready var body_sprite = $Body
 @onready var weapon_slot = $WeaponSlot
-@onready var hit_sfx_player = $HitSFXPlayer
+@onready var hurt_sfx_player = $HurtSFXPlayer
 @onready var fsm = $FiniteStateMachine
 
 @export var max_health = 10

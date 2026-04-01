@@ -8,6 +8,7 @@ class_name Item
 @onready var use_sfx_player = $UseSFXPlayer
 
 @export var is_rotating = true
+@export var can_be_picked_up = true
 
 var item_owner: Player
 
@@ -35,27 +36,36 @@ func _process(delta: float) -> void:
 		)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body is Player and not body.item:
-		item_owner = body
-		item_owner.item = self
-		
-		pickup_sfx_player.play()
-		
-		call_deferred("reparent", body.item_slot)
+	if can_be_picked_up:
+		if body is Player and not body.item:
+			can_be_picked_up = false
+			
+			item_owner = body
+			item_owner.item = self
+			
+			pickup_sfx_player.play()
+			
+			call_deferred("reparent", body.item_slot)
 
 func drop() -> void:
+	can_be_picked_up = true
+	
 	item_owner.item = null
 	item_owner = null
 	
 	call_deferred("reparent", Game.world.get_node("ItemsContainer"))
 
 func use() -> void:
+	can_be_picked_up = false
+	
 	item_owner.item = null
 	item_owner = null
 	
 	use_sfx_player.play()
 	
 	call_deferred("reparent", Game.world.get_node("ItemsContainer"))
+	
+	item_particles.emitting = false
 	
 	if tween and tween.is_running():
 		tween.kill()
@@ -64,4 +74,7 @@ func use() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite, "self_modulate", Color.TRANSPARENT, 0.25)
-	tween.finished.connect(queue_free)
+	
+	await use_sfx_player.finished
+	
+	queue_free()

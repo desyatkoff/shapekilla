@@ -12,7 +12,7 @@ func _ready() -> void:
 	tween.tween_property(bg, "color", Color("#21212100"), 4.0)
 
 func _on_play_button_pressed() -> void:
-	get_parent().click_sfx_player.play()
+	Game.hud.click_sfx_player.play()
 	
 	var tween = create_tween()
 	
@@ -23,7 +23,7 @@ func _on_play_button_pressed() -> void:
 	tween.finished.connect(play)
 
 func _on_quit_button_pressed() -> void:
-	get_parent().click_sfx_player.play()
+	Game.hud.click_sfx_player.play()
 	
 	get_tree().quit()
 

@@ -4,10 +4,16 @@ class_name Key
 func use() -> void:
 	for area in hitbox.get_overlapping_areas():
 		if area.get_parent() is Doors:
+			can_be_picked_up = false
+			
+			use_sfx_player.play()
+			
 			item_owner.item = null
 			item_owner = null
 			
 			call_deferred("reparent", Game.world.get_node("ItemsContainer"))
+			
+			item_particles.emitting = false
 			
 			if tween and tween.is_running():
 				tween.kill()
@@ -20,4 +26,6 @@ func use() -> void:
 			area.get_parent().unlock()
 			area.get_parent().open()
 			
-			tween.finished.connect(queue_free)
+			await use_sfx_player.finished
+			
+			queue_free()

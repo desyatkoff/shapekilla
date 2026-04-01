@@ -34,7 +34,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			
 			if body.fsm.state != body.fsm.states.DEAD:
 				body.health -= damage
-				body.hit_sfx_player.play()
+				body.hurt_sfx_player.play()
 				
 				var blood_instance = blood_scene.instantiate()
 				blood_instance.global_position = body.global_position
