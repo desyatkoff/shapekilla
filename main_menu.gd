@@ -1,6 +1,7 @@
 extends Control
 
 @onready var bg = $Background
+@onready var credits_panel = $CreditsPanel
 
 func _ready() -> void:
 	visible = true
@@ -22,10 +23,31 @@ func _on_play_button_pressed() -> void:
 	
 	tween.finished.connect(play)
 
+func _on_credits_button_pressed() -> void:
+	Game.hud.click_sfx_player.play()
+	
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(credits_panel, "global_position", Vector2(320.0, 180.0), 1.0)
+
+func _on_close_credits_button_pressed() -> void:
+	Game.hud.click_sfx_player.play()
+	
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(credits_panel, "global_position", Vector2(320.0, -736.0), 1.0)
+
 func _on_quit_button_pressed() -> void:
 	Game.hud.click_sfx_player.play()
 	
 	get_tree().quit()
+
+func _on_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(meta)
 
 func play() -> void:
 	Game.player.can_play = true
