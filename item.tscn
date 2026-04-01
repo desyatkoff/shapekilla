@@ -17,4 +17,8 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1493202748]
 
+[node name="PickupSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=787883369]
+
+[node name="UseSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=184674765]
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -31,6 +31,8 @@ func attack():
 		
 		weapon_owner.fsm.set_state(weapon_owner.fsm.states.ATTACK)
 		
+		attack_sfx_player.play()
+		
 		var shoot_particles_instance = shoot_particles_scene.instantiate()
 		shoot_particles_instance.global_position = sprite.get_node("ProjectileSpawnPoint").global_position - Vector2(0.0, 3.0)
 		shoot_particles_instance.global_rotation = global_rotation

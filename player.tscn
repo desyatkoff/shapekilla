@@ -35,9 +35,12 @@ position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 editor_draw_limits = true
 
-[node name="PointLight2D" type="PointLight2D" parent="." index="5" unique_id=1195821963]
+[node name="AudioListener2D" type="AudioListener2D" parent="." index="5" unique_id=900449773]
+current = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="6" unique_id=1195821963]
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_sweqy")
 
-[node name="FiniteStateMachine" parent="." index="6" unique_id=1331044783]
+[node name="FiniteStateMachine" parent="." index="7" unique_id=1331044783]
 script = ExtResource("4_hqtel")

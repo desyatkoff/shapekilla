@@ -14,6 +14,8 @@ extends CanvasLayer
 @onready var health_bar = $MainHUD/HealthBar
 @onready var health_value_label = $MainHUD/HealthBar/HealthValueLabel
 
+@onready var click_sfx_player = $ClickSFXPlayer
+
 func _ready() -> void:
 	visible = true
 	debug.visible = OS.is_debug_build()

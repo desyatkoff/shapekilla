@@ -2,6 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_wbf5a"]
 [ext_resource type="Script" uid="uid://b3chfirpsm2po" path="res://self_explosion.gd" id="2_j4hhh"]
+[ext_resource type="AudioStream" uid="uid://bycs4jhlxlwvu" path="res://explosion_00.wav" id="3_ikc0q"]
+[ext_resource type="AudioStream" uid="uid://dw70u3tblpnr2" path="res://explosion_01.wav" id="4_5xl17"]
+[ext_resource type="AudioStream" uid="uid://djaqk7sby7j3f" path="res://explosion_02.wav" id="5_ns6cu"]
+[ext_resource type="AudioStream" uid="uid://c8rvwpal6bfv8" path="res://explosion_03.wav" id="6_q5a58"]
+[ext_resource type="AudioStream" uid="uid://b6qpadj16qek5" path="res://explosion_04.wav" id="7_e23h8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt0xr"]
 radius = 96.0
@@ -24,6 +29,14 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.5, 1)
 colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.25882354, 0.25882354, 0.25882354, 1, 0.38039216, 0.38039216, 0.38039216, 1)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xgao7"]
+streams_count = 5
+stream_0/stream = ExtResource("3_ikc0q")
+stream_1/stream = ExtResource("4_5xl17")
+stream_2/stream = ExtResource("5_ns6cu")
+stream_3/stream = ExtResource("6_q5a58")
+stream_4/stream = ExtResource("7_e23h8")
+
 [node name="SelfExplosion" unique_id=760112493 instance=ExtResource("1_wbf5a")]
 script = ExtResource("2_j4hhh")
 damage = 4
@@ -39,7 +52,6 @@ shape = SubResource("CircleShape2D_mt0xr")
 emitting = false
 amount = 256
 one_shot = true
-speed_scale = 0.5
 explosiveness = 1.0
 randomness = 1.0
 lifetime_randomness = 1.0
@@ -48,8 +60,9 @@ direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 16.0
-initial_velocity_max = 128.0
-scale_amount_max = 3.0
+initial_velocity_max = 64.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_j4hhh")
 color_initial_ramp = SubResource("Gradient_mt0xr")
 
@@ -70,6 +83,9 @@ scale_amount_min = 2.0
 scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_0djnq")
 color_initial_ramp = SubResource("Gradient_r4prc")
+
+[node name="AttackSFXPlayer" parent="." index="4" unique_id=947155498]
+stream = SubResource("AudioStreamRandomizer_xgao7")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

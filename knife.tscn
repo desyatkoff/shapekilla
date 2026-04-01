@@ -3,9 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_8wt88"]
 [ext_resource type="Script" uid="uid://cbde4pytl71li" path="res://knife.gd" id="2_qjenl"]
 [ext_resource type="Texture2D" uid="uid://l3xx1230dy58" path="res://knife.png" id="2_s4gn3"]
+[ext_resource type="AudioStream" uid="uid://bixduy5ok7x14" path="res://laser_shoot_00.wav" id="4_d7nea"]
+[ext_resource type="AudioStream" uid="uid://c381muh6v1wfh" path="res://laser_shoot_01.wav" id="5_42cco"]
+[ext_resource type="AudioStream" uid="uid://bnfcchgq1ucgf" path="res://laser_shoot_03.wav" id="6_6jeej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjenl"]
 size = Vector2(23, 8)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m161u"]
+streams_count = 3
+stream_0/stream = ExtResource("4_d7nea")
+stream_1/stream = ExtResource("5_42cco")
+stream_2/stream = ExtResource("6_6jeej")
 
 [node name="Knife" unique_id=760112493 instance=ExtResource("1_8wt88")]
 script = ExtResource("2_qjenl")
@@ -23,7 +32,10 @@ collision_mask = 6
 position = Vector2(13.5, 0)
 shape = SubResource("RectangleShape2D_qjenl")
 
-[node name="CooldownTimer" parent="." index="2" unique_id=1453833404]
+[node name="AttackSFXPlayer" parent="." index="2" unique_id=947155498]
+stream = SubResource("AudioStreamRandomizer_m161u")
+
+[node name="CooldownTimer" parent="." index="3" unique_id=1453833404]
 wait_time = 0.5
 one_shot = false
 autostart = true

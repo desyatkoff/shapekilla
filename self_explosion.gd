@@ -7,6 +7,8 @@ class_name SelfExplosion
 
 @onready var blood_scene = preload("res://blood_particles.tscn")
 
+var did_play_sfx = false
+
 var tween: Tween
 
 func _on_cooldown_timer_timeout() -> void:
@@ -17,6 +19,10 @@ func _on_cooldown_timer_timeout() -> void:
 				
 				explosion_particles.emitting = true
 				smoke_particles.emitting = true
+				
+				if not did_play_sfx:
+					attack_sfx_player.play()
+					did_play_sfx = true
 				
 				body.velocity += Vector2.RIGHT.rotated(rotation) * 128
 				

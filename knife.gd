@@ -5,6 +5,8 @@ class_name Knife
 
 @onready var blood_scene = preload("res://blood_particles.tscn")
 
+var did_play_sfx = false
+
 var tween: Tween
 
 func _on_cooldown_timer_timeout() -> void:
@@ -12,6 +14,10 @@ func _on_cooldown_timer_timeout() -> void:
 		for body in hitbox.get_overlapping_bodies():
 			if body is Player:
 				weapon_owner.fsm.set_state(weapon_owner.fsm.states.ATTACK)
+				
+				if not did_play_sfx:
+					attack_sfx_player.play()
+					did_play_sfx = true
 				
 				var knife_position = position
 				var knife_direction = transform.x.normalized()

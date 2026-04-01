@@ -3,15 +3,34 @@
 [ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_p0yg6"]
 [ext_resource type="Texture2D" uid="uid://cdt181rywfujr" path="res://key.png" id="1_up4cr"]
 [ext_resource type="Script" uid="uid://5obb4sy2npwd" path="res://key.gd" id="2_p0yg6"]
+[ext_resource type="AudioStream" uid="uid://cchy0c3w3qcvl" path="res://click_03.wav" id="4_wp5jh"]
+[ext_resource type="AudioStream" uid="uid://u02rdnt6b7gw" path="res://power_up_02.wav" id="5_4kguk"]
+[ext_resource type="AudioStream" uid="uid://bg8k3x8gjrf3m" path="res://click_02.wav" id="6_jo2lc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krfvd"]
 size = Vector2(16, 8)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cr1a6"]
+streams_count = 2
+stream_0/stream = ExtResource("4_wp5jh")
+stream_1/stream = ExtResource("5_4kguk")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_alhm2"]
+streams_count = 2
+stream_0/stream = ExtResource("6_jo2lc")
+stream_1/stream = ExtResource("4_wp5jh")
+
 [node name="Key" unique_id=23840998 instance=ExtResource("1_p0yg6")]
 script = ExtResource("2_p0yg6")
 
-[node name="Sprite" parent="." index="0" unique_id=1005126698]
+[node name="Sprite" parent="." index="1" unique_id=1005126698]
 texture = ExtResource("1_up4cr")
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
 shape = SubResource("RectangleShape2D_krfvd")
+
+[node name="PickupSFXPlayer" parent="." index="3" unique_id=787883369]
+stream = SubResource("AudioStreamRandomizer_cr1a6")
+
+[node name="UseSFXPlayer" parent="." index="4" unique_id=184674765]
+stream = SubResource("AudioStreamRandomizer_alhm2")

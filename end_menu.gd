@@ -10,6 +10,8 @@ extends Control
 @onready var next_floor_button = $NextFloorButton
 
 func _on_try_again_button_pressed() -> void:
+	get_parent().click_sfx_player.play()
+	
 	Game.reload_world()
 	Game.reload_player()
 	
@@ -25,6 +27,8 @@ func _on_try_again_button_pressed() -> void:
 	hide_menu()
 
 func _on_next_floor_button_pressed() -> void:
+	get_parent().click_sfx_player.play()
+	
 	Game.reload_world()
 	Game.reload_player()
 	
@@ -33,6 +37,8 @@ func _on_next_floor_button_pressed() -> void:
 	hide_menu()
 
 func _on_quit_button_pressed() -> void:
+	get_parent().click_sfx_player.play()
+	
 	get_tree().quit()
 
 func show_menu() -> void:

@@ -2,6 +2,7 @@ extends Node2D
 class_name Weapon
 
 @onready var sprite = $Sprite
+@onready var attack_sfx_player = $AttackSFXPlayer
 @onready var cooldown = $CooldownTimer
 
 @onready var weapon_owner: Character
@@ -16,9 +17,3 @@ func _ready() -> void:
 func attack():
 	if cooldown.is_stopped():
 		cooldown.start()
-		
-		weapon_owner.fsm.set_state(weapon_owner.fsm.states.ATTACK)
-		
-		# ...
-		
-		weapon_owner.fsm.set_state(weapon_owner.fsm.previous_state)

@@ -1,9 +1,11 @@
 extends Node2D
 class_name Item
 
+@onready var item_particles = $ItemParticles
 @onready var sprite = $Sprite
 @onready var hitbox = $Hitbox
-@onready var item_particles = $ItemParticles
+@onready var pickup_sfx_player = $PickupSFXPlayer
+@onready var use_sfx_player = $UseSFXPlayer
 
 @export var is_rotating = true
 
@@ -37,6 +39,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		item_owner = body
 		item_owner.item = self
 		
+		pickup_sfx_player.play()
+		
 		call_deferred("reparent", body.item_slot)
 
 func drop() -> void:
@@ -48,6 +52,8 @@ func drop() -> void:
 func use() -> void:
 	item_owner.item = null
 	item_owner = null
+	
+	use_sfx_player.play()
 	
 	call_deferred("reparent", Game.world.get_node("ItemsContainer"))
 	
