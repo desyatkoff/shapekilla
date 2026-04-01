@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://plxjr45r6xrg"]
+
+[ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_asuc4"]
+[ext_resource type="Texture2D" uid="uid://v5ryrfw3b21v" path="res://logo.png" id="1_n2hxm"]
+[ext_resource type="Script" uid="uid://bpqwxlhavkbdt" path="res://boot_splash.gd" id="2_ndo6g"]
+[ext_resource type="Script" uid="uid://c4i2yv3tqnxlh" path="res://wobble_text_effect.gd" id="3_e7rvy"]
+[ext_resource type="Script" uid="uid://c4863lf71v8uw" path="res://typewriter_label.gd" id="4_w7sdk"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_e7rvy"]
+script = ExtResource("3_e7rvy")
+metadata/_custom_type_script = "uid://c4i2yv3tqnxlh"
+
+[node name="BootSplash" type="Control" unique_id=1250316143]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_asuc4")
+script = ExtResource("2_ndo6g")
+
+[node name="Background" type="ColorRect" parent="." unique_id=891598429]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_asuc4")
+color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="Logo" type="TextureRect" parent="." unique_id=882840990]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -630.0
+offset_top = -500.0
+offset_right = 630.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_asuc4")
+texture = ExtResource("1_n2hxm")
+
+[node name="LoadingLabel" type="RichTextLabel" parent="." unique_id=38543344]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -312.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_asuc4")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[wobble]Loading...[/wobble]"
+scroll_active = false
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_e7rvy")]
+script = ExtResource("4_w7sdk")
+wait_time = 0.4
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1496816703]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -312.0
+offset_right = 512.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_asuc4")
+theme_override_colors/default_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[wobble] Prepare thyself![/wobble]"
+scroll_active = false
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_e7rvy")]
+script = ExtResource("4_w7sdk")
+wait_time = 2.0
+
+[node name="Timer" type="Timer" parent="." unique_id=130250617]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

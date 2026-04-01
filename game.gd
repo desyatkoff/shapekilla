@@ -4,9 +4,6 @@ var world: Node2D
 var player: Player
 var hud: CanvasLayer
 
-func _ready() -> void:
-	update_values()
-
 func update_values() -> void:
 	world = get_tree().current_scene.get_node("World")
 	player = get_tree().current_scene.get_node("Player")

@@ -7,6 +7,8 @@ extends Node2D
 func _ready() -> void:
 	randomize()
 	
+	Game.update_values()
+	
 	var free_room_slots = []
 	
 	for slot in room_slots:
