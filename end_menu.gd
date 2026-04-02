@@ -1,13 +1,13 @@
 extends Control
 
-@onready var bg = $Background
-@onready var title_label = $TitleLabel
-@onready var time = $TimeLabel/ValueLabel
-@onready var kills = $KillsLabel/ValueLabel
-@onready var rooms_cleared = $RoomsClearedLabel/ValueLabel
-@onready var floors_cleared = $FloorsClearedLabel/ValueLabel
-@onready var try_again_button = $TryAgainButton
-@onready var next_floor_button = $NextFloorButton
+@onready var panel = $Panel
+@onready var title_label = $Panel/TitleLabel
+@onready var time = $Panel/TimeLabel/ValueLabel
+@onready var kills = $Panel/KillsLabel/ValueLabel
+@onready var rooms_cleared = $Panel/RoomsClearedLabel/ValueLabel
+@onready var floors_cleared = $Panel/FloorsClearedLabel/ValueLabel
+@onready var try_again_button = $Panel/TryAgainButton
+@onready var next_floor_button = $Panel/NextFloorButton
 @onready var win_sfx_player = $WinSFXPlayer
 @onready var lose_sfx_player = $LoseSFXPlayer
 
@@ -44,9 +44,6 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func show_menu() -> void:
-	modulate = Color.WHITE
-	bg.color = Color("#21212100")
-	
 	Game.player.can_play = false
 	Game.player.timer_enabled = false
 	
@@ -81,24 +78,22 @@ func show_menu() -> void:
 		try_again_button.visible = false
 		next_floor_button.visible = true
 	
-	visible = true
-	
 	Game.hud.main.visible = false
 	
-	var tween = create_tween()
+	get_parent().get_node("MouseCursor").region_rect = Rect2(0.0, 0.0, 32.0, 32.0)
 	
+	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(bg, "color", Color("#212121"), 4.0)
 	
-	get_parent().get_node("MouseCursor").region_rect = Rect2(0.0, 0.0, 32.0, 32.0)
+	tween.tween_property(panel, "global_position", Vector2(320.0, 180.0), 1.0)
 
 func hide_menu() -> void:
 	var tween = create_tween()
-	
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.4)
+	
+	tween.tween_property(panel, "global_position", Vector2(320.0, -720.0), 1.0)
 	
 	tween.finished.connect(play)
 
@@ -118,7 +113,5 @@ func play() -> void:
 	Game.player.direction = Vector2.ZERO
 	
 	get_parent().get_node("MouseCursor").region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
-	
-	visible = false
 	
 	Game.hud.main.visible = true

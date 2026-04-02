@@ -42,6 +42,8 @@ func _on_cooldown_timer_timeout() -> void:
 					Game.world.get_node("DebrisContainer").add_child(blood_instance)
 				
 				weapon_owner.fsm.set_state(weapon_owner.fsm.previous_state)
+		
+		Game.player.apply_noise_shake(16.0)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player:

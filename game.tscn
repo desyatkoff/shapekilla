@@ -8,9 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://wh2hxggss4hs" path="res://main_menu.tscn" id="6_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://b5r1fvowdpklr" path="res://end_menu.tscn" id="7_215e1"]
 [ext_resource type="PackedScene" uid="uid://qwp8dtxo5bn2" path="res://mouse_cursor.tscn" id="8_7sc4i"]
+[ext_resource type="PackedScene" uid="uid://c2yfdkrf1mdpt" path="res://pause_menu.tscn" id="8_vef74"]
+
+[sub_resource type="Environment" id="Environment_vef74"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.3
+glow_blend_mode = 0
 
 [node name="Game" type="Node2D" unique_id=280090846]
 script = ExtResource("1_j5wjh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=379732834]
+environment = SubResource("Environment_vef74")
 
 [node name="World" parent="." unique_id=1894890612 instance=ExtResource("1_eow3j")]
 
@@ -26,6 +38,7 @@ visible = false
 visible = false
 
 [node name="EndMenu" parent="HUD" unique_id=1834054541 instance=ExtResource("7_215e1")]
-visible = false
+
+[node name="PauseMenu" parent="HUD" unique_id=1183636334 instance=ExtResource("8_vef74")]
 
 [node name="MouseCursor" parent="HUD" unique_id=1856643083 instance=ExtResource("8_7sc4i")]

@@ -13,6 +13,8 @@ func _on_cooldown_timer_timeout() -> void:
 			if body is Player:
 				weapon_owner.fsm.set_state(weapon_owner.fsm.states.ATTACK)
 				
+				body.apply_noise_shake(8.0)
+				
 				attack_sfx_player.play()
 				
 				body.velocity += Vector2.RIGHT.rotated(rotation) * 128

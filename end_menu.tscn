@@ -12,26 +12,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_fda56")
 script = ExtResource("2_n0xmy")
 
-[node name="Background" type="ColorRect" parent="." unique_id=621965987]
+[node name="Panel" type="Panel" parent="." unique_id=348505343]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -1260.0
+offset_right = 640.0
+offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12941177, 0.12941177, 0.12941177, 0)
 
-[node name="TitleLabel" type="Label" parent="." unique_id=1160814605]
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=1160814605]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -320.0
-offset_right = 320.0
-offset_bottom = 256.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
 grow_horizontal = 2
 theme = ExtResource("1_fda56")
 theme_override_colors/font_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
@@ -40,7 +43,7 @@ text = "-"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TimeLabel" type="Label" parent="." unique_id=653091568]
+[node name="TimeLabel" type="Label" parent="Panel" unique_id=653091568]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -48,8 +51,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
-offset_top = -220.0
-offset_bottom = -124.0
+offset_top = -232.0
+offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -57,7 +60,7 @@ theme_override_font_sizes/font_size = 64
 text = "Time:"
 vertical_alignment = 1
 
-[node name="ValueLabel" type="Label" parent="TimeLabel" unique_id=848778623]
+[node name="ValueLabel" type="Label" parent="Panel/TimeLabel" unique_id=848778623]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,7 +80,7 @@ text = "--:--.---"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="KillsLabel" type="Label" parent="." unique_id=1796844639]
+[node name="KillsLabel" type="Label" parent="Panel" unique_id=1796844639]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -85,8 +88,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
-offset_top = -124.0
-offset_bottom = -28.0
+offset_top = -136.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -94,7 +97,7 @@ theme_override_font_sizes/font_size = 64
 text = "Kills:"
 vertical_alignment = 1
 
-[node name="ValueLabel" type="Label" parent="KillsLabel" unique_id=1239440113]
+[node name="ValueLabel" type="Label" parent="Panel/KillsLabel" unique_id=1239440113]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,7 +117,7 @@ text = "-"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="RoomsClearedLabel" type="Label" parent="." unique_id=530287217]
+[node name="RoomsClearedLabel" type="Label" parent="Panel" unique_id=530287217]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,8 +125,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
-offset_top = -28.0
-offset_bottom = 68.0
+offset_top = -40.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -131,7 +134,7 @@ theme_override_font_sizes/font_size = 64
 text = "Rooms Cleared:"
 vertical_alignment = 1
 
-[node name="ValueLabel" type="Label" parent="RoomsClearedLabel" unique_id=61013072]
+[node name="ValueLabel" type="Label" parent="Panel/RoomsClearedLabel" unique_id=61013072]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -151,7 +154,7 @@ text = "-"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="FloorsClearedLabel" type="Label" parent="." unique_id=1585249913]
+[node name="FloorsClearedLabel" type="Label" parent="Panel" unique_id=1585249913]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -159,8 +162,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
-offset_top = 68.0
-offset_bottom = 164.0
+offset_top = 56.0
+offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -168,7 +171,7 @@ theme_override_font_sizes/font_size = 64
 text = "Floors Cleared:"
 vertical_alignment = 1
 
-[node name="ValueLabel" type="Label" parent="FloorsClearedLabel" unique_id=1082011177]
+[node name="ValueLabel" type="Label" parent="Panel/FloorsClearedLabel" unique_id=1082011177]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -188,49 +191,49 @@ text = "-"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="TryAgainButton" type="Button" parent="." unique_id=193533363]
+[node name="TryAgainButton" type="Button" parent="Panel" unique_id=193533363]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -312.0
-offset_right = 192.0
-offset_bottom = -216.0
+offset_left = -416.0
+offset_top = -132.0
+offset_right = -32.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_fda56")
 text = "Try Again"
 
-[node name="NextFloorButton" type="Button" parent="." unique_id=851672916]
+[node name="NextFloorButton" type="Button" parent="Panel" unique_id=851672916]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -312.0
-offset_right = 192.0
-offset_bottom = -216.0
+offset_left = -416.0
+offset_top = -132.0
+offset_right = -32.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_fda56")
 text = "Next Floor"
 
-[node name="QuitButton" type="Button" parent="." unique_id=1967224006]
+[node name="QuitButton" type="Button" parent="Panel" unique_id=1967224006]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -184.0
-offset_right = 192.0
-offset_bottom = -88.0
+offset_left = 32.0
+offset_top = -132.0
+offset_right = 416.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_fda56")
@@ -244,6 +247,6 @@ bus = &"SFX"
 stream = ExtResource("4_t7occ")
 bus = &"SFX"
 
-[connection signal="pressed" from="TryAgainButton" to="." method="_on_try_again_button_pressed"]
-[connection signal="pressed" from="NextFloorButton" to="." method="_on_next_floor_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Panel/TryAgainButton" to="." method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="Panel/NextFloorButton" to="." method="_on_next_floor_button_pressed"]
+[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

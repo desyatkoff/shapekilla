@@ -21,6 +21,15 @@ var floors_cleared = 0
 
 var item: Item
 
+var noise_shake_speed = 32.0
+var shake_decay_rate = 4.0
+var noise = FastNoiseLite.new()
+var noise_i = 0.0
+var shake_strength = 0.0
+
+func _ready() -> void:
+	noise.seed = randi()
+
 func _process(delta: float) -> void:
 	health = clamp(health, 0, max_health)
 	
@@ -50,6 +59,10 @@ func _process(delta: float) -> void:
 	if timer_enabled:
 		run_time += delta
 		floor_time += delta
+	
+	shake_strength = lerp(shake_strength, 0.0, shake_decay_rate * delta)
+	
+	camera.offset = get_noise_offset(delta)
 	
 	match current_room_slot_id:
 		0:
@@ -108,6 +121,17 @@ func _process(delta: float) -> void:
 			camera.limit_right = 2304
 			camera.limit_bottom = 128
 
+func apply_noise_shake(noise_shake_strength) -> void:
+	shake_strength += noise_shake_strength
+
+func get_noise_offset(delta: float) -> Vector2:
+	noise_i += delta * noise_shake_speed
+	
+	return Vector2(
+		noise.get_noise_2d(1, noise_i) * shake_strength,
+		noise.get_noise_2d(100, noise_i) * shake_strength
+	)
+
 func get_input() -> void:
 	direction = Vector2.ZERO
 	
@@ -134,6 +158,8 @@ func get_input() -> void:
 
 func die() -> void:
 	fsm.set_state(fsm.states.DEAD)
+	
+	apply_noise_shake(64.0)
 	
 	can_play = false
 	timer_enabled = false

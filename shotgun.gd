@@ -7,7 +7,7 @@ class_name Shotgun
 @onready var shoot_particles_scene = preload("res://shoot_particles.tscn")
 
 var shotgun_shots = 4
-var knockback = 64
+var knockback = 96
 
 func _process(delta: float) -> void:
 	if weapon_owner:
@@ -30,6 +30,8 @@ func attack():
 		cooldown.start()
 		
 		weapon_owner.fsm.set_state(weapon_owner.fsm.states.ATTACK)
+		
+		weapon_owner.apply_noise_shake(4.0)
 		
 		attack_sfx_player.play()
 		
