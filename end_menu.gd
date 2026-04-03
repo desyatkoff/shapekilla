@@ -12,12 +12,20 @@ extends Control
 @onready var win_sfx_player = $WinSFXPlayer
 @onready var lose_sfx_player = $LoseSFXPlayer
 
-var pro_tips = [
-	"Don't die",
+var pro_tips_on_lose = [
+	"Don't die please",
+	"Lock in",
+	"Do what is necessary; don't do what isn't necessary",
+	"Try harder",
+	"Explosions hurt"
+]
+
+var pro_tips_on_win = [
 	"Keep going",
+	"Chill",
 	"Try entering more rooms to kill even more Shapes",
-	"Remember that your shotgun has infinite ammo",
-	"Lock in"
+	"Accuracy is key",
+	"Pentagons deal damage to other enemies too"
 ]
 
 func _ready() -> void:
@@ -59,8 +67,6 @@ func show_menu() -> void:
 	Game.player.can_play = false
 	Game.player.timer_enabled = false
 	
-	pro_tip_label.text = "[wobble]%s[/wobble]" % pro_tips.pick_random()
-	
 	if Game.player.fsm.state == Game.player.fsm.states.DEAD:
 		lose_sfx_player.play()
 		
@@ -70,6 +76,8 @@ func show_menu() -> void:
 		kills.text = str(Game.player.run_kills)
 		rooms_cleared.text = str(Game.player.run_rooms_cleared)
 		floors_cleared.text = str(Game.player.run_floors_cleared)
+	
+		pro_tip_label.text = "[wobble]%s[/wobble]" % pro_tips_on_lose.pick_random()
 		
 		floors_cleared.get_parent().visible = true
 		
@@ -86,6 +94,8 @@ func show_menu() -> void:
 		time.text = "%02d:%02d.%03d" % format_time(Game.player.floor_time)
 		kills.text = str(Game.player.floor_kills)
 		rooms_cleared.text = str(Game.player.floor_rooms_cleared)
+	
+		pro_tip_label.text = "[wobble]%s[/wobble]" % pro_tips_on_win.pick_random()
 		
 		floors_cleared.get_parent().visible = false
 		
