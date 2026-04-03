@@ -101,7 +101,7 @@ current_floor = %s
 	run_time_label.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)
 	run_kills_label.text = "%s Kill%s" % [Game.player.run_kills, "s" if Game.player.run_kills == 0 or Game.player.run_kills > 1 else ""]
 	run_rooms_cleared_label.text = "%s Room%s Cleared" % [Game.player.run_rooms_cleared, "s" if Game.player.run_rooms_cleared == 0 or Game.player.run_rooms_cleared > 1 else ""]
-	floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.floors_cleared, "s" if Game.player.floors_cleared == 0 or Game.player.floors_cleared > 1 else ""]
+	floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.run_floors_cleared, "s" if Game.player.run_floors_cleared == 0 or Game.player.run_floors_cleared > 1 else ""]
 	
 	health_bar.value = Game.player.health
 	health_bar.max_value = Game.player.max_health
