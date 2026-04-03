@@ -6,26 +6,36 @@ extends Control
 @onready var kills = $Panel/KillsLabel/ValueLabel
 @onready var rooms_cleared = $Panel/RoomsClearedLabel/ValueLabel
 @onready var floors_cleared = $Panel/FloorsClearedLabel/ValueLabel
-@onready var pro_tip_label = $Panel/ProTipValueLabel
+@onready var message_label = $Panel/MessageLabel
 @onready var try_again_button = $Panel/TryAgainButton
 @onready var next_floor_button = $Panel/NextFloorButton
 @onready var win_sfx_player = $WinSFXPlayer
 @onready var lose_sfx_player = $LoseSFXPlayer
 
-var pro_tips_on_lose = [
+var messages_on_lose = [
 	"Don't die please",
-	"Lock in",
-	"Do what is necessary; don't do what isn't necessary",
+	"Pro tip: Lock in",
+	"Pro tip: Do what is necessary; don't do what isn't necessary",
 	"Try harder",
-	"Explosions hurt"
+	"Explosions hurt",
+	"Epic fail",
+	"That was close though",
+	"You shouldn't give up yet",
+	"Did you know that turning on the monitor can improve your gameplay?",
+	"Skill issue"
 ]
 
-var pro_tips_on_win = [
+var messages_on_win = [
 	"Keep going",
 	"Chill",
-	"Try entering more rooms to kill even more Shapes",
+	"Pro tip: Try entering more rooms to kill even more Shapes",
 	"Accuracy is key",
-	"Pentagons deal damage to other enemies too"
+	"Pro tip: Pentagons deal damage to other enemies too",
+	"The party is proud of you",
+	"GG EZ",
+	"You were extra violent this time",
+	"Holy shit!",
+	"Wait, is this WR?!"
 ]
 
 func _ready() -> void:
@@ -77,7 +87,7 @@ func show_menu() -> void:
 		rooms_cleared.text = str(Game.player.run_rooms_cleared)
 		floors_cleared.text = str(Game.player.run_floors_cleared)
 	
-		pro_tip_label.text = "[wobble]%s[/wobble]" % pro_tips_on_lose.pick_random()
+		message_label.text = "[wobble]%s[/wobble]" % messages_on_lose.pick_random()
 		
 		floors_cleared.get_parent().visible = true
 		
@@ -95,7 +105,7 @@ func show_menu() -> void:
 		kills.text = str(Game.player.floor_kills)
 		rooms_cleared.text = str(Game.player.floor_rooms_cleared)
 	
-		pro_tip_label.text = "[wobble]%s[/wobble]" % pro_tips_on_win.pick_random()
+		message_label.text = "[wobble]%s[/wobble]" % messages_on_win.pick_random()
 		
 		floors_cleared.get_parent().visible = false
 		

@@ -201,33 +201,15 @@ text = "-"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ProTipTitleLabel" type="RichTextLabel" parent="Panel" unique_id=951516946]
+[node name="MessageLabel" type="RichTextLabel" parent="Panel" unique_id=62641052]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 224.0
 offset_top = -288.0
-offset_bottom = -224.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("1_fda56")
-theme_override_constants/outline_size = 24
-theme_override_font_sizes/normal_font_size = 48
-bbcode_enabled = true
-text = "[wobble]Pro Tip:[/wobble]"
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-custom_effects = [SubResource("RichTextEffect_e7rvy"), SubResource("RichTextEffect_gkmom")]
-
-[node name="ProTipValueLabel" type="RichTextLabel" parent="Panel" unique_id=62641052]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -224.0
+offset_right = -224.0
 offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 0
