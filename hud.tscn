@@ -100,7 +100,7 @@ theme = ExtResource("1_37p78")
 text = "0 Rooms Cleared"
 vertical_alignment = 1
 
-[node name="FloorsClearedLabel" type="Label" parent="MainHUD" unique_id=995619584]
+[node name="RunFloorsClearedLabel" type="Label" parent="MainHUD" unique_id=995619584]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 192.0

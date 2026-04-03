@@ -9,7 +9,7 @@ extends CanvasLayer
 @onready var run_time_label = $MainHUD/RunTimeLabel
 @onready var run_kills_label = $MainHUD/RunKillsLabel
 @onready var run_rooms_cleared_label = $MainHUD/RunRoomsClearedLabel
-@onready var floors_cleared_label = $MainHUD/FloorsClearedLabel
+@onready var run_floors_cleared_label = $MainHUD/RunFloorsClearedLabel
 
 @onready var health_bar = $MainHUD/HealthBar
 @onready var health_value_label = $MainHUD/HealthBar/HealthValueLabel
@@ -50,6 +50,7 @@ current_room_slot = %s
 current_room_slot_id = %s
 can_play = %s
 timer_enabled = %s
+is_tutorial_complete = %s
 total_play_time = %s
 total_kills = %s
 total_rooms_cleared = %s
@@ -83,6 +84,7 @@ current_floor = %s
 		Game.player.current_room_slot_id,
 		Game.player.can_play,
 		Game.player.timer_enabled,
+		Game.is_tutorial_complete,
 		Game.total_play_time,
 		Game.total_kills,
 		Game.total_rooms_cleared,
@@ -101,7 +103,7 @@ current_floor = %s
 	run_time_label.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)
 	run_kills_label.text = "%s Kill%s" % [Game.player.run_kills, "s" if Game.player.run_kills == 0 or Game.player.run_kills > 1 else ""]
 	run_rooms_cleared_label.text = "%s Room%s Cleared" % [Game.player.run_rooms_cleared, "s" if Game.player.run_rooms_cleared == 0 or Game.player.run_rooms_cleared > 1 else ""]
-	floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.run_floors_cleared, "s" if Game.player.run_floors_cleared == 0 or Game.player.run_floors_cleared > 1 else ""]
+	run_floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.run_floors_cleared, "s" if Game.player.run_floors_cleared == 0 or Game.player.run_floors_cleared > 1 else ""]
 	
 	health_bar.value = Game.player.health
 	health_bar.max_value = Game.player.max_health
