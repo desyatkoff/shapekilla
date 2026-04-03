@@ -29,9 +29,15 @@ var shake_strength = 0.0
 
 func _ready() -> void:
 	noise.seed = randi()
+	
+	if not Game.is_tutorial_complete:
+		current_floor = 0
 
 func _process(delta: float) -> void:
-	health = clamp(health, 0, max_health)
+	if Game.is_tutorial_complete:
+		health = clamp(health, 0, max_health)
+	else:
+		health = clamp(health, 1, max_health)
 	
 	if health == 0 and fsm.state != fsm.states.DEAD:
 		die()

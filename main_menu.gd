@@ -58,6 +58,18 @@ func _on_stats_button_pressed() -> void:
 	
 	tween.tween_property(stats_panel, "global_position", Vector2(320.0, 180.0), 1.0)
 
+func _on_erase_save_data_button_pressed() -> void:
+	Game.erase_save_data()
+	
+	total_play_time_label.text = "--:--.---"
+	total_kills_label.text = "-"
+	total_rooms_cleared_label.text = "-"
+	total_floors_cleared_label.text = "-"
+	total_runs_label.text = "-"
+	
+	Game.reload_world()
+	Game.reload_player()
+
 func _on_close_stats_button_pressed() -> void:
 	play_button.disabled = false
 	stats_button.disabled = false

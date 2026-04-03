@@ -4,6 +4,7 @@ var world: Node2D
 var player: Player
 var hud: CanvasLayer
 
+var is_tutorial_complete = false
 var total_play_time = 0.0
 var total_kills = 0
 var total_rooms_cleared = 0
@@ -46,6 +47,7 @@ func reload_world() -> void:
 	update_values()
 
 func reload_player() -> void:
+	player.weapon.queue_free()
 	player.floor_time = 0.0
 	player.floor_kills = 0
 	player.floor_rooms_cleared = 0
@@ -56,6 +58,7 @@ func reload_player() -> void:
 
 func collect_save_data() -> Dictionary:
 	return {
+		"is_tutorial_complete": is_tutorial_complete,
 		"total_play_time": total_play_time,
 		"total_kills": total_kills,
 		"total_rooms_cleared": total_rooms_cleared,
@@ -64,11 +67,23 @@ func collect_save_data() -> Dictionary:
 	}
 
 func apply_save_data(data: Dictionary) -> void:
+	is_tutorial_complete = data.get("is_tutorial_complete", is_tutorial_complete)
 	total_play_time = data.get("total_play_time", total_play_time)
 	total_kills = data.get("total_kills", total_kills)
 	total_rooms_cleared = data.get("total_rooms_cleared", total_rooms_cleared)
 	total_floors_cleared = data.get("total_floors_cleared", total_floors_cleared)
 	total_runs = data.get("total_runs", total_runs)
+
+func erase_save_data() -> void:
+	if FileAccess.file_exists("user://save.dat"):
+		DirAccess.remove_absolute("user://save.dat")
+	
+	is_tutorial_complete = false
+	total_play_time = 0.0
+	total_kills = 0
+	total_rooms_cleared = 0
+	total_floors_cleared = 0
+	total_runs = 0
 
 func save_progress() -> void:
 	var existing = load_data()
@@ -77,11 +92,16 @@ func save_progress() -> void:
 		return
 	
 	var current = collect_save_data()
-	
 	var merged_data = {}
 	
 	for key in current.keys():
-		merged_data[key] = max(current.get(key, 0), existing.get(key, 0))
+		var cur = current.get(key)
+		var old = existing.get(key, cur)
+		
+		if typeof(cur) == TYPE_BOOL:
+			merged_data[key] = cur or old
+		else:
+			merged_data[key] = max(cur, old)
 	
 	save_data(merged_data)
 

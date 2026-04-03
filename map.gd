@@ -9,6 +9,12 @@ func _ready() -> void:
 	
 	Game.update_values()
 	
+	if Game.is_tutorial_complete:
+		Game.world.get_node("TutorialMap").queue_free()
+	else:
+		Game.world.get_node("TutorialMap").global_position = Vector2.ZERO
+		queue_free()
+	
 	var free_room_slots = []
 	
 	for slot in room_slots:

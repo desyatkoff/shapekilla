@@ -112,6 +112,11 @@ func show_menu() -> void:
 		try_again_button.visible = false
 		next_floor_button.visible = true
 	
+	if not Game.is_tutorial_complete:
+		Game.is_tutorial_complete = true
+		
+		message_label.text = "[wobble]First time, huh? Good luck, you are on route to the real stuff[/wobble]"
+	
 	Game.hud.main.visible = false
 	
 	get_parent().get_node("MouseCursor").region_rect = Rect2(0.0, 0.0, 32.0, 32.0)

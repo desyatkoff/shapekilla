@@ -58,7 +58,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -384.0
+offset_left = -416.0
 offset_top = -336.0
 offset_right = -32.0
 offset_bottom = -240.0
@@ -74,7 +74,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -352.0
+offset_left = -416.0
 offset_top = -232.0
 offset_right = -32.0
 offset_bottom = -136.0
@@ -90,7 +90,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -320.0
+offset_left = -416.0
 offset_top = -128.0
 offset_right = -32.0
 offset_bottom = -28.0
@@ -333,6 +333,24 @@ offset_bottom = 128.0
 grow_horizontal = 2
 color = Color(0.93333334, 0.93333334, 0.93333334, 1)
 
+[node name="EraseSaveDataButton" type="Button" parent="StatsPanel" unique_id=106243771]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -128.0
+offset_right = 544.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
+theme_override_colors/font_focus_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
+theme_override_colors/font_pressed_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
+theme_override_colors/font_hover_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
+text = "Erase Save Data"
+
 [node name="CloseStatsButton" type="Button" parent="StatsPanel" unique_id=944123792]
 layout_mode = 1
 anchors_preset = 3
@@ -368,4 +386,5 @@ horizontal_alignment = 2
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="StatsButton" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="StatsPanel/EraseSaveDataButton" to="." method="_on_erase_save_data_button_pressed"]
 [connection signal="pressed" from="StatsPanel/CloseStatsButton" to="." method="_on_close_stats_button_pressed"]

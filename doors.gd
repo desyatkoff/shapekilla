@@ -70,8 +70,9 @@ func close() -> void:
 		is_open = false
 
 func _move_doors(door0_y: float, door1_y: float) -> void:
-	doors_sfx_player.pitch_scale = randf_range(0.9, 1.1)
-	doors_sfx_player.play()
+	if move_offset > 0:
+		doors_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+		doors_sfx_player.play()
 	
 	if tween and tween.is_running():
 		tween.kill()

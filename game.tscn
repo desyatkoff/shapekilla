@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://20hdxyt73715" path="res://world.tscn" id="1_eow3j"]
 [ext_resource type="Script" uid="uid://crfnw86kfd12m" path="res://game.gd" id="1_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://ckgm7bvp3wqxy" path="res://player.tscn" id="3_hve3p"]
-[ext_resource type="PackedScene" uid="uid://dnyqao0288vix" path="res://shotgun.tscn" id="4_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://ckyph8pg700pf" path="res://hud.tscn" id="5_iotsf"]
 [ext_resource type="PackedScene" uid="uid://wh2hxggss4hs" path="res://main_menu.tscn" id="6_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://b5r1fvowdpklr" path="res://end_menu.tscn" id="7_215e1"]
@@ -28,8 +27,6 @@ environment = SubResource("Environment_vef74")
 
 [node name="Player" parent="." unique_id=757774300 instance=ExtResource("3_hve3p")]
 position = Vector2(-64, 0)
-
-[node name="Shotgun" parent="Player" unique_id=760112493 instance=ExtResource("4_mfdv2")]
 
 [node name="HUD" parent="." unique_id=93772059 instance=ExtResource("5_iotsf")]
 visible = false
