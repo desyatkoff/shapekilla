@@ -31,7 +31,6 @@ delta = %s
 states = %s
 previous_state = %s
 state = %s
-
 max_health = %s
 health = %s
 max_speed = %s
@@ -43,20 +42,21 @@ velocity = %s
 direction = %s
 current_room_slot = %s
 current_room_slot_id = %s
-
 can_play = %s
 timer_enabled = %s
-
+total_play_time = %s
+total_kills = %s
+total_rooms_cleared = %s
+total_floors_cleared = %s
+total_runs = %s
 run_time = %s
 run_kills = %s
 run_rooms_cleared = %s
-
+run_floors_cleared = %s
 floor_time = %s
 floor_kills = %s
 floor_rooms_cleared = %s
-
-current_floor = %s
-floors_cleared = %s"
+current_floor = %s"
 
 [node name="MainHUD" type="Control" parent="." unique_id=1353498364]
 light_mask = 0

@@ -6,10 +6,22 @@ extends Control
 @onready var kills = $Panel/KillsLabel/ValueLabel
 @onready var rooms_cleared = $Panel/RoomsClearedLabel/ValueLabel
 @onready var floors_cleared = $Panel/FloorsClearedLabel/ValueLabel
+@onready var pro_tip_label = $Panel/ProTipValueLabel
 @onready var try_again_button = $Panel/TryAgainButton
 @onready var next_floor_button = $Panel/NextFloorButton
 @onready var win_sfx_player = $WinSFXPlayer
 @onready var lose_sfx_player = $LoseSFXPlayer
+
+var pro_tips = [
+	"Don't die",
+	"Keep going",
+	"Try entering more rooms to kill even more Shapes",
+	"Remember that your shotgun has infinite ammo",
+	"Lock in"
+]
+
+func _ready() -> void:
+	randomize()
 
 func _on_try_again_button_pressed() -> void:
 	Game.hud.click_sfx_player.play()
@@ -22,9 +34,9 @@ func _on_try_again_button_pressed() -> void:
 	Game.player.run_time = 0.0
 	Game.player.run_kills = 0
 	Game.player.run_rooms_cleared = 0
+	Game.player.run_floors_cleared = 0
 	
 	Game.player.current_floor = 1
-	Game.player.floors_cleared = 0
 	
 	hide_menu()
 
@@ -47,7 +59,7 @@ func show_menu() -> void:
 	Game.player.can_play = false
 	Game.player.timer_enabled = false
 	
-	floors_cleared.text = str(Game.player.floors_cleared)
+	pro_tip_label.text = "[wobble]%s[/wobble]" % pro_tips.pick_random()
 	
 	if Game.player.fsm.state == Game.player.fsm.states.DEAD:
 		lose_sfx_player.play()
@@ -57,6 +69,7 @@ func show_menu() -> void:
 		time.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)
 		kills.text = str(Game.player.run_kills)
 		rooms_cleared.text = str(Game.player.run_rooms_cleared)
+		floors_cleared.text = str(Game.player.run_floors_cleared)
 		
 		floors_cleared.get_parent().visible = true
 		
@@ -65,7 +78,8 @@ func show_menu() -> void:
 	else:
 		win_sfx_player.play()
 		
-		Game.player.floors_cleared += 1
+		Game.total_floors_cleared += 1
+		Game.player.run_floors_cleared += 1
 		
 		title_label.text = "FLOOR #%s RESULTS:" % Game.player.current_floor
 		
@@ -87,6 +101,8 @@ func show_menu() -> void:
 	tween.set_ease(Tween.EASE_IN_OUT)
 	
 	tween.tween_property(panel, "global_position", Vector2(320.0, 180.0), 1.0)
+	
+	Game.save_progress()
 
 func hide_menu() -> void:
 	var tween = create_tween()

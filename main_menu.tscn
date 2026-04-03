@@ -23,65 +23,347 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 
-[node name="Logo" type="TextureRect" parent="." unique_id=2044429766]
+[node name="LogoPanel" type="Panel" parent="." unique_id=4024699]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -315.0
-offset_right = 315.0
-offset_bottom = 500.0
+offset_left = -512.0
+offset_top = 32.0
+offset_right = 512.0
+offset_bottom = 224.0
 grow_horizontal = 2
+theme = ExtResource("1_fu7sn")
+
+[node name="Logo" type="TextureRect" parent="LogoPanel" unique_id=2044429766]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -250.0
+offset_right = 315.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_fu7sn")
 texture = ExtResource("2_jix8l")
 
 [node name="PlayButton" type="Button" parent="." unique_id=269137179]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = 132.0
-offset_right = 192.0
-offset_bottom = 228.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -416.0
+offset_top = -440.0
+offset_right = -32.0
+offset_bottom = -344.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("1_fu7sn")
 text = "Play"
 
+[node name="StatsButton" type="Button" parent="." unique_id=2007913451]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -336.0
+offset_right = -32.0
+offset_bottom = -240.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_fu7sn")
+text = "Stats"
+
 [node name="CreditsButton" type="Button" parent="." unique_id=1927241680]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = 260.0
-offset_right = 192.0
-offset_bottom = 356.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -232.0
+offset_right = -32.0
+offset_bottom = -136.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("1_fu7sn")
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="." unique_id=957481272]
 layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -128.0
+offset_right = -32.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_fu7sn")
+text = "Quit"
+
+[node name="StatsPanel" type="Panel" parent="." unique_id=754094149]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = 388.0
-offset_right = 192.0
-offset_bottom = 488.0
+offset_left = -640.0
+offset_top = -1260.0
+offset_right = 640.0
+offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fu7sn")
-text = "Quit"
+
+[node name="TitleLabel" type="Label" parent="StatsPanel" unique_id=689591937]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 48
+theme_override_font_sizes/font_size = 96
+text = "Stats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalPlayTimeLabel" type="Label" parent="StatsPanel" unique_id=1866118530]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -200.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Total Play Time"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="StatsPanel/TotalPlayTimeLabel" unique_id=1779196817]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = -32.5
+offset_right = 912.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "--:--.---"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TotalKillsLabel" type="Label" parent="StatsPanel" unique_id=942657252]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -135.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Total Kills"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="StatsPanel/TotalKillsLabel" unique_id=1362180115]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = -32.5
+offset_right = 912.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TotalRoomsClearedLabel" type="Label" parent="StatsPanel" unique_id=1903282488]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -70.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Total Rooms Cleared"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="StatsPanel/TotalRoomsClearedLabel" unique_id=1205397618]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = -32.5
+offset_right = 912.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TotalFloorsClearedLabel" type="Label" parent="StatsPanel" unique_id=271900748]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -5.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Total Floors Cleared"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="StatsPanel/TotalFloorsClearedLabel" unique_id=308921775]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = -32.5
+offset_right = 912.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TotalRunsLabel" type="Label" parent="StatsPanel" unique_id=291923770]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = 60.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Total Runs"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="StatsPanel/TotalRunsLabel" unique_id=1850391577]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = -32.5
+offset_right = 912.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Separator" type="ColorRect" parent="StatsPanel" unique_id=2096750587]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 32.0
+offset_top = 124.0
+offset_right = -32.0
+offset_bottom = 128.0
+grow_horizontal = 2
+color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+
+[node name="CloseStatsButton" type="Button" parent="StatsPanel" unique_id=944123792]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -128.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_fu7sn")
+text = "OK"
 
 [node name="CreditsPanel" type="Panel" parent="." unique_id=753560691]
 layout_mode = 1
@@ -239,8 +521,10 @@ text = "v0.1.0"
 horizontal_alignment = 2
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="StatsButton" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="StatsPanel/CloseStatsButton" to="." method="_on_close_stats_button_pressed"]
 [connection signal="meta_clicked" from="CreditsPanel/Label_01" to="." method="_on_meta_clicked"]
 [connection signal="meta_clicked" from="CreditsPanel/Label_02" to="." method="_on_meta_clicked"]
 [connection signal="pressed" from="CreditsPanel/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]

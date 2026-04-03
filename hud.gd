@@ -37,7 +37,6 @@ delta = %s
 states = %s
 previous_state = %s
 state = %s
-
 max_health = %s
 health = %s
 max_speed = %s
@@ -49,20 +48,21 @@ velocity = %s
 direction = %s
 current_room_slot = %s
 current_room_slot_id = %s
-
 can_play = %s
 timer_enabled = %s
-
+total_play_time = %s
+total_kills = %s
+total_rooms_cleared = %s
+total_floors_cleared = %s
+total_runs = %s
 run_time = %s
 run_kills = %s
 run_rooms_cleared = %s
-
+run_floors_cleared = %s
 floor_time = %s
 floor_kills = %s
 floor_rooms_cleared = %s
-
 current_floor = %s
-floors_cleared = %s
 """ % \
 	[
 		Engine.get_frames_per_second(),
@@ -83,14 +83,19 @@ floors_cleared = %s
 		Game.player.current_room_slot_id,
 		Game.player.can_play,
 		Game.player.timer_enabled,
+		Game.total_play_time,
+		Game.total_kills,
+		Game.total_rooms_cleared,
+		Game.total_floors_cleared,
+		Game.total_runs,
 		Game.player.run_time,
 		Game.player.run_kills,
 		Game.player.run_rooms_cleared,
+		Game.player.run_floors_cleared,
 		Game.player.floor_time,
 		Game.player.floor_kills,
 		Game.player.floor_rooms_cleared,
-		Game.player.current_floor,
-		Game.player.floors_cleared
+		Game.player.current_floor
 	]
 	
 	run_time_label.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)

@@ -15,6 +15,7 @@ func _on_enemy_died():
 	if enemies_alive == 0:
 		cleared.emit()
 		
+		Game.total_rooms_cleared += 1
 		Game.player.run_rooms_cleared += 1
 		Game.player.floor_rooms_cleared += 1
 		

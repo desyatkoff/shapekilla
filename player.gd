@@ -11,13 +11,13 @@ var timer_enabled = false
 var run_time = 0.0
 var run_kills = 0
 var run_rooms_cleared = 0
+var run_floors_cleared = 0
 
 var floor_time = 0.0
 var floor_kills = 0
 var floor_rooms_cleared = 0
 
 var current_floor = 1
-var floors_cleared = 0
 
 var item: Item
 

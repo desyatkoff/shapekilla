@@ -64,6 +64,7 @@ func die() -> void:
 	fsm.set_state(fsm.states.DEAD)
 	died.emit()
 	
+	Game.total_kills += 1
 	Game.player.run_kills += 1
 	Game.player.floor_kills += 1
 	

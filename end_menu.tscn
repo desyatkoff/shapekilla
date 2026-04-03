@@ -2,8 +2,18 @@
 
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_fda56"]
 [ext_resource type="Script" uid="uid://bdervk75ewpv4" path="res://end_menu.gd" id="2_n0xmy"]
+[ext_resource type="Script" uid="uid://c4i2yv3tqnxlh" path="res://wobble_text_effect.gd" id="3_bgwgp"]
 [ext_resource type="AudioStream" uid="uid://dxj2v4rafg8kq" path="res://end_menu_show_00.wav" id="3_fda56"]
+[ext_resource type="Script" uid="uid://crth0bc1x417s" path="res://type_text_effect.gd" id="4_jopyb"]
 [ext_resource type="AudioStream" uid="uid://c3n0yt2js32lc" path="res://end_menu_show_01.wav" id="4_t7occ"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_e7rvy"]
+script = ExtResource("3_bgwgp")
+metadata/_custom_type_script = "uid://c4i2yv3tqnxlh"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_gkmom"]
+script = ExtResource("4_jopyb")
+metadata/_custom_type_script = "uid://crth0bc1x417s"
 
 [node name="EndMenu" type="Control" unique_id=1166539871]
 layout_mode = 3
@@ -52,7 +62,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
 offset_top = -232.0
-offset_bottom = -136.0
+offset_bottom = -167.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -68,9 +78,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 224.0
-offset_top = -48.0
+offset_top = -32.5
 offset_right = 672.0
-offset_bottom = 48.0
+offset_bottom = 32.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -88,8 +98,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
-offset_top = -136.0
-offset_bottom = -40.0
+offset_top = -167.0
+offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -105,9 +115,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 224.0
-offset_top = -48.0
+offset_top = -32.5
 offset_right = 672.0
-offset_bottom = 48.0
+offset_bottom = 32.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -125,8 +135,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
-offset_top = -40.0
-offset_bottom = 56.0
+offset_top = -102.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -142,9 +152,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 224.0
-offset_top = -48.0
+offset_top = -32.5
 offset_right = 672.0
-offset_bottom = 48.0
+offset_bottom = 32.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -162,8 +172,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
-offset_top = 56.0
-offset_bottom = 152.0
+offset_top = -37.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -179,9 +189,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 224.0
-offset_top = -48.0
+offset_top = -32.5
 offset_right = 672.0
-offset_bottom = 48.0
+offset_bottom = 32.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fda56")
@@ -191,6 +201,47 @@ text = "-"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="ProTipTitleLabel" type="RichTextLabel" parent="Panel" unique_id=951516946]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -288.0
+offset_bottom = -224.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_fda56")
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[wobble]Pro Tip:[/wobble]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_e7rvy"), SubResource("RichTextEffect_gkmom")]
+
+[node name="ProTipValueLabel" type="RichTextLabel" parent="Panel" unique_id=62641052]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -224.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_fda56")
+theme_override_colors/default_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wobble]-[/wobble]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_e7rvy"), SubResource("RichTextEffect_gkmom")]
+
 [node name="TryAgainButton" type="Button" parent="Panel" unique_id=193533363]
 layout_mode = 1
 anchors_preset = 7
@@ -199,9 +250,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -416.0
-offset_top = -132.0
+offset_top = -128.0
 offset_right = -32.0
-offset_bottom = -36.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_fda56")
@@ -215,9 +266,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -416.0
-offset_top = -132.0
+offset_top = -128.0
 offset_right = -32.0
-offset_bottom = -36.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_fda56")
@@ -231,9 +282,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 32.0
-offset_top = -132.0
+offset_top = -128.0
 offset_right = 416.0
-offset_bottom = -36.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_fda56")

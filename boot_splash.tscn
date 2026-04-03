@@ -15,14 +15,6 @@ metadata/_custom_type_script = "uid://c4i2yv3tqnxlh"
 script = ExtResource("5_tedrr")
 metadata/_custom_type_script = "uid://crth0bc1x417s"
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_hj4np"]
-script = ExtResource("3_e7rvy")
-metadata/_custom_type_script = "uid://c4i2yv3tqnxlh"
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_1uuhg"]
-script = ExtResource("5_tedrr")
-metadata/_custom_type_script = "uid://crth0bc1x417s"
-
 [node name="BootSplash" type="Control" unique_id=1250316143]
 layout_mode = 3
 anchors_preset = 15
@@ -61,46 +53,23 @@ texture = ExtResource("1_n2hxm")
 
 [node name="LoadingLabel" type="RichTextLabel" parent="." unique_id=38543344]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -312.0
-offset_bottom = -216.0
+offset_top = -256.0
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_asuc4")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
-text = "[type][wobble]Loading...[/wobble][/type]"
+text = "[type][wobble]Loading... [color=#424242]Prepare thyself![/color][/wobble][/type]"
 scroll_active = false
+horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_e7rvy"), SubResource("RichTextEffect_gkmom")]
-
-[node name="Label" type="RichTextLabel" parent="." unique_id=1496816703]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_top = -312.0
-offset_right = 512.0
-offset_bottom = -216.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("1_asuc4")
-theme_override_colors/default_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
-theme_override_constants/outline_size = 32
-theme_override_font_sizes/normal_font_size = 64
-bbcode_enabled = true
-text = "[type delay=10.0][wobble] Prepare thyself![/wobble][/type]"
-scroll_active = false
-vertical_alignment = 1
-custom_effects = [SubResource("RichTextEffect_hj4np"), SubResource("RichTextEffect_1uuhg")]
 
 [node name="BootSplashScreenSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=311260598]
 stream = ExtResource("6_tedrr")

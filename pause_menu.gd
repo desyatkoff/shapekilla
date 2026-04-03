@@ -13,7 +13,28 @@ func _process(_delta: float) -> void:
 func _on_resume_button_pressed() -> void:
 	hide_menu()
 
+func _on_to_main_menu_button_pressed() -> void:
+	Game.hud.click_sfx_player.play()
+	
+	Game.reload_world()
+	Game.reload_player()
+	
+	Game.player.revive()
+	
+	Game.player.run_time = 0.0
+	Game.player.run_kills = 0
+	Game.player.run_rooms_cleared = 0
+	Game.player.run_floors_cleared = 0
+	
+	Game.player.current_floor = 1
+	
+	hide_menu()
+	
+	get_tree().reload_current_scene()
+
 func _on_quit_button_pressed() -> void:
+	Game.save_progress()
+	
 	Game.hud.click_sfx_player.play()
 	
 	get_tree().quit()
@@ -29,7 +50,7 @@ func show_menu() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	
-	tween.tween_property(panel, "global_position", Vector2(720.0, 270.0), 1.0)
+	tween.tween_property(panel, "global_position", Vector2(720.0, 270.0), 0.5)
 
 func hide_menu() -> void:
 	get_tree().paused = false
@@ -42,4 +63,4 @@ func hide_menu() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	
-	tween.tween_property(panel, "global_position", Vector2(720.0, -540.0), 1.0)
+	tween.tween_property(panel, "global_position", Vector2(720.0, -540.0), 0.5)
