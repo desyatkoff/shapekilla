@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bpqwxlhavkbdt" path="res://boot_splash.gd" id="2_ndo6g"]
 [ext_resource type="Script" uid="uid://c4i2yv3tqnxlh" path="res://wobble_text_effect.gd" id="3_e7rvy"]
 [ext_resource type="Script" uid="uid://crth0bc1x417s" path="res://type_text_effect.gd" id="5_tedrr"]
-[ext_resource type="AudioStream" uid="uid://dcrgk6rmtqm6y" path="res://boot_splash_screen_00.wav" id="6_tedrr"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_e7rvy"]
 script = ExtResource("3_e7rvy")
@@ -70,10 +69,6 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_e7rvy"), SubResource("RichTextEffect_gkmom")]
-
-[node name="BootSplashScreenSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=311260598]
-stream = ExtResource("6_tedrr")
-autoplay = true
 
 [node name="Timer" type="Timer" parent="." unique_id=130250617]
 wait_time = 4.0

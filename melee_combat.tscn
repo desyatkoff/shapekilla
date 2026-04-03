@@ -2,24 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_e6f3t"]
 [ext_resource type="Script" uid="uid://ngrl4tqpyyrv" path="res://melee_combat.gd" id="2_to0tj"]
-[ext_resource type="AudioStream" uid="uid://bjj2ggene8sbe" path="res://melee_combat_00.wav" id="3_bylyd"]
-[ext_resource type="AudioStream" uid="uid://bwxy56s0vkx5m" path="res://melee_combat_01.wav" id="4_sq8kb"]
-[ext_resource type="AudioStream" uid="uid://dmj6ncwhn0cpu" path="res://melee_combat_02.wav" id="5_q0q14"]
-[ext_resource type="AudioStream" uid="uid://4m554xw45lda" path="res://melee_combat_03.wav" id="6_yjrd8"]
-[ext_resource type="AudioStream" uid="uid://ci3jkcqep2j5n" path="res://melee_combat_04.wav" id="7_gkef5"]
-[ext_resource type="AudioStream" uid="uid://dx66dxtsl0a5o" path="res://melee_combat_05.wav" id="8_rooji"]
+[ext_resource type="AudioStream" uid="uid://cmry0beqkg2o1" path="res://melee_combat.wav" id="3_8wiex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wiex"]
 size = Vector2(32, 32)
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fgjem"]
-streams_count = 6
-stream_0/stream = ExtResource("3_bylyd")
-stream_1/stream = ExtResource("4_sq8kb")
-stream_2/stream = ExtResource("5_q0q14")
-stream_3/stream = ExtResource("6_yjrd8")
-stream_4/stream = ExtResource("7_gkef5")
-stream_5/stream = ExtResource("8_rooji")
 
 [node name="MeleeCombat" unique_id=760112493 instance=ExtResource("1_e6f3t")]
 script = ExtResource("2_to0tj")
@@ -32,7 +18,7 @@ collision_mask = 6
 shape = SubResource("RectangleShape2D_8wiex")
 
 [node name="AttackSFXPlayer" parent="." index="2" unique_id=947155498]
-stream = SubResource("AudioStreamRandomizer_fgjem")
+stream = ExtResource("3_8wiex")
 
 [node name="CooldownTimer" parent="." index="3" unique_id=1453833404]
 wait_time = 0.25

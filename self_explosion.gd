@@ -21,6 +21,7 @@ func _on_cooldown_timer_timeout() -> void:
 				smoke_particles.emitting = true
 				
 				if not did_play_sfx:
+					attack_sfx_player.pitch_scale = randf_range(0.9, 1.1)
 					attack_sfx_player.play()
 					did_play_sfx = true
 				

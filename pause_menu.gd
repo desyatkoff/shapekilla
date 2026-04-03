@@ -14,8 +14,6 @@ func _on_resume_button_pressed() -> void:
 	hide_menu()
 
 func _on_to_main_menu_button_pressed() -> void:
-	Game.hud.click_sfx_player.play()
-	
 	Game.reload_world()
 	Game.reload_player()
 	

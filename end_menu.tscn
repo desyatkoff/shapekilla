@@ -3,9 +3,9 @@
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_fda56"]
 [ext_resource type="Script" uid="uid://bdervk75ewpv4" path="res://end_menu.gd" id="2_n0xmy"]
 [ext_resource type="Script" uid="uid://c4i2yv3tqnxlh" path="res://wobble_text_effect.gd" id="3_bgwgp"]
-[ext_resource type="AudioStream" uid="uid://dxj2v4rafg8kq" path="res://end_menu_show_00.wav" id="3_fda56"]
 [ext_resource type="Script" uid="uid://crth0bc1x417s" path="res://type_text_effect.gd" id="4_jopyb"]
-[ext_resource type="AudioStream" uid="uid://c3n0yt2js32lc" path="res://end_menu_show_01.wav" id="4_t7occ"]
+[ext_resource type="AudioStream" uid="uid://cdn6ve86xsynm" path="res://floor_completed.wav" id="5_bgwgp"]
+[ext_resource type="AudioStream" uid="uid://bk1ym0ankpoes" path="res://death.wav" id="6_jopyb"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_e7rvy"]
 script = ExtResource("3_bgwgp")
@@ -291,11 +291,11 @@ theme = ExtResource("1_fda56")
 text = "Quit"
 
 [node name="WinSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1671022896]
-stream = ExtResource("3_fda56")
+stream = ExtResource("5_bgwgp")
 bus = &"SFX"
 
 [node name="LoseSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1550577336]
-stream = ExtResource("4_t7occ")
+stream = ExtResource("6_jopyb")
 bus = &"SFX"
 
 [connection signal="pressed" from="Panel/TryAgainButton" to="." method="_on_try_again_button_pressed"]

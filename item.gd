@@ -43,6 +43,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			item_owner = body
 			item_owner.item = self
 			
+			pickup_sfx_player.pitch_scale = randf_range(0.9, 1.1)
 			pickup_sfx_player.play()
 			
 			call_deferred("reparent", body.item_slot)
@@ -61,6 +62,7 @@ func use() -> void:
 	item_owner.item = null
 	item_owner = null
 	
+	use_sfx_player.pitch_scale = randf_range(0.9, 1.1)
 	use_sfx_player.play()
 	
 	call_deferred("reparent", Game.world.get_node("ItemsContainer"))

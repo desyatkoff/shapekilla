@@ -15,6 +15,7 @@ func _on_cooldown_timer_timeout() -> void:
 				
 				body.apply_noise_shake(8.0)
 				
+				attack_sfx_player.pitch_scale = randf_range(0.9, 1.1)
 				attack_sfx_player.play()
 				
 				var knife_position = position

@@ -2,12 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_wbf5a"]
 [ext_resource type="Script" uid="uid://b3chfirpsm2po" path="res://self_explosion.gd" id="2_j4hhh"]
-[ext_resource type="AudioStream" uid="uid://dyquqcnqaixva" path="res://self_explosion_00.wav" id="3_5xl17"]
-[ext_resource type="AudioStream" uid="uid://b1x5qh3acrj3k" path="res://self_explosion_01.wav" id="4_ns6cu"]
-[ext_resource type="AudioStream" uid="uid://4hwqjyu6gl3s" path="res://self_explosion_02.wav" id="5_q5a58"]
-[ext_resource type="AudioStream" uid="uid://p3y8p8yp3oeo" path="res://self_explosion_03.wav" id="6_e23h8"]
-[ext_resource type="AudioStream" uid="uid://ie54a1x75l8a" path="res://self_explosion_04.wav" id="7_xgao7"]
-[ext_resource type="AudioStream" uid="uid://cnqgf82somwt1" path="res://self_explosion_05.wav" id="8_gxgq5"]
+[ext_resource type="AudioStream" uid="uid://beq650geneuj2" path="res://self_explosion.wav" id="3_mt0xr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt0xr"]
 radius = 96.0
@@ -29,15 +24,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.5, 1)
 colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.25882354, 0.25882354, 0.25882354, 1, 0.38039216, 0.38039216, 0.38039216, 1)
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xgao7"]
-streams_count = 6
-stream_0/stream = ExtResource("3_5xl17")
-stream_1/stream = ExtResource("4_ns6cu")
-stream_2/stream = ExtResource("5_q5a58")
-stream_3/stream = ExtResource("6_e23h8")
-stream_4/stream = ExtResource("7_xgao7")
-stream_5/stream = ExtResource("8_gxgq5")
 
 [node name="SelfExplosion" unique_id=760112493 instance=ExtResource("1_wbf5a")]
 script = ExtResource("2_j4hhh")
@@ -87,7 +73,7 @@ color_ramp = SubResource("Gradient_0djnq")
 color_initial_ramp = SubResource("Gradient_r4prc")
 
 [node name="AttackSFXPlayer" parent="." index="4" unique_id=947155498]
-stream = SubResource("AudioStreamRandomizer_xgao7")
+stream = ExtResource("3_mt0xr")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

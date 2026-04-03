@@ -34,6 +34,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			
 			if body.fsm.state != body.fsm.states.DEAD:
 				body.health -= damage
+				body.hurt_sfx_player.pitch_scale = randf_range(0.9, 1.1)
 				body.hurt_sfx_player.play()
 				
 				var blood_instance = blood_scene.instantiate()

@@ -4,6 +4,7 @@ class_name Doors
 @onready var door0 = $Door_00
 @onready var door1 = $Door_01
 @onready var lock_sprite = $Lock
+@onready var doors_sfx_player = $DoorsSFXPlayer
 
 @export var move_offset = 32
 @export var move_time = 0.5
@@ -69,6 +70,9 @@ func close() -> void:
 		is_open = false
 
 func _move_doors(door0_y: float, door1_y: float) -> void:
+	doors_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+	doors_sfx_player.play()
+	
 	if tween and tween.is_running():
 		tween.kill()
 	

@@ -3,24 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_8wt88"]
 [ext_resource type="Script" uid="uid://cbde4pytl71li" path="res://knife.gd" id="2_qjenl"]
 [ext_resource type="Texture2D" uid="uid://l3xx1230dy58" path="res://knife.png" id="2_s4gn3"]
-[ext_resource type="AudioStream" uid="uid://ckixtuvkpxy5i" path="res://knife_00.wav" id="4_m161u"]
-[ext_resource type="AudioStream" uid="uid://dvyxxcv8vyhic" path="res://knife_01.wav" id="5_8j2pu"]
-[ext_resource type="AudioStream" uid="uid://c1jkv0v844c86" path="res://knife_02.wav" id="6_x7nyd"]
-[ext_resource type="AudioStream" uid="uid://cy4432hglcefh" path="res://knife_03.wav" id="7_2bq6q"]
-[ext_resource type="AudioStream" uid="uid://cli1uo6axmsso" path="res://knife_04.wav" id="8_4crip"]
-[ext_resource type="AudioStream" uid="uid://bgr5v6qbn8ixu" path="res://knife_05.wav" id="9_fb2lt"]
+[ext_resource type="AudioStream" uid="uid://bslg7wlue1cqf" path="res://knife.wav" id="4_qjenl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjenl"]
 size = Vector2(23, 8)
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m161u"]
-streams_count = 6
-stream_0/stream = ExtResource("4_m161u")
-stream_1/stream = ExtResource("5_8j2pu")
-stream_2/stream = ExtResource("6_x7nyd")
-stream_3/stream = ExtResource("7_2bq6q")
-stream_4/stream = ExtResource("8_4crip")
-stream_5/stream = ExtResource("9_fb2lt")
 
 [node name="Knife" unique_id=760112493 instance=ExtResource("1_8wt88")]
 script = ExtResource("2_qjenl")
@@ -39,7 +25,7 @@ position = Vector2(13.5, 0)
 shape = SubResource("RectangleShape2D_qjenl")
 
 [node name="AttackSFXPlayer" parent="." index="2" unique_id=947155498]
-stream = SubResource("AudioStreamRandomizer_m161u")
+stream = ExtResource("4_qjenl")
 
 [node name="CooldownTimer" parent="." index="3" unique_id=1453833404]
 wait_time = 0.5

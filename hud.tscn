@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_37p78"]
 [ext_resource type="Script" uid="uid://du5jr86kejibr" path="res://hud.gd" id="1_64ctp"]
-[ext_resource type="AudioStream" uid="uid://qo8gskrglwhq" path="res://click_00.wav" id="3_8sq4i"]
+[ext_resource type="AudioStream" uid="uid://xlq1eybd7yd5" path="res://click.wav" id="3_8sq4i"]
 
 [node name="HUD" type="CanvasLayer" unique_id=93772059]
 process_mode = 3

@@ -33,6 +33,7 @@ func attack():
 		
 		weapon_owner.apply_noise_shake(4.0)
 		
+		attack_sfx_player.pitch_scale = randf_range(0.9, 1.1)
 		attack_sfx_player.play()
 		
 		var shoot_particles_instance = shoot_particles_scene.instantiate()
