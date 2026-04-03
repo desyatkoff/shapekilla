@@ -41,6 +41,30 @@ var messages_on_win = [
 func _ready() -> void:
 	randomize()
 
+func _on_quit_button_pressed() -> void:
+	Game.hud.click_sfx_player.play()
+	
+	get_tree().quit()
+
+func _on_to_main_menu_button_pressed() -> void:
+	Game.hud.click_sfx_player.play()
+	
+	Game.reload_world()
+	Game.reload_player()
+	
+	Game.player.revive()
+	
+	Game.player.run_time = 0.0
+	Game.player.run_kills = 0
+	Game.player.run_rooms_cleared = 0
+	Game.player.run_floors_cleared = 0
+	
+	Game.player.current_floor = 1
+	
+	hide_menu()
+	
+	get_tree().reload_current_scene()
+
 func _on_try_again_button_pressed() -> void:
 	Game.hud.click_sfx_player.play()
 	
@@ -67,11 +91,6 @@ func _on_next_floor_button_pressed() -> void:
 	Game.player.current_floor += 1
 	
 	hide_menu()
-
-func _on_quit_button_pressed() -> void:
-	Game.hud.click_sfx_player.play()
-	
-	get_tree().quit()
 
 func show_menu() -> void:
 	Game.player.can_play = false
