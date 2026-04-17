@@ -431,145 +431,145 @@ agent_radius = 0.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kwd4m"]
 polygon = PackedVector2Array(-4, -4, -16, -4, -16, -16, -4, -16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_e1wd7"]
-vertices = PackedVector2Array(16, -16, 16, -9, -9, -9, -16, -16, -16, 16, -9, 16, 16, 16, 3, 16, 3, 3, 16, 3)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-9, -9, 16, -9, 16, -16, -16, -16, -16, 16, -9, 16), PackedVector2Array(3, 3, 16, 3, 16, 16, 3, 16)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kfwk1"]
+vertices = PackedVector2Array(16, -16, 16, -9, -9, -9, -16, -16, -16, 16, -9, 16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-9, -9, 16, -9, 16, -16, -16, -16, -16, 16, -9, 16)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kfwk1"]
 polygon = PackedVector2Array(-9, -9, 16, -9, 16, 3, 3, 3, 3, 16, -9, 16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_xkcq7"]
-vertices = PackedVector2Array(-9, 16, -16, 16, -16, -16, -9, -16, 16, 16, 3, 16, 3, -16, 16, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(3, -16, 3, 16, 16, 16, 16, -16), PackedVector2Array(-9, 16, -16, 16, -16, -16, -9, -16)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nq4aq"]
+vertices = PackedVector2Array(-9, 16, -16, 16, -16, -16, -9, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, 16, -16, -16, -9, -16, -9, 16)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nq4aq"]
 polygon = PackedVector2Array(-9, 16, -9, -16, 3, -16, 3, 16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_8uufd"]
-vertices = PackedVector2Array(-9, 9, 16, 9, 16, 16, -16, 16, -16, -16, -9, -16, 16, -3, 3, -3, 3, -16, 16, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-9, 9, -9, -16, -16, -16, -16, 16, 16, 16, 16, 9), PackedVector2Array(3, -3, 3, -16, 16, -16, 16, -3)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1vrtm"]
+vertices = PackedVector2Array(-9, 9, 16, 9, 16, 16, -16, 16, -16, -16, -9, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, 16, -16, 16, -16, -16, -9, -16, -9, 9, 16, 9)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1vrtm"]
 polygon = PackedVector2Array(-9, 9, -9, -16, 3, -16, 3, -3, 16, -3, 16, 9)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_kwd4m"]
-vertices = PackedVector2Array(16, -16, 16, -9, 4, -9, -16, -16, 4, 4, -9, 4, -16, 16, -9, 16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3), PackedInt32Array(6, 3, 5, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-9, 16, -16, 16, -16, -16, 16, -16, 16, -9, 4, -9, 4, 4, -9, 4)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3ppxi"]
+vertices = PackedVector2Array(16, -16, 16, -9, -9, -9, -16, -16, -16, 16, -9, 16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, 16, -16, -16, 16, -16, 16, -9, -9, -9, -9, 16)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3ppxi"]
 polygon = PackedVector2Array(-9, 16, -9, 4, 4, 4, 4, -9, 16, -9, 16, 16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_1f61l"]
-vertices = PackedVector2Array(4, 16, -16, 16, -16, -16, 4, -16)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_iw1w7"]
+vertices = PackedVector2Array(-9, 16, -16, 16, -16, -16, -9, -16)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(4, 16, -16, 16, -16, -16, 4, -16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, 16, -16, -16, -9, -16, -9, 16)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iw1w7"]
 polygon = PackedVector2Array(16, -16, 16, 16, 4, 16, 4, -16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_xi453"]
-vertices = PackedVector2Array(-9, -4, 4, -4, 4, 9, -16, 16, 16, 9, 16, 16, -16, -16, -9, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3), PackedInt32Array(0, 3, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(16, 9, 16, 16, -16, 16, -16, -16, -9, -16, -9, -4, 4, -4, 4, 9)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_06xp3"]
+vertices = PackedVector2Array(-9, 9, 16, 9, 16, 16, -16, 16, -16, -16, -9, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, 16, -16, 16, -16, -16, -9, -16, -9, 9, 16, 9)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_06xp3"]
 polygon = PackedVector2Array(16, 9, 4, 9, 4, -4, -9, -4, -9, -16, 16, -16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_1xagg"]
-vertices = PackedVector2Array(16, 16, -16, 16, -16, 3, 16, 3, 16, -9, -16, -9, -16, -16, 16, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(16, 3, -16, 3, -16, 16, 16, 16), PackedVector2Array(-16, -9, -16, -16, 16, -16, 16, -9)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qumku"]
+vertices = PackedVector2Array(16, -9, -16, -9, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, -9, -16, -9)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qumku"]
 polygon = PackedVector2Array(-16, -9, 16, -9, 16, 3, -16, 3)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_urahp"]
-vertices = PackedVector2Array(16, 16, -16, 16, -16, 9, 16, 9, 16, -3, -16, -3, -16, -16, 16, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -3, 16, -3, 16, -16, -16, -16), PackedVector2Array(16, 9, 16, 16, -16, 16, -16, 9)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5pofp"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, 9, 16, 9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, 16, -16, 16, -16, 9, 16, 9)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5pofp"]
 polygon = PackedVector2Array(16, 9, -16, 9, -16, -3, 16, -3)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_7b682"]
-vertices = PackedVector2Array(16, 4, -16, 4, -16, -16, 16, -16)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dcmha"]
+vertices = PackedVector2Array(16, -9, -16, -9, -16, -16, 16, -16)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-16, 4, -16, -16, 16, -16, 16, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, -9, -16, -9)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dcmha"]
 polygon = PackedVector2Array(16, 16, -16, 16, -16, 4, 16, 4)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_bn158"]
-vertices = PackedVector2Array(16, 16, -16, 16, -16, -4, 16, -4)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ycv0v"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, 9, 16, 9)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(16, -4, 16, 16, -16, 16, -16, -4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, 16, -16, 16, -16, 9, 16, 9)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ycv0v"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, -4, -16, -4)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_cskkv"]
-vertices = PackedVector2Array(-3, 16, -16, 16, -16, 3, -3, 3, 16, -16, 16, 16, 9, 16, 9, -9, -16, -16, -16, -9)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(9, -9, 9, 16, 16, 16, 16, -16, -16, -16, -16, -9), PackedVector2Array(-3, 3, -3, 16, -16, 16, -16, 3)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fwhb7"]
+vertices = PackedVector2Array(16, -16, 16, 16, 9, 16, 9, -9, -16, -16, -16, -9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, 9, 16, 9, -9, -16, -9)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fwhb7"]
 polygon = PackedVector2Array(9, -9, 9, 16, -3, 16, -3, 3, -16, 3, -16, -9)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_028i1"]
-vertices = PackedVector2Array(-3, 16, -16, 16, -16, -16, -3, -16, 16, 16, 9, 16, 9, -16, 16, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-3, 16, -3, -16, -16, -16, -16, 16), PackedVector2Array(9, -16, 16, -16, 16, 16, 9, 16)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4q4jd"]
+vertices = PackedVector2Array(16, 16, 9, 16, 9, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, -16, 16, 16, 9, 16, 9, -16)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4q4jd"]
 polygon = PackedVector2Array(9, -16, 9, 16, -3, 16, -3, -16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_hltbc"]
-vertices = PackedVector2Array(16, 16, -16, 16, -16, 9, 9, 9, 16, -16, 9, -16, -3, -3, -16, -3, -16, -16, -3, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(9, 9, -16, 9, -16, 16, 16, 16, 16, -16, 9, -16), PackedVector2Array(-3, -3, -16, -3, -16, -16, -3, -16)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_yriep"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, 9, 9, 9, 16, -16, 9, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, -16, 16, 16, -16, 16, -16, 9, 9, 9, 9, -16)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yriep"]
 polygon = PackedVector2Array(9, 9, -16, 9, -16, -3, -3, -3, -3, -16, 9, -16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_iixrc"]
-vertices = PackedVector2Array(16, -16, 16, 16, 9, 16, 9, 4, -4, 4, -4, -9, -16, -16, -16, -9)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 0), PackedInt32Array(6, 0, 5, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -9, -16, -16, 16, -16, 16, 16, 9, 16, 9, 4, -4, 4, -4, -9)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_caffn"]
+vertices = PackedVector2Array(16, -16, 16, 16, 9, 16, 9, -9, -16, -16, -16, -9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, 9, 16, 9, -9, -16, -9)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_caffn"]
 polygon = PackedVector2Array(-16, -9, -4, -9, -4, 4, 9, 4, 9, 16, -16, 16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ojpgx"]
-vertices = PackedVector2Array(16, 16, -4, 16, -4, -16, 16, -16)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qahux"]
+vertices = PackedVector2Array(16, 16, 9, 16, 9, -16, 16, -16)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -16, 16, -16, 16, 16, -4, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, -16, 16, 16, 9, 16, 9, -16)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qahux"]
 polygon = PackedVector2Array(-16, 16, -16, -16, -4, -16, -4, 16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_f65ro"]
-vertices = PackedVector2Array(16, 16, -16, 16, -16, 9, -4, 9, -4, -4, 9, -4, 16, -16, 9, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 0), PackedInt32Array(6, 0, 5, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(9, -16, 16, -16, 16, 16, -16, 16, -16, 9, -4, 9, -4, -4, 9, -4)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_r5ry1"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, 9, 9, 9, 16, -16, 9, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, -16, 16, 16, -16, 16, -16, 9, 9, 9, 9, -16)])
 agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r5ry1"]
@@ -605,15 +605,11 @@ texture_region_size = Vector2i(32, 32)
 7:0/0 = 0
 7:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_kfwk1")
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -9, -9, -9, -9, 16, 3, 16, 3, 3, 16, 3)
-7:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_e1wd7")
+7:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_kfwk1")
 8:0/0 = 0
 8:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qumku")
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 16, -9, 16, 3, -16, 3)
-8:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xagg")
-9:0/0 = 0
-9:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fwhb7")
-9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 9, -9, 9, 16, -3, 16, -3, 3, -16, 3)
-9:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cskkv")
+8:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qumku")
 10:0/0 = 0
 10:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_p5pve")
 10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -8, -8, -8, -8, 16, 8, 16, 8, 8, 16, 8)
@@ -657,11 +653,11 @@ texture_region_size = Vector2i(32, 32)
 7:1/0 = 0
 7:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_nq4aq")
 7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, 16, -9, 16, -9, -16, 3, -16)
-7:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xkcq7")
+7:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_nq4aq")
 9:1/0 = 0
 9:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_4q4jd")
 9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(9, 16, -3, 16, -3, -16, 9, -16)
-9:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_028i1")
+9:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4q4jd")
 10:1/0 = 0
 10:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_urblq")
 10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 16, -9, 16, -9, -16, 8, -16)
@@ -701,15 +697,15 @@ texture_region_size = Vector2i(32, 32)
 7:2/0 = 0
 7:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1vrtm")
 7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 9, -9, 9, -9, -16, 3, -16, 3, -3, 16, -3)
-7:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_8uufd")
+7:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_1vrtm")
 8:2/0 = 0
 8:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_5pofp")
 8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -3, 16, -3, 16, 9, -16, 9)
-8:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_urahp")
+8:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_5pofp")
 9:2/0 = 0
 9:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yriep")
 9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(9, -16, 9, 9, -16, 9, -16, -3, -3, -3, -3, -16)
-9:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_hltbc")
+9:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_yriep")
 10:2/0 = 0
 10:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_h75vw")
 10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, -8, 16, -8, 16, 8, 8, 8, 8, 16, -8, 16)
@@ -809,35 +805,35 @@ texture_region_size = Vector2i(32, 32)
 7:3/0 = 0
 7:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_3ppxi")
 7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, 16, -9, 4, 4, 4, 4, -9, 16, -9, 16, 16)
-7:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_kwd4m")
+7:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3ppxi")
 8:3/0 = 0
 8:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_dcmha")
 8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4, 16, 4, 16, 16, -16, 16)
-8:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7b682")
+8:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dcmha")
 9:3/0 = 0
 9:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_caffn")
 9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, -4, -9, -4, 4, 9, 4, 9, 16, -16, 16)
-9:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_iixrc")
+9:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_caffn")
 9:4/0 = 0
 9:4/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qahux")
 9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -16, -4, 16, -16, 16, -16, -16)
-9:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ojpgx")
+9:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qahux")
 9:5/0 = 0
 9:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_r5ry1")
 9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(9, -16, 9, -4, -4, -4, -4, 9, -16, 9, -16, -16)
-9:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f65ro")
+9:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_r5ry1")
 8:5/0 = 0
 8:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ycv0v")
 8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -4, -16, -4, -16, -16, 16, -16)
-8:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bn158")
+8:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ycv0v")
 7:5/0 = 0
 7:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_06xp3")
 7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 9, 4, 9, 4, -4, -9, -4, -9, -16, 16, -16)
-7:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xi453")
+7:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_06xp3")
 7:4/0 = 0
 7:4/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_iw1w7")
 7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 16, 4, -16, 16, -16, 16, 16)
-7:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_1f61l")
+7:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_iw1w7")
 4:3/0 = 0
 4:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_iwan2")
 4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 4, 16, 4, 16, 16, 4, 16)
@@ -904,6 +900,10 @@ texture_region_size = Vector2i(32, 32)
 3:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4o3f6")
 14:9/0 = 0
 14:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_v5vuv")
+9:0/0 = 0
+9:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fwhb7")
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 9, -9, 9, 16, -3, 16, -3, 3, -16, 3)
+9:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fwhb7")
 
 [resource]
 tile_size = Vector2i(32, 32)
