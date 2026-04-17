@@ -47,7 +47,9 @@ func reload_world() -> void:
     update_values()
 
 func reload_player() -> void:
-    player.weapon.queue_free()
+    if player.weapon:
+        player.weapon.queue_free()
+
     player.floor_time = 0.0
     player.floor_kills = 0
     player.floor_rooms_cleared = 0
