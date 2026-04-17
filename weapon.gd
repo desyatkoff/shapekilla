@@ -10,10 +10,10 @@ class_name Weapon
 @export var damage = 1
 
 func _ready() -> void:
-	if get_parent().get_parent() is Character:
-		weapon_owner = get_parent().get_parent()
-		weapon_owner.weapon = self
+    if get_parent().get_parent() is Character:
+        weapon_owner = get_parent().get_parent()
+        weapon_owner.weapon = self
 
 func attack():
-	if cooldown.is_stopped():
-		cooldown.start()
+    if cooldown.is_stopped():
+        cooldown.start()
