@@ -14,15 +14,8 @@ extends Control
 func _ready() -> void:
     visible = true
 
-    var tween = create_tween()
-
-    tween.set_trans(Tween.TRANS_SINE)
-    tween.set_ease(Tween.EASE_IN_OUT)
-    tween.tween_property(bg, "color", Color("#21212100"), 4.0)
-
-    await tween.finished
-
-    bg.queue_free()
+    if Game.is_tutorial_complete:
+        fade_out()
 
 func _on_play_button_pressed() -> void:
     play_button.disabled = true
@@ -30,6 +23,9 @@ func _on_play_button_pressed() -> void:
     quit_button.disabled = true
 
     Game.hud.click_sfx_player.play()
+
+    if not Game.is_tutorial_complete:
+        fade_out()
 
     var tween = create_tween()
 
@@ -100,6 +96,17 @@ func format_time(t: float) -> Array:
     var milliseconds = total_ms % 1000
 
     return [int(minutes), int(seconds), int(milliseconds)]
+
+func fade_out() -> void:
+    var tween = create_tween()
+
+    tween.set_trans(Tween.TRANS_SINE)
+    tween.set_ease(Tween.EASE_IN_OUT)
+    tween.tween_property(bg, "color", Color("#21212100"), 4.0)
+
+    await tween.finished
+
+    bg.queue_free()
 
 func play() -> void:
     Game.total_runs += 1

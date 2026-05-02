@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_fu7sn"]
 [ext_resource type="Script" uid="uid://bxtope1xe8gxr" path="res://main_menu.gd" id="2_glbon"]
 [ext_resource type="Texture2D" uid="uid://v5ryrfw3b21v" path="res://logo.png" id="2_jix8l"]
+[ext_resource type="Script" uid="uid://bmgn1d54psyh1" path="res://version_label.gd" id="4_jix8l"]
 
 [node name="MainMenu" type="Control" unique_id=1166539871]
 layout_mode = 3
@@ -380,8 +381,9 @@ theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 24
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "v0.1.0"
+text = "v0.0.0"
 horizontal_alignment = 2
+script = ExtResource("4_jix8l")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="StatsButton" to="." method="_on_stats_button_pressed"]
