@@ -167,7 +167,7 @@ text = "--:--.---"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="TotalKillsLabel" type="Label" parent="StatsPanel" unique_id=942657252]
+[node name="TotalRunsLabel" type="Label" parent="StatsPanel" unique_id=291923770]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,123 +177,6 @@ anchor_bottom = 0.5
 offset_left = -608.0
 offset_top = -135.0
 offset_bottom = -70.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_fu7sn")
-theme_override_constants/outline_size = 32
-theme_override_font_sizes/font_size = 64
-text = "Total Kills"
-vertical_alignment = 1
-
-[node name="ValueLabel" type="Label" parent="StatsPanel/TotalKillsLabel" unique_id=1362180115]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 304.0
-offset_top = -32.5
-offset_right = 912.0
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_fu7sn")
-theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
-theme_override_constants/outline_size = 32
-theme_override_font_sizes/font_size = 64
-text = "-"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="TotalRoomsClearedLabel" type="Label" parent="StatsPanel" unique_id=1903282488]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -608.0
-offset_top = -70.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_fu7sn")
-theme_override_constants/outline_size = 32
-theme_override_font_sizes/font_size = 64
-text = "Total Rooms Cleared"
-vertical_alignment = 1
-
-[node name="ValueLabel" type="Label" parent="StatsPanel/TotalRoomsClearedLabel" unique_id=1205397618]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 304.0
-offset_top = -32.5
-offset_right = 912.0
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_fu7sn")
-theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
-theme_override_constants/outline_size = 32
-theme_override_font_sizes/font_size = 64
-text = "-"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="TotalFloorsClearedLabel" type="Label" parent="StatsPanel" unique_id=271900748]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -608.0
-offset_top = -5.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_fu7sn")
-theme_override_constants/outline_size = 32
-theme_override_font_sizes/font_size = 64
-text = "Total Floors Cleared"
-vertical_alignment = 1
-
-[node name="ValueLabel" type="Label" parent="StatsPanel/TotalFloorsClearedLabel" unique_id=308921775]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 304.0
-offset_top = -32.5
-offset_right = 912.0
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_fu7sn")
-theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
-theme_override_constants/outline_size = 32
-theme_override_font_sizes/font_size = 64
-text = "-"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="TotalRunsLabel" type="Label" parent="StatsPanel" unique_id=291923770]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -608.0
-offset_top = 60.0
-offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fu7sn")
@@ -321,6 +204,226 @@ theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
 horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TotalLabel" type="Label" parent="StatsPanel" unique_id=10065876]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 224.0
+offset_top = -70.0
+offset_right = 416.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Total"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestLabel" type="Label" parent="StatsPanel" unique_id=1829115120]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 416.0
+offset_top = -70.0
+offset_right = 608.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Best"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KillsLabel" type="Label" parent="StatsPanel" unique_id=942657252]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -5.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Kills"
+vertical_alignment = 1
+
+[node name="TotalValueLabel" type="Label" parent="StatsPanel/KillsLabel" unique_id=2046379893]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 528.0
+offset_top = -32.5
+offset_right = 720.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestValueLabel" type="Label" parent="StatsPanel/KillsLabel" unique_id=1362180115]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 720.0
+offset_top = -32.5
+offset_right = 912.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoomsClearedLabel" type="Label" parent="StatsPanel" unique_id=1903282488]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = 60.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Rooms Cleared"
+vertical_alignment = 1
+
+[node name="TotalValueLabel" type="Label" parent="StatsPanel/RoomsClearedLabel" unique_id=289753427]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 528.0
+offset_top = -32.5
+offset_right = 720.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestValueLabel" type="Label" parent="StatsPanel/RoomsClearedLabel" unique_id=1178800767]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 720.0
+offset_top = -32.5
+offset_right = 912.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FloorsClearedLabel" type="Label" parent="StatsPanel" unique_id=271900748]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = 125.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "Floors Cleared"
+vertical_alignment = 1
+
+[node name="TotalValueLabel" type="Label" parent="StatsPanel/FloorsClearedLabel" unique_id=1874565804]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 528.0
+offset_top = -32.5
+offset_right = 720.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestValueLabel" type="Label" parent="StatsPanel/FloorsClearedLabel" unique_id=1099357531]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 720.0
+offset_top = -32.5
+offset_right = 912.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fu7sn")
+theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Separator" type="ColorRect" parent="StatsPanel" unique_id=2096750587]

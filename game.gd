@@ -6,10 +6,13 @@ var hud: CanvasLayer
 
 var is_tutorial_complete = false
 var total_play_time = 0.0
-var total_kills = 0
-var total_rooms_cleared = 0
-var total_floors_cleared = 0
 var total_runs = 0
+var total_kills = 0
+var best_kills = 0
+var total_rooms_cleared = 0
+var best_rooms_cleared = 0
+var total_floors_cleared = 0
+var best_floors_cleared = 0
 
 func _ready() -> void:
     var data = load_data()
@@ -17,8 +20,22 @@ func _ready() -> void:
     if not data.is_empty():
         apply_save_data(data)
 
-func _process(delta: float) -> void:
-    total_play_time += delta
+func _process(_delta: float) -> void:
+    if is_instance_valid(player):
+        if player.run_kills > best_kills:
+            best_kills = player.run_kills
+
+            save_progress()
+
+        if player.run_rooms_cleared > best_rooms_cleared:
+            best_rooms_cleared = player.run_rooms_cleared
+
+            save_progress()
+
+        if player.run_floors_cleared > best_floors_cleared:
+            best_floors_cleared = player.run_floors_cleared
+
+            save_progress()
 
 func update_values() -> void:
     world = get_tree().current_scene.get_node("World")
@@ -62,19 +79,25 @@ func collect_save_data() -> Dictionary:
     return {
         "is_tutorial_complete": is_tutorial_complete,
         "total_play_time": total_play_time,
+        "total_runs": total_runs,
         "total_kills": total_kills,
+        "best_kills": best_kills,
         "total_rooms_cleared": total_rooms_cleared,
+        "best_rooms_cleared": best_rooms_cleared,
         "total_floors_cleared": total_floors_cleared,
-        "total_runs": total_runs
+        "best_floors_cleared": best_floors_cleared
     }
 
 func apply_save_data(data: Dictionary) -> void:
     is_tutorial_complete = data.get("is_tutorial_complete", is_tutorial_complete)
     total_play_time = data.get("total_play_time", total_play_time)
-    total_kills = data.get("total_kills", total_kills)
-    total_rooms_cleared = data.get("total_rooms_cleared", total_rooms_cleared)
-    total_floors_cleared = data.get("total_floors_cleared", total_floors_cleared)
     total_runs = data.get("total_runs", total_runs)
+    total_kills = data.get("total_kills", total_kills)
+    best_kills = data.get("best_kills", best_kills)
+    total_rooms_cleared = data.get("total_rooms_cleared", total_rooms_cleared)
+    best_rooms_cleared = data.get("best_rooms_cleared", best_rooms_cleared)
+    total_floors_cleared = data.get("total_floors_cleared", total_floors_cleared)
+    best_floors_cleared = data.get("best_floors_cleared", best_floors_cleared)
 
 func erase_save_data() -> void:
     if FileAccess.file_exists("user://save.dat"):
@@ -82,10 +105,13 @@ func erase_save_data() -> void:
 
     is_tutorial_complete = false
     total_play_time = 0.0
-    total_kills = 0
-    total_rooms_cleared = 0
-    total_floors_cleared = 0
     total_runs = 0
+    total_kills = 0
+    best_kills = 0
+    total_rooms_cleared = 0
+    best_rooms_cleared = 0
+    total_floors_cleared = 0
+    best_floors_cleared = 0
 
 func save_progress() -> void:
     var existing = load_data()

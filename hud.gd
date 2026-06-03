@@ -52,10 +52,13 @@ can_play = %s
 timer_enabled = %s
 is_tutorial_complete = %s
 total_play_time = %s
+total_runs = %s
 total_kills = %s
 total_rooms_cleared = %s
 total_floors_cleared = %s
-total_runs = %s
+best_kills = %s
+best_rooms_cleared = %s
+best_floors_cleared = %s
 run_time = %s
 run_kills = %s
 run_rooms_cleared = %s
@@ -86,10 +89,13 @@ current_floor = %s
         Game.player.timer_enabled,
         Game.is_tutorial_complete,
         Game.total_play_time,
+        Game.total_runs,
         Game.total_kills,
         Game.total_rooms_cleared,
         Game.total_floors_cleared,
-        Game.total_runs,
+        Game.best_kills,
+        Game.best_rooms_cleared,
+        Game.best_floors_cleared,
         Game.player.run_time,
         Game.player.run_kills,
         Game.player.run_rooms_cleared,

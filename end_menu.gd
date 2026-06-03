@@ -113,11 +113,6 @@ func show_menu() -> void:
         try_again_button.visible = true
         next_floor_button.visible = false
     else:
-        if not Game.is_tutorial_complete:
-            Game.total_rooms_cleared += 1
-            Game.player.run_rooms_cleared += 1
-            Game.player.floor_rooms_cleared += 1
-
         win_sfx_player.play()
 
         Game.total_floors_cleared += 1
@@ -132,11 +127,13 @@ func show_menu() -> void:
         if not Game.is_tutorial_complete:
             Game.is_tutorial_complete = true
 
+            title_label.text = "TUTORIAL RESULTS:"
+
             message_label.text = "[wobble]First time, huh? Good luck, you are on route to the real stuff[/wobble]"
         else:
             message_label.text = "[wobble]%s[/wobble]" % messages_on_win.pick_random()
 
-        floors_cleared.get_parent().visible = false
+            floors_cleared.get_parent().visible = false
 
         try_again_button.visible = false
         next_floor_button.visible = true

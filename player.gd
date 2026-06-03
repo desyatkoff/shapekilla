@@ -63,6 +63,8 @@ func _process(delta: float) -> void:
         body_sprite.flip_h = mouse_direction.x < 0
 
     if timer_enabled:
+        Game.total_play_time += delta
+
         run_time += delta
         floor_time += delta
 

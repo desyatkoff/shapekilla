@@ -6,10 +6,13 @@ extends Control
 @onready var quit_button = $QuitButton
 @onready var stats_panel = $StatsPanel
 @onready var total_play_time_label = $StatsPanel/TotalPlayTimeLabel/ValueLabel
-@onready var total_kills_label = $StatsPanel/TotalKillsLabel/ValueLabel
-@onready var total_rooms_cleared_label = $StatsPanel/TotalRoomsClearedLabel/ValueLabel
-@onready var total_floors_cleared_label = $StatsPanel/TotalFloorsClearedLabel/ValueLabel
 @onready var total_runs_label = $StatsPanel/TotalRunsLabel/ValueLabel
+@onready var total_kills_label = $StatsPanel/KillsLabel/TotalValueLabel
+@onready var best_kills_label = $StatsPanel/KillsLabel/BestValueLabel
+@onready var total_rooms_cleared_label = $StatsPanel/RoomsClearedLabel/TotalValueLabel
+@onready var best_rooms_cleared_label = $StatsPanel/RoomsClearedLabel/BestValueLabel
+@onready var total_floors_cleared_label = $StatsPanel/FloorsClearedLabel/TotalValueLabel
+@onready var best_floors_cleared_label = $StatsPanel/FloorsClearedLabel/BestValueLabel
 
 func _ready() -> void:
     visible = true
@@ -41,10 +44,13 @@ func _on_stats_button_pressed() -> void:
     quit_button.disabled = true
 
     total_play_time_label.text = "%02d:%02d.%03d" % format_time(Game.total_play_time)
-    total_kills_label.text = str(Game.total_kills)
-    total_rooms_cleared_label.text = str(Game.total_rooms_cleared)
-    total_floors_cleared_label.text = str(Game.total_floors_cleared)
     total_runs_label.text = str(Game.total_runs)
+    total_kills_label.text = str(Game.total_kills)
+    best_kills_label.text = str(Game.best_kills)
+    total_rooms_cleared_label.text = str(Game.total_rooms_cleared)
+    best_rooms_cleared_label.text = str(Game.best_rooms_cleared)
+    total_floors_cleared_label.text = str(Game.total_floors_cleared)
+    best_floors_cleared_label.text = str(Game.best_floors_cleared)
 
     Game.hud.click_sfx_player.play()
 
@@ -58,10 +64,13 @@ func _on_erase_save_data_button_pressed() -> void:
     Game.erase_save_data()
 
     total_play_time_label.text = "--:--.---"
-    total_kills_label.text = "-"
-    total_rooms_cleared_label.text = "-"
-    total_floors_cleared_label.text = "-"
     total_runs_label.text = "-"
+    total_kills_label.text = "-"
+    best_kills_label.text = "-"
+    total_rooms_cleared_label.text = "-"
+    best_rooms_cleared_label.text = "-"
+    total_floors_cleared_label.text = "-"
+    best_floors_cleared_label.text = "-"
 
     Game.reload_world()
     Game.reload_player()
