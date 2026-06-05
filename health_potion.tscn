@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c4keoln3stjfd"]
+
+[ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_sctm6"]
+[ext_resource type="Script" uid="uid://bkr1kxkn3xsjp" path="res://health_potion.gd" id="2_egrwh"]
+[ext_resource type="Texture2D" uid="uid://d2radvonq1e3k" path="res://health_potion.png" id="2_xjq8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egrwh"]
+size = Vector2(16, 22)
+
+[node name="HealthPotion" unique_id=23840998 instance=ExtResource("1_sctm6")]
+script = ExtResource("2_egrwh")
+heal = 3
+
+[node name="Sprite" parent="." index="1" unique_id=1005126698]
+texture = ExtResource("2_xjq8p")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
+shape = SubResource("RectangleShape2D_egrwh")

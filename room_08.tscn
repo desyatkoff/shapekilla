@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bar62osuq8p07" path="res://doors.tscn" id="2_i5h8e"]
 [ext_resource type="PackedScene" uid="uid://ccgoka5argg23" path="res://enemy_spawn_point.tscn" id="3_mqxgo"]
 [ext_resource type="PackedScene" uid="uid://b72872psfpjl0" path="res://key.tscn" id="4_mqxgo"]
+[ext_resource type="PackedScene" uid="uid://c4keoln3stjfd" path="res://health_potion.tscn" id="5_mdjta"]
 
 [node name="Room_08" unique_id=835384101 instance=ExtResource("1_pl7hl")]
 
@@ -27,7 +28,10 @@ position = Vector2(-128, 96)
 position = Vector2(128, 160)
 
 [node name="Key_00" parent="." index="6" unique_id=23840998 instance=ExtResource("4_mqxgo")]
-position = Vector2(-128, -192)
+position = Vector2(-128, -176)
 
 [node name="Key_01" parent="." index="7" unique_id=55754718 instance=ExtResource("4_mqxgo")]
-position = Vector2(-192, -128)
+position = Vector2(-176, -128)
+
+[node name="HealthPotion_00" parent="." index="8" unique_id=548485687 instance=ExtResource("5_mdjta")]
+position = Vector2(-128, -128)
