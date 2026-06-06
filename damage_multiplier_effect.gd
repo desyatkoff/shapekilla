@@ -1,7 +1,7 @@
 extends CharacterEffect
 class_name DamageMultiplierEffect
 
-var multiplier = 2
+var multiplier = 2.0
 
 func _ready() -> void:
     effect_texture = preload("res://damage_potion.png")

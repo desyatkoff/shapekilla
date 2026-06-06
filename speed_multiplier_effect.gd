@@ -1,7 +1,7 @@
 extends CharacterEffect
 class_name SpeedMultiplierEffect
 
-var multiplier = 2
+var multiplier = 1.5
 
 func _ready() -> void:
     effect_texture = preload("res://speed_potion.png")
