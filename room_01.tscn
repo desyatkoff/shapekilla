@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6a5ttcrn7ld7" path="res://room.tscn" id="1_utt8h"]
 [ext_resource type="PackedScene" uid="uid://ccgoka5argg23" path="res://enemy_spawn_point.tscn" id="2_2c8jk"]
+[ext_resource type="PackedScene" uid="uid://ody4uki2c3l3" path="res://item_spawn_point.tscn" id="3_x7sae"]
 
 [node name="Room_01" unique_id=835384101 instance=ExtResource("1_utt8h")]
 
@@ -19,3 +20,7 @@ position = Vector2(-80, 80)
 
 [node name="EnemySpawnPoint_03" parent="." index="4" unique_id=203329911 instance=ExtResource("2_2c8jk")]
 position = Vector2(80, 80)
+
+[node name="ItemSpawnPoint_00" parent="." index="5" unique_id=2048955544 instance=ExtResource("3_x7sae")]
+position = Vector2(-80, -80)
+probability = 0.25
