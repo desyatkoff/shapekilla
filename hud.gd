@@ -11,8 +11,13 @@ extends CanvasLayer
 @onready var run_rooms_cleared_label = $MainHUD/RunRoomsClearedLabel
 @onready var run_floors_cleared_label = $MainHUD/RunFloorsClearedLabel
 
+@onready var item_icon = $MainHUD/ItemIcon
+@onready var item_name = $MainHUD/ItemIcon/Name
+
 @onready var health_bar = $MainHUD/HealthBar
 @onready var health_value_label = $MainHUD/HealthBar/HealthValueLabel
+
+@onready var effects_container = $MainHUD/EffectsContainer
 
 @onready var click_sfx_player = $ClickSFXPlayer
 
@@ -114,6 +119,13 @@ current_floor = %s
     run_kills_label.text = "%s Kill%s" % [Game.player.run_kills, "s" if Game.player.run_kills == 0 or Game.player.run_kills > 1 else ""]
     run_rooms_cleared_label.text = "%s Room%s Cleared" % [Game.player.run_rooms_cleared, "s" if Game.player.run_rooms_cleared == 0 or Game.player.run_rooms_cleared > 1 else ""]
     run_floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.run_floors_cleared, "s" if Game.player.run_floors_cleared == 0 or Game.player.run_floors_cleared > 1 else ""]
+
+    if Game.player.item:
+        item_icon.texture = Game.player.item.sprite.texture
+        item_name.text = Game.player.item.item_name
+    else:
+        item_icon.texture = null
+        item_name.text = ""
 
     health_bar.value = Game.player.health
     health_bar.max_value = Game.player.max_health

@@ -110,6 +110,36 @@ theme = ExtResource("1_37p78")
 text = "0 Floors Cleared"
 vertical_alignment = 1
 
+[node name="ItemIcon" type="TextureRect" parent="MainHUD" unique_id=206734110]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 928.0
+offset_right = 160.0
+offset_bottom = 1056.0
+theme = ExtResource("1_37p78")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MainHUD/ItemIcon" unique_id=1697961633]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -32.0
+offset_right = 576.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_37p78")
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+vertical_alignment = 1
+
 [node name="HealthBar" type="ProgressBar" parent="MainHUD" unique_id=2013988028]
 layout_mode = 1
 anchors_preset = 7
@@ -139,6 +169,22 @@ grow_vertical = 2
 text = "5 / 10"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EffectsContainer" type="HBoxContainer" parent="MainHUD" unique_id=423172610]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -672.0
+offset_top = -152.0
+offset_right = -32.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_37p78")
+alignment = 2
 
 [node name="ClickSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1562766438]
 stream = ExtResource("3_8sq4i")

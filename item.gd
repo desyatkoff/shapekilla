@@ -7,6 +7,8 @@ class_name Item
 @onready var pickup_sfx_player = $PickupSFXPlayer
 @onready var use_sfx_player = $UseSFXPlayer
 
+@export var item_name: String
+
 @export var is_rotating = true
 @export var can_be_picked_up = true
 

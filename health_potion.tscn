@@ -10,6 +10,7 @@ size = Vector2(10, 14)
 [node name="HealthPotion" unique_id=23840998 instance=ExtResource("1_sctm6")]
 script = ExtResource("2_egrwh")
 heal = 2
+item_name = "Health Potion"
 
 [node name="Sprite" parent="." index="1" unique_id=1005126698]
 texture = ExtResource("2_xjq8p")

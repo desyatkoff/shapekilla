@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b23sm0t5s1oym"]
+
+[ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_gw70f"]
+[ext_resource type="Script" uid="uid://cbvbnj1yk8hfy" path="res://effect_icon.gd" id="2_gw70f"]
+
+[node name="EffectIcon" type="TextureRect" unique_id=206734110]
+offset_right = 128.0
+offset_bottom = 128.0
+theme = ExtResource("1_gw70f")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_gw70f")
+
+[node name="Name" type="RichTextLabel" parent="." unique_id=1697961633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gw70f")
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+horizontal_alignment = 1
+
+[node name="Duration" type="RichTextLabel" parent="." unique_id=287921102]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gw70f")
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 2

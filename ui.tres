@@ -82,6 +82,7 @@ Button/styles/focus = SubResource("StyleBoxFlat_iokc4")
 Button/styles/hover = SubResource("StyleBoxFlat_1em5h")
 Button/styles/normal = SubResource("StyleBoxFlat_uone7")
 Button/styles/pressed = SubResource("StyleBoxFlat_3s7v7")
+HBoxContainer/constants/separation = 32
 Label/colors/font_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
 Label/colors/font_outline_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 Label/constants/outline_size = 16
