@@ -1,7 +1,7 @@
 extends CharacterEffect
 class_name DamageMultiplierEffect
 
-@export var multiplier = 2
+var multiplier = 2
 
 func _ready() -> void:
     effect_texture = preload("res://damage_potion.png")
@@ -18,12 +18,12 @@ func _ready() -> void:
             Game.hud.effects_container.add_child(effect_icon_instance)
 
         if effect_owner.weapon:
-            effect_owner.weapon.damage *= 2
+            effect_owner.weapon.damage *= multiplier
 
 func expire_effect() -> void:
     if effect_owner:
         if effect_owner.weapon:
-            effect_owner.weapon.damage /= 2
+            effect_owner.weapon.damage /= multiplier
 
         effect_owner.effects.erase(self)
 

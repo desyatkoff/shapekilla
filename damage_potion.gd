@@ -1,9 +1,6 @@
 extends Item
 class_name DamagePotion
 
-@export var damage_multiplier = 2
-@export var duration = 30
-
 func use() -> void:
     use_sfx_player.play()
 
