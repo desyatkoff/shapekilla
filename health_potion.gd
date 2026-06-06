@@ -1,7 +1,7 @@
 extends Item
 class_name HealthPotion
 
-@export var heal = 3
+@export var heal = 2
 
 func use() -> void:
     use_sfx_player.play()
