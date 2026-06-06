@@ -48,3 +48,6 @@ func _ready() -> void:
             for child in room_instance.get_children():
                 if child is EnemySpawnPoint:
                     child.spawn_enemy()
+
+                if child is ItemSpawnPoint:
+                    child.spawn_item()
