@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://3fnmfg5frxf2"]
+
+[ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_a6fp3"]
+[ext_resource type="Texture2D" uid="uid://dcy6fkgg0p5el" path="res://speed_potion.png" id="2_3d8p5"]
+[ext_resource type="Script" uid="uid://bi11p4enkyma" path="res://speed_potion.gd" id="2_l7sxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7sxx"]
+size = Vector2(10, 14)
+
+[node name="SpeedPotion" unique_id=23840998 instance=ExtResource("1_a6fp3")]
+script = ExtResource("2_l7sxx")
+speed_multiplier = 20
+duration = 30
+item_name = "Speed Potion"
+
+[node name="Sprite" parent="." index="1" unique_id=1005126698]
+texture = ExtResource("2_3d8p5")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
+shape = SubResource("RectangleShape2D_l7sxx")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b2btese6plsrm"]
+
+[ext_resource type="PackedScene" uid="uid://dglbic4jylh7s" path="res://character_effect.tscn" id="1_ytdt1"]
+[ext_resource type="Script" uid="uid://bk186cpknwqjf" path="res://speed_multiplier_effect.gd" id="2_rx538"]
+
+[node name="SpeedMultiplierEffect" unique_id=948421491 instance=ExtResource("1_ytdt1")]
+script = ExtResource("2_rx538")
+
+[node name="DurationTimer" parent="." index="0" unique_id=403020817]
+wait_time = 30.0
