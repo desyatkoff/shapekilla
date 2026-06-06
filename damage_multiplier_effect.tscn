@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2l20be248u6g"]
+
+[ext_resource type="PackedScene" uid="uid://dglbic4jylh7s" path="res://character_effect.tscn" id="1_sklqo"]
+[ext_resource type="Script" uid="uid://cylxi4wtjy411" path="res://damage_multiplier_effect.gd" id="2_7lda2"]
+
+[node name="DamageMultiplierEffect" unique_id=948421491 instance=ExtResource("1_sklqo")]
+script = ExtResource("2_7lda2")
+multiplier = 2
+
+[node name="DurationTimer" parent="." index="0" unique_id=403020817]
+wait_time = 30.0

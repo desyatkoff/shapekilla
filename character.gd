@@ -3,6 +3,7 @@ class_name Character
 
 @onready var body_sprite = $Body
 @onready var weapon_slot = $WeaponSlot
+@onready var effects_slot = $EffectsSlot
 @onready var hurt_sfx_player = $HurtSFXPlayer
 @onready var fsm = $FiniteStateMachine
 
@@ -13,6 +14,8 @@ class_name Character
 @export var friction = 0.16
 
 var weapon: Weapon
+
+var effects: Array[CharacterEffect]
 
 var direction = Vector2.ZERO
 var current_room_slot: Node2D

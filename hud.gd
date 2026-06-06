@@ -43,7 +43,9 @@ max_speed = %s
 acceleration = %s
 friction = %s
 weapon = %s
+weapon_damage = %s
 item = %s
+effects = %s
 velocity = %s
 direction = %s
 current_room_slot = %s
@@ -80,7 +82,9 @@ current_floor = %s
         Game.player.acceleration,
         Game.player.friction,
         Game.player.weapon,
+        Game.player.weapon.damage,
         Game.player.item,
+        Game.player.effects,
         Game.player.velocity,
         Game.player.direction,
         Game.player.current_room_slot,

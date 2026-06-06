@@ -20,6 +20,8 @@ light_mask = 0
 
 [node name="WeaponSlot" type="Node2D" parent="." unique_id=1732380290]
 
+[node name="EffectsSlot" type="Node" parent="." unique_id=109240512]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720041274]
 shape = SubResource("RectangleShape2D_pjt0s")
 

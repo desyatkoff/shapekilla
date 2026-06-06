@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b3vda6ck6uyyl"]
+
+[ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_t3we8"]
+[ext_resource type="Texture2D" uid="uid://ddqx2aqlmc015" path="res://damage_potion.png" id="2_0h8ct"]
+[ext_resource type="Script" uid="uid://ds66fp30glkc4" path="res://damage_potion.gd" id="2_ktdwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktdwl"]
+size = Vector2(10, 14)
+
+[node name="DamagePotion" unique_id=23840998 instance=ExtResource("1_t3we8")]
+script = ExtResource("2_ktdwl")
+damage_multiplier = 2
+duration = 30
+
+[node name="Sprite" parent="." index="1" unique_id=1005126698]
+texture = ExtResource("2_0h8ct")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
+shape = SubResource("RectangleShape2D_ktdwl")
