@@ -13,6 +13,8 @@ extends Control
 @onready var best_rooms_cleared_label = $StatsPanel/RoomsClearedLabel/BestValueLabel
 @onready var total_floors_cleared_label = $StatsPanel/FloorsClearedLabel/TotalValueLabel
 @onready var best_floors_cleared_label = $StatsPanel/FloorsClearedLabel/BestValueLabel
+@onready var total_items_used_label = $StatsPanel/ItemsUsedLabel/TotalValueLabel
+@onready var best_items_used_label = $StatsPanel/ItemsUsedLabel/BestValueLabel
 
 func _ready() -> void:
     visible = true
@@ -51,6 +53,8 @@ func _on_stats_button_pressed() -> void:
     best_rooms_cleared_label.text = str(Game.best_rooms_cleared)
     total_floors_cleared_label.text = str(Game.total_floors_cleared)
     best_floors_cleared_label.text = str(Game.best_floors_cleared)
+    total_items_used_label.text = str(Game.total_items_used)
+    best_items_used_label.text = str(Game.best_items_used)
 
     Game.hud.click_sfx_player.play()
 
@@ -58,7 +62,7 @@ func _on_stats_button_pressed() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
 
-    tween.tween_property(stats_panel, "global_position", Vector2(320.0, 180.0), 1.0)
+    tween.tween_property(stats_panel, "global_position", Vector2(320.0, 118.0), 1.0)
 
 func _on_erase_save_data_button_pressed() -> void:
     Game.erase_save_data()
@@ -86,7 +90,7 @@ func _on_close_stats_button_pressed() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
 
-    tween.tween_property(stats_panel, "global_position", Vector2(320.0, -720.0), 1.0)
+    tween.tween_property(stats_panel, "global_position", Vector2(320.0, -844.0), 1.0)
 
 func _on_quit_button_pressed() -> void:
     Game.save_progress()

@@ -6,6 +6,7 @@ extends Control
 @onready var kills = $Panel/KillsLabel/ValueLabel
 @onready var rooms_cleared = $Panel/RoomsClearedLabel/ValueLabel
 @onready var floors_cleared = $Panel/FloorsClearedLabel/ValueLabel
+@onready var items_used = $Panel/ItemsUsedLabel/ValueLabel
 @onready var message_label = $Panel/MessageLabel
 @onready var try_again_button = $Panel/TryAgainButton
 @onready var next_floor_button = $Panel/NextFloorButton
@@ -105,6 +106,7 @@ func show_menu() -> void:
         kills.text = str(Game.player.run_kills)
         rooms_cleared.text = str(Game.player.run_rooms_cleared)
         floors_cleared.text = str(Game.player.run_floors_cleared)
+        items_used.text = str(Game.player.run_items_used)
 
         message_label.text = "[wobble]%s[/wobble]" % messages_on_lose.pick_random()
 
@@ -123,6 +125,8 @@ func show_menu() -> void:
         time.text = "%02d:%02d.%03d" % format_time(Game.player.floor_time)
         kills.text = str(Game.player.floor_kills)
         rooms_cleared.text = str(Game.player.floor_rooms_cleared)
+        floors_cleared.get_parent().visible = false
+        items_used.text = str(Game.player.floor_items_used)
 
         if not Game.is_tutorial_complete:
             Game.is_tutorial_complete = true
@@ -132,8 +136,6 @@ func show_menu() -> void:
             message_label.text = "[wobble]First time, huh? Good luck, you are on route to the real stuff[/wobble]"
         else:
             message_label.text = "[wobble]%s[/wobble]" % messages_on_win.pick_random()
-
-            floors_cleared.get_parent().visible = false
 
         try_again_button.visible = false
         next_floor_button.visible = true
@@ -146,7 +148,7 @@ func show_menu() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
 
-    tween.tween_property(panel, "global_position", Vector2(320.0, 180.0), 1.0)
+    tween.tween_property(panel, "global_position", Vector2(320.0, 148.0), 1.0)
 
     Game.save_progress()
 
@@ -155,7 +157,7 @@ func hide_menu() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
 
-    tween.tween_property(panel, "global_position", Vector2(320.0, -720.0), 1.0)
+    tween.tween_property(panel, "global_position", Vector2(320.0, -800.0), 1.0)
 
     tween.finished.connect(play)
 
