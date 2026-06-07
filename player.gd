@@ -12,10 +12,12 @@ var run_time = 0.0
 var run_kills = 0
 var run_rooms_cleared = 0
 var run_floors_cleared = 0
+var run_items_used = 0
 
 var floor_time = 0.0
 var floor_kills = 0
 var floor_rooms_cleared = 0
+var floor_items_used = 0
 
 var current_floor = 1
 
@@ -163,6 +165,10 @@ func get_input() -> void:
 
     if Input.is_action_just_pressed("use") and item:
         item.use()
+
+        Game.total_items_used += 1
+        run_items_used += 1
+        floor_items_used += 1
 
 func die() -> void:
     fsm.set_state(fsm.states.DEAD)

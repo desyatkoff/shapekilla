@@ -5,14 +5,26 @@ var player: Player
 var hud: CanvasLayer
 
 var is_tutorial_complete = false
+
 var total_play_time = 0.0
 var total_runs = 0
+
 var total_kills = 0
 var best_kills = 0
+
 var total_rooms_cleared = 0
 var best_rooms_cleared = 0
+
 var total_floors_cleared = 0
 var best_floors_cleared = 0
+
+var total_items_used = 0
+var best_items_used = 0
+
+var total_keys_used = 0
+var total_health_potions_used = 0
+var total_damage_potions_used = 0
+var total_speed_potions_used = 0
 
 func _ready() -> void:
     var data = load_data()
@@ -34,6 +46,11 @@ func _process(_delta: float) -> void:
 
         if player.run_floors_cleared > best_floors_cleared:
             best_floors_cleared = player.run_floors_cleared
+
+            save_progress()
+
+        if player.run_items_used > best_items_used:
+            best_items_used = player.run_items_used
 
             save_progress()
 
@@ -80,6 +97,7 @@ func reload_player() -> void:
     player.floor_time = 0.0
     player.floor_kills = 0
     player.floor_rooms_cleared = 0
+    player.floor_items_used = 0
 
     player.global_transform = world.get_node("PlayerSpawnPoint").global_transform
 
@@ -95,33 +113,63 @@ func collect_save_data() -> Dictionary:
         "total_rooms_cleared": total_rooms_cleared,
         "best_rooms_cleared": best_rooms_cleared,
         "total_floors_cleared": total_floors_cleared,
-        "best_floors_cleared": best_floors_cleared
+        "best_floors_cleared": best_floors_cleared,
+        "total_items_used": total_items_used,
+        "best_items_used": best_items_used,
+        "total_keys_used": total_keys_used,
+        "total_health_potions_used": total_health_potions_used,
+        "total_damage_potions_used": total_damage_potions_used,
+        "total_speed_potions_used": total_speed_potions_used
     }
 
 func apply_save_data(data: Dictionary) -> void:
     is_tutorial_complete = data.get("is_tutorial_complete", is_tutorial_complete)
+
     total_play_time = data.get("total_play_time", total_play_time)
     total_runs = data.get("total_runs", total_runs)
+
     total_kills = data.get("total_kills", total_kills)
     best_kills = data.get("best_kills", best_kills)
+
     total_rooms_cleared = data.get("total_rooms_cleared", total_rooms_cleared)
     best_rooms_cleared = data.get("best_rooms_cleared", best_rooms_cleared)
+
     total_floors_cleared = data.get("total_floors_cleared", total_floors_cleared)
     best_floors_cleared = data.get("best_floors_cleared", best_floors_cleared)
+
+    total_items_used = data.get("total_items_used", total_items_used)
+    best_items_used = data.get("best_items_used", best_items_used)
+
+    total_keys_used = data.get("total_keys_used", total_keys_used)
+    total_health_potions_used = data.get("total_health_potions_used", total_health_potions_used)
+    total_damage_potions_used = data.get("total_damage_potions_used", total_damage_potions_used)
+    total_speed_potions_used = data.get("total_speed_potions_used", total_speed_potions_used)
 
 func erase_save_data() -> void:
     if FileAccess.file_exists("user://save.dat"):
         DirAccess.remove_absolute("user://save.dat")
 
     is_tutorial_complete = false
+
     total_play_time = 0.0
     total_runs = 0
+
     total_kills = 0
     best_kills = 0
+
     total_rooms_cleared = 0
     best_rooms_cleared = 0
+
     total_floors_cleared = 0
     best_floors_cleared = 0
+
+    total_items_used = 0
+    best_items_used = 0
+
+    total_keys_used = 0
+    total_health_potions_used = 0
+    total_damage_potions_used = 0
+    total_speed_potions_used = 0
 
 func save_progress() -> void:
     var existing = load_data()

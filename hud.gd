@@ -63,16 +63,24 @@ total_runs = %s
 total_kills = %s
 total_rooms_cleared = %s
 total_floors_cleared = %s
+total_items_used = %s
+total_keys_used = %s
+total_health_potions_used = %s
+total_damage_potions_used = %s
+total_speed_potions_used = %s
 best_kills = %s
 best_rooms_cleared = %s
 best_floors_cleared = %s
+best_items_used = %s
 run_time = %s
 run_kills = %s
 run_rooms_cleared = %s
 run_floors_cleared = %s
+run_items_used = %s
 floor_time = %s
 floor_kills = %s
 floor_rooms_cleared = %s
+floor_items_used = %s
 current_floor = %s
 """ % \
     [
@@ -87,7 +95,7 @@ current_floor = %s
         Game.player.acceleration,
         Game.player.friction,
         Game.player.weapon,
-        Game.player.weapon.damage,
+        Game.player.weapon.damage if Game.player.weapon else 0,
         Game.player.item,
         Game.player.effects,
         Game.player.velocity,
@@ -102,16 +110,24 @@ current_floor = %s
         Game.total_kills,
         Game.total_rooms_cleared,
         Game.total_floors_cleared,
+        Game.total_items_used,
+        Game.total_keys_used,
+        Game.total_health_potions_used,
+        Game.total_damage_potions_used,
+        Game.total_speed_potions_used,
         Game.best_kills,
         Game.best_rooms_cleared,
         Game.best_floors_cleared,
+        Game.best_items_used,
         Game.player.run_time,
         Game.player.run_kills,
         Game.player.run_rooms_cleared,
         Game.player.run_floors_cleared,
+        Game.player.run_items_used,
         Game.player.floor_time,
         Game.player.floor_kills,
         Game.player.floor_rooms_cleared,
+        Game.player.floor_items_used,
         Game.player.current_floor
     ]
 

@@ -6,6 +6,8 @@ class_name HealthPotion
 func use() -> void:
     use_sfx_player.play()
 
+    Game.total_health_potions_used += 1
+
     item_owner.health += heal
 
     item_owner.item = null

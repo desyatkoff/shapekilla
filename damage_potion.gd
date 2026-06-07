@@ -4,6 +4,8 @@ class_name DamagePotion
 func use() -> void:
     use_sfx_player.play()
 
+    Game.total_damage_potions_used += 1
+
     item_owner.effects_slot.add_child(preload("res://damage_multiplier_effect.tscn").instantiate())
 
     item_owner.item = null
