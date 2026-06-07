@@ -75,6 +75,8 @@ func _on_erase_save_data_button_pressed() -> void:
     best_rooms_cleared_label.text = "-"
     total_floors_cleared_label.text = "-"
     best_floors_cleared_label.text = "-"
+    total_items_used_label.text = "-"
+    best_items_used_label.text = "-"
 
     Game.reload_world()
     Game.reload_player()
