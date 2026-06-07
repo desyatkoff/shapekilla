@@ -4,7 +4,7 @@ class_name SpeedMultiplierEffect
 var multiplier = 1.5
 
 func _ready() -> void:
-    effect_texture = preload("res://speed_potion.png")
+    effect_texture = preload("res://speed_effect.png")
     effect_name = "x%s Speed" % multiplier
 
     if get_parent().get_parent() is Character:

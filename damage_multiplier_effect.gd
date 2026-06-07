@@ -4,7 +4,7 @@ class_name DamageMultiplierEffect
 var multiplier = 2.0
 
 func _ready() -> void:
-    effect_texture = preload("res://damage_potion.png")
+    effect_texture = preload("res://damage_effect.png")
     effect_name = "x%s Damage" % multiplier
 
     if get_parent().get_parent() is Character:
