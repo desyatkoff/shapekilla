@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://crfnw86kfd12m" path="res://game.gd" id="1_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://ckgm7bvp3wqxy" path="res://player.tscn" id="3_hve3p"]
 [ext_resource type="PackedScene" uid="uid://ckyph8pg700pf" path="res://hud.tscn" id="5_iotsf"]
+[ext_resource type="PackedScene" uid="uid://c1y77x80oxf2x" path="res://console_menu.tscn" id="5_vef74"]
 [ext_resource type="PackedScene" uid="uid://wh2hxggss4hs" path="res://main_menu.tscn" id="6_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://b5r1fvowdpklr" path="res://end_menu.tscn" id="7_215e1"]
 [ext_resource type="PackedScene" uid="uid://qwp8dtxo5bn2" path="res://mouse_cursor.tscn" id="8_7sc4i"]
@@ -37,5 +38,7 @@ visible = false
 [node name="EndMenu" parent="HUD" unique_id=1834054541 instance=ExtResource("7_215e1")]
 
 [node name="PauseMenu" parent="HUD" unique_id=1183636334 instance=ExtResource("8_vef74")]
+
+[node name="ConsoleMenu" parent="HUD" unique_id=521273306 instance=ExtResource("5_vef74")]
 
 [node name="MouseCursor" parent="HUD" unique_id=1856643083 instance=ExtResource("8_7sc4i")]

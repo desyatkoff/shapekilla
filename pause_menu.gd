@@ -19,6 +19,8 @@ func _on_to_main_menu_button_pressed() -> void:
 
     Game.player.revive()
 
+    Game.player.cheats_enabled = false
+
     Game.player.run_time = 0.0
     Game.player.run_kills = 0
     Game.player.run_rooms_cleared = 0
@@ -31,7 +33,8 @@ func _on_to_main_menu_button_pressed() -> void:
     get_tree().reload_current_scene()
 
 func _on_quit_button_pressed() -> void:
-    Game.save_progress()
+    if not Game.player.cheats_enabled:
+        Game.save_progress()
 
     Game.hud.click_sfx_player.play()
 

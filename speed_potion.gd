@@ -4,7 +4,8 @@ class_name SpeedPotion
 func use() -> void:
     use_sfx_player.play()
 
-    Game.total_speed_potions_used += 1
+    if not Game.player.cheats_enabled:
+        Game.total_speed_potions_used += 1
 
     item_owner.effects_slot.add_child(preload("res://speed_multiplier_effect.tscn").instantiate())
 

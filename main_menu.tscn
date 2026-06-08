@@ -546,6 +546,7 @@ theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "v0.0.0"
 horizontal_alignment = 2
+vertical_alignment = 1
 script = ExtResource("4_jix8l")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

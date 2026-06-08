@@ -8,6 +8,8 @@ class_name Player
 var can_play = false
 var timer_enabled = false
 
+var cheats_enabled = false
+
 var run_time = 0.0
 var run_kills = 0
 var run_rooms_cleared = 0
@@ -166,7 +168,9 @@ func get_input() -> void:
     if Input.is_action_just_pressed("use") and item:
         item.use()
 
-        Game.total_items_used += 1
+        if not cheats_enabled:
+            Game.total_items_used += 1
+
         run_items_used += 1
         floor_items_used += 1
 

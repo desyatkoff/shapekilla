@@ -35,27 +35,30 @@ func _ready() -> void:
     if not data.is_empty():
         apply_save_data(data)
 
+    await get_tree().process_frame
+
 func _process(_delta: float) -> void:
     if is_instance_valid(player):
-        if player.run_kills > best_kills:
-            best_kills = player.run_kills
+        if not player.cheats_enabled:
+            if player.run_kills > best_kills:
+                best_kills = player.run_kills
 
-            save_progress()
+                save_progress()
 
-        if player.run_rooms_cleared > best_rooms_cleared:
-            best_rooms_cleared = player.run_rooms_cleared
+            if player.run_rooms_cleared > best_rooms_cleared:
+                best_rooms_cleared = player.run_rooms_cleared
 
-            save_progress()
+                save_progress()
 
-        if player.run_floors_cleared > best_floors_cleared:
-            best_floors_cleared = player.run_floors_cleared
+            if player.run_floors_cleared > best_floors_cleared:
+                best_floors_cleared = player.run_floors_cleared
 
-            save_progress()
+                save_progress()
 
-        if player.run_items_used > best_items_used:
-            best_items_used = player.run_items_used
+            if player.run_items_used > best_items_used:
+                best_items_used = player.run_items_used
 
-            save_progress()
+                save_progress()
 
 func update_values() -> void:
     if custom_seed:
@@ -69,7 +72,8 @@ func update_values() -> void:
     player = get_tree().current_scene.get_node("Player")
     hud = get_tree().current_scene.get_node("HUD")
 
-    save_progress()
+    if not player.cheats_enabled:
+        save_progress()
 
 func reload_world() -> void:
     var world_node_index = world.get_index()
@@ -182,6 +186,9 @@ func erase_save_data() -> void:
     total_speed_potions_used = 0
 
 func save_progress() -> void:
+    if player.cheats_enabled:
+        return
+
     var existing = load_data()
 
     if existing.is_empty() and FileAccess.file_exists("user://save.dat"):

@@ -52,6 +52,8 @@ func _on_to_main_menu_button_pressed() -> void:
 
     Game.player.revive()
 
+    Game.player.cheats_enabled = false
+
     Game.player.run_time = 0.0
     Game.player.run_kills = 0
     Game.player.run_rooms_cleared = 0
@@ -70,6 +72,8 @@ func _on_try_again_button_pressed() -> void:
     Game.reload_player()
 
     Game.player.revive()
+
+    Game.player.cheats_enabled = false
 
     Game.player.run_time = 0.0
     Game.player.run_kills = 0
@@ -114,7 +118,9 @@ func show_menu() -> void:
     else:
         win_sfx_player.play()
 
-        Game.total_floors_cleared += 1
+        if not Game.player.cheats_enabled:
+            Game.total_floors_cleared += 1
+
         Game.player.run_floors_cleared += 1
 
         title_label.text = "FLOOR #%s RESULTS:" % Game.player.current_floor
@@ -147,7 +153,8 @@ func show_menu() -> void:
 
     tween.tween_property(panel, "global_position", Vector2(320.0, 148.0), 1.0)
 
-    Game.save_progress()
+    if not Game.player.cheats_enabled:
+        Game.save_progress()
 
 func hide_menu() -> void:
     var tween = create_tween()

@@ -8,6 +8,9 @@ func use() -> void:
 
             use_sfx_player.play()
 
+            if not Game.player.cheats_enabled:
+                Game.total_keys_used += 1
+
             item_owner.item = null
             item_owner = null
 
