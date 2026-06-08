@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
     debug_info_label.text = \
 """fps = %s
 delta = %s
+run_seed = %s
 states = %s
 previous_state = %s
 state = %s
@@ -86,6 +87,7 @@ current_floor = %s
     [
         Engine.get_frames_per_second(),
         delta,
+        Game.run_seed,
         Game.player.fsm.states,
         Game.player.fsm.previous_state,
         Game.player.fsm.state,

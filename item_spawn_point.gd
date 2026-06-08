@@ -4,9 +4,6 @@ class_name ItemSpawnPoint
 @export var item_scenes: Array[PackedScene]
 @export var probability = 1.0
 
-func _ready() -> void:
-    randomize()
-
 func spawn_item():
     if randf() <= probability:
         var item_scene = item_scenes.pick_random()

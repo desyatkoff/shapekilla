@@ -39,9 +39,6 @@ var messages_on_win = [
 	"Wait, is this WR?!"
 ]
 
-func _ready() -> void:
-    randomize()
-
 func _on_quit_button_pressed() -> void:
     Game.hud.click_sfx_player.play()
 

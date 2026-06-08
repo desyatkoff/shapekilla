@@ -1,5 +1,8 @@
 extends Node2D
 
+var custom_seed = null
+var run_seed = null
+
 var world: Node2D
 var player: Player
 var hud: CanvasLayer
@@ -55,6 +58,13 @@ func _process(_delta: float) -> void:
             save_progress()
 
 func update_values() -> void:
+    if custom_seed:
+        run_seed = custom_seed
+    else:
+        run_seed = randi()
+
+    seed(run_seed)
+
     world = get_tree().current_scene.get_node("World")
     player = get_tree().current_scene.get_node("Player")
     hud = get_tree().current_scene.get_node("HUD")

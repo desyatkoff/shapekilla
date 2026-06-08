@@ -5,8 +5,6 @@ extends Node2D
 @export var room_scenes: Array[PackedScene]
 
 func _ready() -> void:
-    randomize()
-
     Game.update_values()
 
     if Game.is_tutorial_complete:

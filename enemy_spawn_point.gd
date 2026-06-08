@@ -4,9 +4,6 @@ class_name EnemySpawnPoint
 @export var enemy_scenes: Array[PackedScene]
 @export var probability = 1.0
 
-func _ready() -> void:
-    randomize()
-
 func spawn_enemy():
     if randf() <= probability:
         if Game.is_tutorial_complete:
