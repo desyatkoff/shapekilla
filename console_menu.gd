@@ -8,26 +8,38 @@ var commands = {
     "help": {
         "cheats": false,
         "description": "Print all commands and their descriptions",
-        "function": help,
+        "function": cmd_help,
+        "args": []
+    },
+    "clear": {
+        "cheats": false,
+        "description": "Clear console output",
+        "function": cmd_clear,
         "args": []
     },
     "enable_cheats": {
         "cheats": false,
         "description": "Allow executing any cheat command",
-        "function": enable_cheats,
+        "function": cmd_enable_cheats,
         "args": []
     },
-    "test": {
+    "restart": {
         "cheats": false,
-        "description": "Print \"test\" message n times. n default to 1",
-        "function": test,
-        "args": ["n"]
+        "description": "Restart run",
+        "function": cmd_restart,
+        "args": []
     },
-    "test_cheats": {
+    "get_seed": {
+        "cheats": false,
+        "description": "Print current run seed",
+        "function": cmd_get_seed,
+        "args": []
+    },
+    "set_seed": {
         "cheats": true,
-        "description": "Just like `test`, but requires cheats to be enabled",
-        "function": test,
-        "args": ["n"]
+        "description": "Overwrite run seed with a custom one",
+        "function": cmd_set_seed,
+        "args": ["custom_seed"]
     }
 }
 
@@ -84,7 +96,7 @@ func warning_output(text: String) -> void:
 func error_output(text: String) -> void:
     output.text += "[color=#dd191d][  Error  ][/color] " + str(text) + "\n"
 
-func help(_args):
+func cmd_help(_args):
     for command in commands.keys():
         var args_str = ""
 
@@ -97,20 +109,49 @@ func help(_args):
             commands[command]["description"]
         ])
 
-func enable_cheats(_args) -> void:
+func cmd_clear(_args):
+    output.text = ""
+
+func cmd_enable_cheats(_args) -> void:
     if not Game.player.cheats_enabled:
         Game.player.cheats_enabled = true
 
         warning_output("Cheats have been enabled. All the progress from current run will not be saved")
 
-func disable_cheats(_args) -> void:
+func cmd_disable_cheats(_args) -> void:
     if Game.player.cheats_enabled:
         Game.player.cheats_enabled = false
 
         warning_output("Cheats have been disabled. Run progress is currently allowed to be saved")
 
-func test(args):
-    var amount = int(args[0]) if args.size() > 0 else 1
+func cmd_restart(_args) -> void:
+    Game.reload_world()
+    Game.reload_player()
 
-    for i in range(amount):
-        log_output("test")
+    Game.player.revive()
+
+    cmd_disable_cheats(PackedStringArray([]))
+
+    Game.player.run_time = 0.0
+    Game.player.run_kills = 0
+    Game.player.run_rooms_cleared = 0
+    Game.player.run_floors_cleared = 0
+
+    Game.player.current_floor = 1
+
+func cmd_get_seed(_args) -> void:
+    log_output(str(Game.run_seed))
+
+func cmd_set_seed(args) -> void:
+    if args.size() > 0:
+        var custom_seed = args[0]
+
+        if custom_seed.is_valid_int():
+            Game.custom_seed = int(custom_seed)
+
+            cmd_restart(PackedStringArray([]))
+            cmd_enable_cheats(PackedStringArray([]))
+        else:
+            error_output("<custom_seed> arg must be a valid `int`")
+    else:
+        error_output("<custom_seed> arg is required")

@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
                 save_progress()
 
 func update_values() -> void:
-    if custom_seed:
+    if custom_seed and run_seed != custom_seed:
         run_seed = custom_seed
     else:
         run_seed = randi()
