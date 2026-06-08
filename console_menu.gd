@@ -37,7 +37,7 @@ var commands = {
     },
     "set_seed": {
         "cheats": true,
-        "description": "Overwrite run seed with a custom one",
+        "description": "Set a custom run seed and restart immediately to that seeded run",
         "function": cmd_set_seed,
         "args": ["custom_seed"]
     },
@@ -64,13 +64,7 @@ var commands = {
         "description": "Set health value",
         "function": cmd_set_health,
         "args": ["new_health"]
-    },
-    #"": {
-        #"cheats": false,
-        #"description": "",
-        #"function": cmd_,
-        #"args": []
-    #},
+    }
 }
 
 func _ready() -> void:
