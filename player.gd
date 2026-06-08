@@ -147,6 +147,9 @@ func get_noise_offset(delta: float) -> Vector2:
 func get_input() -> void:
     direction = Vector2.ZERO
 
+    if Game.hud.find_child("ConsoleMenu").panel.visible:
+        return
+
     if Input.is_action_pressed("up"):
         direction += Vector2.UP
 
