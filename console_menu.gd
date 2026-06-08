@@ -40,7 +40,37 @@ var commands = {
         "description": "Overwrite run seed with a custom one",
         "function": cmd_set_seed,
         "args": ["custom_seed"]
-    }
+    },
+    "get_max_health": {
+        "cheats": false,
+        "description": "Print current maximum health",
+        "function": cmd_get_max_health,
+        "args": []
+    },
+    "set_max_health": {
+        "cheats": true,
+        "description": "Set maximum health value",
+        "function": cmd_set_max_health,
+        "args": ["new_max_health"]
+    },
+    "get_health": {
+        "cheats": false,
+        "description": "Print current health",
+        "function": cmd_get_health,
+        "args": []
+    },
+    "set_health": {
+        "cheats": true,
+        "description": "Set health value",
+        "function": cmd_set_health,
+        "args": ["new_health"]
+    },
+    #"": {
+        #"cheats": false,
+        #"description": "",
+        #"function": cmd_,
+        #"args": []
+    #},
 }
 
 func _ready() -> void:
@@ -152,6 +182,34 @@ func cmd_set_seed(args) -> void:
             cmd_restart(PackedStringArray([]))
             cmd_enable_cheats(PackedStringArray([]))
         else:
-            error_output("<custom_seed> arg must be a valid `int`")
+            error_output("<custom_seed> arg must be a valid `int` value")
     else:
         error_output("<custom_seed> arg is required")
+
+func cmd_get_max_health(_args) -> void:
+    log_output(str(Game.player.max_health))
+
+func cmd_set_max_health(args) -> void:
+    if args.size() > 0:
+        var new_max_health = args[0]
+
+        if new_max_health.is_valid_int():
+            Game.player.max_health = int(new_max_health)
+        else:
+            error_output("<new_max_health> arg must be a valid `int` value")
+    else:
+        error_output("<new_max_health> arg is required")
+
+func cmd_get_health(_args) -> void:
+    log_output(str(Game.player.health))
+
+func cmd_set_health(args) -> void:
+    if args.size() > 0:
+        var new_health = args[0]
+
+        if new_health.is_valid_int():
+            Game.player.health = int(new_health)
+        else:
+            error_output("<new_health> arg must be a valid `int` value")
+    else:
+        error_output("<new_health> arg is required")
