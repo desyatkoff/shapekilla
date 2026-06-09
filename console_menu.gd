@@ -64,6 +64,42 @@ var commands = {
         "description": "Set health value",
         "function": cmd_set_health,
         "args": ["new_health"]
+    },
+    "get_max_speed": {
+        "cheats": false,
+        "description": "Print current maximum speed",
+        "function": cmd_get_max_speed,
+        "args": []
+    },
+    "set_max_speed": {
+        "cheats": true,
+        "description": "Set maximum speed value",
+        "function": cmd_set_max_speed,
+        "args": ["new_max_speed"]
+    },
+    "get_acceleration": {
+        "cheats": false,
+        "description": "Print current acceleration",
+        "function": cmd_get_acceleration,
+        "args": []
+    },
+    "set_acceleration": {
+        "cheats": true,
+        "description": "Set acceleration value",
+        "function": cmd_set_acceleration,
+        "args": ["new_acceleration"]
+    },
+    "get_friction": {
+        "cheats": false,
+        "description": "Print current friction",
+        "function": cmd_get_friction,
+        "args": []
+    },
+    "set_friction": {
+        "cheats": true,
+        "description": "Set friction value",
+        "function": cmd_set_friction,
+        "args": ["new_friction"]
     }
 }
 
@@ -207,3 +243,45 @@ func cmd_set_health(args) -> void:
             error_output("<new_health> arg must be a valid `int` value")
     else:
         error_output("<new_health> arg is required")
+
+func cmd_get_max_speed(_args) -> void:
+    log_output(str(Game.player.max_speed))
+
+func cmd_set_max_speed(args) -> void:
+    if args.size() > 0:
+        var new_max_speed = args[0]
+
+        if new_max_speed.is_valid_int():
+            Game.player.max_speed = int(new_max_speed)
+        else:
+            error_output("<new_max_speed> arg must be a valid `int` value")
+    else:
+        error_output("<new_max_speed> arg is required")
+
+func cmd_get_acceleration(_args) -> void:
+    log_output(str(Game.player.acceleration))
+
+func cmd_set_acceleration(args) -> void:
+    if args.size() > 0:
+        var new_acceleration = args[0]
+
+        if new_acceleration.is_valid_int():
+            Game.player.acceleration = int(new_acceleration)
+        else:
+            error_output("<new_acceleration> arg must be a valid `int` value")
+    else:
+        error_output("<new_acceleration> arg is required")
+
+func cmd_get_friction(_args) -> void:
+    log_output(str(Game.player.friction))
+
+func cmd_set_friction(args) -> void:
+    if args.size() > 0:
+        var new_friction = args[0]
+
+        if new_friction.is_valid_float():
+            Game.player.friction = float(new_friction)
+        else:
+            error_output("<new_friction> arg must be a valid `float` value")
+    else:
+        error_output("<new_friction> arg is required")
