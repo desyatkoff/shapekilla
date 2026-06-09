@@ -42,6 +42,23 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.6901961, 0.07058824, 0.039215688, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6226k"]
+bg_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ct67h"]
+bg_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3u7g"]
+bg_color = Color(0.6901961, 0.07058824, 0.039215688, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1em5h"]
+color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uone7"]
+color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+thickness = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvj05"]
 bg_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 border_width_left = 4
@@ -90,6 +107,25 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnw3x"]
+bg_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp0js"]
+bg_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tqco"]
+bg_color = Color(0.6901961, 0.07058824, 0.039215688, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_i6sfk"]
+color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+thickness = 8
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_iokc4"]
+color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+thickness = 8
+vertical = true
+
 [resource]
 Button/colors/font_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
 Button/colors/font_disabled_color = Color(0.93333334, 0.93333334, 0.93333334, 0.5019608)
@@ -107,6 +143,17 @@ Button/styles/hover = SubResource("StyleBoxFlat_1em5h")
 Button/styles/normal = SubResource("StyleBoxFlat_uone7")
 Button/styles/pressed = SubResource("StyleBoxFlat_3s7v7")
 HBoxContainer/constants/separation = 32
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/decrement_pressed = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/icons/increment_pressed = null
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_6226k")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ct67h")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_k3u7g")
+HScrollBar/styles/scroll = SubResource("StyleBoxLine_1em5h")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxLine_uone7")
 Label/colors/font_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
 Label/colors/font_outline_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 Label/constants/outline_size = 16
@@ -141,3 +188,14 @@ RichTextLabel/fonts/bold_italics_font = ExtResource("1_i6sfk")
 RichTextLabel/fonts/italics_font = ExtResource("1_i6sfk")
 RichTextLabel/fonts/mono_font = ExtResource("1_i6sfk")
 RichTextLabel/fonts/normal_font = ExtResource("1_i6sfk")
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_bnw3x")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_hp0js")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_0tqco")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_i6sfk")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxLine_iokc4")

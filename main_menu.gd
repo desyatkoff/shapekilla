@@ -128,7 +128,7 @@ func play() -> void:
     Game.player.can_play = true
     Game.player.timer_enabled = true
 
-    get_parent().get_node("MouseCursor").region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
+    Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
     Game.hud.main.visible = true
 

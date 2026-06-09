@@ -104,6 +104,8 @@ var commands = {
 }
 
 func _ready() -> void:
+    Game.console = self
+
     log_output("[wobble]Welcome to Shapekilla v%s dev console! Type `help` to get started[/wobble]" % ProjectSettings.get_setting("application/config/version"))
     warning_output("Some commands are marked as cheats and cannot be executed by default. You can enable them by entering `enable_cheats` command, but doing so will disable progress from current run")
 
@@ -116,12 +118,16 @@ func _input(event: InputEvent) -> void:
         tween.set_ease(Tween.EASE_IN_OUT)
 
         if panel.visible:
+            Input.mouse_mode = Input.MOUSE_MODE_HIDDEN if Game.player.can_play and not get_tree().paused else Input.MOUSE_MODE_VISIBLE
+
             tween.tween_property(panel, "global_position", Vector2(240.0, -810.0), 1.0)
 
             await tween.finished
 
             panel.visible = false
         else:
+            Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
             tween.tween_property(panel, "global_position", Vector2(240.0, 135.0), 1.0)
 
             panel.visible = true

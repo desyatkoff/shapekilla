@@ -7,6 +7,8 @@ var world: Node2D
 var player: Player
 var hud: CanvasLayer
 
+var console
+
 var is_tutorial_complete = false
 
 var total_play_time = 0.0

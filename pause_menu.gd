@@ -45,7 +45,7 @@ func show_menu() -> void:
 
     Game.hud.click_sfx_player.play()
 
-    get_parent().get_node("MouseCursor").region_rect = Rect2(0.0, 0.0, 32.0, 32.0)
+    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
     var tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
@@ -58,7 +58,7 @@ func hide_menu() -> void:
 
     Game.hud.click_sfx_player.play()
 
-    get_parent().get_node("MouseCursor").region_rect = Rect2(32.0, 0.0, 32.0, 32.0)
+    Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
     var tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)

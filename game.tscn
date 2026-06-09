@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1y77x80oxf2x" path="res://console_menu.tscn" id="5_vef74"]
 [ext_resource type="PackedScene" uid="uid://wh2hxggss4hs" path="res://main_menu.tscn" id="6_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://b5r1fvowdpklr" path="res://end_menu.tscn" id="7_215e1"]
-[ext_resource type="PackedScene" uid="uid://qwp8dtxo5bn2" path="res://mouse_cursor.tscn" id="8_7sc4i"]
+[ext_resource type="PackedScene" uid="uid://qwp8dtxo5bn2" path="res://crosshair.tscn" id="8_7sc4i"]
 [ext_resource type="PackedScene" uid="uid://c2yfdkrf1mdpt" path="res://pause_menu.tscn" id="8_vef74"]
 
 [sub_resource type="Environment" id="Environment_vef74"]
@@ -41,4 +41,4 @@ visible = false
 
 [node name="ConsoleMenu" parent="HUD" unique_id=521273306 instance=ExtResource("5_vef74")]
 
-[node name="MouseCursor" parent="HUD" unique_id=1856643083 instance=ExtResource("8_7sc4i")]
+[node name="Crosshair" parent="HUD" unique_id=1856643083 instance=ExtResource("8_7sc4i")]
