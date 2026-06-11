@@ -17,6 +17,12 @@ var commands = {
         "function": cmd_clear,
         "args": []
     },
+    "cheats": {
+        "cheats": false,
+        "description": "Print current state of cheats (enabled/disabled)",
+        "function": cmd_cheats,
+        "args": []
+    },
     "enable_cheats": {
         "cheats": false,
         "description": "Allow executing any cheat command",
@@ -189,6 +195,9 @@ func cmd_help(_args):
 
 func cmd_clear(_args):
     output.text = ""
+
+func cmd_cheats(_args) -> void:
+    log_output(str(Game.player.cheats_enabled))
 
 func cmd_enable_cheats(_args) -> void:
     if not Game.player.cheats_enabled:
