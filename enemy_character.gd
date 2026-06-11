@@ -15,6 +15,8 @@ func _ready() -> void:
     if get_parent() is Room:
         get_parent().register_enemy(self)
 
+    await get_tree().process_frame
+
     call_deferred("reparent", Game.world.get_node("EnemiesContainer"))
 
 func _process(delta: float) -> void:

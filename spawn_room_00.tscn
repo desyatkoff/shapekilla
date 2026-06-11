@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://b7e0b0id750dg"]
 
 [ext_resource type="PackedScene" uid="uid://c6a5ttcrn7ld7" path="res://room.tscn" id="1_qlxef"]
-[ext_resource type="PackedScene" uid="uid://dnyqao0288vix" path="res://shotgun.tscn" id="3_26356"]
 
 [node name="SpawnRoom_00" unique_id=835384101 instance=ExtResource("1_qlxef")]
 type = "spawn"
-
-[node name="Shotgun" parent="." index="1" unique_id=760112493 instance=ExtResource("3_26356")]
-position = Vector2(-64, 0)

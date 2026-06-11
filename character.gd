@@ -22,7 +22,7 @@ var current_room_slot: Node2D
 var current_room_slot_id: int
 
 func _process(_delta: float) -> void:
-    health = clamp(health, 0, max_health)
+    health = int(clamp(health, 0, max_health))
 
     if health == 0 and fsm.state != fsm.states.DEAD:
         die()

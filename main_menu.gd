@@ -81,6 +81,8 @@ func _on_erase_save_data_button_pressed() -> void:
     Game.reload_world()
     Game.reload_player()
 
+    get_tree().reload_current_scene()
+
 func _on_close_stats_button_pressed() -> void:
     play_button.disabled = false
     stats_button.disabled = false

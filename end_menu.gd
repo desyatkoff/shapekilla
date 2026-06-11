@@ -134,6 +134,8 @@ func show_menu() -> void:
         if not Game.is_tutorial_complete:
             Game.is_tutorial_complete = true
 
+            Game.player.health = Game.player.max_health
+
             title_label.text = "TUTORIAL RESULTS:"
 
             message_label.text = "[wobble]First time, huh? Good luck, you are on route to the real stuff[/wobble]"

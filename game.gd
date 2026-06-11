@@ -37,8 +37,6 @@ func _ready() -> void:
     if not data.is_empty():
         apply_save_data(data)
 
-    await get_tree().process_frame
-
 func _process(_delta: float) -> void:
     if is_instance_valid(player):
         if not player.cheats_enabled:
@@ -97,9 +95,6 @@ func reload_world() -> void:
     update_values()
 
 func reload_player() -> void:
-    if player.weapon:
-        player.weapon.queue_free()
-
     if player.fsm.state == player.fsm.states.DEAD:
         for effect in player.effects_slot.get_children():
             effect.expire_effect()

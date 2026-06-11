@@ -36,12 +36,15 @@ func _ready() -> void:
 
     if not Game.is_tutorial_complete:
         current_floor = 0
+        find_child("Shotgun").queue_free()
 
 func _process(delta: float) -> void:
     if Game.is_tutorial_complete:
         health = clamp(health, 0, max_health)
     else:
         health = clamp(health, 1, max_health)
+
+    health = int(health)
 
     if health == 0 and fsm.state != fsm.states.DEAD:
         die()
@@ -76,62 +79,95 @@ func _process(delta: float) -> void:
 
     camera.offset = get_noise_offset(delta)
 
-    match current_room_slot_id:
-        0:
-            camera.limit_left = -256
-            camera.limit_top = -128
-            camera.limit_right = 288
-            camera.limit_bottom = 128
-        1:
-            camera.limit_left = 256
-            camera.limit_top = -768
-            camera.limit_right = 800
-            camera.limit_bottom = -224
-        2:
-            camera.limit_left = 736
-            camera.limit_top = -768
-            camera.limit_right = 1312
-            camera.limit_bottom = -224
-        3:
-            camera.limit_left = 1248
-            camera.limit_top = -768
-            camera.limit_right = 1792
-            camera.limit_bottom = -224
-        4:
-            camera.limit_left = 224
-            camera.limit_top = -288
-            camera.limit_right = 800
-            camera.limit_bottom = 288
-        5:
-            camera.limit_left = 736
-            camera.limit_top = -288
-            camera.limit_right = 1312
-            camera.limit_bottom = 288
-        6:
-            camera.limit_left = 1248
-            camera.limit_top = -288
-            camera.limit_right = 1824
-            camera.limit_bottom = 288
-        7:
-            camera.limit_left = 256
-            camera.limit_top = 224
-            camera.limit_right = 800
-            camera.limit_bottom = 768
-        8:
-            camera.limit_left = 736
-            camera.limit_top = 224
-            camera.limit_right = 1312
-            camera.limit_bottom = 768
-        9:
-            camera.limit_left = 1248
-            camera.limit_top = 224
-            camera.limit_right = 1792
-            camera.limit_bottom = 768
-        10:
-            camera.limit_left = 1760
-            camera.limit_top = -128
-            camera.limit_right = 2304
-            camera.limit_bottom = 128
+    if Game.is_tutorial_complete:
+        match current_room_slot_id:
+            0:
+                camera.limit_left = -256
+                camera.limit_top = -128
+                camera.limit_right = 288
+                camera.limit_bottom = 128
+            1:
+                camera.limit_left = 256
+                camera.limit_top = -768
+                camera.limit_right = 800
+                camera.limit_bottom = -224
+            2:
+                camera.limit_left = 736
+                camera.limit_top = -768
+                camera.limit_right = 1312
+                camera.limit_bottom = -224
+            3:
+                camera.limit_left = 1248
+                camera.limit_top = -768
+                camera.limit_right = 1792
+                camera.limit_bottom = -224
+            4:
+                camera.limit_left = 224
+                camera.limit_top = -288
+                camera.limit_right = 800
+                camera.limit_bottom = 288
+            5:
+                camera.limit_left = 736
+                camera.limit_top = -288
+                camera.limit_right = 1312
+                camera.limit_bottom = 288
+            6:
+                camera.limit_left = 1248
+                camera.limit_top = -288
+                camera.limit_right = 1824
+                camera.limit_bottom = 288
+            7:
+                camera.limit_left = 256
+                camera.limit_top = 224
+                camera.limit_right = 800
+                camera.limit_bottom = 768
+            8:
+                camera.limit_left = 736
+                camera.limit_top = 224
+                camera.limit_right = 1312
+                camera.limit_bottom = 768
+            9:
+                camera.limit_left = 1248
+                camera.limit_top = 224
+                camera.limit_right = 1792
+                camera.limit_bottom = 768
+            10:
+                camera.limit_left = 1760
+                camera.limit_top = -128
+                camera.limit_right = 2304
+                camera.limit_bottom = 128
+    else:
+        match current_room_slot_id:
+            0:
+                camera.limit_left = -3328
+                camera.limit_top = -256
+                camera.limit_right = -2784
+                camera.limit_bottom = 256
+            1:
+                camera.limit_left = -2848
+                camera.limit_top = -256
+                camera.limit_right = -2272
+                camera.limit_bottom = 256
+            2:
+                camera.limit_left = -2336
+                camera.limit_top = -256
+                camera.limit_right = -1760
+                camera.limit_bottom = 256
+            3:
+                camera.limit_left = -1824
+                camera.limit_top = -256
+                camera.limit_right = -1248
+                camera.limit_bottom = 256
+            4:
+                camera.limit_left = -1312
+                camera.limit_top = -256
+                camera.limit_right = -736
+                camera.limit_bottom = 256
+            5:
+                camera.limit_left = -800
+                camera.limit_top = -256
+                camera.limit_right = -224
+                camera.limit_bottom = 256
 
 func apply_noise_shake(noise_shake_strength) -> void:
     shake_strength += noise_shake_strength

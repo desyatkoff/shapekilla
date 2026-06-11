@@ -10,7 +10,7 @@ func _ready() -> void:
     if Game.is_tutorial_complete:
         Game.world.get_node("TutorialMap").queue_free()
     else:
-        Game.world.get_node("TutorialMap").global_position = Vector2.ZERO
+        Game.player.global_position = Game.world.get_node("TutorialMap").global_position
         queue_free()
 
     var free_room_slots = []

@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cjopbv483hk5p" path="res://room_15.tscn" id="18_6sq2s"]
 [ext_resource type="PackedScene" uid="uid://ddhmrqyyikrkt" path="res://room_16.tscn" id="19_4v3wx"]
 [ext_resource type="PackedScene" uid="uid://cckifp3tjgeuj" path="res://room_17.tscn" id="20_y1wlr"]
+[ext_resource type="Script" uid="uid://gvfhirytuoog" path="res://blood_container.gd" id="24_n2jt6"]
 
 [node name="Map" type="Node2D" unique_id=1249936917]
 script = ExtResource("1_urblq")
@@ -116,31 +117,34 @@ position = Vector2(1792, 0)
 [node name="RoomSlot_00" parent="RoomSlots" unique_id=835384101 instance=ExtResource("2_p5pve")]
 type = "spawn"
 
-[node name="BloodParticles_00" parent="RoomSlots/RoomSlot_00" unique_id=1563915323 instance=ExtResource("16_a6rn7")]
+[node name="BloodContainer" type="Node2D" parent="RoomSlots/RoomSlot_00" unique_id=1186358649]
+script = ExtResource("24_n2jt6")
+
+[node name="BloodParticles_00" parent="RoomSlots/RoomSlot_00/BloodContainer" unique_id=1563915323 instance=ExtResource("16_a6rn7")]
 position = Vector2(-256, -16)
 preprocess = 0.1
 
-[node name="BloodParticles_01" parent="RoomSlots/RoomSlot_00" unique_id=306624322 instance=ExtResource("16_a6rn7")]
+[node name="BloodParticles_01" parent="RoomSlots/RoomSlot_00/BloodContainer" unique_id=306624322 instance=ExtResource("16_a6rn7")]
 position = Vector2(-256, 0)
 preprocess = 0.1
 
-[node name="BloodParticles_02" parent="RoomSlots/RoomSlot_00" unique_id=1759473754 instance=ExtResource("16_a6rn7")]
+[node name="BloodParticles_02" parent="RoomSlots/RoomSlot_00/BloodContainer" unique_id=1759473754 instance=ExtResource("16_a6rn7")]
 position = Vector2(-256, 16)
 preprocess = 0.1
 
-[node name="BloodParticles_03" parent="RoomSlots/RoomSlot_00" unique_id=1010471461 instance=ExtResource("16_a6rn7")]
+[node name="BloodParticles_03" parent="RoomSlots/RoomSlot_00/BloodContainer" unique_id=1010471461 instance=ExtResource("16_a6rn7")]
 position = Vector2(-240, -32)
 preprocess = 0.1
 
-[node name="BloodParticles_04" parent="RoomSlots/RoomSlot_00" unique_id=774704044 instance=ExtResource("16_a6rn7")]
+[node name="BloodParticles_04" parent="RoomSlots/RoomSlot_00/BloodContainer" unique_id=774704044 instance=ExtResource("16_a6rn7")]
 position = Vector2(-240, 0)
 preprocess = 0.1
 
-[node name="BloodParticles_05" parent="RoomSlots/RoomSlot_00" unique_id=1702201349 instance=ExtResource("16_a6rn7")]
+[node name="BloodParticles_05" parent="RoomSlots/RoomSlot_00/BloodContainer" unique_id=1702201349 instance=ExtResource("16_a6rn7")]
 position = Vector2(-240, 32)
 preprocess = 0.1
 
-[node name="BloodParticles_06" parent="RoomSlots/RoomSlot_00" unique_id=87363033 instance=ExtResource("16_a6rn7")]
+[node name="BloodParticles_06" parent="RoomSlots/RoomSlot_00/BloodContainer" unique_id=87363033 instance=ExtResource("16_a6rn7")]
 position = Vector2(-224, 0)
 preprocess = 0.1
 
