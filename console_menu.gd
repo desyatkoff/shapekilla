@@ -100,6 +100,18 @@ var commands = {
         "description": "Set friction value",
         "function": cmd_set_friction,
         "args": ["new_friction"]
+    },
+    "get_weapon_damage": {
+        "cheats": false,
+        "description": "Print current weapon damage",
+        "function": cmd_get_weapon_damage,
+        "args": []
+    },
+    "set_weapon_damage": {
+        "cheats": true,
+        "description": "Set weapon damage value",
+        "function": cmd_set_weapon_damage,
+        "args": ["new_weapon_damage"]
     }
 }
 
@@ -291,3 +303,17 @@ func cmd_set_friction(args) -> void:
             error_output("<new_friction> arg must be a valid `float` value")
     else:
         error_output("<new_friction> arg is required")
+
+func cmd_get_weapon_damage(_args) -> void:
+    log_output(str(Game.player.weapon.damage))
+
+func cmd_set_weapon_damage(args) -> void:
+    if args.size() > 0:
+        var new_weapon_damage = args[0]
+
+        if new_weapon_damage.is_valid_int() and Game.player.weapon:
+            Game.player.weapon.damage = float(new_weapon_damage)
+        else:
+            error_output("<new_weapon_damage> arg must be a valid `int` value")
+    else:
+        error_output("<new_weapon_damage> arg is required")
