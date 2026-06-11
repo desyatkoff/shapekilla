@@ -158,6 +158,11 @@ func show_menu() -> void:
     if not Game.player.cheats_enabled:
         Game.save_progress()
 
+    await tween.finished
+
+    Game.player.velocity = Vector2.ZERO
+    Game.player.direction = Vector2.ZERO
+
 func hide_menu() -> void:
     var tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
