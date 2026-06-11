@@ -99,7 +99,7 @@ current_floor = %s
         Game.player.acceleration,
         Game.player.friction,
         Game.player.weapon,
-        Game.player.weapon.damage if Game.player.weapon else 0,
+        Game.player.weapon.damage if Game.player.weapon else 0.0,
         Game.player.item,
         Game.player.effects,
         Game.player.velocity,
@@ -154,9 +154,9 @@ current_floor = %s
     health_value_label.text = "%s / %s" % [Game.player.health, Game.player.max_health]
 
 func format_time(t: float) -> Array:
-    var total_ms = int(round(t * 1000))
+    var total_ms = round(t * 1000)
     var minutes = total_ms / 60000
-    var seconds = (total_ms / 1000) % 60
-    var milliseconds = total_ms % 1000
+    var seconds = int(total_ms / 1000) % 60
+    var milliseconds = int(total_ms) % 1000
 
     return [int(minutes), int(seconds), int(milliseconds)]

@@ -173,10 +173,10 @@ func hide_menu() -> void:
     tween.finished.connect(play)
 
 func format_time(t: float) -> Array:
-    var total_ms = int(round(t * 1000))
+    var total_ms = round(t * 1000)
     var minutes = total_ms / 60000
-    var seconds = (total_ms / 1000) % 60
-    var milliseconds = total_ms % 1000
+    var seconds = int(total_ms / 1000) % 60
+    var milliseconds = int(total_ms) % 1000
 
     return [int(minutes), int(seconds), int(milliseconds)]
 

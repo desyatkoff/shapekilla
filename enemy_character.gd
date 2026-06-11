@@ -17,6 +17,7 @@ func _ready() -> void:
 
     await get_tree().process_frame
 
+    owner = null
     call_deferred("reparent", Game.world.get_node("EnemiesContainer"))
 
 func _process(delta: float) -> void:
