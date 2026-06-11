@@ -76,7 +76,7 @@ position = Vector2(2304, 0)
 is_locked = false
 
 [node name="DoorSlot_05" type="Node2D" parent="TutorialMap/DoorSlots" unique_id=1678026478]
-position = Vector2(2816, 0)
+position = Vector2(2800, 0)
 
 [node name="Doors" parent="TutorialMap/DoorSlots/DoorSlot_05" unique_id=1095434480 instance=ExtResource("2_dwbse")]
 is_locked = false

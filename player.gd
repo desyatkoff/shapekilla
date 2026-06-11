@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
     set_collision_mask_value(3, not noclip)
     set_collision_mask_value(5, not noclip)
 
-    if Game.is_tutorial_complete:
+    if current_floor > 0:
         match current_room_slot_id:
             0:
                 camera.limit_left = -256
@@ -176,7 +176,7 @@ func _process(delta: float) -> void:
             5:
                 camera.limit_left = -800
                 camera.limit_top = -256
-                camera.limit_right = -224
+                camera.limit_right = -256
                 camera.limit_bottom = 256
 
 func apply_noise_shake(noise_shake_strength) -> void:
