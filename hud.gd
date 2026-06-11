@@ -59,6 +59,7 @@ current_room_slot_id = %s
 can_play = %s
 timer_enabled = %s
 cheats_enabled = %s
+noclip = %s
 is_tutorial_complete = %s
 total_play_time = %s
 total_runs = %s
@@ -108,6 +109,7 @@ current_floor = %s
         Game.player.can_play,
         Game.player.timer_enabled,
         Game.player.cheats_enabled,
+        Game.player.noclip,
         Game.is_tutorial_complete,
         Game.total_play_time,
         Game.total_runs,

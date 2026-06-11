@@ -9,6 +9,7 @@ var can_play = false
 var timer_enabled = false
 
 var cheats_enabled = false
+var noclip = false
 
 var run_time = 0.0
 var run_kills = 0
@@ -78,6 +79,15 @@ func _process(delta: float) -> void:
     shake_strength = lerp(shake_strength, 0.0, shake_decay_rate * delta)
 
     camera.offset = get_noise_offset(delta)
+
+    camera.limit_enabled = not noclip
+
+    set_collision_layer_value(2, not noclip)
+
+    set_collision_mask_value(1, not noclip)
+    set_collision_mask_value(2, not noclip)
+    set_collision_mask_value(3, not noclip)
+    set_collision_mask_value(5, not noclip)
 
     if Game.is_tutorial_complete:
         match current_room_slot_id:

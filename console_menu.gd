@@ -35,6 +35,12 @@ var commands = {
         "function": cmd_restart,
         "args": []
     },
+    "noclip": {
+        "cheats": true,
+        "description": "Toggle player collision",
+        "function": cmd_noclip,
+        "args": []
+    },
     "get_seed": {
         "cheats": false,
         "description": "Print current run seed",
@@ -225,6 +231,11 @@ func cmd_restart(_args) -> void:
     Game.player.run_floors_cleared = 0
 
     Game.player.current_floor = 1
+
+func cmd_noclip(_args) -> void:
+    Game.player.noclip = not Game.player.noclip
+
+    log_output(str(Game.player.noclip))
 
 func cmd_get_seed(_args) -> void:
     log_output(str(Game.run_seed))
