@@ -7,7 +7,7 @@ class_name Weapon
 
 @onready var weapon_owner: Character
 
-@export var damage = 1
+@export var damage = 1.0
 
 func _ready() -> void:
     if get_parent().get_parent() is Character:

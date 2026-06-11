@@ -320,9 +320,9 @@ func cmd_set_weapon_damage(args) -> void:
     if args.size() > 0:
         var new_weapon_damage = args[0]
 
-        if new_weapon_damage.is_valid_int() and Game.player.weapon:
+        if new_weapon_damage.is_valid_float() and Game.player.weapon:
             Game.player.weapon.damage = float(new_weapon_damage)
         else:
-            error_output("<new_weapon_damage> arg must be a valid `int` value")
+            error_output("<new_weapon_damage> arg must be a valid `float` value")
     else:
         error_output("<new_weapon_damage> arg is required")
