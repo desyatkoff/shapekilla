@@ -5,7 +5,7 @@ func use() -> void:
     use_sfx_player.play()
 
     if not Game.player.cheats_enabled:
-        Game.total_damage_potions_used += 1
+        Game.data["total_damage_potions_used"] += 1
 
     item_owner.effects_slot.add_child(preload("res://damage_multiplier_effect.tscn").instantiate())
 

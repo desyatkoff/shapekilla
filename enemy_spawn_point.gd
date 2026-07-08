@@ -6,7 +6,7 @@ class_name EnemySpawnPoint
 
 func spawn_enemy():
     if randf() <= probability:
-        if Game.is_tutorial_complete:
+        if Game.data["is_tutorial_complete"]:
             var enemy_scene = enemy_scenes.pick_random()
 
             if enemy_scene:

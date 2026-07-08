@@ -119,7 +119,7 @@ func show_menu() -> void:
         win_sfx_player.play()
 
         if not Game.player.cheats_enabled:
-            Game.total_floors_cleared += 1
+            Game.data["total_floors_cleared"] += 1
 
         Game.player.run_floors_cleared += 1
 
@@ -131,8 +131,8 @@ func show_menu() -> void:
         floors_cleared.get_parent().visible = false
         items_used.text = str(Game.player.floor_items_used)
 
-        if not Game.is_tutorial_complete:
-            Game.is_tutorial_complete = true
+        if not Game.data["is_tutorial_complete"]:
+            Game.data["is_tutorial_complete"] = true
 
             Game.player.health = Game.player.max_health
 

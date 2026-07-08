@@ -16,7 +16,7 @@ func _on_enemy_died():
         cleared.emit()
 
         if not Game.player.cheats_enabled:
-            Game.total_rooms_cleared += 1
+            Game.data["total_rooms_cleared"] += 1
 
         Game.player.run_rooms_cleared += 1
         Game.player.floor_rooms_cleared += 1

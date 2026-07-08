@@ -35,12 +35,12 @@ var shake_strength = 0.0
 func _ready() -> void:
     noise.seed = randi()
 
-    if not Game.is_tutorial_complete:
+    if not Game.data["is_tutorial_complete"]:
         current_floor = 0
         find_child("Shotgun").queue_free()
 
 func _process(delta: float) -> void:
-    if Game.is_tutorial_complete:
+    if Game.data["is_tutorial_complete"]:
         health = clamp(health, 0, max_health)
     else:
         health = clamp(health, 1, max_health)
@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
         body_sprite.flip_h = mouse_direction.x < 0
 
     if timer_enabled:
-        Game.total_play_time += delta
+        Game.data["total_play_time"] += delta
 
         run_time += delta
         floor_time += delta
@@ -218,7 +218,7 @@ func get_input() -> void:
         item.use()
 
         if not cheats_enabled:
-            Game.total_items_used += 1
+            Game.data["total_items_used"] += 1
 
         run_items_used += 1
         floor_items_used += 1

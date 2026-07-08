@@ -19,7 +19,7 @@ extends Control
 func _ready() -> void:
     visible = true
 
-    if Game.is_tutorial_complete:
+    if Game.data["is_tutorial_complete"]:
         fade_out()
 
 func _on_play_button_pressed() -> void:
@@ -29,7 +29,7 @@ func _on_play_button_pressed() -> void:
 
     Game.hud.click_sfx_player.play()
 
-    if not Game.is_tutorial_complete:
+    if not Game.data["is_tutorial_complete"]:
         fade_out()
 
     var tween = create_tween()
@@ -45,16 +45,16 @@ func _on_stats_button_pressed() -> void:
     stats_button.disabled = true
     quit_button.disabled = true
 
-    total_play_time_label.text = "%02d:%02d.%03d" % format_time(Game.total_play_time)
-    total_runs_label.text = str(Game.total_runs)
-    total_kills_label.text = str(Game.total_kills)
-    best_kills_label.text = str(Game.best_kills)
-    total_rooms_cleared_label.text = str(Game.total_rooms_cleared)
-    best_rooms_cleared_label.text = str(Game.best_rooms_cleared)
-    total_floors_cleared_label.text = str(Game.total_floors_cleared)
-    best_floors_cleared_label.text = str(Game.best_floors_cleared)
-    total_items_used_label.text = str(Game.total_items_used)
-    best_items_used_label.text = str(Game.best_items_used)
+    total_play_time_label.text = "%02d:%02d.%03d" % format_time(Game.data["total_play_time"])
+    total_runs_label.text = str(Game.data["total_runs"])
+    total_kills_label.text = str(Game.data["total_kills"])
+    best_kills_label.text = str(Game.data["best_kills"])
+    total_rooms_cleared_label.text = str(Game.data["total_rooms_cleared"])
+    best_rooms_cleared_label.text = str(Game.data["best_rooms_cleared"])
+    total_floors_cleared_label.text = str(Game.data["total_floors_cleared"])
+    best_floors_cleared_label.text = str(Game.data["best_floors_cleared"])
+    total_items_used_label.text = str(Game.data["total_items_used"])
+    best_items_used_label.text = str(Game.data["best_items_used"])
 
     Game.hud.click_sfx_player.play()
 
@@ -126,7 +126,7 @@ func fade_out() -> void:
     bg.queue_free()
 
 func play() -> void:
-    Game.total_runs += 1
+    Game.data["total_runs"] += 1
     Game.player.can_play = true
     Game.player.timer_enabled = true
 

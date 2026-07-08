@@ -9,54 +9,50 @@ var hud: CanvasLayer
 
 var console
 
-var is_tutorial_complete = false
-
-var total_play_time = 0.0
-var total_runs = 0
-
-var total_kills = 0
-var best_kills = 0
-
-var total_rooms_cleared = 0
-var best_rooms_cleared = 0
-
-var total_floors_cleared = 0
-var best_floors_cleared = 0
-
-var total_items_used = 0
-var best_items_used = 0
-
-var total_keys_used = 0
-var total_health_potions_used = 0
-var total_damage_potions_used = 0
-var total_speed_potions_used = 0
+var data = {
+    "is_tutorial_complete": false,
+    "total_play_time": 0.0,
+    "total_runs": 0,
+    "total_kills": 0,
+    "best_kills": 0,
+    "total_rooms_cleared": 0,
+    "best_rooms_cleared": 0,
+    "total_floors_cleared": 0,
+    "best_floors_cleared": 0,
+    "total_items_used": 0,
+    "best_items_used": 0,
+    "total_keys_used": 0,
+    "total_health_potions_used": 0,
+    "total_damage_potions_used": 0,
+    "total_speed_potions_used": 0
+}
 
 func _ready() -> void:
-    var data = load_data()
+    var loaded_data = load_data()
 
-    if not data.is_empty():
-        apply_save_data(data)
+    if not loaded_data.is_empty():
+        data = loaded_data
 
 func _process(_delta: float) -> void:
     if is_instance_valid(player):
         if not player.cheats_enabled:
-            if player.run_kills > best_kills:
-                best_kills = player.run_kills
+            if player.run_kills > data["best_kills"]:
+                data["best_kills"] = player.run_kills
 
                 save_progress()
 
-            if player.run_rooms_cleared > best_rooms_cleared:
-                best_rooms_cleared = player.run_rooms_cleared
+            if player.run_rooms_cleared > data["best_rooms_cleared"]:
+                data["best_rooms_cleared"] = player.run_rooms_cleared
 
                 save_progress()
 
-            if player.run_floors_cleared > best_floors_cleared:
-                best_floors_cleared = player.run_floors_cleared
+            if player.run_floors_cleared > data["best_floors_cleared"]:
+                data["best_floors_cleared"] = player.run_floors_cleared
 
                 save_progress()
 
-            if player.run_items_used > best_items_used:
-                best_items_used = player.run_items_used
+            if player.run_items_used > data["best_items_used"]:
+                data["best_items_used"] = player.run_items_used
 
                 save_progress()
 
@@ -114,73 +110,27 @@ func reload_player() -> void:
 
     update_values()
 
-func collect_save_data() -> Dictionary:
-    return {
-        "is_tutorial_complete": is_tutorial_complete,
-        "total_play_time": total_play_time,
-        "total_runs": total_runs,
-        "total_kills": total_kills,
-        "best_kills": best_kills,
-        "total_rooms_cleared": total_rooms_cleared,
-        "best_rooms_cleared": best_rooms_cleared,
-        "total_floors_cleared": total_floors_cleared,
-        "best_floors_cleared": best_floors_cleared,
-        "total_items_used": total_items_used,
-        "best_items_used": best_items_used,
-        "total_keys_used": total_keys_used,
-        "total_health_potions_used": total_health_potions_used,
-        "total_damage_potions_used": total_damage_potions_used,
-        "total_speed_potions_used": total_speed_potions_used
-    }
-
-func apply_save_data(data: Dictionary) -> void:
-    is_tutorial_complete = data.get("is_tutorial_complete", is_tutorial_complete)
-
-    total_play_time = data.get("total_play_time", total_play_time)
-    total_runs = data.get("total_runs", total_runs)
-
-    total_kills = data.get("total_kills", total_kills)
-    best_kills = data.get("best_kills", best_kills)
-
-    total_rooms_cleared = data.get("total_rooms_cleared", total_rooms_cleared)
-    best_rooms_cleared = data.get("best_rooms_cleared", best_rooms_cleared)
-
-    total_floors_cleared = data.get("total_floors_cleared", total_floors_cleared)
-    best_floors_cleared = data.get("best_floors_cleared", best_floors_cleared)
-
-    total_items_used = data.get("total_items_used", total_items_used)
-    best_items_used = data.get("best_items_used", best_items_used)
-
-    total_keys_used = data.get("total_keys_used", total_keys_used)
-    total_health_potions_used = data.get("total_health_potions_used", total_health_potions_used)
-    total_damage_potions_used = data.get("total_damage_potions_used", total_damage_potions_used)
-    total_speed_potions_used = data.get("total_speed_potions_used", total_speed_potions_used)
-
 func erase_save_data() -> void:
     if FileAccess.file_exists("user://save.dat"):
         DirAccess.remove_absolute("user://save.dat")
 
-    is_tutorial_complete = false
-
-    total_play_time = 0.0
-    total_runs = 0
-
-    total_kills = 0
-    best_kills = 0
-
-    total_rooms_cleared = 0
-    best_rooms_cleared = 0
-
-    total_floors_cleared = 0
-    best_floors_cleared = 0
-
-    total_items_used = 0
-    best_items_used = 0
-
-    total_keys_used = 0
-    total_health_potions_used = 0
-    total_damage_potions_used = 0
-    total_speed_potions_used = 0
+    data = {
+        "is_tutorial_complete": false,
+        "total_play_time": 0.0,
+        "total_runs": 0,
+        "total_kills": 0,
+        "best_kills": 0,
+        "total_rooms_cleared": 0,
+        "best_rooms_cleared": 0,
+        "total_floors_cleared": 0,
+        "best_floors_cleared": 0,
+        "total_items_used": 0,
+        "best_items_used": 0,
+        "total_keys_used": 0,
+        "total_health_potions_used": 0,
+        "total_damage_potions_used": 0,
+        "total_speed_potions_used": 0
+    }
 
 func save_progress() -> void:
     if player.cheats_enabled:
@@ -191,7 +141,7 @@ func save_progress() -> void:
     if existing.is_empty() and FileAccess.file_exists("user://save.dat"):
         return
 
-    var current = collect_save_data()
+    var current = data
     var merged_data = {}
 
     for key in current.keys():
@@ -205,11 +155,11 @@ func save_progress() -> void:
 
     save_data(merged_data)
 
-func save_data(data: Dictionary) -> bool:
+func save_data(data_dict: Dictionary) -> bool:
     var file = FileAccess.open("user://save.dat", FileAccess.WRITE)
 
     if file:
-        file.store_var(data, false)
+        file.store_var(data_dict, false)
         file.close()
 
         return true
@@ -223,13 +173,10 @@ func load_data() -> Dictionary:
     var file = FileAccess.open("user://save.dat", FileAccess.READ)
 
     if file:
-        var data = file.get_var(false)
+        var data_dict = file.get_var(false)
 
         file.close()
 
-        if typeof(data) != TYPE_DICTIONARY:
-            return {}
-        else:
-            return data
+        return data_dict if typeof(data_dict) == TYPE_DICTIONARY else {}
     else:
         return {}

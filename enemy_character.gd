@@ -68,7 +68,7 @@ func die() -> void:
     died.emit()
 
     if not Game.player.cheats_enabled:
-        Game.total_kills += 1
+        Game.data["total_kills"] += 1
 
     Game.player.run_kills += 1
     Game.player.floor_kills += 1

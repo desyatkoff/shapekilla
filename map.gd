@@ -7,7 +7,7 @@ extends Node2D
 func _ready() -> void:
     Game.update_values()
 
-    if Game.is_tutorial_complete:
+    if Game.data["is_tutorial_complete"]:
         Game.world.get_node("TutorialMap").queue_free()
     else:
         Game.player.global_position = Game.world.get_node("TutorialMap").global_position
