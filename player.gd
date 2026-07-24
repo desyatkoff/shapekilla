@@ -93,9 +93,9 @@ func _process(delta: float) -> void:
         match current_room_slot_id:
             0:
                 camera.limit_left = -256
-                camera.limit_top = -128
+                camera.limit_top = -256
                 camera.limit_right = 288
-                camera.limit_bottom = 128
+                camera.limit_bottom = 256
             1:
                 camera.limit_left = 256
                 camera.limit_top = -768
@@ -143,9 +143,9 @@ func _process(delta: float) -> void:
                 camera.limit_bottom = 768
             10:
                 camera.limit_left = 1760
-                camera.limit_top = -128
+                camera.limit_top = -256
                 camera.limit_right = 2304
-                camera.limit_bottom = 128
+                camera.limit_bottom = 256
     else:
         match current_room_slot_id:
             0:
