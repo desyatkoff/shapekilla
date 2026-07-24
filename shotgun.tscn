@@ -13,6 +13,7 @@ size = Vector2(50, 12)
 script = ExtResource("2_a8mn3")
 
 [node name="ItemParticles" parent="." index="0" unique_id=1042161929 instance=ExtResource("3_a8mn3")]
+color = Color(0.9647059, 0.6, 0.53333336, 1)
 
 [node name="Sprite" parent="." index="1" unique_id=14667561]
 texture = ExtResource("2_7oeqp")

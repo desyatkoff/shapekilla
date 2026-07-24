@@ -8,6 +8,8 @@ class_name Item
 @onready var use_sfx_player = $UseSFXPlayer
 
 @export var item_name: String
+@export var item_type: String
+@export var item_rarity: int
 
 @export var is_rotating = true
 @export var can_be_picked_up = true
@@ -19,6 +21,16 @@ var tween: Tween
 func _ready() -> void:
     if tween and tween.is_running():
         tween.kill()
+
+    item_particles.color = Color.hex(0xeeeeeeff)
+
+    match item_type:
+        "":
+            pass
+        "weapon":
+            item_particles.color = Color.hex(0xf69988ff)
+        "upgrade":
+            item_particles.color = Color.hex(0xf48fb1ff)
 
     sprite.self_modulate = Color.TRANSPARENT
 

@@ -4,6 +4,9 @@ class_name DamageMultiplierEffect
 var multiplier = 2.0
 
 func _ready() -> void:
+    if round(multiplier) == multiplier:
+        multiplier = int(multiplier)
+
     effect_texture = preload("res://damage_effect.png")
     effect_name = "x%s Damage" % multiplier
 
