@@ -1,0 +1,2 @@
+extends EnemyCharacter
+class_name VenomousEnemy

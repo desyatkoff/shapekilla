@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cedm0n51vgexe"]
+
+[ext_resource type="PackedScene" uid="uid://dglbic4jylh7s" path="res://character_effect.tscn" id="1_h4jws"]
+[ext_resource type="Script" uid="uid://bsk0ai8roraj4" path="res://poison_effect.gd" id="2_4kv5h"]
+[ext_resource type="AudioStream" uid="uid://bkfw5kn3lue6h" path="res://poison.wav" id="3_kgnx7"]
+
+[node name="PoisonEffect" unique_id=948421491 instance=ExtResource("1_h4jws")]
+script = ExtResource("2_4kv5h")
+
+[node name="AttackSFXPlayer" type="AudioStreamPlayer2D" parent="." index="0" unique_id=11381828]
+stream = ExtResource("3_kgnx7")
+bus = &"SFX"
+
+[node name="DurationTimer" parent="." index="1" unique_id=403020817]
+wait_time = 5.0

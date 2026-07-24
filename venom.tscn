@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dh51374yyr85x"]
+
+[ext_resource type="PackedScene" uid="uid://cshfp82k1uuv2" path="res://weapon.tscn" id="1_yj4sh"]
+[ext_resource type="Script" uid="uid://d188ngqxn57jr" path="res://venom.gd" id="2_rx70s"]
+[ext_resource type="AudioStream" uid="uid://bkfw5kn3lue6h" path="res://poison.wav" id="3_rx70s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mme0g"]
+size = Vector2(32, 32)
+
+[node name="Venom" unique_id=760112493 instance=ExtResource("1_yj4sh")]
+script = ExtResource("2_rx70s")
+
+[node name="Hitbox" type="Area2D" parent="." index="1" unique_id=1544830410]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=642406499]
+shape = SubResource("RectangleShape2D_mme0g")
+
+[node name="AttackSFXPlayer" parent="." index="2" unique_id=947155498]
+stream = ExtResource("3_rx70s")
+
+[node name="CooldownTimer" parent="." index="3" unique_id=1453833404]
+wait_time = 0.25
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

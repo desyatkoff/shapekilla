@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0kdowolsmnw"]
+
+[ext_resource type="PackedScene" uid="uid://db0bhbdokayuk" path="res://enemy_character.tscn" id="1_ujdo6"]
+[ext_resource type="Texture2D" uid="uid://dtlt2rnviid52" path="res://hexagon_enemy.png" id="2_an34g"]
+[ext_resource type="Script" uid="uid://cebm60odq2id2" path="res://venomous_enemy.gd" id="2_thc2h"]
+[ext_resource type="PackedScene" uid="uid://dh51374yyr85x" path="res://venom.tscn" id="4_thc2h"]
+[ext_resource type="Script" uid="uid://b0vcyjt5sidvg" path="res://venomous_enemy_fsm.gd" id="5_by5pu"]
+
+[node name="VenomousEnemy" unique_id=757774300 instance=ExtResource("1_ujdo6")]
+script = ExtResource("2_thc2h")
+max_health = 8
+health = 8
+max_speed = 60
+acceleration = 30
+friction = 0.16
+
+[node name="Body" parent="." index="0" unique_id=2120351308]
+texture = ExtResource("2_an34g")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Venom" parent="WeaponSlot" parent_id_path=PackedInt32Array(1732380290) index="0" unique_id=760112493 instance=ExtResource("4_thc2h")]
+
+[node name="FiniteStateMachine" parent="." index="8" unique_id=1331044783]
+script = ExtResource("5_by5pu")
