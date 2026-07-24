@@ -138,7 +138,7 @@ func save_progress() -> void:
 
     var existing = load_data()
 
-    if existing.is_empty() and FileAccess.file_exists("user://save.dat"):
+    if existing.is_empty() and FileAccess.file_exists("user://save.json"):
         return
 
     var current = data
@@ -148,7 +148,7 @@ func save_progress() -> void:
         var cur = current.get(key)
         var old = existing.get(key, cur)
 
-        if typeof(cur) == TYPE_BOOL:
+        if cur is bool:
             merged_data[key] = cur or old
         else:
             merged_data[key] = max(cur, old)
@@ -156,10 +156,10 @@ func save_progress() -> void:
     save_data(merged_data)
 
 func save_data(data_dict: Dictionary) -> bool:
-    var file = FileAccess.open("user://save.dat", FileAccess.WRITE)
+    var file = FileAccess.open("user://save.json", FileAccess.WRITE)
 
     if file:
-        file.store_var(data_dict, false)
+        file.store_string(JSON.stringify(data_dict, "\t", false))
         file.close()
 
         return true
@@ -167,16 +167,16 @@ func save_data(data_dict: Dictionary) -> bool:
         return false
 
 func load_data() -> Dictionary:
-    if not FileAccess.file_exists("user://save.dat"):
+    if not FileAccess.file_exists("user://save.json"):
         return {}
 
-    var file = FileAccess.open("user://save.dat", FileAccess.READ)
+    var file = FileAccess.open("user://save.json", FileAccess.READ)
 
     if file:
-        var data_dict = file.get_var(false)
+        var data_dict = JSON.parse_string(file.get_as_text())
 
         file.close()
 
-        return data_dict if typeof(data_dict) == TYPE_DICTIONARY else {}
+        return data_dict if data_dict is Dictionary else {}
     else:
         return {}
