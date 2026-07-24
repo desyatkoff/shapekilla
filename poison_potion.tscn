@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://drjpe7hdsbiu5"]
+
+[ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_rxnkx"]
+[ext_resource type="Script" uid="uid://kpqv1kbxff0k" path="res://poison_potion.gd" id="2_v74uy"]
+[ext_resource type="Texture2D" uid="uid://dr3o1m6hmcab1" path="res://poison_potion.png" id="3_dx1lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx1lk"]
+size = Vector2(10, 14)
+
+[node name="PoisonPotion" unique_id=23840998 instance=ExtResource("1_rxnkx")]
+script = ExtResource("2_v74uy")
+item_name = "Poison Potion"
+
+[node name="Sprite" parent="." index="1" unique_id=1005126698]
+texture = ExtResource("3_dx1lk")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
+shape = SubResource("RectangleShape2D_dx1lk")

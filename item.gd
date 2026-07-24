@@ -9,7 +9,6 @@ class_name Item
 
 @export var item_name: String
 @export var item_type: String
-@export var item_rarity: int
 
 @export var is_rotating = true
 @export var can_be_picked_up = true

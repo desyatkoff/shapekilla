@@ -24,7 +24,8 @@ var data = {
     "total_keys_used": 0,
     "total_health_potions_used": 0,
     "total_damage_potions_used": 0,
-    "total_speed_potions_used": 0
+    "total_speed_potions_used": 0,
+    "total_poison_potions_used": 0
 }
 
 func _ready() -> void:
@@ -111,8 +112,8 @@ func reload_player() -> void:
     update_values()
 
 func erase_save_data() -> void:
-    if FileAccess.file_exists("user://save.dat"):
-        DirAccess.remove_absolute("user://save.dat")
+    if FileAccess.file_exists("user://save.json"):
+        DirAccess.remove_absolute("user://save.json")
 
     data = {
         "is_tutorial_complete": false,
@@ -129,7 +130,8 @@ func erase_save_data() -> void:
         "total_keys_used": 0,
         "total_health_potions_used": 0,
         "total_damage_potions_used": 0,
-        "total_speed_potions_used": 0
+        "total_speed_potions_used": 0,
+        "total_poison_potions_used": 0
     }
 
 func save_progress() -> void:
@@ -159,7 +161,7 @@ func save_data(data_dict: Dictionary) -> bool:
     var file = FileAccess.open("user://save.json", FileAccess.WRITE)
 
     if file:
-        file.store_string(JSON.stringify(data_dict, "\t", false))
+        file.store_string(JSON.stringify(data_dict, "\t", false, true))
         file.close()
 
         return true
@@ -174,6 +176,10 @@ func load_data() -> Dictionary:
 
     if file:
         var data_dict = JSON.parse_string(file.get_as_text())
+
+        for key in data_dict.keys():
+            if data_dict[key] is float and round(data_dict[key]) == data_dict[key]:
+                data_dict[key] = int(data_dict[key])
 
         file.close()
 
