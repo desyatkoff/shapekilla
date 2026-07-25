@@ -11,6 +11,9 @@ func spawn_item():
         if item_scene:
             var item_instance = item_scene.instantiate()
 
+            if item_instance is Key:
+                item_instance.key_tier = item_instance.pick_tier()
+
             get_parent().add_child(item_instance)
 
             item_instance.global_position = global_position

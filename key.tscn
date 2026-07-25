@@ -9,10 +9,13 @@ size = Vector2(16, 8)
 
 [node name="Key" unique_id=23840998 instance=ExtResource("1_p0yg6")]
 script = ExtResource("2_p0yg6")
+key_tier = 0
 item_name = "Key"
 
 [node name="Sprite" parent="." index="1" unique_id=1005126698]
 texture = ExtResource("1_up4cr")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
 shape = SubResource("RectangleShape2D_krfvd")

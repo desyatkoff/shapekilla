@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://ccgoka5argg23" path="res://enemy_spawn_point.tscn" id="3_mqxgo"]
 [ext_resource type="PackedScene" uid="uid://ody4uki2c3l3" path="res://item_spawn_point.tscn" id="4_mdjta"]
 [ext_resource type="PackedScene" uid="uid://b72872psfpjl0" path="res://key.tscn" id="4_mqxgo"]
+[ext_resource type="PackedScene" uid="uid://c4keoln3stjfd" path="res://health_potion.tscn" id="5_aof82"]
+[ext_resource type="PackedScene" uid="uid://b3vda6ck6uyyl" path="res://damage_potion.tscn" id="6_0sewa"]
+[ext_resource type="PackedScene" uid="uid://3fnmfg5frxf2" path="res://speed_potion.tscn" id="7_hl60t"]
+[ext_resource type="PackedScene" uid="uid://drjpe7hdsbiu5" path="res://poison_potion.tscn" id="8_kxvr7"]
 
 [node name="Room_08" unique_id=835384101 instance=ExtResource("1_pl7hl")]
 
@@ -29,6 +33,7 @@ position = Vector2(128, 160)
 
 [node name="ItemSpawnPoint_00" parent="." index="6" unique_id=2048955544 instance=ExtResource("4_mdjta")]
 position = Vector2(-144, -176)
+item_scenes = Array[PackedScene]([ExtResource("5_aof82"), ExtResource("6_0sewa"), ExtResource("7_hl60t"), ExtResource("8_kxvr7"), ExtResource("4_mqxgo")])
 
 [node name="Key_00" parent="." index="7" unique_id=23840998 instance=ExtResource("4_mqxgo")]
 position = Vector2(-176, -144)

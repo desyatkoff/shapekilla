@@ -49,6 +49,8 @@ occluder = SubResource("OccluderPolygon2D_cb6k2")
 [node name="Lock" type="Sprite2D" parent="." unique_id=503869081]
 visible = false
 texture = ExtResource("3_cb6k2")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Detector" type="Area2D" parent="." unique_id=1726779399]
 collision_mask = 23

@@ -143,10 +143,14 @@ current_floor = %s
     run_floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.run_floors_cleared, "s" if Game.player.run_floors_cleared == 0 or Game.player.run_floors_cleared > 1 else ""]
 
     if Game.player.item:
-        item_icon.texture = Game.player.item.sprite.texture
+        item_icon.texture.atlas = Game.player.item.sprite.texture
+        item_icon.texture.region = Game.player.item.sprite.region_rect
+
         item_name.text = Game.player.item.item_name
     else:
-        item_icon.texture = null
+        item_icon.texture.atlas = null
+        item_icon.texture.region = Rect2(0.0, 0.0, 0.0, 0.0)
+
         item_name.text = ""
 
     health_bar.value = Game.player.health

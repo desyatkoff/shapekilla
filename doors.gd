@@ -10,12 +10,17 @@ class_name Doors
 @export var move_time = 0.5
 @export var is_locked = true
 @export var is_open = false
+@export var lock_tier: int
 
 var door0_closed_y: float
 var door1_closed_y: float
 var tween: Tween
 
 func _ready() -> void:
+    lock_tier = clamp(lock_tier, 0, 4)
+
+    lock_sprite.region_rect = Rect2(32.0 * lock_tier, 0.0, 32.0, 32.0)
+
     door0_closed_y = door0.position.y
     door1_closed_y = door1.position.y
     lock_sprite.global_rotation = 0
