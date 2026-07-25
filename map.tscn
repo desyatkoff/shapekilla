@@ -28,11 +28,12 @@
 [ext_resource type="PackedScene" uid="uid://ddhmrqyyikrkt" path="res://room_16.tscn" id="19_4v3wx"]
 [ext_resource type="PackedScene" uid="uid://cckifp3tjgeuj" path="res://room_17.tscn" id="20_y1wlr"]
 [ext_resource type="PackedScene" uid="uid://c4njj5bk6r35q" path="res://end_room_01.tscn" id="22_h75vw"]
+[ext_resource type="PackedScene" uid="uid://dihq2fkvpkbdc" path="res://end_room_02.tscn" id="23_7vxqa"]
 [ext_resource type="Script" uid="uid://gvfhirytuoog" path="res://blood_container.gd" id="24_n2jt6"]
 
 [node name="Map" type="Node2D" unique_id=1249936917]
 script = ExtResource("1_urblq")
-room_scenes = Array[PackedScene]([ExtResource("2_urblq"), ExtResource("2_wbpbn"), ExtResource("4_05x41"), ExtResource("5_gqbix"), ExtResource("6_oysan"), ExtResource("7_sb2pt"), ExtResource("3_71pa8"), ExtResource("9_2wwcf"), ExtResource("10_wbpbn"), ExtResource("11_a6rn7"), ExtResource("12_bssq0"), ExtResource("13_jk4ss"), ExtResource("14_r5om4"), ExtResource("15_jky6x"), ExtResource("16_4sf5t"), ExtResource("17_3mr0t"), ExtResource("18_6sq2s"), ExtResource("19_4v3wx"), ExtResource("20_y1wlr"), ExtResource("4_71pa8"), ExtResource("22_h75vw")])
+room_scenes = Array[PackedScene]([ExtResource("2_urblq"), ExtResource("2_wbpbn"), ExtResource("4_05x41"), ExtResource("5_gqbix"), ExtResource("6_oysan"), ExtResource("7_sb2pt"), ExtResource("3_71pa8"), ExtResource("9_2wwcf"), ExtResource("10_wbpbn"), ExtResource("11_a6rn7"), ExtResource("12_bssq0"), ExtResource("13_jk4ss"), ExtResource("14_r5om4"), ExtResource("15_jky6x"), ExtResource("16_4sf5t"), ExtResource("17_3mr0t"), ExtResource("18_6sq2s"), ExtResource("19_4v3wx"), ExtResource("20_y1wlr"), ExtResource("4_71pa8"), ExtResource("22_h75vw"), ExtResource("23_7vxqa")])
 
 [node name="DoorSlots" type="Node2D" parent="." unique_id=156098974]
 

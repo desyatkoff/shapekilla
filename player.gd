@@ -14,6 +14,7 @@ var noclip = false
 var run_time = 0.0
 var run_score = 0
 var run_points = 0
+var run_points_earned = 0
 var run_points_spent = 0
 var run_kills = 0
 var run_rooms_cleared = 0

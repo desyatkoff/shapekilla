@@ -64,6 +64,8 @@ func _on_to_main_menu_button_pressed() -> void:
     Game.player.run_time = 0.0
     Game.player.run_score = 0
     Game.player.run_points = 0
+    Game.player.run_points_earned = 0
+    Game.player.run_points_spent = 0
     Game.player.run_kills = 0
     Game.player.run_rooms_cleared = 0
     Game.player.run_floors_cleared = 0
@@ -87,6 +89,8 @@ func _on_try_again_button_pressed() -> void:
     Game.player.run_time = 0.0
     Game.player.run_score = 0
     Game.player.run_points = 0
+    Game.player.run_points_earned = 0
+    Game.player.run_points_spent = 0
     Game.player.run_kills = 0
     Game.player.run_rooms_cleared = 0
     Game.player.run_floors_cleared = 0
@@ -148,6 +152,7 @@ func show_menu() -> void:
 
         Game.player.run_score += 10
         Game.player.run_points += 1
+        Game.player.run_points_earned += 1
 
         title_label.text = "FLOOR #%s RESULTS:" % Game.player.current_floor
 
@@ -165,16 +170,29 @@ func show_menu() -> void:
         items_used_value_label.visible = true
 
         time_value_label.text = "%02d:%02d.%03d" % format_time(Game.player.floor_time)
-        score_value_label.text = "-"
+        score_value_label.text = str(Game.player.run_score)
         kills_value_label.text = str(Game.player.floor_kills)
         rooms_cleared_value_label.text = str(Game.player.floor_rooms_cleared)
-        floors_cleared_value_label.text = "-"
+        floors_cleared_value_label.text = str(Game.player.run_floors_cleared)
         items_used_value_label.text = str(Game.player.floor_items_used)
 
         if not Game.data["is_tutorial_complete"]:
             Game.data["is_tutorial_complete"] = true
 
             Game.player.health = Game.player.max_health
+
+            time_label.visible = true
+            score_label.visible = true
+            kills_label.visible = true
+            rooms_cleared_label.visible = false
+            floors_cleared_label.visible = false
+            items_used_label.visible = true
+            time_value_label.visible = true
+            score_value_label.visible = true
+            kills_value_label.visible = true
+            rooms_cleared_value_label.visible = false
+            floors_cleared_value_label.visible = false
+            items_used_value_label.visible = true
 
             title_label.text = "TUTORIAL RESULTS:"
 

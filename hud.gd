@@ -68,6 +68,7 @@ is_tutorial_complete = %s
 run_time = %s
 run_score = %s
 run_points = %s
+run_points_earned = %s
 run_points_spent = %s
 run_kills = %s
 run_rooms_cleared = %s
@@ -107,6 +108,7 @@ current_floor = %s
         Game.player.run_time,
         Game.player.run_score,
         Game.player.run_points,
+        Game.player.run_points_earned,
         Game.player.run_points_spent,
         Game.player.run_kills,
         Game.player.run_rooms_cleared,
@@ -122,7 +124,7 @@ current_floor = %s
     run_time_label.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)
 
     run_score_label.text = "Score: %s" % Game.player.run_score
-    run_points_label.text = "Points: %s" % str(Game.player.run_points - Game.player.run_points_spent)
+    run_points_label.text = "Points: %s" % Game.player.run_points
 
     run_kills_label.text = "%s Kill%s" % [Game.player.run_kills, "s" if Game.player.run_kills == 0 or Game.player.run_kills > 1 else ""]
     run_rooms_cleared_label.text = "%s Room%s Cleared" % [Game.player.run_rooms_cleared, "s" if Game.player.run_rooms_cleared == 0 or Game.player.run_rooms_cleared > 1 else ""]

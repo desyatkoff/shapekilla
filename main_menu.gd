@@ -5,16 +5,21 @@ extends Control
 @onready var stats_button = $StatsButton
 @onready var quit_button = $QuitButton
 @onready var stats_panel = $StatsPanel
-@onready var total_play_time_label = $StatsPanel/TotalPlayTimeLabel/ValueLabel
-@onready var total_runs_label = $StatsPanel/TotalRunsLabel/ValueLabel
-@onready var total_kills_label = $StatsPanel/KillsLabel/TotalValueLabel
-@onready var best_kills_label = $StatsPanel/KillsLabel/BestValueLabel
-@onready var total_rooms_cleared_label = $StatsPanel/RoomsClearedLabel/TotalValueLabel
-@onready var best_rooms_cleared_label = $StatsPanel/RoomsClearedLabel/BestValueLabel
-@onready var total_floors_cleared_label = $StatsPanel/FloorsClearedLabel/TotalValueLabel
-@onready var best_floors_cleared_label = $StatsPanel/FloorsClearedLabel/BestValueLabel
-@onready var total_items_used_label = $StatsPanel/ItemsUsedLabel/TotalValueLabel
-@onready var best_items_used_label = $StatsPanel/ItemsUsedLabel/BestValueLabel
+@onready var total_play_time_label = $StatsPanel/StatsValuesContainer/TotalPlayTimeLabel
+@onready var total_runs_label = $StatsPanel/StatsValuesContainer/TotalRunsLabel
+@onready var high_score_label = $StatsPanel/StatsValuesContainer/HighScoreLabel
+@onready var total_points_earned_label = $StatsPanel/StatsValuesContainer/PointsEarnedContainer/TotalPointsEarnedLabel
+@onready var best_points_earned_label = $StatsPanel/StatsValuesContainer/PointsEarnedContainer/BestPointsEarnedLabel
+@onready var total_points_spent_label = $StatsPanel/StatsValuesContainer/PointsSpentContainer/TotalPointsSpentLabel
+@onready var best_points_spent_label = $StatsPanel/StatsValuesContainer/PointsSpentContainer/BestPointsSpentLabel
+@onready var total_kills_label = $StatsPanel/StatsValuesContainer/KillsContainer/TotalKillsLabel
+@onready var best_kills_label = $StatsPanel/StatsValuesContainer/KillsContainer/BestKillsLabel
+@onready var total_rooms_cleared_label = $StatsPanel/StatsValuesContainer/RoomsClearedContainer/TotalRoomsClearedLabel
+@onready var best_rooms_cleared_label = $StatsPanel/StatsValuesContainer/RoomsClearedContainer/BestRoomsClearedLabel
+@onready var total_floors_cleared_label = $StatsPanel/StatsValuesContainer/FloorsClearedContainer/TotalFloorsClearedLabel
+@onready var best_floors_cleared_label = $StatsPanel/StatsValuesContainer/FloorsClearedContainer/BestFloorsClearedLabel
+@onready var total_items_used_label = $StatsPanel/StatsValuesContainer/ItemsUsedContainer/TotalItemsUsedLabel
+@onready var best_items_used_label = $StatsPanel/StatsValuesContainer/ItemsUsedContainer/BestItemsUsedLabel
 
 func _ready() -> void:
     visible = true
@@ -47,6 +52,11 @@ func _on_stats_button_pressed() -> void:
 
     total_play_time_label.text = "%02d:%02d.%03d" % format_time(Game.data["total_play_time"])
     total_runs_label.text = str(Game.data["total_runs"])
+    high_score_label.text = str(Game.data["high_score"])
+    total_points_earned_label.text = str(Game.data["total_points_earned"])
+    best_points_earned_label.text = str(Game.data["best_points_earned"])
+    total_points_spent_label.text = str(Game.data["total_points_spent"])
+    best_points_spent_label.text = str(Game.data["best_points_spent"])
     total_kills_label.text = str(Game.data["total_kills"])
     best_kills_label.text = str(Game.data["best_kills"])
     total_rooms_cleared_label.text = str(Game.data["total_rooms_cleared"])
@@ -62,13 +72,18 @@ func _on_stats_button_pressed() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
 
-    tween.tween_property(stats_panel, "global_position", Vector2(320.0, 118.0), 1.0)
+    tween.tween_property(stats_panel, "global_position", Vector2(320.0, 60.0), 1.0)
 
 func _on_erase_save_data_button_pressed() -> void:
     Game.erase_save_data()
 
     total_play_time_label.text = "--:--.---"
     total_runs_label.text = "-"
+    high_score_label.text = "-"
+    total_points_earned_label.text = "-"
+    best_points_earned_label.text = "-"
+    total_points_spent_label.text = "-"
+    best_points_spent_label.text = "-"
     total_kills_label.text = "-"
     best_kills_label.text = "-"
     total_rooms_cleared_label.text = "-"
@@ -94,7 +109,7 @@ func _on_close_stats_button_pressed() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
 
-    tween.tween_property(stats_panel, "global_position", Vector2(320.0, -844.0), 1.0)
+    tween.tween_property(stats_panel, "global_position", Vector2(320.0, -960.0), 1.0)
 
 func _on_quit_button_pressed() -> void:
     Game.save_progress()

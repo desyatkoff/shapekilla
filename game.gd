@@ -12,12 +12,12 @@ var console
 var data = {
     "is_tutorial_complete": false,
     "total_play_time": 0.0,
+    "total_runs": 0,
     "high_score": 0,
-    "total_points": 0,
-    "best_points": 0,
+    "total_points_earned": 0,
+    "best_points_earned": 0,
     "total_points_spent": 0,
     "best_points_spent": 0,
-    "total_runs": 0,
     "total_kills": 0,
     "best_kills": 0,
     "total_rooms_cleared": 0,
@@ -47,8 +47,8 @@ func _process(_delta: float) -> void:
 
                 save_progress()
 
-            if player.run_points > data["best_points"]:
-                data["best_points"] = player.run_points
+            if player.run_points_earned > data["best_points_earned"]:
+                data["best_points_earned"] = player.run_points_earned
 
                 save_progress()
 
@@ -138,12 +138,12 @@ func erase_save_data() -> void:
     data = {
         "is_tutorial_complete": false,
         "total_play_time": 0.0,
+        "total_runs": 0,
         "high_score": 0,
-        "total_points": 0,
-        "best_points": 0,
+        "total_points_earned": 0,
+        "best_points_earned": 0,
         "total_points_spent": 0,
         "best_points_spent": 0,
-        "total_runs": 0,
         "total_kills": 0,
         "best_kills": 0,
         "total_rooms_cleared": 0,
