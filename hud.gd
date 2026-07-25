@@ -61,20 +61,6 @@ timer_enabled = %s
 cheats_enabled = %s
 noclip = %s
 is_tutorial_complete = %s
-total_play_time = %s
-total_runs = %s
-total_kills = %s
-total_rooms_cleared = %s
-total_floors_cleared = %s
-total_items_used = %s
-total_keys_used = %s
-total_health_potions_used = %s
-total_damage_potions_used = %s
-total_speed_potions_used = %s
-best_kills = %s
-best_rooms_cleared = %s
-best_floors_cleared = %s
-best_items_used = %s
 run_time = %s
 run_kills = %s
 run_rooms_cleared = %s
@@ -111,20 +97,6 @@ current_floor = %s
         Game.player.cheats_enabled,
         Game.player.noclip,
         Game.data["is_tutorial_complete"],
-        Game.data["total_play_time"],
-        Game.data["total_runs"],
-        Game.data["total_kills"],
-        Game.data["total_rooms_cleared"],
-        Game.data["total_floors_cleared"],
-        Game.data["total_items_used"],
-        Game.data["total_keys_used"],
-        Game.data["total_health_potions_used"],
-        Game.data["total_damage_potions_used"],
-        Game.data["total_speed_potions_used"],
-        Game.data["best_kills"],
-        Game.data["best_rooms_cleared"],
-        Game.data["best_floors_cleared"],
-        Game.data["best_items_used"],
         Game.player.run_time,
         Game.player.run_kills,
         Game.player.run_rooms_cleared,

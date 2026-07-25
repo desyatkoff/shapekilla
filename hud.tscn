@@ -26,8 +26,8 @@ layout_mode = 0
 offset_right = 256.0
 offset_bottom = 1080.0
 theme = ExtResource("1_37p78")
-theme_override_constants/outline_size = 9
-theme_override_font_sizes/font_size = 18
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 24
 
 [node name="MainHUD" type="Control" parent="." unique_id=1353498364]
 light_mask = 0
