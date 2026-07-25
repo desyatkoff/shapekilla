@@ -9,6 +9,17 @@ func _ready() -> void:
 
     if get_parent().get_parent() is Character:
         effect_owner = get_parent().get_parent()
+
+        for effect in effect_owner.effects_slot.get_children():
+            if effect == self:
+                continue
+
+            if effect.get_script() == get_script():
+                effect.add_time(duration_timer.wait_time)
+                expire_effect()
+
+                return
+
         effect_owner.effects.append(self)
 
         if effect_owner is Player:
