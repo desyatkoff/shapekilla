@@ -2,11 +2,18 @@ extends Control
 
 @onready var panel = $Panel
 @onready var title_label = $Panel/TitleLabel
-@onready var time = $Panel/TimeLabel/ValueLabel
-@onready var kills = $Panel/KillsLabel/ValueLabel
-@onready var rooms_cleared = $Panel/RoomsClearedLabel/ValueLabel
-@onready var floors_cleared = $Panel/FloorsClearedLabel/ValueLabel
-@onready var items_used = $Panel/ItemsUsedLabel/ValueLabel
+@onready var time_label = $Panel/StatsContainer/TimeLabel
+@onready var score_label = $Panel/StatsContainer/ScoreLabel
+@onready var kills_label = $Panel/StatsContainer/KillsLabel
+@onready var rooms_cleared_label = $Panel/StatsContainer/RoomsClearedLabel
+@onready var floors_cleared_label = $Panel/StatsContainer/FloorsClearedLabel
+@onready var items_used_label = $Panel/StatsContainer/ItemsUsedLabel
+@onready var time_value_label = $Panel/StatsValuesContainer/TimeLabel
+@onready var score_value_label = $Panel/StatsValuesContainer/ScoreLabel
+@onready var kills_value_label = $Panel/StatsValuesContainer/KillsLabel
+@onready var rooms_cleared_value_label = $Panel/StatsValuesContainer/RoomsClearedLabel
+@onready var floors_cleared_value_label = $Panel/StatsValuesContainer/FloorsClearedLabel
+@onready var items_used_value_label = $Panel/StatsValuesContainer/ItemsUsedLabel
 @onready var message_label = $Panel/MessageLabel
 @onready var try_again_button = $Panel/TryAgainButton
 @onready var next_floor_button = $Panel/NextFloorButton
@@ -107,15 +114,27 @@ func show_menu() -> void:
 
         title_label.text = "YOU DIED. RUN RESULTS:"
 
-        time.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)
-        kills.text = str(Game.player.run_kills)
-        rooms_cleared.text = str(Game.player.run_rooms_cleared)
-        floors_cleared.text = str(Game.player.run_floors_cleared)
-        items_used.text = str(Game.player.run_items_used)
+        time_label.visible = true
+        score_label.visible = true
+        kills_label.visible = true
+        rooms_cleared_label.visible = true
+        floors_cleared_label.visible = true
+        items_used_label.visible = true
+        time_value_label.visible = true
+        score_value_label.visible = true
+        kills_value_label.visible = true
+        rooms_cleared_value_label.visible = true
+        floors_cleared_value_label.visible = true
+        items_used_value_label.visible = true
+
+        time_value_label.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)
+        score_value_label.text = str(Game.player.run_score)
+        kills_value_label.text = str(Game.player.run_kills)
+        rooms_cleared_value_label.text = str(Game.player.run_rooms_cleared)
+        floors_cleared_value_label.text = str(Game.player.run_floors_cleared)
+        items_used_value_label.text = str(Game.player.run_items_used)
 
         message_label.text = "[wobble]%s[/wobble]" % messages_on_lose.pick_random()
-
-        floors_cleared.get_parent().visible = true
 
         try_again_button.visible = true
         next_floor_button.visible = false
@@ -132,11 +151,25 @@ func show_menu() -> void:
 
         title_label.text = "FLOOR #%s RESULTS:" % Game.player.current_floor
 
-        time.text = "%02d:%02d.%03d" % format_time(Game.player.floor_time)
-        kills.text = str(Game.player.floor_kills)
-        rooms_cleared.text = str(Game.player.floor_rooms_cleared)
-        floors_cleared.get_parent().visible = false
-        items_used.text = str(Game.player.floor_items_used)
+        time_label.visible = true
+        score_label.visible = false
+        kills_label.visible = true
+        rooms_cleared_label.visible = true
+        floors_cleared_label.visible = false
+        items_used_label.visible = true
+        time_value_label.visible = true
+        score_value_label.visible = false
+        kills_value_label.visible = true
+        rooms_cleared_value_label.visible = true
+        floors_cleared_value_label.visible = false
+        items_used_value_label.visible = true
+
+        time_value_label.text = "%02d:%02d.%03d" % format_time(Game.player.floor_time)
+        score_value_label.text = "-"
+        kills_value_label.text = str(Game.player.floor_kills)
+        rooms_cleared_value_label.text = str(Game.player.floor_rooms_cleared)
+        floors_cleared_value_label.text = "-"
+        items_used_value_label.text = str(Game.player.floor_items_used)
 
         if not Game.data["is_tutorial_complete"]:
             Game.data["is_tutorial_complete"] = true
@@ -160,7 +193,7 @@ func show_menu() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
 
-    tween.tween_property(panel, "global_position", Vector2(320.0, 148.0), 1.0)
+    tween.tween_property(panel, "global_position", Vector2(320.0, 124.0), 1.0)
 
     if not Game.player.cheats_enabled:
         Game.save_progress()
@@ -175,7 +208,7 @@ func hide_menu() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
 
-    tween.tween_property(panel, "global_position", Vector2(320.0, -800.0), 1.0)
+    tween.tween_property(panel, "global_position", Vector2(320.0, -832.0), 1.0)
 
     tween.finished.connect(play)
 
