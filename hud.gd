@@ -130,6 +130,10 @@ current_floor = %s
     run_rooms_cleared_label.text = "%s Room%s Cleared" % [Game.player.run_rooms_cleared, "s" if Game.player.run_rooms_cleared == 0 or Game.player.run_rooms_cleared > 1 else ""]
     run_floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.run_floors_cleared, "s" if Game.player.run_floors_cleared == 0 or Game.player.run_floors_cleared > 1 else ""]
 
+    run_kills_label.visible = Game.data["is_tutorial_complete"]
+    run_rooms_cleared_label.visible = Game.data["is_tutorial_complete"]
+    run_floors_cleared_label.visible = Game.data["is_tutorial_complete"]
+
     if Game.player.item:
         item_icon.texture.atlas = Game.player.item.sprite.texture
         item_icon.texture.region = Game.player.item.sprite.region_rect
