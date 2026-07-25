@@ -21,5 +21,5 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="SelfExplosion" parent="WeaponSlot" parent_id_path=PackedInt32Array(1732380290) index="0" unique_id=760112493 instance=ExtResource("2_whedj")]
 
-[node name="FiniteStateMachine" parent="." index="5" unique_id=1331044783]
+[node name="FiniteStateMachine" parent="." index="8" unique_id=1331044783]
 script = ExtResource("5_884op")

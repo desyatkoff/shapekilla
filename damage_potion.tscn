@@ -9,8 +9,6 @@ size = Vector2(10, 14)
 
 [node name="DamagePotion" unique_id=23840998 instance=ExtResource("1_t3we8")]
 script = ExtResource("2_ktdwl")
-damage_multiplier = 2
-duration = 30
 item_name = "Damage Multiplier Potion"
 
 [node name="Sprite" parent="." index="1" unique_id=1005126698]
