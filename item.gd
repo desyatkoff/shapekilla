@@ -21,15 +21,15 @@ func _ready() -> void:
     if tween and tween.is_running():
         tween.kill()
 
-    item_particles.color = Color.hex(0xeeeeeeff)
+    item_particles.color = Color("eeeeee")
 
     match item_type:
         "":
             pass
         "weapon":
-            item_particles.color = Color.hex(0xf69988ff)
+            item_particles.color = Color("f69988")
         "upgrade":
-            item_particles.color = Color.hex(0xf48fb1ff)
+            item_particles.color = Color("f48fb1")
 
     sprite.self_modulate = Color.TRANSPARENT
 

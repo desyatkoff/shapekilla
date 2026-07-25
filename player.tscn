@@ -30,23 +30,25 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Shotgun" parent="." index="2" unique_id=760112493 instance=ExtResource("4_sweqy")]
 
-[node name="ItemSlot" type="Node2D" parent="." index="4" unique_id=1292593457]
+[node name="UpgradesSlot" type="Node" parent="." index="4" unique_id=1920739824]
 
-[node name="Camera2D" type="Camera2D" parent="." index="5" unique_id=682037787]
+[node name="ItemSlot" type="Node2D" parent="." index="5" unique_id=1292593457]
+
+[node name="Camera2D" type="Camera2D" parent="." index="6" unique_id=682037787]
 zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 editor_draw_limits = true
 
-[node name="AudioListener2D" type="AudioListener2D" parent="." index="6" unique_id=900449773]
+[node name="AudioListener2D" type="AudioListener2D" parent="." index="7" unique_id=900449773]
 current = true
 
-[node name="PointLight2D" type="PointLight2D" parent="." index="7" unique_id=1195821963]
+[node name="PointLight2D" type="PointLight2D" parent="." index="8" unique_id=1195821963]
 color = Color(0.93333334, 0.93333334, 0.93333334, 1)
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_sweqy")
 
-[node name="FiniteStateMachine" parent="." index="10" unique_id=1331044783]
+[node name="FiniteStateMachine" parent="." index="11" unique_id=1331044783]
 script = ExtResource("4_hqtel")

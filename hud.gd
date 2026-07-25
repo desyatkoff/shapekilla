@@ -18,6 +18,8 @@ extends CanvasLayer
 @onready var item_icon = $MainHUD/ItemIcon
 @onready var item_name = $MainHUD/ItemIcon/Name
 
+@onready var upgrades_container = $MainHUD/UpgradesContainer
+
 @onready var health_bar = $MainHUD/HealthBar
 @onready var health_value_label = $MainHUD/HealthBar/HealthValueLabel
 
@@ -54,8 +56,9 @@ acceleration = %s
 friction = %s
 weapon = %s
 weapon_damage = %s
-item = %s
 effects = %s
+upgrades = %s
+item = %s
 velocity = %s
 direction = %s
 current_room_slot = %s
@@ -94,8 +97,9 @@ current_floor = %s
         Game.player.friction,
         Game.player.weapon,
         Game.player.weapon.damage if Game.player.weapon else 0.0,
-        Game.player.item,
         Game.player.effects,
+        Game.player.upgrades,
+        Game.player.item,
         Game.player.velocity,
         Game.player.direction,
         Game.player.current_room_slot,

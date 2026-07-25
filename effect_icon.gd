@@ -1,9 +1,10 @@
 extends TextureRect
+class_name EffectIcon
 
 @onready var name_label = $Name
 @onready var duration_label = $Duration
 
-var character_effect
+var character_effect: CharacterEffect
 
 func _process(_delta: float) -> void:
     if character_effect:

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cn2ya1ucl41cm"]
+
+[ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_c2c0f"]
+[ext_resource type="Script" uid="uid://d0331yuokppgx" path="res://upgrade_icon.gd" id="3_8p5vb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p5vb"]
+bg_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[node name="UpgradeIcon" type="TextureRect" unique_id=206734110]
+light_mask = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme = ExtResource("1_c2c0f")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("3_8p5vb")
+
+[node name="Panel" type="Panel" parent="." unique_id=2125716016]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8p5vb")

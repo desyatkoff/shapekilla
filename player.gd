@@ -1,6 +1,7 @@
 extends Character
 class_name Player
 
+@onready var upgrades_slot = $UpgradesSlot
 @onready var item_slot = $ItemSlot
 @onready var camera = $Camera2D
 @onready var light = $PointLight2D
@@ -27,6 +28,8 @@ var floor_rooms_cleared = 0
 var floor_items_used = 0
 
 var current_floor = 1
+
+var upgrades: Array[PlayerUpgrade]
 
 var item: Item
 

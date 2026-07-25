@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://cbvbnj1yk8hfy" path="res://effect_icon.gd" id="2_gw70f"]
 
 [node name="EffectIcon" type="TextureRect" unique_id=206734110]
-offset_right = 128.0
-offset_bottom = 128.0
+offset_right = 96.0
+offset_bottom = 96.0
 theme = ExtResource("1_gw70f")
 expand_mode = 3
 stretch_mode = 5
@@ -16,8 +16,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -32.0
-offset_bottom = -96.0
+offset_top = -48.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gw70f")
@@ -33,8 +33,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 96.0
-offset_bottom = 32.0
+offset_top = 80.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gw70f")
