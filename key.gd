@@ -38,12 +38,19 @@ func pick_tier() -> int:
 func use() -> void:
     for area in hitbox.get_overlapping_areas():
         if area.get_parent() is Doors and area.get_parent().lock_tier == key_tier:
+            if not Game.player.cheats_enabled:
+                Game.data["total_items_used"] += 1
+                Game.data["total_keys_used"] += 1
+
+            Game.player.run_items_used += 1
+            Game.player.floor_items_used += 1
+
+            Game.player.run_score += 10
+            Game.player.run_points += 1
+
             can_be_picked_up = false
 
             use_sfx_player.play()
-
-            if not Game.player.cheats_enabled:
-                Game.data["total_keys_used"] += 1
 
             item_owner.item = null
             item_owner = null

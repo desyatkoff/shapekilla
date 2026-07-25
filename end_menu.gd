@@ -55,6 +55,8 @@ func _on_to_main_menu_button_pressed() -> void:
     Game.player.cheats_enabled = false
 
     Game.player.run_time = 0.0
+    Game.player.run_score = 0
+    Game.player.run_points = 0
     Game.player.run_kills = 0
     Game.player.run_rooms_cleared = 0
     Game.player.run_floors_cleared = 0
@@ -76,6 +78,8 @@ func _on_try_again_button_pressed() -> void:
     Game.player.cheats_enabled = false
 
     Game.player.run_time = 0.0
+    Game.player.run_score = 0
+    Game.player.run_points = 0
     Game.player.run_kills = 0
     Game.player.run_rooms_cleared = 0
     Game.player.run_floors_cleared = 0
@@ -122,6 +126,9 @@ func show_menu() -> void:
             Game.data["total_floors_cleared"] += 1
 
         Game.player.run_floors_cleared += 1
+
+        Game.player.run_score += 10
+        Game.player.run_points += 1
 
         title_label.text = "FLOOR #%s RESULTS:" % Game.player.current_floor
 

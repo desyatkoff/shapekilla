@@ -51,12 +51,32 @@ theme_override_font_sizes/font_size = 64
 text = "00:00.000"
 vertical_alignment = 1
 
+[node name="RunScoreLabel" type="Label" parent="MainHUD" unique_id=1016904629]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 193.0
+theme = ExtResource("1_37p78")
+text = "Score: 0"
+vertical_alignment = 1
+
+[node name="RunPointsLabel" type="Label" parent="MainHUD" unique_id=1439663830]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 192.0
+offset_right = 480.0
+offset_bottom = 225.0
+theme = ExtResource("1_37p78")
+text = "Points: 0"
+vertical_alignment = 1
+
 [node name="RunKillsLabel" type="Label" parent="MainHUD" unique_id=1372812199]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 128.0
+offset_top = 256.0
 offset_right = 480.0
-offset_bottom = 161.0
+offset_bottom = 289.0
 theme = ExtResource("1_37p78")
 text = "0 Kills"
 vertical_alignment = 1
@@ -64,9 +84,9 @@ vertical_alignment = 1
 [node name="RunRoomsClearedLabel" type="Label" parent="MainHUD" unique_id=688444279]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 160.0
+offset_top = 288.0
 offset_right = 480.0
-offset_bottom = 193.0
+offset_bottom = 321.0
 theme = ExtResource("1_37p78")
 text = "0 Rooms Cleared"
 vertical_alignment = 1
@@ -74,9 +94,9 @@ vertical_alignment = 1
 [node name="RunFloorsClearedLabel" type="Label" parent="MainHUD" unique_id=995619584]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 192.0
+offset_top = 320.0
 offset_right = 480.0
-offset_bottom = 225.0
+offset_bottom = 353.0
 theme = ExtResource("1_37p78")
 text = "0 Floors Cleared"
 vertical_alignment = 1

@@ -73,6 +73,9 @@ func die() -> void:
     Game.player.run_kills += 1
     Game.player.floor_kills += 1
 
+    Game.player.run_score += 10
+    Game.player.run_points += 1
+
     direction = Vector2.ZERO
     should_chase_player = false
     body_sprite.region_rect = Rect2(32.0, 0.0, 32.0, 32.0)

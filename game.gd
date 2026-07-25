@@ -12,6 +12,11 @@ var console
 var data = {
     "is_tutorial_complete": false,
     "total_play_time": 0.0,
+    "high_score": 0,
+    "total_points": 0,
+    "best_points": 0,
+    "total_points_spent": 0,
+    "best_points_spent": 0,
     "total_runs": 0,
     "total_kills": 0,
     "best_kills": 0,
@@ -37,6 +42,21 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     if is_instance_valid(player):
         if not player.cheats_enabled:
+            if player.run_score > data["high_score"]:
+                data["high_score"] = player.run_score
+
+                save_progress()
+
+            if player.run_points > data["best_points"]:
+                data["best_points"] = player.run_points
+
+                save_progress()
+
+            if player.run_points_spent > data["best_points_spent"]:
+                data["best_points_spent"] = player.run_points_spent
+
+                save_progress()
+
             if player.run_kills > data["best_kills"]:
                 data["best_kills"] = player.run_kills
 
@@ -118,6 +138,11 @@ func erase_save_data() -> void:
     data = {
         "is_tutorial_complete": false,
         "total_play_time": 0.0,
+        "high_score": 0,
+        "total_points": 0,
+        "best_points": 0,
+        "total_points_spent": 0,
+        "best_points_spent": 0,
         "total_runs": 0,
         "total_kills": 0,
         "best_kills": 0,

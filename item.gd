@@ -70,6 +70,15 @@ func drop() -> void:
     call_deferred("reparent", Game.world.get_node("ItemsContainer"))
 
 func use() -> void:
+    if not Game.player.cheats_enabled:
+        Game.data["total_items_used"] += 1
+
+    Game.player.run_items_used += 1
+    Game.player.floor_items_used += 1
+
+    Game.player.run_score += 10
+    Game.player.run_points += 1
+
     can_be_picked_up = false
 
     item_owner.item = null

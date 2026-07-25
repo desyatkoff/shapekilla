@@ -7,6 +7,10 @@ extends CanvasLayer
 @onready var main = $MainHUD
 
 @onready var run_time_label = $MainHUD/RunTimeLabel
+
+@onready var run_score_label = $MainHUD/RunScoreLabel
+@onready var run_points_label = $MainHUD/RunPointsLabel
+
 @onready var run_kills_label = $MainHUD/RunKillsLabel
 @onready var run_rooms_cleared_label = $MainHUD/RunRoomsClearedLabel
 @onready var run_floors_cleared_label = $MainHUD/RunFloorsClearedLabel
@@ -62,6 +66,9 @@ cheats_enabled = %s
 noclip = %s
 is_tutorial_complete = %s
 run_time = %s
+run_score = %s
+run_points = %s
+run_points_spent = %s
 run_kills = %s
 run_rooms_cleared = %s
 run_floors_cleared = %s
@@ -98,6 +105,9 @@ current_floor = %s
         Game.player.noclip,
         Game.data["is_tutorial_complete"],
         Game.player.run_time,
+        Game.player.run_score,
+        Game.player.run_points,
+        Game.player.run_points_spent,
         Game.player.run_kills,
         Game.player.run_rooms_cleared,
         Game.player.run_floors_cleared,
@@ -110,6 +120,10 @@ current_floor = %s
     ]
 
     run_time_label.text = "%02d:%02d.%03d" % format_time(Game.player.run_time)
+
+    run_score_label.text = "Score: %s" % Game.player.run_score
+    run_points_label.text = "Points: %s" % str(Game.player.run_points - Game.player.run_points_spent)
+
     run_kills_label.text = "%s Kill%s" % [Game.player.run_kills, "s" if Game.player.run_kills == 0 or Game.player.run_kills > 1 else ""]
     run_rooms_cleared_label.text = "%s Room%s Cleared" % [Game.player.run_rooms_cleared, "s" if Game.player.run_rooms_cleared == 0 or Game.player.run_rooms_cleared > 1 else ""]
     run_floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.run_floors_cleared, "s" if Game.player.run_floors_cleared == 0 or Game.player.run_floors_cleared > 1 else ""]
