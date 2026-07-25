@@ -146,6 +146,7 @@ func show_menu() -> void:
         win_sfx_player.play()
 
         if not Game.player.cheats_enabled:
+            Game.data["total_points_earned"] += 1
             Game.data["total_floors_cleared"] += 1
 
         Game.player.run_floors_cleared += 1
