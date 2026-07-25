@@ -279,8 +279,6 @@ vertical_alignment = 1
 
 [node name="TotalBestContainer" type="HBoxContainer" parent="StatsPanel/StatsValuesContainer" unique_id=1416773953]
 layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(-5, 0)
 alignment = 1
 
 [node name="TotalLabel" type="Label" parent="StatsPanel/StatsValuesContainer/TotalBestContainer" unique_id=10065876]
@@ -289,7 +287,7 @@ theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "Total"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="SeparatorLabel" type="Label" parent="StatsPanel/StatsValuesContainer/TotalBestContainer" unique_id=1311419794]
@@ -297,7 +295,7 @@ layout_mode = 2
 theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
-text = "|"
+text = " | "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -307,7 +305,6 @@ theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "Best"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PointsEarnedContainer" type="HBoxContainer" parent="StatsPanel/StatsValuesContainer" unique_id=855862977]
@@ -321,7 +318,7 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="SeparatorLabel" type="Label" parent="StatsPanel/StatsValuesContainer/PointsEarnedContainer" unique_id=199449765]
@@ -329,7 +326,7 @@ layout_mode = 2
 theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
-text = "|"
+text = " | "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -340,7 +337,6 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PointsSpentContainer" type="HBoxContainer" parent="StatsPanel/StatsValuesContainer" unique_id=616817453]
@@ -354,7 +350,7 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="SeparatorLabel" type="Label" parent="StatsPanel/StatsValuesContainer/PointsSpentContainer" unique_id=2124219113]
@@ -362,7 +358,7 @@ layout_mode = 2
 theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
-text = "|"
+text = " | "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -373,7 +369,6 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="KillsContainer" type="HBoxContainer" parent="StatsPanel/StatsValuesContainer" unique_id=681387915]
@@ -387,7 +382,7 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="SeparatorLabel" type="Label" parent="StatsPanel/StatsValuesContainer/KillsContainer" unique_id=1436927404]
@@ -395,7 +390,7 @@ layout_mode = 2
 theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
-text = "|"
+text = " | "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -406,7 +401,6 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RoomsClearedContainer" type="HBoxContainer" parent="StatsPanel/StatsValuesContainer" unique_id=499775535]
@@ -420,7 +414,7 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="SeparatorLabel" type="Label" parent="StatsPanel/StatsValuesContainer/RoomsClearedContainer" unique_id=1689315356]
@@ -428,7 +422,7 @@ layout_mode = 2
 theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
-text = "|"
+text = " | "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -439,7 +433,6 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FloorsClearedContainer" type="HBoxContainer" parent="StatsPanel/StatsValuesContainer" unique_id=436761500]
@@ -453,7 +446,7 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="SeparatorLabel" type="Label" parent="StatsPanel/StatsValuesContainer/FloorsClearedContainer" unique_id=1439043767]
@@ -461,7 +454,7 @@ layout_mode = 2
 theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
-text = "|"
+text = " | "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -472,7 +465,6 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ItemsUsedContainer" type="HBoxContainer" parent="StatsPanel/StatsValuesContainer" unique_id=1109512046]
@@ -486,7 +478,7 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="SeparatorLabel" type="Label" parent="StatsPanel/StatsValuesContainer/ItemsUsedContainer" unique_id=1774192091]
@@ -494,7 +486,7 @@ layout_mode = 2
 theme = ExtResource("1_fu7sn")
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
-text = "|"
+text = " | "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -505,7 +497,6 @@ theme_override_colors/font_color = Color(0.45882353, 0.45882353, 0.45882353, 1)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 64
 text = "-"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EraseSaveDataButton" type="Button" parent="StatsPanel" unique_id=106243771]
