@@ -9,6 +9,7 @@
 script = ExtResource("1_tnite")
 
 [node name="ItemParticles" parent="." unique_id=1042161929 instance=ExtResource("2_ttk8k")]
+light_mask = 0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1005126698]
 light_mask = 0
