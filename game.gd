@@ -30,7 +30,8 @@ var data = {
     "total_health_potions_used": 0,
     "total_damage_potions_used": 0,
     "total_speed_potions_used": 0,
-    "total_poison_potions_used": 0
+    "total_poison_potions_used": 0,
+    "total_bombs_used": 0
 }
 
 func _ready() -> void:
@@ -156,7 +157,8 @@ func erase_save_data() -> void:
         "total_health_potions_used": 0,
         "total_damage_potions_used": 0,
         "total_speed_potions_used": 0,
-        "total_poison_potions_used": 0
+        "total_poison_potions_used": 0,
+        "total_bombs_used": 0
     }
 
 func save_progress() -> void:

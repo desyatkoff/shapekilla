@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bctlee3b11x73"]
+
+[ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_4fn8o"]
+[ext_resource type="Script" uid="uid://b48yqspjqj1vw" path="res://bomb.gd" id="2_6w74q"]
+[ext_resource type="Texture2D" uid="uid://drwq8np8ltkcr" path="res://bomb.png" id="2_nfxiy"]
+[ext_resource type="AudioStream" uid="uid://beq650geneuj2" path="res://self_explosion.wav" id="4_6w74q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mt0xr"]
+radius = 96.0
+
+[sub_resource type="Gradient" id="Gradient_68pu4"]
+interpolation_mode = 2
+colors = PackedColorArray(0.9843137, 0.54901963, 0, 1, 0.12941177, 0.12941177, 0.12941177, 0)
+
+[sub_resource type="Gradient" id="Gradient_j4hhh"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_mt0xr"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.8666667, 0.09803922, 0.11372549, 1, 0.9843137, 0.54901963, 0, 1, 0.12941177, 0.12941177, 0.12941177, 1)
+
+[sub_resource type="Gradient" id="Gradient_0djnq"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_r4prc"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.25882354, 0.25882354, 0.25882354, 1, 0.38039216, 0.38039216, 0.38039216, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q6ta"]
+size = Vector2(12, 20)
+
+[node name="Bomb" unique_id=23840998 instance=ExtResource("1_4fn8o")]
+script = ExtResource("2_6w74q")
+item_name = "Bomb"
+
+[node name="ItemParticles" parent="." index="0" unique_id=1042161929]
+color = Color(0.9647059, 0.6, 0.53333336, 1)
+
+[node name="Sprite" parent="." index="1" unique_id=1005126698]
+texture = ExtResource("2_nfxiy")
+
+[node name="SelfExplosion" type="Node2D" parent="." index="2" unique_id=760112493]
+
+[node name="ExplosionHitbox" type="Area2D" parent="SelfExplosion" index="0" unique_id=1067133315]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelfExplosion/ExplosionHitbox" index="0" unique_id=410373069]
+shape = SubResource("CircleShape2D_mt0xr")
+
+[node name="ShootParticles" type="CPUParticles2D" parent="SelfExplosion" index="1" unique_id=1367103448]
+light_mask = 0
+position = Vector2(0, -8)
+emitting = false
+amount = 16
+lifetime = 0.25
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 0.5
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_68pu4")
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="SelfExplosion" index="2" unique_id=145410967]
+emitting = false
+amount = 256
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+draw_order = 1
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 64.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_j4hhh")
+color_initial_ramp = SubResource("Gradient_mt0xr")
+
+[node name="SmokeParticles" type="CPUParticles2D" parent="SelfExplosion" index="3" unique_id=1839121358]
+emitting = false
+amount = 256
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+draw_order = 1
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 16.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_0djnq")
+color_initial_ramp = SubResource("Gradient_r4prc")
+
+[node name="AttackSFXPlayer" type="AudioStreamPlayer2D" parent="SelfExplosion" index="4" unique_id=947155498]
+stream = ExtResource("4_6w74q")
+bus = &"SFX"
+
+[node name="CooldownTimer" type="Timer" parent="SelfExplosion" index="5" unique_id=1453833404]
+wait_time = 3.0
+one_shot = true
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
+shape = SubResource("RectangleShape2D_6q6ta")
+
+[connection signal="timeout" from="SelfExplosion/CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
