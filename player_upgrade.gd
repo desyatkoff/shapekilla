@@ -19,13 +19,13 @@ func _ready() -> void:
 
         start_actions()
 
-func _process(_delta: float) -> void:
-    cycle_actions()
+func _process(delta: float) -> void:
+    cycle_actions(delta)
 
 func start_actions() -> void:
     pass
 
-func cycle_actions() -> void:
+func cycle_actions(_delta: float) -> void:
     pass
 
 func end_actions() -> void:
