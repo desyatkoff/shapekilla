@@ -74,4 +74,6 @@ func use() -> void:
 
             await use_sfx_player.finished
 
-            queue_free()
+            break
+
+    queue_free()
