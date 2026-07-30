@@ -124,6 +124,18 @@ var commands = {
         "description": "Set weapon damage value",
         "function": cmd_set_weapon_damage,
         "args": ["new_weapon_damage"]
+    },
+    "get_points": {
+        "cheats": false,
+        "description": "Print current points",
+        "function": cmd_get_points,
+        "args": []
+    },
+    "set_points": {
+        "cheats": true,
+        "description": "Set points value",
+        "function": cmd_set_points,
+        "args": ["new_points"]
     }
 }
 
@@ -337,3 +349,17 @@ func cmd_set_weapon_damage(args) -> void:
             error_output("<new_weapon_damage> arg must be a valid `float` value")
     else:
         error_output("<new_weapon_damage> arg is required")
+
+func cmd_get_points(_args) -> void:
+    log_output(str(Game.player.run_points))
+
+func cmd_set_points(args) -> void:
+    if args.size() > 0:
+        var new_points = args[0]
+
+        if new_points.is_valid_int():
+            Game.player.run_points = new_points
+        else:
+            error_output("<new_points> arg must be a valid `int` value")
+    else:
+        error_output("<new_points> arg is required")
