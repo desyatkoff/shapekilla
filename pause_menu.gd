@@ -33,6 +33,8 @@ func _on_to_main_menu_button_pressed() -> void:
 
     hide_menu()
 
+    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
     get_tree().reload_current_scene()
 
 func _on_quit_button_pressed() -> void:
@@ -40,6 +42,8 @@ func _on_quit_button_pressed() -> void:
         Game.save_progress()
 
     Game.hud.click_sfx_player.play()
+
+    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
     get_tree().quit()
 
