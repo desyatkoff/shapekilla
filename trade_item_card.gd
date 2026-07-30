@@ -79,7 +79,9 @@ func _on_purchase_button_pressed() -> void:
     var tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
-    tween.tween_property(out_of_stock_label, "modulate", Color.WHITE, 0.5)
+    tween.tween_property(out_of_stock_label, "modulate", Color.WHITE, 1.0)
+
+    out_of_stock_label.text = "[type][wobble]OUT OF STOCK[/wobble][/type]"
 
     var item_clone: Node = item.duplicate()
     get_parent().add_child(item_clone)
