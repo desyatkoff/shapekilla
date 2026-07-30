@@ -358,7 +358,7 @@ func cmd_set_points(args) -> void:
         var new_points = args[0]
 
         if new_points.is_valid_int():
-            Game.player.run_points = new_points
+            Game.player.run_points = int(new_points)
         else:
             error_output("<new_points> arg must be a valid `int` value")
     else:
