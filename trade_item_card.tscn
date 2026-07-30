@@ -3,6 +3,11 @@
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_n35mm"]
 [ext_resource type="Script" uid="uid://diiosqnf2kdlb" path="res://trade_item_card.gd" id="2_f8vqk"]
 [ext_resource type="AudioStream" uid="uid://dnrcyjxpgqmbq" path="res://purchase.wav" id="3_f8vqk"]
+[ext_resource type="Script" uid="uid://c4i2yv3tqnxlh" path="res://wobble_text_effect.gd" id="3_o2d8m"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_j2f77"]
+script = ExtResource("3_o2d8m")
+metadata/_custom_type_script = "uid://c4i2yv3tqnxlh"
 
 [node name="TradeItemCard" type="Panel" unique_id=771577814]
 offset_right = 384.0
@@ -52,6 +57,30 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "Purchase"
+
+[node name="OutOfStockLabel" type="RichTextLabel" parent="." unique_id=1213267979]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -64.0
+offset_right = 288.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.7853982
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[wobble]OUT OF STOCK[/wobble]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_j2f77")]
 
 [node name="PurchaseSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=575280412]
 stream = ExtResource("3_f8vqk")

@@ -10,6 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://bke4rd6cehg2f" path="res://plus_one_max_health_upgrade.tscn" id="8_qnl85"]
 [ext_resource type="PackedScene" uid="uid://bty6afeat16yy" path="res://plus_one_health_regen_upgrade.tscn" id="9_06buk"]
 [ext_resource type="PackedScene" uid="uid://c7jye764d4g1t" path="res://plus_one_shotgun_damage_upgrade.tscn" id="10_g8b4r"]
+[ext_resource type="Texture2D" uid="uid://chyc107upp4up" path="res://wizard.png" id="11_e1suj"]
+[ext_resource type="Script" uid="uid://crth0bc1x417s" path="res://type_text_effect.gd" id="12_7854k"]
+[ext_resource type="Script" uid="uid://c4i2yv3tqnxlh" path="res://wobble_text_effect.gd" id="13_y3tfe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2f77"]
+atlas = ExtResource("11_e1suj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_7ixx5"]
+script = ExtResource("12_7854k")
+metadata/_custom_type_script = "uid://crth0bc1x417s"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_n3nvp"]
+script = ExtResource("13_y3tfe")
+metadata/_custom_type_script = "uid://c4i2yv3tqnxlh"
 
 [node name="TradeMenu" type="Control" unique_id=412974527]
 light_mask = 0
@@ -111,6 +126,38 @@ offset_bottom = 256.0
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="WizardTexture" type="TextureRect" parent="Panel" unique_id=1320926397]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -160.0
+offset_right = 192.0
+offset_bottom = -4.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_j2f77")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MessageLabel" type="RichTextLabel" parent="Panel/WizardTexture" unique_id=54523490]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -48.0
+offset_right = 768.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+scroll_active = false
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_7ixx5"), SubResource("RichTextEffect_n3nvp")]
+
 [node name="CloseButton" type="Button" parent="Panel" unique_id=2144508761]
 layout_mode = 1
 anchors_preset = 3
@@ -118,13 +165,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -224.0
+offset_left = -288.0
 offset_top = -128.0
 offset_right = -32.0
 offset_bottom = -32.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_bkyvf")
-text = "OK"
+text = "Goodbye"
 
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
