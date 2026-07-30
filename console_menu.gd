@@ -227,6 +227,13 @@ func cmd_disable_cheats(_args) -> void:
     if Game.player.cheats_enabled:
         Game.player.cheats_enabled = false
 
+        Game.player.noclip = false
+        Game.player.max_health = 10
+        Game.player.health = 10
+        Game.player.max_speed = 80
+        Game.player.acceleration = 40
+        Game.player.friction = 0.16
+
         warning_output("Cheats have been disabled. Run progress is currently allowed to be saved")
 
 func cmd_restart(_args) -> void:
@@ -238,6 +245,10 @@ func cmd_restart(_args) -> void:
     cmd_disable_cheats(PackedStringArray([]))
 
     Game.player.run_time = 0.0
+    Game.player.run_score = 0
+    Game.player.run_points = 0
+    Game.player.run_points_earned = 0
+    Game.player.run_points_spent = 0
     Game.player.run_kills = 0
     Game.player.run_rooms_cleared = 0
     Game.player.run_floors_cleared = 0

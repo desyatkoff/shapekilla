@@ -19,9 +19,13 @@ func _on_to_main_menu_button_pressed() -> void:
 
     Game.player.revive()
 
-    Game.player.cheats_enabled = false
+    Game.console.cmd_disable_cheats()
 
     Game.player.run_time = 0.0
+    Game.player.run_score = 0
+    Game.player.run_points = 0
+    Game.player.run_points_earned = 0
+    Game.player.run_points_spent = 0
     Game.player.run_kills = 0
     Game.player.run_rooms_cleared = 0
     Game.player.run_floors_cleared = 0
