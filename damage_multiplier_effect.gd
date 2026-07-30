@@ -13,6 +13,9 @@ func _ready() -> void:
     if get_parent().get_parent() is Character:
         effect_owner = get_parent().get_parent()
 
+        if effect_owner.weapon:
+            effect_owner.damage_multi *= multiplier
+
         for effect in effect_owner.effects_slot.get_children():
             if effect == self:
                 continue
@@ -31,13 +34,10 @@ func _ready() -> void:
 
             Game.hud.effects_container.add_child(effect_icon_instance)
 
-        if effect_owner.weapon:
-            effect_owner.weapon.damage *= multiplier
-
 func expire_effect() -> void:
     if effect_owner:
         if effect_owner.weapon:
-            effect_owner.weapon.damage /= multiplier
+            effect_owner.damage_multi /= multiplier
 
         effect_owner.effects.erase(self)
 

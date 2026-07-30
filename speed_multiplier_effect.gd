@@ -10,6 +10,8 @@ func _ready() -> void:
     if get_parent().get_parent() is Character:
         effect_owner = get_parent().get_parent()
 
+        effect_owner.speed_multi *= multiplier
+
         for effect in effect_owner.effects_slot.get_children():
             if effect == self:
                 continue
@@ -28,13 +30,9 @@ func _ready() -> void:
 
             Game.hud.effects_container.add_child(effect_icon_instance)
 
-        effect_owner.max_speed *= multiplier
-        effect_owner.acceleration *= multiplier
-
 func expire_effect() -> void:
     if effect_owner:
-        effect_owner.max_speed /= multiplier
-        effect_owner.acceleration /= multiplier
+        effect_owner.speed_multi /= multiplier
 
         effect_owner.effects.erase(self)
 

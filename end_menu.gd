@@ -61,6 +61,9 @@ func _on_to_main_menu_button_pressed() -> void:
 
     Game.console.cmd_disable_cheats()
 
+    Game.player.damage_multi = 1.0
+    Game.player.speed_multi = 1.0
+
     Game.player.run_time = 0.0
     Game.player.run_score = 0
     Game.player.run_points = 0
@@ -85,6 +88,9 @@ func _on_try_again_button_pressed() -> void:
     Game.player.revive()
 
     Game.console.cmd_disable_cheats()
+
+    Game.player.damage_multi = 1.0
+    Game.player.speed_multi = 1.0
 
     Game.player.run_time = 0.0
     Game.player.run_score = 0

@@ -13,6 +13,9 @@ class_name Character
 @export var acceleration = 40
 @export var friction = 0.16
 
+var damage_multi = 1.0
+var speed_multi = 1.0
+
 var weapon: Weapon
 
 var effects: Array[CharacterEffect]
@@ -32,7 +35,7 @@ func _physics_process(_delta: float) -> void:
     move_and_slide()
 
 func move() -> void:
-    velocity += (direction.normalized() * acceleration).limit_length(max_speed)
+    velocity += (direction.normalized() * acceleration * speed_multi).limit_length(max_speed * speed_multi)
 
 func die() -> void:
     fsm.set_state(fsm.states.DEAD)
