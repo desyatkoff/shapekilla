@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://3nel2j8r5w2h"]
+
+[ext_resource type="PackedScene" uid="uid://bqi53c46rpnf2" path="res://player_upgrade.tscn" id="1_hfuug"]
+[ext_resource type="Script" uid="uid://duhafto0l4owk" path="res://speed_upgrade.gd" id="2_lpbrf"]
+[ext_resource type="Texture2D" uid="uid://cc2g2yhbmxv0t" path="res://speed_upgrade.png" id="3_2cnyq"]
+
+[node name="SpeedUpgrade" unique_id=1814280531 instance=ExtResource("1_hfuug")]
+script = ExtResource("2_lpbrf")
+upgrade_texture = ExtResource("3_2cnyq")
+upgrade_name = "x1.25 Speed Multiplier"
+upgrade_description = "Buffs your movement speed by 10%"
+upgrade_tier = 1
+upgrade_price = -1

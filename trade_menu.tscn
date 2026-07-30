@@ -2,7 +2,14 @@
 
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_bkyvf"]
 [ext_resource type="Script" uid="uid://cy3l7ri228pir" path="res://trade_menu.gd" id="2_0txhl"]
+[ext_resource type="PackedScene" uid="uid://c4keoln3stjfd" path="res://health_potion.tscn" id="3_xc6ql"]
+[ext_resource type="PackedScene" uid="uid://b3vda6ck6uyyl" path="res://damage_potion.tscn" id="4_e1suj"]
+[ext_resource type="PackedScene" uid="uid://3nel2j8r5w2h" path="res://speed_upgrade.tscn" id="5_7r38b"]
+[ext_resource type="PackedScene" uid="uid://3fnmfg5frxf2" path="res://speed_potion.tscn" id="5_cn6nd"]
+[ext_resource type="PackedScene" uid="uid://drjpe7hdsbiu5" path="res://poison_potion.tscn" id="6_7854k"]
+[ext_resource type="PackedScene" uid="uid://bctlee3b11x73" path="res://bomb.tscn" id="7_y3tfe"]
 [ext_resource type="PackedScene" uid="uid://b72872psfpjl0" path="res://key.tscn" id="8_e1suj"]
+[ext_resource type="PackedScene" uid="uid://bke4rd6cehg2f" path="res://max_health_upgrade.tscn" id="9_y3tfe"]
 [ext_resource type="PackedScene" uid="uid://bty6afeat16yy" path="res://health_regen_upgrade.tscn" id="10_qnl85"]
 [ext_resource type="PackedScene" uid="uid://c7jye764d4g1t" path="res://shotgun_damage_upgrade.tscn" id="11_06buk"]
 [ext_resource type="Texture2D" uid="uid://chyc107upp4up" path="res://wizard.png" id="11_e1suj"]
@@ -31,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bkyvf")
 script = ExtResource("2_0txhl")
-scenes = Array[PackedScene]([ExtResource("8_e1suj"), ExtResource("10_qnl85"), ExtResource("11_06buk")])
+scenes = Array[PackedScene]([ExtResource("8_e1suj"), ExtResource("3_xc6ql"), ExtResource("4_e1suj"), ExtResource("5_cn6nd"), ExtResource("6_7854k"), ExtResource("7_y3tfe"), ExtResource("9_y3tfe"), ExtResource("10_qnl85"), ExtResource("11_06buk"), ExtResource("5_7r38b")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1996814276]
 layout_mode = 1
