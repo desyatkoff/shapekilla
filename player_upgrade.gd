@@ -31,6 +31,7 @@ func end_actions() -> void:
 func gain_upgrade() -> void:
     var upgrade_icon_instance = preload("res://upgrade_icon.tscn").instantiate()
     upgrade_icon_instance.player_upgrade = self
+    upgrade_icon_instance.load_icon()
 
     reparent(Game.player.upgrades_slot)
     Game.player.upgrades.append(self)
