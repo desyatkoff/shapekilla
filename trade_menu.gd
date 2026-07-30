@@ -114,12 +114,12 @@ func load_menu_items() -> void:
                             is_unique = false
 
                 if is_unique:
+                    if instance is Key:
+                        instance.item_tier = -1
+
                     instance._ready()
 
                     if instance is Item:
-                        if instance is Key:
-                            instance.item_tier = instance.pick_tier()
-
                         if instance.item_tier == pick_tier():
                             item_card.item = instance
                             fslot.add_child(item_card)

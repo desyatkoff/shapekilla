@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmwjqm7ukrxe"
-path="res://.godot/imported/plus_one_shotgun_damage.png-3a219d592d22653527b8cf2d4ecc75d3.ctex"
+uid="uid://bomyewls2gu7k"
+path="res://.godot/imported/max_health_upgrade.png-0923c9bb2bc0cfea14af3d7f0cda36bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://plus_one_shotgun_damage.png"
-dest_files=["res://.godot/imported/plus_one_shotgun_damage.png-3a219d592d22653527b8cf2d4ecc75d3.ctex"]
+source_file="res://max_health_upgrade.png"
+dest_files=["res://.godot/imported/max_health_upgrade.png-0923c9bb2bc0cfea14af3d7f0cda36bb.ctex"]
 
 [params]
 

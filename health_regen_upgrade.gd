@@ -1,5 +1,5 @@
 extends PlayerUpgrade
-class_name PlusOneHealthRegenUpgrade
+class_name HealthRegenUpgrade
 
 var time_since_last_regen = 0.0
 

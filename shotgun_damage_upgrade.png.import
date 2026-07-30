@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8gboe8n3rxet"
-path="res://.godot/imported/plus_one_health_regen.png-b50f37d3f545ea78988e2501940c5893.ctex"
+uid="uid://dmwjqm7ukrxe"
+path="res://.godot/imported/shotgun_damage_upgrade.png-bf83efff619977173d2f52686718ab91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://plus_one_health_regen.png"
-dest_files=["res://.godot/imported/plus_one_health_regen.png-b50f37d3f545ea78988e2501940c5893.ctex"]
+source_file="res://shotgun_damage_upgrade.png"
+dest_files=["res://.godot/imported/shotgun_damage_upgrade.png-bf83efff619977173d2f52686718ab91.ctex"]
 
 [params]
 

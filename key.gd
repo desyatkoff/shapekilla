@@ -2,7 +2,13 @@ extends Item
 class_name Key
 
 func _ready() -> void:
+    if item_tier == -1:
+        item_tier = randi_range(0, 4)
+
     item_tier = clamp(item_tier, 0, 4)
+
+    if item_price == -1:
+        item_price = round(10 * (item_tier + 1) * randf_range(0.75, 1.25))
 
     sprite.region_rect = Rect2(32.0 * item_tier, 0.0, 32.0, 32.0)
 
@@ -22,26 +28,6 @@ func _ready() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
     tween.tween_property(sprite, "self_modulate", Color.WHITE, 0.25)
-
-func pick_tier() -> int:
-    var weights = [50, 30, 15, 4, 1]
-
-    var total = 0
-
-    for w in weights:
-        total += w
-
-    var roll = randi_range(1, total)
-
-    var sum = 0
-
-    for i in range(weights.size()):
-        sum += weights[i]
-
-        if roll <= sum:
-            return i
-
-    return 0
 
 func use() -> void:
     for area in hitbox.get_overlapping_areas():

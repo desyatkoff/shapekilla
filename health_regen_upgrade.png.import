@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bomyewls2gu7k"
-path="res://.godot/imported/plus_one_max_health.png-1cd3438e105fb4619b58d9c47917564e.ctex"
+uid="uid://c8gboe8n3rxet"
+path="res://.godot/imported/health_regen_upgrade.png-f7d350945893a6834732660769532912.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://plus_one_max_health.png"
-dest_files=["res://.godot/imported/plus_one_max_health.png-1cd3438e105fb4619b58d9c47917564e.ctex"]
+source_file="res://health_regen_upgrade.png"
+dest_files=["res://.godot/imported/health_regen_upgrade.png-f7d350945893a6834732660769532912.ctex"]
 
 [params]
 

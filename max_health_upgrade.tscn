@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bke4rd6cehg2f"]
+
+[ext_resource type="PackedScene" uid="uid://bqi53c46rpnf2" path="res://player_upgrade.tscn" id="1_dhdoj"]
+[ext_resource type="Script" uid="uid://brbc8ukj66txw" path="res://max_health_upgrade.gd" id="2_lvadq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tn2iy"]
+load_path = "res://.godot/imported/max_health_upgrade.png-0923c9bb2bc0cfea14af3d7f0cda36bb.ctex"
+
+[node name="MaxHealthUpgrade" unique_id=1814280531 instance=ExtResource("1_dhdoj")]
+script = ExtResource("2_lvadq")
+upgrade_texture = SubResource("CompressedTexture2D_tn2iy")
+upgrade_name = "+1 Max Health"
+upgrade_description = "Permanently gain an extra health point"
+upgrade_tier = 0
+upgrade_price = -1

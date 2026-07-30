@@ -1,5 +1,5 @@
 extends PlayerUpgrade
-class_name PlusOneMaxHealthUpgrade
+class_name MaxHealthUpgrade
 
 func start_actions() -> void:
     Game.player.max_health += 1

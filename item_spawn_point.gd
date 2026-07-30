@@ -12,7 +12,8 @@ func spawn_item():
             var item_instance = item_scene.instantiate()
 
             if item_instance is Key:
-                item_instance.item_tier = item_instance.pick_tier()
+                item_instance.item_tier = -1
+                item_instance._ready()
 
             get_parent().add_child(item_instance)
 

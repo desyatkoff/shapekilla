@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bty6afeat16yy"]
+
+[ext_resource type="PackedScene" uid="uid://bqi53c46rpnf2" path="res://player_upgrade.tscn" id="1_6280t"]
+[ext_resource type="Script" uid="uid://cqluep7ftwmj6" path="res://health_regen_upgrade.gd" id="2_6280t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_av3kh"]
+load_path = "res://.godot/imported/health_regen_upgrade.png-f7d350945893a6834732660769532912.ctex"
+
+[node name="HealthRegenUpgrade" unique_id=1814280531 instance=ExtResource("1_6280t")]
+script = ExtResource("2_6280t")
+upgrade_texture = SubResource("CompressedTexture2D_av3kh")
+upgrade_name = "+1 Health Regen"
+upgrade_description = "Restore 1 health point every 10 seconds"
+upgrade_tier = 1
+upgrade_price = -1
