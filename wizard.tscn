@@ -9,7 +9,7 @@
 size = Vector2(22, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2f77"]
-size = Vector2(32, 64)
+size = Vector2(16, 32)
 
 [node name="Wizard" unique_id=757774300 instance=ExtResource("1_xxhrx")]
 collision_layer = 4
@@ -31,7 +31,7 @@ shape = SubResource("RectangleShape2D_xo1iy")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TradeHitbox" index="0" unique_id=1921308717]
-position = Vector2(16, 0)
+position = Vector2(8, 6)
 shape = SubResource("RectangleShape2D_j2f77")
 
 [node name="FiniteStateMachine" parent="." index="6" unique_id=1331044783]
