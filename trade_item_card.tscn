@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_n35mm"]
 [ext_resource type="Script" uid="uid://diiosqnf2kdlb" path="res://trade_item_card.gd" id="2_f8vqk"]
+[ext_resource type="AudioStream" uid="uid://dnrcyjxpgqmbq" path="res://purchase.wav" id="3_f8vqk"]
 
 [node name="TradeItemCard" type="Panel" unique_id=771577814]
 offset_right = 384.0
@@ -51,5 +52,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "Purchase"
+
+[node name="PurchaseSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=575280412]
+stream = ExtResource("3_f8vqk")
 
 [connection signal="pressed" from="PurchaseButton" to="." method="_on_purchase_button_pressed"]

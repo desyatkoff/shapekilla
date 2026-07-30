@@ -6,6 +6,7 @@ signal purchased
 @onready var icon = $Icon
 @onready var info_label = $InfoLabel
 @onready var purchase_button = $PurchaseButton
+@onready var purchase_sfx_player = $PurchaseSFXPlayer
 
 var is_purchased = false
 var item: Node
@@ -87,6 +88,9 @@ func _on_purchase_button_pressed() -> void:
         purchased.emit()
         is_purchased = true
 
+        purchase_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+        purchase_sfx_player.play()
+
         if Game.player.item:
             Game.player.item.drop()
 
@@ -100,6 +104,9 @@ func _on_purchase_button_pressed() -> void:
 
         purchased.emit()
         is_purchased = true
+
+        purchase_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+        purchase_sfx_player.play()
 
         item_clone.gain_upgrade()
 
