@@ -59,7 +59,7 @@ func _on_to_main_menu_button_pressed() -> void:
 
     Game.player.revive()
 
-    Game.console.cmd_disable_cheats()
+    Game.console.cmd_disable_cheats(PackedStringArray([]))
 
     Game.player.damage_multi = 1.0
     Game.player.speed_multi = 1.0
@@ -87,7 +87,7 @@ func _on_try_again_button_pressed() -> void:
 
     Game.player.revive()
 
-    Game.console.cmd_disable_cheats()
+    Game.console.cmd_disable_cheats(PackedStringArray([]))
 
     Game.player.damage_multi = 1.0
     Game.player.speed_multi = 1.0
