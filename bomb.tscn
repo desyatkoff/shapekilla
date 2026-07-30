@@ -36,6 +36,7 @@ size = Vector2(12, 20)
 [node name="Bomb" unique_id=23840998 instance=ExtResource("1_4fn8o")]
 script = ExtResource("2_6w74q")
 item_name = "Bomb"
+item_tier = 1
 
 [node name="ItemParticles" parent="." index="0" unique_id=1042161929]
 color = Color(0.9647059, 0.6, 0.53333336, 1)

@@ -28,6 +28,9 @@ func _on_to_main_menu_button_pressed() -> void:
 
     Game.player.current_floor = 1
 
+    Game.player.is_wizard_killed = false
+    Game.hud.trade_menu.load_menu_items()
+
     hide_menu()
 
     get_tree().reload_current_scene()

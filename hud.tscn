@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://clwt3qh00s50u" path="res://ui.tres" id="1_37p78"]
 [ext_resource type="Script" uid="uid://du5jr86kejibr" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="AudioStream" uid="uid://xlq1eybd7yd5" path="res://click.wav" id="3_8sq4i"]
+[ext_resource type="PackedScene" uid="uid://c4fa4usc3m0ob" path="res://trade_menu.tscn" id="3_640wx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v8y2v"]
 
@@ -190,6 +191,9 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_37p78")
 alignment = 2
+
+[node name="TradeMenu" parent="MainHUD" unique_id=412974527 instance=ExtResource("3_640wx")]
+layout_mode = 1
 
 [node name="ClickSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1562766438]
 stream = ExtResource("3_8sq4i")

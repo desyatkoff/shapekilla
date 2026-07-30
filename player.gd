@@ -12,6 +12,8 @@ var timer_enabled = false
 var cheats_enabled = false
 var noclip = false
 
+var is_wizard_killed = false
+
 var run_time = 0.0
 var run_score = 0
 var run_points = 0

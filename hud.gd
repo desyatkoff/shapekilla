@@ -25,6 +25,8 @@ extends CanvasLayer
 
 @onready var effects_container = $MainHUD/EffectsContainer
 
+@onready var trade_menu = $MainHUD/TradeMenu
+
 @onready var click_sfx_player = $ClickSFXPlayer
 
 func _ready() -> void:
@@ -68,6 +70,7 @@ timer_enabled = %s
 cheats_enabled = %s
 noclip = %s
 is_tutorial_complete = %s
+is_wizard_killed = %s
 run_time = %s
 run_score = %s
 run_points = %s
@@ -109,6 +112,7 @@ current_floor = %s
         Game.player.cheats_enabled,
         Game.player.noclip,
         Game.data["is_tutorial_complete"],
+        Game.player.is_wizard_killed,
         Game.player.run_time,
         Game.player.run_score,
         Game.player.run_points,

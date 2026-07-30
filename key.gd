@@ -1,19 +1,27 @@
 extends Item
 class_name Key
 
-@export var key_tier: int
-
 func _ready() -> void:
-    key_tier = clamp(key_tier, 0, 4)
+    item_tier = clamp(item_tier, 0, 4)
 
-    sprite.region_rect = Rect2(32.0 * key_tier, 0.0, 32.0, 32.0)
+    sprite.region_rect = Rect2(32.0 * item_tier, 0.0, 32.0, 32.0)
 
-    match key_tier:
+    match item_tier:
         0: item_name = "Gold Key"
         1: item_name = "Emerald Key"
         2: item_name = "Diamond Key"
         3: item_name = "Sapphire Key"
         4: item_name = "Amethyst Key"
+
+    if tween and tween.is_running():
+        tween.kill()
+
+    sprite.self_modulate = Color.TRANSPARENT
+
+    tween = create_tween()
+    tween.set_trans(Tween.TRANS_SINE)
+    tween.set_ease(Tween.EASE_IN_OUT)
+    tween.tween_property(sprite, "self_modulate", Color.WHITE, 0.25)
 
 func pick_tier() -> int:
     var weights = [50, 30, 15, 4, 1]
@@ -37,7 +45,7 @@ func pick_tier() -> int:
 
 func use() -> void:
     for area in hitbox.get_overlapping_areas():
-        if area.get_parent() is Doors and area.get_parent().is_locked and area.get_parent().lock_tier == key_tier:
+        if area.get_parent() is Doors and area.get_parent().is_locked and area.get_parent().lock_tier == item_tier:
             if not Game.player.cheats_enabled:
                 Game.data["total_points_earned"] += 1
                 Game.data["total_items_used"] += 1

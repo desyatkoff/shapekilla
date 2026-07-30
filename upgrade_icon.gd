@@ -7,6 +7,9 @@ var player_upgrade: PlayerUpgrade
 
 func _ready() -> void:
     if player_upgrade:
+        texture = player_upgrade.upgrade_texture
+        tooltip_text = "%s\n\n%s" % [player_upgrade.upgrade_name, player_upgrade.upgrade_description]
+
         var sb = panel.get_theme_stylebox("panel").duplicate()
 
         match player_upgrade.upgrade_tier:
@@ -17,13 +20,3 @@ func _ready() -> void:
             4: sb.border_color = Color("#8e24aa")
 
         panel.add_theme_stylebox_override("panel", sb)
-
-func _process(_delta: float) -> void:
-    if player_upgrade:
-        texture = player_upgrade.upgrade_texture
-        tooltip_text = "%s\n\n%s" % [player_upgrade.upgrade_name, player_upgrade.upgrade_description]
-    else:
-        texture = null
-        tooltip_text = ""
-
-        queue_free()

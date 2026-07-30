@@ -26,7 +26,7 @@ environment = SubResource("Environment_vef74")
 
 [node name="World" parent="." unique_id=1894890612 instance=ExtResource("1_eow3j")]
 
-[node name="Player" parent="." unique_id=757774300 instance=ExtResource("3_hve3p")]
+[node name="Player" parent="." unique_id=128176892 instance=ExtResource("3_hve3p")]
 position = Vector2(-64, 0)
 
 [node name="HUD" parent="." unique_id=93772059 instance=ExtResource("5_iotsf")]

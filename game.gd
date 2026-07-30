@@ -117,11 +117,17 @@ func reload_player() -> void:
         for effect in player.effects_slot.get_children():
             effect.expire_effect()
 
-        for effect in hud.effects_container.get_children():
-            effect.queue_free()
+        for effect_icon in hud.effects_container.get_children():
+            effect_icon.queue_free()
+
+        for upgrade in player.upgrades_slot.get_children():
+            upgrade.expire_upgrade()
+
+        for upgrade_icon in hud.upgrades_container.get_children():
+            upgrade_icon.queue_free()
 
         if player.item:
-            player.item.queue_free()
+            player.item.drop()
 
     player.floor_time = 0.0
     player.floor_kills = 0

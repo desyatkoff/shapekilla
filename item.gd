@@ -8,6 +8,8 @@ class_name Item
 @onready var use_sfx_player = $UseSFXPlayer
 
 @export var item_name: String
+@export var item_tier: int
+@export var item_price: int = -1
 
 @export var is_rotating = true
 @export var can_be_picked_up = true
@@ -17,6 +19,11 @@ var item_owner: Player
 var tween: Tween
 
 func _ready() -> void:
+    item_tier = clamp(item_tier, 0, 4)
+
+    if item_price == -1:
+        item_price = round(10 * (item_tier + 1) * randf_range(0.75, 1.25))
+
     if tween and tween.is_running():
         tween.kill()
 
@@ -40,15 +47,23 @@ func _process(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
     if can_be_picked_up:
         if body is Player and not body.item:
-            can_be_picked_up = false
+            pickup(body)
 
-            item_owner = body
-            item_owner.item = self
+func pickup(body: Node2D) -> void:
+    can_be_picked_up = false
 
-            pickup_sfx_player.pitch_scale = randf_range(0.9, 1.1)
-            pickup_sfx_player.play()
+    item_owner = body
+    item_owner.item = self
 
-            call_deferred("reparent", body.item_slot)
+    pickup_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+    pickup_sfx_player.play()
+
+    if get_parent():
+        call_deferred("reparent", item_owner.item_slot)
+    else:
+        item_owner.item_slot.call_deferred("add_child", self)
+
+    global_position = item_owner.item_slot.global_position
 
 func drop() -> void:
     can_be_picked_up = true

@@ -9,7 +9,6 @@ size = Vector2(16, 8)
 
 [node name="Key" unique_id=23840998 instance=ExtResource("1_p0yg6")]
 script = ExtResource("2_p0yg6")
-key_tier = 0
 item_name = "Key"
 
 [node name="Sprite" parent="." index="1" unique_id=1005126698]
