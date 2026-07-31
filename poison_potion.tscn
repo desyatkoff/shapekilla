@@ -10,6 +10,7 @@ size = Vector2(10, 14)
 [node name="PoisonPotion" unique_id=23840998 instance=ExtResource("1_rxnkx")]
 script = ExtResource("2_v74uy")
 item_name = "Poison Potion"
+item_description = "Delicious, trust"
 item_tier = 1
 
 [node name="Sprite" parent="." index="1" unique_id=1005126698]

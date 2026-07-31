@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://du4grvwk8ofmt"]
+
+[ext_resource type="PackedScene" uid="uid://bqi53c46rpnf2" path="res://player_upgrade.tscn" id="1_os1mu"]
+[ext_resource type="Script" uid="uid://d3qqaf1olmd3f" path="res://projectile_speed_upgrade.gd" id="2_toyx8"]
+[ext_resource type="Texture2D" uid="uid://3aelnooja7kj" path="res://projectile_speed_upgrade.png" id="3_00mvd"]
+
+[node name="ProjectileSpeedUpgrade" unique_id=1814280531 instance=ExtResource("1_os1mu")]
+script = ExtResource("2_toyx8")
+upgrade_texture = ExtResource("3_00mvd")
+upgrade_name = "x2 Projectile Speed"
+upgrade_description = "Doubles your shotgun projectiles' speed"
+upgrade_tier = 2
+upgrade_price = -1

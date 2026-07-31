@@ -4,6 +4,7 @@ class_name TradeItemCard
 signal purchased
 
 @onready var icon = $Icon
+@onready var name_label = $NameLabel
 @onready var info_label = $InfoLabel
 @onready var purchase_button = $PurchaseButton
 @onready var out_of_stock_label = $OutOfStockLabel
@@ -31,15 +32,16 @@ func _ready() -> void:
 
         icon.texture.atlas = item.sprite.texture
         icon.texture.region = item.sprite.region_rect
+        name_label.text = item.item_name
         info_label.text = \
-"""
-[color=#757575]Name:[/color] %s
+"""[color=#757575]Description:[/color]
+%s
+
 [color=#757575]Type:[/color] [color=#eeeeee]Item[/color]
-[color=#757575]Tier:[/color] [color=#%s]%s[/color]
-[color=#757575]Price:[/color] %s Points
-""" % \
+[color=#757575]Tier:[/color] [color=%s]%s[/color]
+[color=#757575]Price:[/color] %s Points""" % \
         [
-            item.item_name,
+            item.item_description,
             tier_info[1].to_html(false),
             tier_info[0],
             item.item_price
@@ -59,15 +61,16 @@ func _ready() -> void:
         add_theme_stylebox_override("panel", sb)
 
         icon.texture.atlas = item.upgrade_texture
+        name_label.text = item.upgrade_name
         info_label.text = \
-"""
-[color=#757575]Name:[/color] %s
+"""[color=#757575]Description:[/color]
+%s
+
 [color=#757575]Type:[/color] [color=#f48fb1]Upgrade[/color]
-[color=#757575]Tier:[/color] [color=#%s]%s[/color]
-[color=#757575]Price:[/color] %s Points
-""" % \
+[color=#757575]Tier:[/color] [color=%s]%s[/color]
+[color=#757575]Price:[/color] %s Points""" % \
         [
-            item.upgrade_name,
+            item.upgrade_description,
             tier_info[1].to_html(false),
             tier_info[0],
             item.upgrade_price

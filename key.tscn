@@ -10,6 +10,7 @@ size = Vector2(16, 8)
 [node name="Key" unique_id=23840998 instance=ExtResource("1_p0yg6")]
 script = ExtResource("2_p0yg6")
 item_name = "Key"
+item_description = "Behind every door there is a mystery. Open them at your own risk"
 
 [node name="Sprite" parent="." index="1" unique_id=1005126698]
 texture = ExtResource("1_up4cr")

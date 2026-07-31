@@ -10,6 +10,7 @@ size = Vector2(10, 14)
 [node name="DamagePotion" unique_id=23840998 instance=ExtResource("1_t3we8")]
 script = ExtResource("2_ktdwl")
 item_name = "Damage Potion"
+item_description = "Not strong enough? Doubles your shotgun's damage for 30 seconds"
 
 [node name="Sprite" parent="." index="1" unique_id=1005126698]
 texture = ExtResource("2_0h8ct")

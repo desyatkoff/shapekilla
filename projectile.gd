@@ -9,13 +9,14 @@ var projectile_owner: Character
 var tween: Tween
 
 var damage: int
+var speed: int
 
 func _ready() -> void:
     lifetime_timer.wait_time = clamp(randf(), 0.25, 1)
     lifetime_timer.start()
 
 func _process(delta: float) -> void:
-    move_local_x(320 * delta)
+    move_local_x(speed * delta)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
     if body != projectile_owner:

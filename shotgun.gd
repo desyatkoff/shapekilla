@@ -55,6 +55,7 @@ func attack():
             var shotgun_projectile_instance = shotgun_projectile_scene.instantiate()
             shotgun_projectile_instance.projectile_owner = weapon_owner
             shotgun_projectile_instance.damage = damage * weapon_owner.damage_multi
+            shotgun_projectile_instance.speed = 256 * weapon_owner.projectile_speed_multi
             shotgun_projectile_instance.global_position = sprite.get_node("ProjectileSpawnPoint").global_position - Vector2(0.0, 3.0)
             shotgun_projectile_instance.global_rotation = global_rotation + i * 0.2
 

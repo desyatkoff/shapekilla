@@ -36,6 +36,7 @@ size = Vector2(12, 20)
 [node name="Bomb" unique_id=23840998 instance=ExtResource("1_4fn8o")]
 script = ExtResource("2_6w74q")
 item_name = "Bomb"
+item_description = "After activating, explodes in 2 seconds dealing 4 damage. Big boom"
 item_tier = 1
 
 [node name="Sprite" parent="." index="1" unique_id=1005126698]
@@ -108,7 +109,7 @@ stream = ExtResource("4_6w74q")
 bus = &"SFX"
 
 [node name="CooldownTimer" type="Timer" parent="SelfExplosion" index="5" unique_id=1453833404]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]

@@ -8,6 +8,7 @@ class_name Item
 @onready var use_sfx_player = $UseSFXPlayer
 
 @export var item_name: String
+@export var item_description: String
 @export var item_tier: int
 @export var item_price: int = -1
 
