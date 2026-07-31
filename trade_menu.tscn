@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://chyc107upp4up" path="res://wizard.png" id="11_e1suj"]
 [ext_resource type="Script" uid="uid://crth0bc1x417s" path="res://type_text_effect.gd" id="12_7854k"]
 [ext_resource type="Script" uid="uid://c4i2yv3tqnxlh" path="res://wobble_text_effect.gd" id="13_y3tfe"]
+[ext_resource type="PackedScene" uid="uid://2korxrajsm6s" path="res://points_upgrade.tscn" id="14_g8b4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2f77"]
 atlas = ExtResource("11_e1suj")
@@ -39,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bkyvf")
 script = ExtResource("2_0txhl")
-scenes = Array[PackedScene]([ExtResource("8_e1suj"), ExtResource("3_xc6ql"), ExtResource("4_e1suj"), ExtResource("5_cn6nd"), ExtResource("6_7854k"), ExtResource("7_y3tfe"), ExtResource("9_y3tfe"), ExtResource("10_qnl85"), ExtResource("11_06buk"), ExtResource("5_7r38b"), ExtResource("4_7r38b")])
+scenes = Array[PackedScene]([ExtResource("8_e1suj"), ExtResource("3_xc6ql"), ExtResource("4_e1suj"), ExtResource("5_cn6nd"), ExtResource("6_7854k"), ExtResource("7_y3tfe"), ExtResource("9_y3tfe"), ExtResource("10_qnl85"), ExtResource("11_06buk"), ExtResource("5_7r38b"), ExtResource("4_7r38b"), ExtResource("14_g8b4r")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1996814276]
 layout_mode = 1

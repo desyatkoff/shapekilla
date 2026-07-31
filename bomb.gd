@@ -12,7 +12,7 @@ class_name Bomb
 
 func use() -> void:
     if not Game.player.cheats_enabled:
-        Game.data["total_points_earned"] += 1
+        Game.data["total_points_earned"] += 1 * Game.player.points_multi
         Game.data["total_items_used"] += 1
         Game.data["total_bombs_used"] += 1
 
@@ -20,8 +20,8 @@ func use() -> void:
     Game.player.floor_items_used += 1
 
     Game.player.run_score += 10
-    Game.player.run_points += 1
-    Game.player.run_points_earned += 1
+    Game.player.run_points += 1 * Game.player.points_multi
+    Game.player.run_points_earned += 1 * Game.player.points_multi
 
     can_be_picked_up = false
 

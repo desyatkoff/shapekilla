@@ -120,37 +120,17 @@ func load_menu_items() -> void:
                     instance._ready()
 
                     if instance is Item:
-                        if instance.item_tier == pick_tier():
+                        if instance.item_tier == Game.pick_tier():
                             item_card.item = instance
                             fslot.add_child(item_card)
                             free_slots.erase(fslot)
                             item_card.connect("purchased", _on_item_purchased)
                     elif instance is PlayerUpgrade:
-                        if instance.upgrade_tier == pick_tier():
+                        if instance.upgrade_tier == Game.pick_tier():
                             item_card.item = instance
                             fslot.add_child(item_card)
                             free_slots.erase(fslot)
                             item_card.connect("purchased", _on_item_purchased)
-
-func pick_tier() -> int:
-    var weights = [50, 30, 15, 4, 1]
-
-    var total = 0
-
-    for w in weights:
-        total += w
-
-    var roll = randi_range(1, total)
-
-    var sum = 0
-
-    for i in range(weights.size()):
-        sum += weights[i]
-
-        if roll <= sum:
-            return i
-
-    return 0
 
 func show_menu() -> void:
     message_label.text = ""

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://2korxrajsm6s"]
+
+[ext_resource type="PackedScene" uid="uid://bqi53c46rpnf2" path="res://player_upgrade.tscn" id="1_vm1i2"]
+[ext_resource type="Script" uid="uid://dmfukeq2jav7a" path="res://points_upgrade.gd" id="2_a1fky"]
+[ext_resource type="Texture2D" uid="uid://dn4e7gcr77mes" path="res://points_upgrade.png" id="3_ml6kb"]
+
+[node name="PointsUpgrade" unique_id=1814280531 instance=ExtResource("1_vm1i2")]
+script = ExtResource("2_a1fky")
+upgrade_texture = ExtResource("3_ml6kb")
+upgrade_name = "x2 Points"
+upgrade_description = "Doubles all points-rewards"
+upgrade_tier = 2
+upgrade_price = -1

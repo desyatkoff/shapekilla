@@ -68,15 +68,15 @@ func die() -> void:
     died.emit()
 
     if not Game.player.cheats_enabled:
-        Game.data["total_points_earned"] += 1
+        Game.data["total_points_earned"] += 1 * Game.player.points_multi
         Game.data["total_kills"] += 1
 
     Game.player.run_kills += 1
     Game.player.floor_kills += 1
 
     Game.player.run_score += 10
-    Game.player.run_points += 1
-    Game.player.run_points_earned += 1
+    Game.player.run_points += 1 * Game.player.points_multi
+    Game.player.run_points_earned += 1 * Game.player.points_multi
 
     direction = Vector2.ZERO
     should_chase_player = false

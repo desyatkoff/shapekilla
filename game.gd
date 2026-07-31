@@ -78,6 +78,26 @@ func _process(_delta: float) -> void:
 
                 save_progress()
 
+func pick_tier() -> int:
+    var weights = [50, 30, 15, 4, 1]
+
+    var total = 0
+
+    for w in weights:
+        total += w
+
+    var roll = randi_range(1, total)
+
+    var sum = 0
+
+    for i in range(weights.size()):
+        sum += weights[i]
+
+        if roll <= sum:
+            return i
+
+    return 0
+
 func update_values() -> void:
     if custom_seed and run_seed != custom_seed:
         run_seed = custom_seed

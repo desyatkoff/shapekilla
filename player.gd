@@ -14,6 +14,8 @@ var noclip = false
 
 var is_wizard_killed = false
 
+var points_multi = 1
+
 var run_time = 0.0
 var run_score = 0
 var run_points = 0
@@ -54,7 +56,11 @@ func _process(delta: float) -> void:
     else:
         health = clamp(health, 1, max_health)
 
-    health = int(health)
+    health = int(round(health))
+
+    run_points = int(round(run_points))
+    run_points_earned = int(round(run_points_earned))
+    run_points_spent = int(round(run_points_spent))
 
     if health == 0 and fsm.state != fsm.states.DEAD:
         die()

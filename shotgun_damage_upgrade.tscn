@@ -11,4 +11,4 @@ script = ExtResource("2_l6b1d")
 upgrade_texture = SubResource("CompressedTexture2D_jg1vh")
 upgrade_name = "+1 Shotgun Damage"
 upgrade_description = "Increases your shotgun's damage by 1"
-upgrade_tier = 3
+upgrade_tier = 2
