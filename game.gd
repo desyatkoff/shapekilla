@@ -79,7 +79,7 @@ func _process(_delta: float) -> void:
                 save_progress()
 
 func pick_tier() -> int:
-    var weights = [50, 30, 15, 4, 1]
+    var weights = [64, 24, 6, 4, 2]
 
     var total = 0
 
