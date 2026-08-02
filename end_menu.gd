@@ -15,6 +15,8 @@ extends Control
 @onready var floors_cleared_value_label = $Panel/StatsValuesContainer/FloorsClearedLabel
 @onready var items_used_value_label = $Panel/StatsValuesContainer/ItemsUsedLabel
 @onready var message_label = $Panel/MessageLabel
+@onready var quit_button = $Panel/QuitButton
+@onready var to_main_menu_button = $Panel/ToMainMenuButton
 @onready var try_again_button = $Panel/TryAgainButton
 @onready var next_floor_button = $Panel/NextFloorButton
 @onready var win_sfx_player = $WinSFXPlayer
@@ -222,6 +224,11 @@ func show_menu() -> void:
 
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+    quit_button.disabled = true
+    to_main_menu_button.disabled = true
+    try_again_button.disabled = true
+    next_floor_button.disabled = true
+
     var tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
@@ -233,10 +240,20 @@ func show_menu() -> void:
 
     await tween.finished
 
+    quit_button.disabled = false
+    to_main_menu_button.disabled = false
+    try_again_button.disabled = false
+    next_floor_button.disabled = false
+
     Game.player.velocity = Vector2.ZERO
     Game.player.direction = Vector2.ZERO
 
 func hide_menu() -> void:
+    quit_button.disabled = true
+    to_main_menu_button.disabled = true
+    try_again_button.disabled = true
+    next_floor_button.disabled = true
+
     var tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
