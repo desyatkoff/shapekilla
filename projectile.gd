@@ -45,6 +45,9 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
         elif body is Plank:
             body.destroy()
 
+        if get_parent():
+            get_parent().call_deferred("remove_child", self)
+
         if tween and tween.is_running():
             await tween.finished
 
