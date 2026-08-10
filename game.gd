@@ -147,7 +147,9 @@ func reload_player() -> void:
             upgrade_icon.queue_free()
 
         if player.item:
-            player.item.drop()
+            var item = player.item
+            item.drop()
+            item.queue_free()
 
     player.floor_time = 0.0
     player.floor_kills = 0
