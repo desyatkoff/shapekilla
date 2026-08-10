@@ -10,4 +10,4 @@ upgrade_texture = ExtResource("3_00mvd")
 upgrade_name = "x2 Projectile Speed"
 upgrade_description = "Doubles your shotgun projectiles' speed"
 upgrade_tier = 2
-upgrade_price = -1
+max_stacks = 2

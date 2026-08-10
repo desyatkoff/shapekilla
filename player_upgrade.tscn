@@ -4,7 +4,3 @@
 
 [node name="PlayerUpgrade" type="Node" unique_id=1814280531]
 script = ExtResource("1_m33ck")
-upgrade_name = null
-upgrade_description = null
-upgrade_tier = null
-upgrade_price = null

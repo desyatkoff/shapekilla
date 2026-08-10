@@ -6,13 +6,12 @@ class_name Projectile
 @onready var blood_scene = preload("res://blood_particles.tscn")
 
 var projectile_owner: Character
-var tween: Tween
 
 var damage: int
 var speed: int
 
 func _ready() -> void:
-    lifetime_timer.wait_time = clamp(randf(), 0.25, 1)
+    lifetime_timer.wait_time = clamp(randf(), 0.2, 1.0)
     lifetime_timer.start()
 
 func _process(delta: float) -> void:
@@ -25,10 +24,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
             body.modulate = Color.RED
 
-            if tween and tween.is_running():
-                tween.kill()
-
-            tween = create_tween()
+            var tween = body.create_tween()
             tween.set_trans(Tween.TRANS_SINE)
             tween.set_ease(Tween.EASE_IN_OUT)
             tween.tween_property(body, "modulate", Color.WHITE, 0.4)
@@ -44,14 +40,18 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
                 Game.world.get_node("DebrisContainer").add_child(blood_instance)
         elif body is Plank:
             body.destroy()
+        else:
+            queue_free()
 
-        if get_parent():
-            get_parent().call_deferred("remove_child", self)
+        var piercing = false
 
-        if tween and tween.is_running():
-            await tween.finished
+        if projectile_owner is Player:
+            for upgrade in Game.player.upgrades:
+                if upgrade is PiercingProjectilesUpgrade:
+                    piercing = true
 
-        queue_free()
+        if not piercing:
+            queue_free()
 
 func _on_lifetime_timer_timeout() -> void:
     queue_free()

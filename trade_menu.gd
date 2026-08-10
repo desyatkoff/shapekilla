@@ -127,10 +127,17 @@ func load_menu_items() -> void:
                             item_card.connect("purchased", _on_item_purchased)
                     elif instance is PlayerUpgrade:
                         if instance.upgrade_tier == Game.pick_tier():
-                            item_card.item = instance
-                            fslot.add_child(item_card)
-                            free_slots.erase(fslot)
-                            item_card.connect("purchased", _on_item_purchased)
+                            var current_stacks = 0
+
+                            for upgrade in Game.player.upgrades:
+                                if upgrade.get_script() == instance.get_script():
+                                    current_stacks += 1
+
+                            if current_stacks < instance.max_stacks or instance.max_stacks == -1:
+                                item_card.item = instance
+                                fslot.add_child(item_card)
+                                free_slots.erase(fslot)
+                                item_card.connect("purchased", _on_item_purchased)
 
 func show_menu() -> void:
     message_label.text = ""

@@ -9,8 +9,6 @@ class_name SelfExplosion
 
 var did_play_sfx = false
 
-var tween: Tween
-
 func _on_cooldown_timer_timeout() -> void:
     if weapon_owner.fsm.state != weapon_owner.fsm.states.DEAD:
         for body in hitbox.get_overlapping_bodies():
@@ -29,7 +27,7 @@ func _on_cooldown_timer_timeout() -> void:
 
                 body.modulate = Color.RED
 
-                tween = create_tween()
+                var tween = body.create_tween()
                 tween.set_trans(Tween.TRANS_SINE)
                 tween.set_ease(Tween.EASE_IN_OUT)
                 tween.tween_property(body, "modulate", Color.WHITE, 0.4)

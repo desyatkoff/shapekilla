@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://crhta40i8xkt8"]
+
+[ext_resource type="PackedScene" uid="uid://bqi53c46rpnf2" path="res://player_upgrade.tscn" id="1_qfg4h"]
+[ext_resource type="Script" uid="uid://djayx1v6p1a40" path="res://piercing_projectiles_upgrade.gd" id="2_wmqv2"]
+[ext_resource type="Texture2D" uid="uid://7tmuipmevmu5" path="res://piercing_projectiles_upgrade.png" id="3_i8ie1"]
+
+[node name="PiercingProjectilesUpgrade" unique_id=1814280531 instance=ExtResource("1_qfg4h")]
+script = ExtResource("2_wmqv2")
+upgrade_texture = ExtResource("3_i8ie1")
+upgrade_name = "Piercing Projectiles"
+upgrade_description = "Your shotgun's projectiles can now pierce and damage multiple targets in a row"
+upgrade_tier = 2
+max_stacks = 1

@@ -6,6 +6,7 @@ class_name PlayerUpgrade
 @export var upgrade_description: String
 @export var upgrade_tier: int
 @export var upgrade_price: int = -1
+@export var max_stacks: int = -1
 
 func _ready() -> void:
     upgrade_tier = clamp(upgrade_tier, 0, 4)

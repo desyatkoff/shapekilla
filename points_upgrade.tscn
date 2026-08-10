@@ -10,4 +10,4 @@ upgrade_texture = ExtResource("3_ml6kb")
 upgrade_name = "x2 Points"
 upgrade_description = "Doubles all points-rewards"
 upgrade_tier = 2
-upgrade_price = -1
+max_stacks = 1
