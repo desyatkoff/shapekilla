@@ -100,5 +100,6 @@ custom_effects = [SubResource("RichTextEffect_o2d8m"), SubResource("RichTextEffe
 
 [node name="PurchaseSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=575280412]
 stream = ExtResource("3_f8vqk")
+bus = &"SFX"
 
 [connection signal="pressed" from="PurchaseButton" to="." method="_on_purchase_button_pressed"]
