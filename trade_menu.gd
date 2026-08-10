@@ -125,6 +125,8 @@ func load_menu_items() -> void:
                             fslot.add_child(item_card)
                             free_slots.erase(fslot)
                             item_card.connect("purchased", _on_item_purchased)
+                        else:
+                            break
                     elif instance is PlayerUpgrade:
                         if instance.upgrade_tier == Game.pick_tier():
                             var current_stacks = 0
@@ -138,6 +140,10 @@ func load_menu_items() -> void:
                                 fslot.add_child(item_card)
                                 free_slots.erase(fslot)
                                 item_card.connect("purchased", _on_item_purchased)
+                            else:
+                                break
+                else:
+                    break
 
 func show_menu() -> void:
     message_label.text = ""
