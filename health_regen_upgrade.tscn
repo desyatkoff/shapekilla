@@ -12,5 +12,4 @@ upgrade_texture = SubResource("CompressedTexture2D_av3kh")
 upgrade_name = "Health Regen"
 upgrade_description = "Restore 1 health point every 10 seconds"
 upgrade_tier = 1
-upgrade_price = -1
 max_stacks = 1
