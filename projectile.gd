@@ -44,8 +44,11 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
                 Game.world.get_node("DebrisContainer").add_child(blood_instance)
         elif body is Plank:
             body.destroy()
-        else:
-            queue_free()
+
+        if tween and tween.is_running():
+            await tween.finished
+
+        queue_free()
 
 func _on_lifetime_timer_timeout() -> void:
     queue_free()

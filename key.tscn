@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_p0yg6"]
 [ext_resource type="Texture2D" uid="uid://cdt181rywfujr" path="res://key.png" id="1_up4cr"]
 [ext_resource type="Script" uid="uid://5obb4sy2npwd" path="res://key.gd" id="2_p0yg6"]
+[ext_resource type="AudioStream" uid="uid://dxjmywf7a52vi" path="res://key_use.wav" id="4_d8y70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krfvd"]
 size = Vector2(16, 8)
@@ -19,3 +20,6 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
 shape = SubResource("RectangleShape2D_krfvd")
+
+[node name="UseSFXPlayer" parent="." index="4" unique_id=184674765]
+stream = ExtResource("4_d8y70")

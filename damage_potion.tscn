@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://l2mfkmpjnyar" path="res://item.tscn" id="1_t3we8"]
 [ext_resource type="Texture2D" uid="uid://ddqx2aqlmc015" path="res://damage_potion.png" id="2_0h8ct"]
 [ext_resource type="Script" uid="uid://ds66fp30glkc4" path="res://damage_potion.gd" id="2_ktdwl"]
+[ext_resource type="AudioStream" uid="uid://cmbvs8302qleq" path="res://potion_use.wav" id="4_ktdwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktdwl"]
 size = Vector2(10, 14)
@@ -17,3 +18,6 @@ texture = ExtResource("2_0h8ct")
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
 shape = SubResource("RectangleShape2D_ktdwl")
+
+[node name="UseSFXPlayer" parent="." index="4" unique_id=184674765]
+stream = ExtResource("4_ktdwl")

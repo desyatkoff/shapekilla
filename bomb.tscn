@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b48yqspjqj1vw" path="res://bomb.gd" id="2_6w74q"]
 [ext_resource type="Texture2D" uid="uid://drwq8np8ltkcr" path="res://bomb.png" id="2_nfxiy"]
 [ext_resource type="AudioStream" uid="uid://beq650geneuj2" path="res://self_explosion.wav" id="4_6w74q"]
+[ext_resource type="AudioStream" uid="uid://doa2uqnkjk2bh" path="res://bomb_use.wav" id="5_bwkwj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt0xr"]
 radius = 96.0
@@ -114,5 +115,8 @@ one_shot = true
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
 shape = SubResource("RectangleShape2D_6q6ta")
+
+[node name="UseSFXPlayer" parent="." index="5" unique_id=184674765]
+stream = ExtResource("5_bwkwj")
 
 [connection signal="timeout" from="SelfExplosion/CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
