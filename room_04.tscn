@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6a5ttcrn7ld7" path="res://room.tscn" id="1_3bkkf"]
 [ext_resource type="PackedScene" uid="uid://ccgoka5argg23" path="res://enemy_spawn_point.tscn" id="2_3bkkf"]
+[ext_resource type="PackedScene" uid="uid://cfgeg7gjk7dcq" path="res://plank.tscn" id="3_sydu8"]
 
 [node name="Room_04" unique_id=835384101 instance=ExtResource("1_3bkkf")]
 
@@ -15,3 +16,9 @@ position = Vector2(-176, -176)
 
 [node name="EnemySpawnPoint_02" parent="." index="3" unique_id=329884442 instance=ExtResource("2_3bkkf")]
 position = Vector2(176, 176)
+
+[node name="Plank_00" parent="." index="4" unique_id=530148997 instance=ExtResource("3_sydu8")]
+position = Vector2(96, -80)
+
+[node name="Plank_01" parent="." index="5" unique_id=93999408 instance=ExtResource("3_sydu8")]
+position = Vector2(-192, 80)

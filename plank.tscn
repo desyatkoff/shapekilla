@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cfgeg7gjk7dcq"]
+
+[ext_resource type="Script" uid="uid://coae5u3xakbqb" path="res://plank.gd" id="1_n00cy"]
+[ext_resource type="Texture2D" uid="uid://byehoymu0vo61" path="res://plank.png" id="1_pkcor"]
+[ext_resource type="AudioStream" uid="uid://oukuqtie12fu" path="res://plank_destroy.wav" id="3_uw3nf"]
+
+[sub_resource type="Gradient" id="Gradient_n00cy"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.333, 0.666, 1)
+colors = PackedColorArray(0.4745098, 0.33333334, 0.28235295, 1, 0.42745098, 0.29803923, 0.25490198, 1, 0.3647059, 0.2509804, 0.21568628, 1, 0.30588236, 0.20392157, 0.18039216, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2f77"]
+size = Vector2(32, 10)
+
+[node name="Plank" type="StaticBody2D" unique_id=530148997]
+collision_mask = 31
+script = ExtResource("1_n00cy")
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1563915323]
+light_mask = 0
+emitting = false
+amount = 32
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.4
+explosiveness = 0.5
+randomness = 1.0
+draw_order = 1
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 128.0
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_n00cy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057052483]
+light_mask = 0
+texture = ExtResource("1_pkcor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=565998978]
+shape = SubResource("RectangleShape2D_j2f77")
+
+[node name="DestroySFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1959835092]
+stream = ExtResource("3_uw3nf")
+bus = &"SFX"

@@ -66,6 +66,8 @@ func _on_cooldown_timer_timeout() -> void:
                 Game.world.get_node("DebrisContainer").add_child(blood_instance)
 
             Game.player.apply_noise_shake(16.0)
+        elif body is Plank:
+            body.destroy()
 
     await smoke_particles.finished
 

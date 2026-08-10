@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://2lyev25h8cie"]
+
+[ext_resource type="PackedScene" uid="uid://cfgeg7gjk7dcq" path="res://plank.tscn" id="1_kax8i"]
+[ext_resource type="Texture2D" uid="uid://cftat61wl6wup" path="res://long_plank.png" id="2_flacj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_culhf"]
+size = Vector2(64, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5ti7"]
+size = Vector2(66, 12)
+
+[node name="LongPlank" unique_id=530148997 instance=ExtResource("1_kax8i")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=1057052483]
+texture = ExtResource("2_flacj")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=565998978]
+shape = SubResource("RectangleShape2D_culhf")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(308602965) index="0" unique_id=1586530234]
+shape = SubResource("RectangleShape2D_q5ti7")

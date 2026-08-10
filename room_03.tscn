@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c6a5ttcrn7ld7" path="res://room.tscn" id="1_xaexw"]
 [ext_resource type="PackedScene" uid="uid://ccgoka5argg23" path="res://enemy_spawn_point.tscn" id="2_xaexw"]
 [ext_resource type="PackedScene" uid="uid://ody4uki2c3l3" path="res://item_spawn_point.tscn" id="3_e5oja"]
+[ext_resource type="PackedScene" uid="uid://cfgeg7gjk7dcq" path="res://plank.tscn" id="4_lbq1a"]
 
 [node name="Room_03" unique_id=835384101 instance=ExtResource("1_xaexw")]
 
@@ -21,3 +22,10 @@ position = Vector2(128, 192)
 [node name="ItemSpawnPoint_00" parent="." index="4" unique_id=2048955544 instance=ExtResource("3_e5oja")]
 position = Vector2(192, -96)
 probability = 0.1
+
+[node name="Plank_00" parent="." index="5" unique_id=530148997 instance=ExtResource("4_lbq1a")]
+position = Vector2(192, -144)
+
+[node name="Plank_01" parent="." index="6" unique_id=1739385212 instance=ExtResource("4_lbq1a")]
+position = Vector2(144, -96)
+rotation = 1.5707964

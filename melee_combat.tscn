@@ -12,7 +12,7 @@ script = ExtResource("2_to0tj")
 
 [node name="Hitbox" type="Area2D" parent="." index="1" unique_id=1379685490]
 collision_layer = 8
-collision_mask = 6
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1777917182]
 shape = SubResource("RectangleShape2D_8wiex")

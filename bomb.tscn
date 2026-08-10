@@ -46,7 +46,7 @@ texture = ExtResource("2_nfxiy")
 
 [node name="ExplosionHitbox" type="Area2D" parent="SelfExplosion" index="0" unique_id=1067133315]
 collision_layer = 8
-collision_mask = 6
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelfExplosion/ExplosionHitbox" index="0" unique_id=410373069]
 shape = SubResource("CircleShape2D_mt0xr")

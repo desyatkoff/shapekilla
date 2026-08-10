@@ -42,6 +42,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
                 blood_instance.global_position = body.global_position
 
                 Game.world.get_node("DebrisContainer").add_child(blood_instance)
+        elif body is Plank:
+            body.destroy()
         else:
             queue_free()
 

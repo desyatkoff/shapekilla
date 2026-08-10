@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://c6a5ttcrn7ld7" path="res://room.tscn" id="1_qjy8y"]
 [ext_resource type="PackedScene" uid="uid://ccgoka5argg23" path="res://enemy_spawn_point.tscn" id="2_qjy8y"]
 [ext_resource type="PackedScene" uid="uid://ody4uki2c3l3" path="res://item_spawn_point.tscn" id="3_3pxe2"]
+[ext_resource type="PackedScene" uid="uid://cfgeg7gjk7dcq" path="res://plank.tscn" id="4_lxru4"]
+[ext_resource type="PackedScene" uid="uid://2lyev25h8cie" path="res://long_plank.tscn" id="5_glsqi"]
 
 [node name="Room_02" unique_id=835384101 instance=ExtResource("1_qjy8y")]
 
@@ -21,3 +23,27 @@ position = Vector2(-160, 160)
 [node name="ItemSpawnPoint_00" parent="." index="4" unique_id=2048955544 instance=ExtResource("3_3pxe2")]
 position = Vector2(160, -160)
 probability = 0.5
+
+[node name="Plank_00" parent="." index="5" unique_id=530148997 instance=ExtResource("4_lxru4")]
+position = Vector2(-48, -96)
+rotation = 1.5707964
+
+[node name="Plank_01" parent="." index="6" unique_id=2053773713 instance=ExtResource("4_lxru4")]
+position = Vector2(48, -128)
+rotation = 1.5707964
+
+[node name="Plank_02" parent="." index="7" unique_id=287900983 instance=ExtResource("4_lxru4")]
+position = Vector2(48, 96)
+rotation = 1.5707964
+
+[node name="Plank_03" parent="." index="8" unique_id=158035377 instance=ExtResource("4_lxru4")]
+position = Vector2(-48, 192)
+rotation = 1.5707964
+
+[node name="LongPlank_00" parent="." index="9" unique_id=1572867510 instance=ExtResource("5_glsqi")]
+position = Vector2(128, -128)
+rotation = 0.7853982
+
+[node name="LongPlank_01" parent="." index="10" unique_id=291966783 instance=ExtResource("5_glsqi")]
+position = Vector2(112, -96)
+rotation = 0.2617994

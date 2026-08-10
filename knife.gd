@@ -44,3 +44,5 @@ func _on_cooldown_timer_timeout() -> void:
                     Game.world.get_node("DebrisContainer").add_child(blood_instance)
 
                 weapon_owner.fsm.set_state(weapon_owner.fsm.previous_state)
+            elif body is Plank:
+                body.destroy()
