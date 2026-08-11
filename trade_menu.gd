@@ -100,6 +100,11 @@ func load_menu_items() -> void:
             if pool.is_empty():
                 break
 
+            if len(Game.player.upgrades) < Game.player.max_upgrades:
+                for scene in pool:
+                    if scene is PlayerUpgrade:
+                        pool.erase(scene)
+
             var scene = pool.pick_random()
 
             if scene:
@@ -112,6 +117,7 @@ func load_menu_items() -> void:
                     if slot.get_child_count() != 0:
                         if instance.get_script() == slot.get_child(0).item.get_script():
                             is_unique = false
+                            pool.erase(scene)
 
                 if is_unique:
                     if instance is Key:
@@ -125,8 +131,6 @@ func load_menu_items() -> void:
                             fslot.add_child(item_card)
                             free_slots.erase(fslot)
                             item_card.connect("purchased", _on_item_purchased)
-                        else:
-                            break
                     elif instance is PlayerUpgrade:
                         if instance.upgrade_tier == Game.pick_tier():
                             var current_stacks = 0
@@ -140,10 +144,6 @@ func load_menu_items() -> void:
                                 fslot.add_child(item_card)
                                 free_slots.erase(fslot)
                                 item_card.connect("purchased", _on_item_purchased)
-                            else:
-                                break
-                else:
-                    break
 
 func show_menu() -> void:
     message_label.text = ""

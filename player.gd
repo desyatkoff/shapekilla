@@ -33,6 +33,7 @@ var floor_items_used = 0
 
 var current_floor = 1
 
+var max_upgrades = 20
 var upgrades: Array[PlayerUpgrade]
 
 var item: Item
