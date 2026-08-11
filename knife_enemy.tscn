@@ -8,11 +8,6 @@
 
 [node name="KnifeEnemy" unique_id=757774300 instance=ExtResource("1_676on")]
 script = ExtResource("2_qw3tx")
-max_health = 10
-health = 10
-max_speed = 80
-acceleration = 40
-friction = 0.16
 
 [node name="Body" parent="." index="0" unique_id=2120351308]
 texture = ExtResource("3_gxg3k")

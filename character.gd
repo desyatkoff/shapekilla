@@ -13,6 +13,7 @@ class_name Character
 @export var acceleration = 40
 @export var friction = 0.16
 
+var health_multi = 1.0
 var damage_multi = 1.0
 var speed_multi = 1.0
 var projectile_speed_multi = 1.0

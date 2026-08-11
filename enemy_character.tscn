@@ -19,11 +19,6 @@ fill_to = Vector2(0.5, 0)
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("2_10xie")
-max_health = null
-health = null
-max_speed = null
-acceleration = null
-friction = null
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="3" unique_id=1852310886]
 path_postprocessing = 1

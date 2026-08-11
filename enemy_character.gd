@@ -10,6 +10,13 @@ var should_check_player = true
 var should_chase_player = false
 
 func _ready() -> void:
+    while not Game.player:
+        await get_tree().process_frame
+
+    health_multi = clamp(1.0 + Game.player.current_floor / 20.0, 1.0, 2.0)
+    max_health = roundi(max_health * health_multi)
+    health = max_health
+    speed_multi = clamp(1.0 + Game.player.current_floor / 20.0, 1.0, 2.0)
     max_speed /= 4
 
     if get_parent() is Room:

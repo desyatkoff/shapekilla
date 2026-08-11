@@ -12,7 +12,6 @@ max_health = 8
 health = 8
 max_speed = 60
 acceleration = 30
-friction = 0.16
 
 [node name="Body" parent="." index="0" unique_id=2120351308]
 texture = ExtResource("2_an34g")
