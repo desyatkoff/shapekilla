@@ -66,6 +66,7 @@ func _on_to_main_menu_button_pressed() -> void:
     Game.player.damage_multi = 1.0
     Game.player.speed_multi = 1.0
     Game.player.projectile_speed_multi = 1.0
+    Game.player.accuracy_multi = 1.0
     Game.player.points_multi = 1
 
     Game.player.run_time = 0.0
@@ -96,6 +97,7 @@ func _on_try_again_button_pressed() -> void:
     Game.player.damage_multi = 1.0
     Game.player.speed_multi = 1.0
     Game.player.projectile_speed_multi = 1.0
+    Game.player.accuracy_multi = 1.0
     Game.player.points_multi = 1
 
     Game.player.run_time = 0.0

@@ -16,6 +16,7 @@ class_name Character
 var damage_multi = 1.0
 var speed_multi = 1.0
 var projectile_speed_multi = 1.0
+var accuracy_multi = 1.0
 
 var weapon: Weapon
 

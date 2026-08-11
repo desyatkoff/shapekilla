@@ -57,7 +57,7 @@ func attack():
             shotgun_projectile_instance.damage = damage * weapon_owner.damage_multi
             shotgun_projectile_instance.speed = 256 * weapon_owner.projectile_speed_multi
             shotgun_projectile_instance.global_position = sprite.get_node("ProjectileSpawnPoint").global_position - Vector2(0.0, 3.0)
-            shotgun_projectile_instance.global_rotation = global_rotation + i * 0.2
+            shotgun_projectile_instance.global_rotation = global_rotation + i * 0.2 / weapon_owner.accuracy_multi
 
             Game.world.get_node("DebrisContainer").add_child(shotgun_projectile_instance)
 
