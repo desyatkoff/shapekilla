@@ -3,6 +3,7 @@ class_name TradeItemCard
 
 signal purchased
 
+@onready var icon_bg = $IconBG
 @onready var icon = $Icon
 @onready var name_label = $NameLabel
 @onready var info_label = $InfoLabel
@@ -77,6 +78,9 @@ func _ready() -> void:
         ]
 
     check_availability()
+
+func _process(delta: float) -> void:
+    icon_bg.rotation += delta / 2
 
 func _on_purchase_button_pressed() -> void:
     var tween = create_tween()
