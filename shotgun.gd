@@ -51,7 +51,7 @@ func attack():
 
         create_tween().tween_property(self, "position", shotgun_position, 0.2)
 
-        for i in range(shotgun_shots / -2.0, shotgun_shots / 2.0):
+        for i in range(ceili(shotgun_shots / -2.0), ceili(shotgun_shots / 2.0)):
             var shotgun_projectile_instance = shotgun_projectile_scene.instantiate()
             shotgun_projectile_instance.projectile_owner = weapon_owner
             shotgun_projectile_instance.damage = damage * weapon_owner.damage_multi

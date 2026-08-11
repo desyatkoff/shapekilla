@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cv6sulgr0s6f5"]
+
+[ext_resource type="PackedScene" uid="uid://bqi53c46rpnf2" path="res://player_upgrade.tscn" id="1_spiyj"]
+[ext_resource type="Script" uid="uid://du878pxveet6a" path="res://extra_projectile_upgrade.gd" id="2_q1tlp"]
+[ext_resource type="Texture2D" uid="uid://epnie1j53njf" path="res://extra_projectile_upgrade.png" id="3_q1tlp"]
+
+[node name="ExtraProjectileUpgrade" unique_id=1814280531 instance=ExtResource("1_spiyj")]
+script = ExtResource("2_q1tlp")
+upgrade_texture = ExtResource("3_q1tlp")
+upgrade_name = "+1 Extra Projectile"
+upgrade_description = "Add 1 extra projectile to every shotgun shot"
+upgrade_tier = 1
+max_stacks = 2
