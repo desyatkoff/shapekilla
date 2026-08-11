@@ -10,9 +10,6 @@
 script = ExtResource("2_fwoqn")
 max_health = 4
 health = 4
-max_speed = 80
-acceleration = 40
-friction = 0.16
 
 [node name="Body" parent="." index="0" unique_id=2120351308]
 texture = ExtResource("3_fwoqn")
