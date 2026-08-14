@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3k7nwl7nuw8y"]
 
 [node name="ItemParticles" type="CPUParticles2D" unique_id=1042161929]
+light_mask = 0
 amount = 32
 lifetime = 0.2
 speed_scale = 0.1

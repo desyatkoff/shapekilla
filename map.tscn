@@ -29,11 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://c4njj5bk6r35q" path="res://end_room_01.tscn" id="22_h75vw"]
 [ext_resource type="PackedScene" uid="uid://dihq2fkvpkbdc" path="res://end_room_02.tscn" id="23_7vxqa"]
 [ext_resource type="Script" uid="uid://gvfhirytuoog" path="res://blood_container.gd" id="24_n2jt6"]
+[ext_resource type="PackedScene" uid="uid://8vw670apq4ji" path="res://end_room_03.tscn" id="24_qw8h8"]
 [ext_resource type="PackedScene" uid="uid://2lyev25h8cie" path="res://long_plank.tscn" id="29_7vxqa"]
 
 [node name="Map" type="Node2D" unique_id=1249936917]
 script = ExtResource("1_urblq")
-room_scenes = Array[PackedScene]([ExtResource("2_urblq"), ExtResource("2_wbpbn"), ExtResource("4_05x41"), ExtResource("5_gqbix"), ExtResource("6_oysan"), ExtResource("7_sb2pt"), ExtResource("3_71pa8"), ExtResource("9_2wwcf"), ExtResource("10_wbpbn"), ExtResource("11_a6rn7"), ExtResource("12_bssq0"), ExtResource("13_jk4ss"), ExtResource("14_r5om4"), ExtResource("15_jky6x"), ExtResource("16_4sf5t"), ExtResource("17_3mr0t"), ExtResource("18_6sq2s"), ExtResource("19_4v3wx"), ExtResource("20_y1wlr"), ExtResource("4_71pa8"), ExtResource("22_h75vw"), ExtResource("23_7vxqa")])
+room_scenes = Array[PackedScene]([ExtResource("2_urblq"), ExtResource("2_wbpbn"), ExtResource("4_05x41"), ExtResource("5_gqbix"), ExtResource("6_oysan"), ExtResource("7_sb2pt"), ExtResource("3_71pa8"), ExtResource("9_2wwcf"), ExtResource("10_wbpbn"), ExtResource("11_a6rn7"), ExtResource("12_bssq0"), ExtResource("13_jk4ss"), ExtResource("14_r5om4"), ExtResource("15_jky6x"), ExtResource("16_4sf5t"), ExtResource("17_3mr0t"), ExtResource("18_6sq2s"), ExtResource("19_4v3wx"), ExtResource("20_y1wlr"), ExtResource("4_71pa8"), ExtResource("22_h75vw"), ExtResource("23_7vxqa"), ExtResource("24_qw8h8")])
 
 [node name="DoorSlots" type="Node2D" parent="." unique_id=156098974]
 
@@ -157,7 +158,7 @@ move_time = 0.0
 is_locked = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="RoomSlots/RoomSlot_00" unique_id=67495547]
-tile_map_data = PackedByteArray("AAD8//7/AAAAAAMAAAD8////AAAOAAkAAAD8/wAAAAAOAAkAAAD8/wEAAAAAAAMAAAAHAP7/AAAAAAMAAAAHAAEAAAAAAAMAAAD7//7/AAALAAAAAAD6//7/AAALAAAAAAD5//7/AAALAAAAAAD7/wEAAAALAAAAAAD6/wEAAAALAAAAAAD5/wEAAAALAAAAAAD4/wEAAAAAAAMAAAD4//7/AAAAAAMAAAD6/wAAAAAOAAkAAAD6////AAAOAAkAAAD5////AAAOAAkAAAD4////AAAOAAkAAAD4/wAAAAAOAAkAAAD5/wAAAAAOAAkAAAD7////AAAOAAkAAAD7/wAAAAAOAAkAAAAHAP//AAAOAAkAAAAHAAAAAAAOAAkAAAA=")
+tile_map_data = PackedByteArray("AAD8//7/AAAAAAMAAAD8////AAAOAAkAAAD8/wAAAAAOAAkAAAD8/wEAAAAAAAMAAAAHAP7/AAAAAAMAAAAHAAEAAAAAAAMAAAD7//7/AAALAAAAAAD6//7/AAALAAAAAAD5//7/AAALAAAAAAD7/wEAAAALAAAAAAD6/wEAAAALAAAAAAD5/wEAAAALAAAAAAD4/wEAAAAAAAMAAAD4//7/AAAAAAMAAAD6/wAAAAAOAAkAAAD6////AAAOAAkAAAD5////AAAOAAkAAAD4////AAAOAAkAAAD4/wAAAAAOAAkAAAD5/wAAAAAOAAkAAAD7////AAAOAAkAAAD7/wAAAAAOAAkAAAAHAP//AAAOAAkAAAAHAAAAAAAOAAkAAAD3//7/AAALAAAAAAD2//7/AAALAAAAAAD1//7/AAALAAAAAAD0//7/AAALAAAAAADz//7/AAALAAAAAADy//7/AAALAAAAAADx//7/AAALAAAAAADw//7/AAALAAAAAADv//7/AAALAAAAAADu//7/AAALAAAAAADt//7/AAALAAAAAADs//7/AAALAAAAAAD3/wEAAAALAAAAAAD2/wEAAAALAAAAAAD1/wEAAAALAAAAAAD0/wEAAAALAAAAAADz/wEAAAALAAAAAADy/wEAAAALAAAAAADx/wEAAAALAAAAAADw/wEAAAALAAAAAADv/wEAAAALAAAAAADu/wEAAAALAAAAAADt/wEAAAALAAAAAADs/wEAAAALAAAAAADr//7/AAALAAAAAADq//7/AAALAAAAAADp//7/AAALAAAAAADo//7/AAALAAAAAADo/wEAAAALAAAAAADp/wEAAAALAAAAAADq/wEAAAALAAAAAADr/wEAAAALAAAAAADn/wEAAAAAAAMAAADn//7/AAAAAAMAAAA=")
 tile_set = ExtResource("7_71pa8")
 
 [node name="LongPlank_00" parent="RoomSlots/RoomSlot_00" unique_id=530148997 instance=ExtResource("29_7vxqa")]
@@ -252,8 +253,8 @@ position = Vector2(240, 0)
 is_locked = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="RoomSlots/RoomSlot_10" unique_id=637155112]
-tile_map_data = PackedByteArray("AAD4//7/AAAAAAMAAAD4/wEAAAAAAAMAAAAHAAEAAAAAAAMAAAAHAP7/AAAAAAMAAAD4////AAAOAAkAAAD4/wAAAAAOAAkAAAAHAAAAAAAOAAkAAAAHAP//AAAOAAkAAAA=")
+tile_map_data = PackedByteArray("AAD4//7/AAAAAAMAAAD4/wEAAAAAAAMAAAAHAAEAAAAAAAMAAAAHAP7/AAAAAAMAAAD4////AAAOAAkAAAD4/wAAAAAOAAkAAAAHAAAAAAAOAAkAAAAHAP//AAAOAAkAAAAIAAEAAAAAAAMAAAAIAP7/AAAAAAMAAAAXAP7/AAAAAAMAAAAYAP7/AAAAAAMAAAAYAAEAAAAAAAMAAAAXAAEAAAAAAAMAAAAJAP7/AAALAAAAAAAKAP7/AAALAAAAAAALAP7/AAALAAAAAAAMAP7/AAALAAAAAAANAP7/AAALAAAAAAAOAP7/AAALAAAAAAAPAP7/AAALAAAAAAAQAP7/AAALAAAAAAARAP7/AAALAAAAAAASAP7/AAALAAAAAAATAP7/AAALAAAAAAAUAP7/AAALAAAAAAAVAP7/AAALAAAAAAAWAP7/AAALAAAAAAAWAAEAAAALAAAAAAAVAAEAAAALAAAAAAAUAAEAAAALAAAAAAATAAEAAAALAAAAAAASAAEAAAALAAAAAAARAAEAAAALAAAAAAAQAAEAAAALAAAAAAAPAAEAAAALAAAAAAAOAAEAAAALAAAAAAANAAEAAAALAAAAAAAMAAEAAAALAAAAAAALAAEAAAALAAAAAAAKAAEAAAALAAAAAAAJAAEAAAALAAAAAAAQAP//AAANAAkAAAAQAAAAAAANAAkAAAA=")
 tile_set = ExtResource("7_71pa8")
 
 [node name="EndArea" parent="RoomSlots/RoomSlot_10" unique_id=1063963064 instance=ExtResource("18_4on3e")]
-position = Vector2(288, 0)
+position = Vector2(256, 0)

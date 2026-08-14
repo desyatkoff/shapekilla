@@ -15,3 +15,4 @@ collision_mask = 6
 shape = SubResource("RectangleShape2D_5fj78")
 
 [connection signal="body_entered" from="CharacterDetector" to="." method="_on_character_detector_body_entered"]
+[connection signal="body_exited" from="CharacterDetector" to="." method="_on_character_detector_body_exited"]

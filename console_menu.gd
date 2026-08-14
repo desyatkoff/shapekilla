@@ -272,8 +272,21 @@ func cmd_set_seed(args) -> void:
         if custom_seed.is_valid_int():
             Game.custom_seed = int(custom_seed)
 
-            cmd_restart(PackedStringArray([]))
-            cmd_enable_cheats(PackedStringArray([]))
+            Game.reload_world()
+            Game.reload_player()
+
+            Game.player.revive()
+
+            Game.player.run_time = 0.0
+            Game.player.run_score = 0
+            Game.player.run_points = 0
+            Game.player.run_points_earned = 0
+            Game.player.run_points_spent = 0
+            Game.player.run_kills = 0
+            Game.player.run_rooms_cleared = 0
+            Game.player.run_floors_cleared = 0
+
+            Game.player.current_floor = 1
         else:
             error_output("<custom_seed> arg must be a valid `int` value")
     else:

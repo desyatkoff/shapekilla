@@ -96,7 +96,7 @@ func _process(delta: float) -> void:
 
     camera.offset = get_noise_offset(delta)
 
-    camera.limit_enabled = not noclip
+    camera.limit_enabled = current_room_slot_id != -1 and not noclip
 
     set_collision_layer_value(2, not noclip)
 

@@ -70,6 +70,7 @@ scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_68pu4")
 
 [node name="ExplosionParticles" type="CPUParticles2D" parent="SelfExplosion" index="2" unique_id=145410967]
+light_mask = 0
 emitting = false
 amount = 256
 one_shot = true
@@ -88,6 +89,7 @@ color_ramp = SubResource("Gradient_j4hhh")
 color_initial_ramp = SubResource("Gradient_mt0xr")
 
 [node name="SmokeParticles" type="CPUParticles2D" parent="SelfExplosion" index="3" unique_id=1839121358]
+light_mask = 0
 emitting = false
 amount = 256
 lifetime = 10.0

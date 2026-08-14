@@ -111,6 +111,8 @@ func _on_try_again_button_pressed() -> void:
 
     Game.player.current_floor = 1
 
+    Game.player.current_room_slot_id = 0
+
     hide_menu()
 
 func _on_next_floor_button_pressed() -> void:
@@ -126,6 +128,9 @@ func _on_next_floor_button_pressed() -> void:
 func show_menu() -> void:
     Game.player.can_play = false
     Game.player.timer_enabled = false
+
+    Game.player.velocity = Vector2.ZERO
+    Game.player.direction = Vector2.ZERO
 
     if Game.player.fsm.state == Game.player.fsm.states.DEAD:
         Game.player.is_wizard_killed = false
@@ -247,10 +252,10 @@ func show_menu() -> void:
     try_again_button.disabled = false
     next_floor_button.disabled = false
 
+func hide_menu() -> void:
     Game.player.velocity = Vector2.ZERO
     Game.player.direction = Vector2.ZERO
 
-func hide_menu() -> void:
     quit_button.disabled = true
     to_main_menu_button.disabled = true
     try_again_button.disabled = true

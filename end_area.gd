@@ -5,6 +5,7 @@ func _on_body_entered(body: Node2D) -> void:
         body.can_play = false
         body.timer_enabled = false
 
-        body.direction = Vector2.RIGHT
-
         Game.hud.get_node("EndMenu").show_menu()
+
+        body.velocity = Vector2.RIGHT
+        body.direction = Vector2.RIGHT
