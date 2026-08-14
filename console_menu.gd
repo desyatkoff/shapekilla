@@ -237,6 +237,8 @@ func cmd_disable_cheats(_args) -> void:
         warning_output("Cheats have been disabled. Run progress is currently allowed to be saved")
 
 func cmd_restart(_args) -> void:
+    Game.player.die()
+
     Game.reload_world()
     Game.reload_player()
 
