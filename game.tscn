@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://20hdxyt73715" path="res://world.tscn" id="1_eow3j"]
 [ext_resource type="Script" uid="uid://crfnw86kfd12m" path="res://game.gd" id="1_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://ckgm7bvp3wqxy" path="res://player.tscn" id="3_hve3p"]
-[ext_resource type="PackedScene" uid="uid://b72872psfpjl0" path="res://key.tscn" id="3_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://ckyph8pg700pf" path="res://hud.tscn" id="5_iotsf"]
 [ext_resource type="PackedScene" uid="uid://c1y77x80oxf2x" path="res://console_menu.tscn" id="5_vef74"]
 [ext_resource type="PackedScene" uid="uid://wh2hxggss4hs" path="res://main_menu.tscn" id="6_lc2xo"]
@@ -26,10 +25,6 @@ script = ExtResource("1_j5wjh")
 environment = SubResource("Environment_vef74")
 
 [node name="World" parent="." unique_id=1894890612 instance=ExtResource("1_eow3j")]
-
-[node name="Key" parent="." unique_id=23840998 instance=ExtResource("3_mfdv2")]
-position = Vector2(1872, 0)
-item_tier = 2
 
 [node name="Player" parent="." unique_id=128176892 instance=ExtResource("3_hve3p")]
 position = Vector2(-64, 0)
