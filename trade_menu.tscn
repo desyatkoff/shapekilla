@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://crhta40i8xkt8" path="res://piercing_projectiles_upgrade.tscn" id="15_isv8s"]
 [ext_resource type="PackedScene" uid="uid://cv6sulgr0s6f5" path="res://extra_projectile_upgrade.tscn" id="16_h7nyu"]
 [ext_resource type="PackedScene" uid="uid://b45m65fltrge7" path="res://shotgun_accuracy_upgrade.tscn" id="17_3v8km"]
+[ext_resource type="PackedScene" uid="uid://wdo56am6kw4b" path="res://knockback_upgrade.tscn" id="18_i2th7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2f77"]
 atlas = ExtResource("11_e1suj")
@@ -43,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bkyvf")
 script = ExtResource("2_0txhl")
-scenes = Array[PackedScene]([ExtResource("8_e1suj"), ExtResource("3_xc6ql"), ExtResource("4_e1suj"), ExtResource("5_cn6nd"), ExtResource("6_7854k"), ExtResource("7_y3tfe"), ExtResource("9_y3tfe"), ExtResource("10_qnl85"), ExtResource("11_06buk"), ExtResource("5_7r38b"), ExtResource("4_7r38b"), ExtResource("14_g8b4r"), ExtResource("15_isv8s"), ExtResource("16_h7nyu"), ExtResource("17_3v8km")])
+scenes = Array[PackedScene]([ExtResource("8_e1suj"), ExtResource("3_xc6ql"), ExtResource("4_e1suj"), ExtResource("5_cn6nd"), ExtResource("6_7854k"), ExtResource("7_y3tfe"), ExtResource("9_y3tfe"), ExtResource("10_qnl85"), ExtResource("11_06buk"), ExtResource("5_7r38b"), ExtResource("4_7r38b"), ExtResource("14_g8b4r"), ExtResource("15_isv8s"), ExtResource("16_h7nyu"), ExtResource("17_3v8km"), ExtResource("18_i2th7")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1996814276]
 layout_mode = 1

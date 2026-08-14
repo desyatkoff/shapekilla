@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://wdo56am6kw4b"]
+
+[ext_resource type="PackedScene" uid="uid://bqi53c46rpnf2" path="res://player_upgrade.tscn" id="1_xarm8"]
+[ext_resource type="Script" uid="uid://cpqbsdab4ckia" path="res://knockback_upgrade.gd" id="2_ogi8i"]
+[ext_resource type="Texture2D" uid="uid://dkgnlvljx7upf" path="res://knockback_upgrade.png" id="3_m0ryd"]
+
+[node name="KnockbackUpgrade" unique_id=1814280531 instance=ExtResource("1_xarm8")]
+script = ExtResource("2_ogi8i")
+upgrade_texture = ExtResource("3_m0ryd")
+upgrade_name = "x1.5 Knockback"
+upgrade_description = "Buffs your projectiles' push force by 50%"
+max_stacks = 4

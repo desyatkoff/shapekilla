@@ -9,6 +9,7 @@ var projectile_owner: Character
 
 var damage: int
 var speed: int
+var knockback: int
 
 func _ready() -> void:
     lifetime_timer.wait_time = clamp(randf(), 0.2, 1.0)
@@ -20,7 +21,7 @@ func _process(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
     if body != projectile_owner:
         if body is Character:
-            body.velocity += Vector2.RIGHT.rotated(rotation) * 128
+            body.velocity += Vector2.RIGHT.rotated(rotation) * knockback
 
             body.modulate = Color.RED
 
