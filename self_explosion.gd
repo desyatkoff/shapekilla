@@ -10,6 +10,8 @@ class_name SelfExplosion
 var did_play_sfx = false
 
 func _on_cooldown_timer_timeout() -> void:
+    did_play_sfx = false
+
     if weapon_owner.fsm.state != weapon_owner.fsm.states.DEAD:
         for body in hitbox.get_overlapping_bodies():
             if body is Character:

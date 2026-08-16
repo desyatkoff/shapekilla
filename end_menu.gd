@@ -56,11 +56,6 @@ func _on_quit_button_pressed() -> void:
 func _on_to_main_menu_button_pressed() -> void:
     Game.hud.click_sfx_player.play()
 
-    Game.reload_world()
-    Game.reload_player()
-
-    Game.player.revive()
-
     Game.console.cmd_disable_cheats(PackedStringArray([]))
 
     Game.player.damage_multi = 1.0
@@ -80,17 +75,17 @@ func _on_to_main_menu_button_pressed() -> void:
 
     Game.player.current_floor = 1
 
+    Game.reload_world()
+    Game.reload_player()
+
+    Game.player.revive()
+
     hide_menu()
 
     get_tree().reload_current_scene()
 
 func _on_try_again_button_pressed() -> void:
     Game.hud.click_sfx_player.play()
-
-    Game.reload_world()
-    Game.reload_player()
-
-    Game.player.revive()
 
     Game.console.cmd_disable_cheats(PackedStringArray([]))
 
@@ -113,15 +108,20 @@ func _on_try_again_button_pressed() -> void:
 
     Game.player.current_room_slot_id = 0
 
+    Game.reload_world()
+    Game.reload_player()
+
+    Game.player.revive()
+
     hide_menu()
 
 func _on_next_floor_button_pressed() -> void:
     Game.hud.click_sfx_player.play()
 
+    Game.player.current_floor += 1
+
     Game.reload_world()
     Game.reload_player()
-
-    Game.player.current_floor += 1
 
     hide_menu()
 

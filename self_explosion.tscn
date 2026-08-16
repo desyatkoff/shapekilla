@@ -27,7 +27,7 @@ colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.25882354, 0.2
 
 [node name="SelfExplosion" unique_id=760112493 instance=ExtResource("1_wbf5a")]
 script = ExtResource("2_j4hhh")
-damage = 4
+damage = 4.0
 
 [node name="Hitbox" type="Area2D" parent="." index="1" unique_id=1067133315]
 collision_layer = 8
