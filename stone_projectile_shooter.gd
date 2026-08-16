@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
         )
 
 func _on_cooldown_timer_timeout() -> void:
-    if weapon_owner.fsm.state != weapon_owner.fsm.states.DEAD:
+    if weapon_owner.fsm.state != weapon_owner.fsm.states.DEAD and weapon_owner.should_chase_player:
         for body in hitbox.get_overlapping_bodies():
             if body is Player:
                 weapon_owner.fsm.set_state(weapon_owner.fsm.states.ATTACK)
