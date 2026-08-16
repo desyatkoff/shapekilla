@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bnfhokhkltklk"]
+
+[ext_resource type="PackedScene" uid="uid://thl2wr6hngl4" path="res://projectile.tscn" id="1_rgsxu"]
+[ext_resource type="Script" uid="uid://bl4kemktg2qo8" path="res://stone_projectile.gd" id="2_p388m"]
+[ext_resource type="Texture2D" uid="uid://ce72q74wv1od8" path="res://stone_projectile.png" id="3_yi5s3"]
+
+[sub_resource type="Gradient" id="Gradient_jl20p"]
+interpolation_mode = 2
+colors = PackedColorArray(0.95686275, 0.31764707, 0.11764706, 1, 0.12941177, 0.12941177, 0.12941177, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8qwtc"]
+radius = 6.0
+
+[node name="StoneProjectile" unique_id=1269338056 instance=ExtResource("1_rgsxu")]
+script = ExtResource("2_p388m")
+
+[node name="Particles" type="CPUParticles2D" parent="." index="0" unique_id=1367103448]
+light_mask = 0
+position = Vector2(-3, 0)
+amount = 32
+lifetime = 0.5
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 0.5
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_jl20p")
+
+[node name="Sprite" parent="." index="1" unique_id=2099972394]
+texture = ExtResource("3_yi5s3")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(536078275) index="0" unique_id=626829708]
+shape = SubResource("CircleShape2D_8qwtc")
