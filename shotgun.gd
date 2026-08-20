@@ -49,7 +49,7 @@ func attack():
         position -= shotgun_direction * knockback / 8
         weapon_owner.velocity -= shotgun_direction * knockback
 
-        create_tween().tween_property(self, "position", shotgun_position, 0.2)
+        create_tween().tween_property(self, "position", shotgun_position, cooldown.wait_time / 2)
 
         for i in range(ceili(shotgun_shots / -2.0), ceili(shotgun_shots / 2.0)):
             var shotgun_projectile_instance = shotgun_projectile_scene.instantiate()
