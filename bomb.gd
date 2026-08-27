@@ -9,6 +9,7 @@ class_name Bomb
 @onready var cooldown_timer = $SelfExplosion/CooldownTimer
 
 @onready var blood_scene = preload("res://blood_particles.tscn")
+@onready var crack_scene = preload("res://explosion_bg_crack_particles.tscn")
 
 func use() -> void:
     if not Game.player.cheats_enabled:
@@ -45,6 +46,11 @@ func _on_cooldown_timer_timeout() -> void:
 
     attack_sfx_player.pitch_scale = randf_range(0.9, 1.1)
     attack_sfx_player.play()
+
+    var crack_instance = crack_scene.instantiate()
+    crack_instance.global_position = global_position
+
+    Game.world.get_node("DebrisContainer").add_child(crack_instance)
 
     for body in explosion_hitbox.get_overlapping_bodies():
         if body is Character:

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2fdiq0rhw0pm"]
 
-[ext_resource type="Script" uid="uid://cwajcf8lhhqwx" path="res://blood_particles.gd" id="1_h5v43"]
+[ext_resource type="Script" uid="uid://cwajcf8lhhqwx" path="res://particles.gd" id="1_h5v43"]
 
 [sub_resource type="Gradient" id="Gradient_h5v43"]
 interpolation_mode = 2

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b1uokeu68id4y"]
+
+[ext_resource type="Script" uid="uid://cwajcf8lhhqwx" path="res://particles.gd" id="1_mli3w"]
+
+[sub_resource type="Gradient" id="Gradient_tp80h"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(0.12941177, 0.12941177, 0.12941177, 1, 0.25882354, 0.25882354, 0.25882354, 1)
+
+[node name="ExplosionBGCrackParticles" type="CPUParticles2D" unique_id=7146909]
+light_mask = 0
+amount = 128
+lifetime = 0.2
+speed_scale = 0.4
+explosiveness = 0.25
+randomness = 1.0
+draw_order = 1
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 128.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_tp80h")
+script = ExtResource("1_mli3w")
+
+[node name="Timer" type="Timer" parent="." unique_id=860321670]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

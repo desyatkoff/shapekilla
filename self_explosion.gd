@@ -6,11 +6,14 @@ class_name SelfExplosion
 @onready var smoke_particles = $SmokeParticles
 
 @onready var blood_scene = preload("res://blood_particles.tscn")
+@onready var crack_scene = preload("res://explosion_bg_crack_particles.tscn")
 
 var did_play_sfx = false
+var did_crack = false
 
 func _on_cooldown_timer_timeout() -> void:
     did_play_sfx = false
+    did_crack = false
 
     if weapon_owner.fsm.state != weapon_owner.fsm.states.DEAD:
         for body in hitbox.get_overlapping_bodies():
@@ -24,6 +27,14 @@ func _on_cooldown_timer_timeout() -> void:
                     attack_sfx_player.pitch_scale = randf_range(0.9, 1.1)
                     attack_sfx_player.play()
                     did_play_sfx = true
+
+                if not did_crack:
+                    var crack_instance = crack_scene.instantiate()
+                    crack_instance.global_position = global_position
+
+                    Game.world.get_node("DebrisContainer").add_child(crack_instance)
+
+                    did_crack = true
 
                 body.velocity += Vector2.RIGHT.rotated(rotation) * 128
 
