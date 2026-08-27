@@ -27,7 +27,6 @@ shape = SubResource("RectangleShape2D_pjt0s")
 
 [node name="HurtSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1773307561]
 stream = ExtResource("2_wa5vi")
-bus = &"SFX"
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1331044783]
 script = ExtResource("3_wa5vi")

@@ -54,7 +54,6 @@ shape = SubResource("RectangleShape2D_j2f77")
 
 [node name="TeleportSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=849337658]
 stream = ExtResource("3_grrij")
-bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="." unique_id=640076003]
 

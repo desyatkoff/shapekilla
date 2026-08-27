@@ -1,9 +1,20 @@
 extends Control
 
 @onready var bg = $Background
-@onready var play_button = $PlayButton
-@onready var stats_button = $StatsButton
-@onready var quit_button = $QuitButton
+
+@onready var play_button = $VBoxContainer/PlayButton
+@onready var settings_button = $VBoxContainer/SettingsButton
+@onready var stats_button = $VBoxContainer/StatsButton
+@onready var quit_button = $VBoxContainer/QuitButton
+
+@onready var settings_panel = $SettingsPanel
+@onready var max_fps_hslider = $SettingsPanel/SettingsValuesContainer/MaxFPS/MaxFPSHSlider
+@onready var max_fps_label = $SettingsPanel/SettingsValuesContainer/MaxFPS/MaxFPSLabel
+@onready var fullscreen_check_box = $SettingsPanel/SettingsValuesContainer/FullscreenCheckBox
+@onready var v_sync_check_box = $SettingsPanel/SettingsValuesContainer/VSyncCheckBox
+@onready var audio_volume_hslider = $SettingsPanel/SettingsValuesContainer/AudioVolume/AudioVolumeHSlider
+@onready var audio_volume_label = $SettingsPanel/SettingsValuesContainer/AudioVolume/AudioVolumeLabel
+
 @onready var stats_panel = $StatsPanel
 @onready var total_play_time_label = $StatsPanel/StatsValuesContainer/TotalPlayTimeLabel
 @onready var total_runs_label = $StatsPanel/StatsValuesContainer/TotalRunsLabel
@@ -29,6 +40,7 @@ func _ready() -> void:
 
 func _on_play_button_pressed() -> void:
     play_button.disabled = true
+    settings_button.disabled = true
     stats_button.disabled = true
     quit_button.disabled = true
 
@@ -45,8 +57,59 @@ func _on_play_button_pressed() -> void:
 
     tween.finished.connect(play)
 
+func _on_settings_button_pressed() -> void:
+    play_button.disabled = true
+    settings_button.disabled = true
+    stats_button.disabled = true
+    quit_button.disabled = true
+
+    update_settings_values()
+
+    Game.hud.click_sfx_player.play()
+
+    var tween = create_tween()
+    tween.set_trans(Tween.TRANS_SINE)
+    tween.set_ease(Tween.EASE_IN_OUT)
+
+    tween.tween_property(settings_panel, "global_position", Vector2(512.0, 220.0), 1.0)
+
+func _on_max_fps_hslider_value_changed(value: float) -> void:
+    Game.set_max_fps(int(value))
+
+    update_settings_values()
+
+func _on_fullscreen_check_box_toggled(toggled_on: bool) -> void:
+    Game.set_fullscreen(toggled_on)
+
+    update_settings_values()
+
+func _on_v_sync_check_box_toggled(toggled_on: bool) -> void:
+    Game.set_vsync(toggled_on)
+
+    update_settings_values()
+
+func _on_audio_volume_hslider_value_changed(value: float) -> void:
+    Game.set_audio_volume(value)
+
+    update_settings_values()
+
+func _on_close_settings_button_pressed() -> void:
+    play_button.disabled = false
+    settings_button.disabled = false
+    stats_button.disabled = false
+    quit_button.disabled = false
+
+    Game.hud.click_sfx_player.play()
+
+    var tween = create_tween()
+    tween.set_trans(Tween.TRANS_SINE)
+    tween.set_ease(Tween.EASE_IN_OUT)
+
+    tween.tween_property(settings_panel, "global_position", Vector2(512.0, -640.0), 1.0)
+
 func _on_stats_button_pressed() -> void:
     play_button.disabled = true
+    settings_button.disabled = true
     stats_button.disabled = true
     quit_button.disabled = true
 
@@ -100,6 +163,7 @@ func _on_erase_save_data_button_pressed() -> void:
 
 func _on_close_stats_button_pressed() -> void:
     play_button.disabled = false
+    settings_button.disabled = false
     stats_button.disabled = false
     quit_button.disabled = false
 
@@ -118,8 +182,13 @@ func _on_quit_button_pressed() -> void:
 
     get_tree().quit()
 
-func _on_meta_clicked(meta: Variant) -> void:
-    OS.shell_open(meta)
+func update_settings_values() -> void:
+    max_fps_hslider.value = Game.settings["max_fps"]
+    max_fps_label.text = ("%s FPS" % int(Game.settings["max_fps"])) if Game.settings["max_fps"] != 0 else "Unlimited"
+    fullscreen_check_box.button_pressed = Game.settings["fullscreen"]
+    v_sync_check_box.button_pressed = Game.settings["vsync"]
+    audio_volume_hslider.value = Game.settings["audio_volume"]
+    audio_volume_label.text = "%s%%" % int(Game.settings["audio_volume"])
 
 func format_time(t: float) -> Array:
     var total_ms = round(t * 1000)

@@ -9,6 +9,15 @@ var hud: CanvasLayer
 
 var console
 
+const DEFAULT_SETTINGS = {
+    "max_fps": 60,
+    "fullscreen": true,
+    "vsync": true,
+    "audio_volume": 100
+}
+
+var settings = DEFAULT_SETTINGS.duplicate(true)
+
 var data = {
     "is_tutorial_complete": false,
     "total_play_time": 0.0,
@@ -41,6 +50,9 @@ func _ready() -> void:
         data = loaded_data
 
 func _process(_delta: float) -> void:
+    load_settings()
+    apply_all_settings()
+
     if is_instance_valid(player):
         if not player.cheats_enabled:
             if player.run_score > data["high_score"]:
@@ -159,6 +171,70 @@ func reload_player() -> void:
     player.global_transform = world.get_node("PlayerSpawnPoint").global_transform
 
     update_values()
+
+func load_settings() -> void:
+    if not FileAccess.file_exists("user://settings.json"):
+        save_settings()
+
+        return
+
+    var file = FileAccess.open("user://settings.json", FileAccess.READ)
+    var settings_data = JSON.parse_string(file.get_as_text())
+
+    if settings_data is Dictionary:
+        for key in DEFAULT_SETTINGS:
+            if settings_data.has(key):
+                settings[key] = settings_data[key]
+
+func save_settings() -> void:
+    var file = FileAccess.open("user://settings.json", FileAccess.WRITE)
+
+    file.store_string(JSON.stringify(settings, "\t", false, true))
+
+func set_max_fps(value: int) -> void:
+    settings["max_fps"] = int(value)
+
+    apply_max_fps()
+    save_settings()
+
+func set_fullscreen(value: bool) -> void:
+    settings["fullscreen"] = value
+
+    apply_fullscreen()
+    save_settings()
+
+func set_vsync(value: bool) -> void:
+    settings["vsync"] = value
+
+    apply_vsync()
+    save_settings()
+
+func set_audio_volume(value: float) -> void:
+    settings["audio_volume"] = int(value)
+
+    apply_audio_volume()
+    save_settings()
+
+func apply_all_settings() -> void:
+    apply_max_fps()
+    apply_fullscreen()
+    apply_vsync()
+    apply_audio_volume()
+
+func apply_max_fps() -> void:
+    Engine.max_fps = settings["max_fps"]
+
+func apply_fullscreen() -> void:
+    DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if settings["fullscreen"] else DisplayServer.WINDOW_MODE_WINDOWED)
+
+func apply_vsync() -> void:
+    DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if settings["vsync"] else DisplayServer.VSYNC_DISABLED)
+
+func apply_audio_volume() -> void:
+    AudioServer.set_bus_volume_db(
+        AudioServer.get_bus_index("Master"),
+        linear_to_db(settings["audio_volume"] / 100)
+    )
 
 func erase_save_data() -> void:
     if FileAccess.file_exists("user://save.json"):

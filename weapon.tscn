@@ -9,7 +9,6 @@ script = ExtResource("1_swcir")
 light_mask = 0
 
 [node name="AttackSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=947155498]
-bus = &"SFX"
 
 [node name="CooldownTimer" type="Timer" parent="." unique_id=1453833404]
 one_shot = true

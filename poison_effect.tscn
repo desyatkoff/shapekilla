@@ -9,7 +9,6 @@ script = ExtResource("2_4kv5h")
 
 [node name="AttackSFXPlayer" type="AudioStreamPlayer2D" parent="." index="0" unique_id=11381828]
 stream = ExtResource("3_kgnx7")
-bus = &"SFX"
 
 [node name="DurationTimer" parent="." index="1" unique_id=403020817]
 wait_time = 5.0

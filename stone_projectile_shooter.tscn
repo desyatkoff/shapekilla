@@ -20,6 +20,7 @@ shape = SubResource("CircleShape2D_j2f77")
 
 [node name="AttackSFXPlayer" parent="." index="2" unique_id=947155498]
 stream = ExtResource("3_gn1x8")
+bus = &"Master"
 
 [node name="CooldownTimer" parent="." index="3" unique_id=1453833404]
 one_shot = false

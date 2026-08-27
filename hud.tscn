@@ -197,4 +197,3 @@ layout_mode = 1
 
 [node name="ClickSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1562766438]
 stream = ExtResource("3_8sq4i")
-bus = &"SFX"

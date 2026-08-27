@@ -30,6 +30,7 @@ shape = SubResource("RectangleShape2D_7oeqp")
 
 [node name="AttackSFXPlayer" parent="." index="3" unique_id=947155498]
 stream = ExtResource("5_gda1h")
+bus = &"Master"
 
 [node name="CooldownTimer" parent="." index="4" unique_id=1453833404]
 wait_time = 0.5

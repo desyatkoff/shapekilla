@@ -23,6 +23,10 @@ boot_splash/show_image=false
 boot_splash/use_filter=false
 config/icon="uid://cnsm4xwhvqlsc"
 
+[audio]
+
+buses/default_bus_layout="uid://dfpdxal5u5878"
+
 [autoload]
 
 Game="*uid://crfnw86kfd12m"

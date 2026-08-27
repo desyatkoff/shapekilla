@@ -44,4 +44,3 @@ shape = SubResource("RectangleShape2D_j2f77")
 
 [node name="DestroySFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1959835092]
 stream = ExtResource("3_uw3nf")
-bus = &"SFX"

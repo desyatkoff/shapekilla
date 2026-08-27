@@ -266,11 +266,9 @@ text = "Next Floor"
 
 [node name="WinSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1671022896]
 stream = ExtResource("5_bgwgp")
-bus = &"SFX"
 
 [node name="LoseSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1550577336]
 stream = ExtResource("6_jopyb")
-bus = &"SFX"
 
 [connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Panel/ToMainMenuButton" to="." method="_on_to_main_menu_button_pressed"]

@@ -60,7 +60,6 @@ shape = SubResource("RectangleShape2D_cb6k2")
 
 [node name="DoorsSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=40438261]
 stream = ExtResource("4_nmq8f")
-bus = &"SFX"
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]

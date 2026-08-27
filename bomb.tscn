@@ -109,7 +109,6 @@ color_initial_ramp = SubResource("Gradient_r4prc")
 
 [node name="AttackSFXPlayer" type="AudioStreamPlayer2D" parent="SelfExplosion" index="4" unique_id=947155498]
 stream = ExtResource("4_6w74q")
-bus = &"SFX"
 
 [node name="CooldownTimer" type="Timer" parent="SelfExplosion" index="5" unique_id=1453833404]
 wait_time = 2.0
@@ -118,7 +117,11 @@ one_shot = true
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
 shape = SubResource("RectangleShape2D_6q6ta")
 
+[node name="PickupSFXPlayer" parent="." index="4" unique_id=787883369]
+bus = &"Master"
+
 [node name="UseSFXPlayer" parent="." index="5" unique_id=184674765]
 stream = ExtResource("5_bwkwj")
+bus = &"Master"
 
 [connection signal="timeout" from="SelfExplosion/CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
