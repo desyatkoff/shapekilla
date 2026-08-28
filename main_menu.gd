@@ -2,6 +2,9 @@ extends Control
 
 @onready var bg = $Background
 
+@onready var logo_panel = $LogoPanel
+@onready var logo = $LogoPanel/Logo
+
 @onready var play_button = $VBoxContainer/PlayButton
 @onready var settings_button = $VBoxContainer/SettingsButton
 @onready var stats_button = $VBoxContainer/StatsButton
@@ -37,6 +40,13 @@ func _ready() -> void:
 
     if Game.data["is_tutorial_complete"]:
         fade_out()
+
+    var tween = create_tween()
+    tween.set_loops()
+    tween.set_trans(Tween.TRANS_SINE)
+    tween.set_ease(Tween.EASE_IN_OUT)
+    tween.tween_property(logo, "rotation_degrees", 1.0, 5.0)
+    tween.tween_property(logo, "rotation_degrees", -1.0, 5.0)
 
 func _on_play_button_pressed() -> void:
     play_button.disabled = true
