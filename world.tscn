@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://meaq8epj1der" path="res://map.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://bar62osuq8p07" path="res://doors.tscn" id="2_dwbse"]
-[ext_resource type="Script" uid="uid://coptl63y7kgoa" path="res://tutorial_map.gd" id="2_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://cx4vjivg6og4a" path="res://room_slot.tscn" id="3_pkg7o"]
 [ext_resource type="TileSet" uid="uid://chdfj4r6pjvo4" path="res://tile_set.tres" id="4_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://cg5fllx1d06ip" path="res://end_area.tscn" id="5_ioo17"]
@@ -11,6 +10,7 @@
 [ext_resource type="Script" uid="uid://crth0bc1x417s" path="res://type_text_effect.gd" id="7_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://dnyqao0288vix" path="res://shotgun.tscn" id="8_ioo17"]
 [ext_resource type="PackedScene" uid="uid://dlanlp75wlarq" path="res://melee_enemy.tscn" id="9_wse8f"]
+[ext_resource type="PackedScene" uid="uid://b72872psfpjl0" path="res://key.tscn" id="10_2o6r5"]
 [ext_resource type="PackedScene" uid="uid://c4keoln3stjfd" path="res://health_potion.tscn" id="11_k3n1d"]
 
 [sub_resource type="Gradient" id="Gradient_k3n1d"]
@@ -30,9 +30,6 @@ metadata/_custom_type_script = "uid://c4i2yv3tqnxlh"
 script = ExtResource("7_k3n1d")
 metadata/_custom_type_script = "uid://crth0bc1x417s"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3n1d"]
-size = Vector2(64, 64)
-
 [node name="World" type="Node2D" unique_id=1894890612]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1812052791]
@@ -42,7 +39,6 @@ texture = SubResource("GradientTexture2D_fj7yv")
 
 [node name="TutorialMap" type="Node2D" parent="." unique_id=392150612]
 position = Vector2(-3072, 0)
-script = ExtResource("2_ic0uy")
 
 [node name="DoorSlots" type="Node2D" parent="TutorialMap" unique_id=156098974]
 
@@ -201,25 +197,16 @@ theme = ExtResource("5_wse8f")
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "Oh and btw did you know that doors actually can be locked? If I were you, I would try to break that lock by shooting it"
+text = "Oh and btw did you know that doors actually can be locked?
+
+Find a [color=#ffc107]Key[/color]. [E] to use, [Q] to drop"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_e7rvy"), SubResource("RichTextEffect_gkmom")]
 
-[node name="ProjectileDetector" type="Area2D" parent="TutorialMap/RoomSlots/RoomSlot_03" unique_id=2147378460]
-position = Vector2(256, 0)
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialMap/RoomSlots/RoomSlot_03/ProjectileDetector" unique_id=908687697]
-shape = SubResource("RectangleShape2D_k3n1d")
-
-[node name="KeySpawnPoint" type="Node2D" parent="TutorialMap/RoomSlots/RoomSlot_03" unique_id=1142067036]
-position = Vector2(224, 0)
-
-[node name="Timer" type="Timer" parent="TutorialMap/RoomSlots/RoomSlot_03" unique_id=320534073]
-wait_time = 12.0
-one_shot = true
+[node name="Key" parent="TutorialMap/RoomSlots/RoomSlot_03" unique_id=23840998 instance=ExtResource("10_2o6r5")]
+position = Vector2(0, -160)
 
 [node name="RoomSlot_04" parent="TutorialMap/RoomSlots" unique_id=1780338417 instance=ExtResource("3_pkg7o")]
 position = Vector2(2048, 0)
@@ -278,7 +265,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_e7rvy"), SubResource("RichTextEffect_gkmom")]
 
-[node name="HealthPotion" parent="TutorialMap/RoomSlots/RoomSlot_04" unique_id=23840998 instance=ExtResource("11_k3n1d")]
+[node name="HealthPotion" parent="TutorialMap/RoomSlots/RoomSlot_04" unique_id=183108350 instance=ExtResource("11_k3n1d")]
 
 [node name="RoomSlot_05" parent="TutorialMap/RoomSlots" unique_id=720545734 instance=ExtResource("3_pkg7o")]
 position = Vector2(2560, 0)
@@ -340,6 +327,3 @@ custom_effects = [SubResource("RichTextEffect_e7rvy"), SubResource("RichTextEffe
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="." unique_id=1111153613]
 position = Vector2(-64, 0)
-
-[connection signal="area_entered" from="TutorialMap/RoomSlots/RoomSlot_03/ProjectileDetector" to="TutorialMap" method="_on_projectile_detector_area_entered"]
-[connection signal="timeout" from="TutorialMap/RoomSlots/RoomSlot_03/Timer" to="TutorialMap" method="_on_timer_timeout"]
