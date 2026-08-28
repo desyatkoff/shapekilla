@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
     var tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
-    tween.tween_property(Game.canvas_modulate, "color", Color.WHITE.lerp(Color(1.0, 0.5, 0.5), pow(1.0 - health / max_health, 5.0)), 1.0)
+    tween.tween_property(Game.canvas_modulate, "color", Color.WHITE.lerp(Color(1.0, 0.666, 0.666), pow(1.0 - health / max_health, 2.0)), 1.0)
 
     run_points = int(round(run_points))
     run_points_earned = int(round(run_points_earned))
