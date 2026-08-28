@@ -3,6 +3,7 @@ extends Node2D
 var custom_seed = null
 var run_seed = null
 
+var canvas_modulate: CanvasModulate
 var world: Node2D
 var player: Player
 var hud: CanvasLayer
@@ -118,6 +119,7 @@ func update_values() -> void:
 
     seed(run_seed)
 
+    canvas_modulate = get_tree().current_scene.get_node("CanvasModulate")
     world = get_tree().current_scene.get_node("World")
     player = get_tree().current_scene.get_node("Player")
     hud = get_tree().current_scene.get_node("HUD")
