@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
         tween = create_tween()
         tween.set_trans(Tween.TRANS_SINE)
         tween.set_ease(Tween.EASE_IN_OUT)
-        tween.tween_property(effect_owner, "modulate", Color.WHITE, 0.4)
+        tween.tween_property(effect_owner, "modulate", Color.WHITE, 0.5)
 
         hit += 1
         time_since_last_hit = 0

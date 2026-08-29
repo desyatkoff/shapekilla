@@ -13,12 +13,12 @@ health = 8
 max_speed = 60
 acceleration = 30
 
-[node name="Body" parent="." index="0" unique_id=2120351308]
+[node name="Body" parent="." index="1" unique_id=2120351308]
 texture = ExtResource("2_an34g")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Venom" parent="WeaponSlot" parent_id_path=PackedInt32Array(1732380290) index="0" unique_id=760112493 instance=ExtResource("4_thc2h")]
 
-[node name="FiniteStateMachine" parent="." index="8" unique_id=1331044783]
+[node name="FiniteStateMachine" parent="." index="9" unique_id=1331044783]
 script = ExtResource("5_by5pu")

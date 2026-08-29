@@ -7,6 +7,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt0xr"]
 radius = 96.0
 
+[sub_resource type="Gradient" id="Gradient_o7dhw"]
+interpolation_mode = 2
+colors = PackedColorArray(0.8666667, 0.09803922, 0.11372549, 1, 0.8666667, 0.09803922, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ikc0q"]
+gradient = SubResource("Gradient_o7dhw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="Gradient" id="Gradient_j4hhh"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -36,7 +46,13 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=410373069]
 shape = SubResource("CircleShape2D_mt0xr")
 
-[node name="ExplosionParticles" type="CPUParticles2D" parent="." index="2" unique_id=145410967]
+[node name="ExplosionLight" type="PointLight2D" parent="." index="2" unique_id=80417661]
+color = Color(0.8666667, 0.09803922, 0.11372549, 0)
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_ikc0q")
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="." index="3" unique_id=145410967]
 light_mask = 0
 emitting = false
 amount = 256
@@ -50,12 +66,16 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 16.0
 initial_velocity_max = 64.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_j4hhh")
 color_initial_ramp = SubResource("Gradient_mt0xr")
 
-[node name="SmokeParticles" type="CPUParticles2D" parent="." index="3" unique_id=1839121358]
+[node name="SmokeParticles" type="CPUParticles2D" parent="." index="4" unique_id=1839121358]
 light_mask = 0
 emitting = false
 amount = 256
@@ -69,14 +89,17 @@ direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 16.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_0djnq")
 color_initial_ramp = SubResource("Gradient_r4prc")
 
-[node name="AttackSFXPlayer" parent="." index="4" unique_id=947155498]
+[node name="AttackSFXPlayer" parent="." index="5" unique_id=947155498]
 stream = ExtResource("3_mt0xr")
-bus = &"Master"
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

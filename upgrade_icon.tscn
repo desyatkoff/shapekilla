@@ -15,6 +15,7 @@ border_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
 light_mask = 0
 offset_right = 64.0
 offset_bottom = 64.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = ExtResource("1_c2c0f")
 expand_mode = 3
 stretch_mode = 5

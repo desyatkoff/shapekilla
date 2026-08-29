@@ -25,3 +25,9 @@ func load_icon() -> void:
             4: sb.border_color = Color("#8e24aa")
 
         panel.add_theme_stylebox_override("panel", sb)
+
+        var tween = create_tween()
+        tween.set_trans(Tween.TRANS_SINE)
+        tween.set_ease(Tween.EASE_IN_OUT)
+        tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.1)
+        tween.tween_property(self, "scale", Vector2.ONE, 0.1)

@@ -20,9 +20,5 @@ texture = ExtResource("2_xjq8p")
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
 shape = SubResource("RectangleShape2D_egrwh")
 
-[node name="PickupSFXPlayer" parent="." index="3" unique_id=787883369]
-bus = &"Master"
-
 [node name="UseSFXPlayer" parent="." index="4" unique_id=184674765]
 stream = ExtResource("4_egrwh")
-bus = &"Master"

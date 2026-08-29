@@ -2,6 +2,7 @@ extends Weapon
 class_name SelfExplosion
 
 @onready var hitbox = $Hitbox
+@onready var explosion_light = $ExplosionLight
 @onready var explosion_particles = $ExplosionParticles
 @onready var smoke_particles = $SmokeParticles
 
@@ -15,10 +16,16 @@ func _on_cooldown_timer_timeout() -> void:
     did_play_sfx = false
     did_crack = false
 
+    var damaged_body_count = 0
+
     if weapon_owner.fsm.state != weapon_owner.fsm.states.DEAD:
         for body in hitbox.get_overlapping_bodies():
             if body is Character:
                 weapon_owner.fsm.set_state(weapon_owner.fsm.states.ATTACK)
+
+                explosion_light.color.a = 1.0
+
+                create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(explosion_light, "color:a", 0.0, cooldown.wait_time / 2)
 
                 explosion_particles.emitting = true
                 smoke_particles.emitting = true
@@ -37,27 +44,17 @@ func _on_cooldown_timer_timeout() -> void:
                     did_crack = true
 
                 body.velocity += Vector2.RIGHT.rotated(rotation) * 128
+                body.take_damage(damage)
 
-                body.modulate = Color.RED
-
-                var tween = body.create_tween()
-                tween.set_trans(Tween.TRANS_SINE)
-                tween.set_ease(Tween.EASE_IN_OUT)
-                tween.tween_property(body, "modulate", Color.WHITE, 0.4)
-
-                if body.fsm.state != body.fsm.states.DEAD:
-                    body.health -= damage
-
-                    var blood_instance = blood_scene.instantiate()
-                    blood_instance.global_position = body.global_position
-
-                    Game.world.get_node("DebrisContainer").add_child(blood_instance)
+                if body != self:
+                    damaged_body_count += 1
 
                 weapon_owner.fsm.set_state(weapon_owner.fsm.previous_state)
             elif body is Plank:
                 body.destroy()
 
-        Game.player.apply_noise_shake(16.0)
+        Game.hitstop(0.1 * damaged_body_count, 0.1 * damaged_body_count)
+        Game.player.apply_noise_shake(16.0 * clamp(damaged_body_count, 1, damaged_body_count))
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
     if body is Player:

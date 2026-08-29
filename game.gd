@@ -111,6 +111,21 @@ func pick_tier() -> int:
 
     return 0
 
+func hitstop(hitstop_duration: float, screen_flash_time: float) -> void:
+    if screen_flash_time > 0.0:
+        Game.hud.hitstop.modulate = Color(Color.WHITE, 0.5)
+
+    if hitstop_duration > 0.0:
+        Engine.time_scale = 0.0
+        await get_tree().create_timer(hitstop_duration, true, false, true).timeout
+        Engine.time_scale = 1.0
+
+    if screen_flash_time > 0.0:
+        var tween = create_tween()
+        tween.set_trans(Tween.TRANS_SINE)
+        tween.set_ease(Tween.EASE_IN_OUT)
+        tween.tween_property(Game.hud.hitstop, "modulate", Color.TRANSPARENT, screen_flash_time)
+
 func update_values() -> void:
     if custom_seed and run_seed != custom_seed:
         run_seed = custom_seed

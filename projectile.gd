@@ -22,23 +22,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
     if body != projectile_owner:
         if body is Character:
             body.velocity += Vector2.RIGHT.rotated(rotation) * knockback
-
-            body.modulate = Color.RED
-
-            var tween = body.create_tween()
-            tween.set_trans(Tween.TRANS_SINE)
-            tween.set_ease(Tween.EASE_IN_OUT)
-            tween.tween_property(body, "modulate", Color.WHITE, 0.4)
-
-            if body.fsm.state != body.fsm.states.DEAD:
-                body.health -= damage
-                body.hurt_sfx_player.pitch_scale = randf_range(0.9, 1.1)
-                body.hurt_sfx_player.play()
-
-                var blood_instance = blood_scene.instantiate()
-                blood_instance.global_position = body.global_position
-
-                Game.world.get_node("DebrisContainer").add_child(blood_instance)
+            body.take_damage(damage)
         elif body is Plank:
             body.destroy()
 

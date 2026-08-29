@@ -5,6 +5,7 @@ signal died
 
 @onready var nav_agent = $NavigationAgent2D
 @onready var nav_timer = $NavigationTimer
+@onready var kill_label_scene = preload("res://kill_label.tscn")
 
 var should_check_player = true
 var should_chase_player = false
@@ -95,3 +96,5 @@ func die() -> void:
     set_collision_mask_value(3, false)
 
     call_deferred("reparent", Game.world.get_node("DebrisContainer"))
+
+    add_child(kill_label_scene.instantiate())

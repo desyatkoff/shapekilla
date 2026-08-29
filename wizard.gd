@@ -2,6 +2,7 @@ extends Character
 class_name Wizard
 
 @onready var trade_hitbox = $TradeHitbox
+@onready var kill_label_scene = preload("res://kill_label.tscn")
 
 func _ready() -> void:
     if Game.player.is_wizard_killed:
@@ -45,3 +46,5 @@ func die() -> void:
     set_collision_mask_value(3, false)
 
     call_deferred("reparent", Game.world.get_node("DebrisContainer"))
+
+    add_child(kill_label_scene.instantiate())

@@ -123,3 +123,4 @@ toggle_main_hud={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 textures/lossless_compression/force_png=true
+environment/defaults/default_clear_color=Color(0.12941177, 0.12941177, 0.12941177, 1)

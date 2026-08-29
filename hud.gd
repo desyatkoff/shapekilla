@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var hitstop = $Hitstop
+
 @onready var debug = $DebugHUD
 
 @onready var debug_info_label = $DebugHUD/DebugInfoLabel
@@ -28,6 +30,11 @@ extends CanvasLayer
 @onready var trade_menu = $MainHUD/TradeMenu
 
 @onready var click_sfx_player = $ClickSFXPlayer
+
+var previous_score = 0.0
+var previous_points = 0.0
+
+var previous_player_item: Item
 
 func _ready() -> void:
     visible = true
@@ -134,6 +141,36 @@ current_floor = %s
     run_score_label.text = "Score: %s" % Game.player.run_score
     run_points_label.text = "Points: %s" % Game.player.run_points
 
+    if Game.player.run_score != previous_score:
+        var scale_tween = create_tween()
+        scale_tween.set_trans(Tween.TRANS_SINE)
+        scale_tween.set_ease(Tween.EASE_IN_OUT)
+        scale_tween.tween_property(run_score_label, "scale", Vector2(1.5, 1.5), 0.1)
+        scale_tween.tween_property(run_score_label, "scale", Vector2.ONE, 0.1)
+
+        await scale_tween.finished
+
+    await get_tree().create_timer(0.1).timeout
+
+    if Game.player.run_points != previous_points:
+        var color_tween = create_tween()
+        color_tween.set_trans(Tween.TRANS_SINE)
+        color_tween.set_ease(Tween.EASE_IN_OUT)
+        color_tween.tween_property(run_points_label, "modulate", Color.GREEN if Game.player.run_points > previous_points else Color.RED, 0.1)
+        color_tween.tween_property(run_points_label, "modulate", Color.WHITE, 0.1)
+
+        var scale_tween = create_tween()
+        scale_tween.set_trans(Tween.TRANS_SINE)
+        scale_tween.set_ease(Tween.EASE_IN_OUT)
+        scale_tween.tween_property(run_points_label, "scale", Vector2(1.5, 1.5), 0.1)
+        scale_tween.tween_property(run_points_label, "scale", Vector2.ONE, 0.1)
+
+        await color_tween.finished
+        await scale_tween.finished
+
+    previous_score = Game.player.run_score
+    previous_points = Game.player.run_points
+
     run_kills_label.text = "%s Kill%s" % [Game.player.run_kills, "s" if Game.player.run_kills == 0 or Game.player.run_kills > 1 else ""]
     run_rooms_cleared_label.text = "%s Room%s Cleared" % [Game.player.run_rooms_cleared, "s" if Game.player.run_rooms_cleared == 0 or Game.player.run_rooms_cleared > 1 else ""]
     run_floors_cleared_label.text = "%s Floor%s Cleared" % [Game.player.run_floors_cleared, "s" if Game.player.run_floors_cleared == 0 or Game.player.run_floors_cleared > 1 else ""]
@@ -150,15 +187,28 @@ current_floor = %s
         item_icon.texture.region = Game.player.item.sprite.region_rect
 
         item_name.text = Game.player.item.item_name
+
+        if Game.player.item != previous_player_item:
+            var tween = item_icon.create_tween()
+            tween.set_trans(Tween.TRANS_SINE)
+            tween.set_ease(Tween.EASE_IN_OUT)
+            tween.tween_property(item_icon, "scale", Vector2(1.5, 1.5), 0.1)
+            tween.tween_property(item_icon, "scale", Vector2.ONE, 0.1)
     else:
         item_icon.texture.atlas = null
         item_icon.texture.region = Rect2(0.0, 0.0, 0.0, 0.0)
 
         item_name.text = ""
 
-    health_bar.value = Game.player.health
-    health_bar.max_value = Game.player.max_health
+    previous_player_item = Game.player.item
+
+    var health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(health_bar, "value", Game.player.health, 0.1)
+    var max_health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(health_bar, "max_value", Game.player.max_health, 0.1)
+
     health_value_label.text = "%s / %s" % [Game.player.health, Game.player.max_health]
+
+    await health_tween.finished
+    await max_health_tween.finished
 
 func format_time(t: float) -> Array:
     var total_ms = round(t * 1000)

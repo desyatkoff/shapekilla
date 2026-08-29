@@ -5,7 +5,7 @@
 
 [sub_resource type="Gradient" id="Gradient_jip7v"]
 interpolation_mode = 2
-colors = PackedColorArray(0.6901961, 0.74509805, 0.77254903, 1, 0.12941177, 0.12941177, 0.12941177, 0)
+colors = PackedColorArray(0.6901961, 0.74509805, 0.77254903, 1, 0.6901961, 0.74509805, 0.77254903, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_10xie"]
 gradient = SubResource("Gradient_jip7v")

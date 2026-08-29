@@ -2,9 +2,10 @@ extends Weapon
 class_name Shotgun
 
 @onready var item_particles = $ItemParticles
+@onready var shoot_particles = $Sprite/ProjectileSpawnPoint/ShootParticles
+@onready var shoot_light = $Sprite/ProjectileSpawnPoint/ShootLight
 
 @onready var shotgun_projectile_scene = preload("res://shotgun_projectile.tscn")
-@onready var shoot_particles_scene = preload("res://shoot_particles.tscn")
 
 var shotgun_shots = 4
 var knockback = 64
@@ -36,12 +37,11 @@ func attack():
         attack_sfx_player.pitch_scale = randf_range(0.9, 1.1)
         attack_sfx_player.play()
 
-        var shoot_particles_instance = shoot_particles_scene.instantiate()
-        shoot_particles_instance.global_position = sprite.get_node("ProjectileSpawnPoint").global_position - Vector2(0.0, 3.0)
-        shoot_particles_instance.global_rotation = global_rotation
-        shoot_particles_instance.emitting = true
+        shoot_particles.emitting = true
 
-        Game.world.get_node("DebrisContainer").add_child(shoot_particles_instance)
+        shoot_light.color.a = 1.0
+
+        create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(shoot_light, "color:a", 0.0, cooldown.wait_time / 2)
 
         var shotgun_position = position
         var shotgun_direction = transform.x.normalized()
@@ -61,5 +61,7 @@ func attack():
             shotgun_projectile_instance.global_rotation = global_rotation + i * 0.2 / weapon_owner.accuracy_multi
 
             Game.world.get_node("DebrisContainer").add_child(shotgun_projectile_instance)
+
+        rotate(deg_to_rad(30 * (1 if sprite.flip_v else -1)))
 
         weapon_owner.fsm.set_state(weapon_owner.fsm.previous_state)

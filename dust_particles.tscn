@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://i07cg066gnyn"]
+
+[sub_resource type="Gradient" id="Gradient_j2f77"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.61960787, 0.61960787, 0.61960787, 1, 0.45882353, 0.45882353, 0.45882353, 1, 0.45882353, 0.45882353, 0.45882353, 0)
+
+[node name="DustParticles" type="CPUParticles2D" unique_id=1719354183]
+light_mask = 0
+amount = 16
+lifetime = 0.25
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 1.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 32.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_j2f77")

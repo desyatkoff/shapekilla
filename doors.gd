@@ -42,12 +42,36 @@ func toggle_lock() -> void:
         unlock()
 
 func unlock() -> void:
-    lock_sprite.visible = false
     is_locked = false
 
+    var unlock_tween = create_tween()
+    unlock_tween.set_trans(Tween.TRANS_SINE)
+    unlock_tween.set_ease(Tween.EASE_IN_OUT)
+    unlock_tween.tween_property(lock_sprite, "modulate", Color(18.892, 18.892, 18.892, 0.0), 1.0)
+    unlock_tween.parallel().tween_property(lock_sprite, "scale", Vector2(1.5, 1.5), 1.0)
+
+    await unlock_tween.finished
+
+    lock_sprite.visible = false
+
+    lock_sprite.modulate = Color.WHITE
+    lock_sprite.scale = Vector2.ONE
+
 func lock() -> void:
-    lock_sprite.visible = true
     is_locked = true
+
+    close()
+
+    lock_sprite.modulate = Color(18.892, 18.892, 18.892, 0.0)
+    lock_sprite.scale = Vector2(1.5, 1.5)
+
+    lock_sprite.visible = true
+
+    var lock_tween = create_tween()
+    lock_tween.set_trans(Tween.TRANS_SINE)
+    lock_tween.set_ease(Tween.EASE_IN_OUT)
+    lock_tween.tween_property(lock_sprite, "modulate", Color.WHITE, 1.0)
+    lock_tween.parallel().tween_property(lock_sprite, "scale", Vector2.ONE, 1.0)
 
 func toggle() -> void:
     if not is_locked:

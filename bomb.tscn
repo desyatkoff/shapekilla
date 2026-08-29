@@ -9,6 +9,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt0xr"]
 radius = 96.0
 
+[sub_resource type="Gradient" id="Gradient_o7dhw"]
+interpolation_mode = 2
+colors = PackedColorArray(0.8666667, 0.09803922, 0.11372549, 1, 0.8666667, 0.09803922, 0.11372549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bwkwj"]
+gradient = SubResource("Gradient_o7dhw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="Gradient" id="Gradient_68pu4"]
 interpolation_mode = 2
 colors = PackedColorArray(0.9843137, 0.54901963, 0, 1, 0.12941177, 0.12941177, 0.12941177, 0)
@@ -52,7 +62,14 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelfExplosion/ExplosionHitbox" index="0" unique_id=410373069]
 shape = SubResource("CircleShape2D_mt0xr")
 
-[node name="ShootParticles" type="CPUParticles2D" parent="SelfExplosion" index="1" unique_id=1367103448]
+[node name="ExplosionLight" type="PointLight2D" parent="SelfExplosion" index="1" unique_id=794519269]
+position = Vector2(0, -8)
+color = Color(0.8666667, 0.09803922, 0.11372549, 0)
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_bwkwj")
+
+[node name="FlameParticles" type="CPUParticles2D" parent="SelfExplosion" index="2" unique_id=1367103448]
 light_mask = 0
 position = Vector2(0, -8)
 emitting = false
@@ -69,7 +86,7 @@ initial_velocity_max = 64.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_68pu4")
 
-[node name="ExplosionParticles" type="CPUParticles2D" parent="SelfExplosion" index="2" unique_id=145410967]
+[node name="ExplosionParticles" type="CPUParticles2D" parent="SelfExplosion" index="3" unique_id=145410967]
 light_mask = 0
 emitting = false
 amount = 256
@@ -88,7 +105,7 @@ scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_j4hhh")
 color_initial_ramp = SubResource("Gradient_mt0xr")
 
-[node name="SmokeParticles" type="CPUParticles2D" parent="SelfExplosion" index="3" unique_id=1839121358]
+[node name="SmokeParticles" type="CPUParticles2D" parent="SelfExplosion" index="4" unique_id=1839121358]
 light_mask = 0
 emitting = false
 amount = 256
@@ -107,21 +124,17 @@ scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_0djnq")
 color_initial_ramp = SubResource("Gradient_r4prc")
 
-[node name="AttackSFXPlayer" type="AudioStreamPlayer2D" parent="SelfExplosion" index="4" unique_id=947155498]
+[node name="AttackSFXPlayer" type="AudioStreamPlayer2D" parent="SelfExplosion" index="5" unique_id=947155498]
 stream = ExtResource("4_6w74q")
 
-[node name="CooldownTimer" type="Timer" parent="SelfExplosion" index="5" unique_id=1453833404]
+[node name="CooldownTimer" type="Timer" parent="SelfExplosion" index="6" unique_id=1453833404]
 wait_time = 2.0
 one_shot = true
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2015985157) index="0" unique_id=1493202748]
 shape = SubResource("RectangleShape2D_6q6ta")
 
-[node name="PickupSFXPlayer" parent="." index="4" unique_id=787883369]
-bus = &"Master"
-
 [node name="UseSFXPlayer" parent="." index="5" unique_id=184674765]
 stream = ExtResource("5_bwkwj")
-bus = &"Master"
 
 [connection signal="timeout" from="SelfExplosion/CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

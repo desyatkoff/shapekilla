@@ -5,6 +5,17 @@
 [ext_resource type="Script" uid="uid://bprf670i1b7la" path="res://shotgun.gd" id="2_a8mn3"]
 [ext_resource type="PackedScene" uid="uid://3k7nwl7nuw8y" path="res://item_particles.tscn" id="3_a8mn3"]
 [ext_resource type="AudioStream" uid="uid://5iijgtaod0rj" path="res://shotgun.wav" id="5_gda1h"]
+[ext_resource type="PackedScene" uid="uid://c4jukoijshrfc" path="res://shoot_particles.tscn" id="5_qvfgu"]
+
+[sub_resource type="Gradient" id="Gradient_vrtdr"]
+interpolation_mode = 2
+colors = PackedColorArray(0.9843137, 0.54901963, 0, 1, 0.9843137, 0.54901963, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qvfgu"]
+gradient = SubResource("Gradient_vrtdr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7oeqp"]
 size = Vector2(50, 12)
@@ -21,6 +32,14 @@ texture = ExtResource("2_7oeqp")
 [node name="ProjectileSpawnPoint" type="Node2D" parent="Sprite" index="0" unique_id=1327158568]
 position = Vector2(24, 0)
 
+[node name="ShootLight" type="PointLight2D" parent="Sprite/ProjectileSpawnPoint" index="0" unique_id=2036979439]
+color = Color(0.9843137, 0.54901963, 0, 0)
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_qvfgu")
+
+[node name="ShootParticles" parent="Sprite/ProjectileSpawnPoint" index="1" unique_id=1367103448 instance=ExtResource("5_qvfgu")]
+
 [node name="Hitbox" type="Area2D" parent="." index="2" unique_id=342302196]
 collision_layer = 16
 collision_mask = 3
@@ -30,7 +49,6 @@ shape = SubResource("RectangleShape2D_7oeqp")
 
 [node name="AttackSFXPlayer" parent="." index="3" unique_id=947155498]
 stream = ExtResource("5_gda1h")
-bus = &"Master"
 
 [node name="CooldownTimer" parent="." index="4" unique_id=1453833404]
 wait_time = 0.5

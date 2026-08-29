@@ -9,7 +9,7 @@
 [node name="KnifeEnemy" unique_id=757774300 instance=ExtResource("1_676on")]
 script = ExtResource("2_qw3tx")
 
-[node name="Body" parent="." index="0" unique_id=2120351308]
+[node name="Body" parent="." index="1" unique_id=2120351308]
 texture = ExtResource("3_gxg3k")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
@@ -17,5 +17,5 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="Knife" parent="WeaponSlot" parent_id_path=PackedInt32Array(1732380290) index="0" unique_id=760112493 instance=ExtResource("4_vvoqc")]
 position = Vector2(0, 7)
 
-[node name="FiniteStateMachine" parent="." index="8" unique_id=1331044783]
+[node name="FiniteStateMachine" parent="." index="9" unique_id=1331044783]
 script = ExtResource("5_qw3tx")

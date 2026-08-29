@@ -213,7 +213,7 @@ func fade_out() -> void:
 
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
-    tween.tween_property(bg, "color", Color("#21212100"), 4.0)
+    tween.tween_property(bg, "color:a", 0.0, 5.0)
 
     await tween.finished
 

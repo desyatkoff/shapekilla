@@ -2,7 +2,8 @@ extends Control
 
 @onready var panel = $Panel
 @onready var slots = $Panel/CardSlots.get_children()
-@onready var message_label = $Panel/WizardTexture/MessageLabel
+@onready var wizard_texture = $Panel/WizardTexture
+@onready var message_label = $Panel/MessageLabel
 @onready var close_button = $Panel/CloseButton
 @onready var item_card_scene = preload("res://trade_item_card.tscn")
 
@@ -56,6 +57,13 @@ var is_out_of_stock = false
 
 func _ready() -> void:
     load_menu_items()
+
+    var tween = create_tween()
+    tween.set_loops()
+    tween.set_trans(Tween.TRANS_SINE)
+    tween.set_ease(Tween.EASE_IN_OUT)
+    tween.tween_property(wizard_texture, "rotation_degrees", 5.0, 5.0)
+    tween.tween_property(wizard_texture, "rotation_degrees", -5.0, 5.0)
 
 func _on_item_purchased() -> void:
     message_label.text = ""

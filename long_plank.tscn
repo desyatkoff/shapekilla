@@ -15,6 +15,3 @@ texture = ExtResource("2_flacj")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=565998978]
 shape = SubResource("RectangleShape2D_kax8i")
-
-[node name="DestroySFXPlayer" parent="." index="3" unique_id=1959835092]
-bus = &"Master"

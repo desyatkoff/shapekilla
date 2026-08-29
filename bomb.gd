@@ -2,7 +2,8 @@ extends Item
 class_name Bomb
 
 @onready var explosion_hitbox = $SelfExplosion/ExplosionHitbox
-@onready var shoot_particles = $SelfExplosion/ShootParticles
+@onready var explosion_light = $SelfExplosion/ExplosionLight
+@onready var flame_particles = $SelfExplosion/FlameParticles
 @onready var explosion_particles = $SelfExplosion/ExplosionParticles
 @onready var smoke_particles = $SelfExplosion/SmokeParticles
 @onready var attack_sfx_player = $SelfExplosion/AttackSFXPlayer
@@ -35,12 +36,16 @@ func use() -> void:
 
     item_particles.emitting = false
 
-    shoot_particles.emitting = true
+    flame_particles.emitting = true
     cooldown_timer.start()
 
 func _on_cooldown_timer_timeout() -> void:
+    explosion_light.color.a = 1.0
+
+    create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(explosion_light, "color:a", 0.0, cooldown_timer.wait_time / 2)
+
     sprite.visible = false
-    shoot_particles.emitting = false
+    flame_particles.emitting = false
     explosion_particles.emitting = true
     smoke_particles.emitting = true
 
@@ -51,6 +56,8 @@ func _on_cooldown_timer_timeout() -> void:
     crack_instance.global_position = global_position
 
     Game.world.get_node("DebrisContainer").add_child(crack_instance)
+
+    var damaged_body_count = 0
 
     for body in explosion_hitbox.get_overlapping_bodies():
         if body is Character:
@@ -64,16 +71,13 @@ func _on_cooldown_timer_timeout() -> void:
             tween.tween_property(body, "modulate", Color.WHITE, 0.4)
 
             if body.fsm.state != body.fsm.states.DEAD:
-                body.health -= 4
-
-                var blood_instance = blood_scene.instantiate()
-                blood_instance.global_position = body.global_position
-
-                Game.world.get_node("DebrisContainer").add_child(blood_instance)
-
-            Game.player.apply_noise_shake(16.0)
+                body.take_damage(4)
+                damaged_body_count += 1
         elif body is Plank:
             body.destroy()
+
+    Game.hitstop(0.1 * damaged_body_count, 0.1 * damaged_body_count)
+    Game.player.apply_noise_shake(16.0 * clamp(damaged_body_count, 1, damaged_body_count))
 
     await smoke_particles.finished
 
