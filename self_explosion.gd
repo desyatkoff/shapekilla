@@ -20,7 +20,7 @@ func _on_cooldown_timer_timeout() -> void:
 
     if weapon_owner.fsm.state != weapon_owner.fsm.states.DEAD:
         for body in hitbox.get_overlapping_bodies():
-            if body is Character:
+            if body is Character or body is Plank:
                 weapon_owner.fsm.set_state(weapon_owner.fsm.states.ATTACK)
 
                 explosion_light.color.a = 1.0
@@ -43,15 +43,16 @@ func _on_cooldown_timer_timeout() -> void:
 
                     did_crack = true
 
-                body.velocity += Vector2.RIGHT.rotated(rotation) * 128
-                body.take_damage(damage)
+                if body is Character:
+                    body.velocity += Vector2.RIGHT.rotated(rotation) * 128
+                    body.take_damage(damage)
+                elif body is Plank:
+                    body.destroy()
 
                 if body != self:
                     damaged_body_count += 1
 
                 weapon_owner.fsm.set_state(weapon_owner.fsm.previous_state)
-            elif body is Plank:
-                body.destroy()
 
         Game.hitstop(0.1 * damaged_body_count, 0.1 * damaged_body_count)
         Game.player.apply_noise_shake(16.0 * clamp(damaged_body_count, 1, damaged_body_count))

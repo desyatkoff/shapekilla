@@ -21,3 +21,5 @@ func _on_cooldown_timer_timeout() -> void:
                     body.effects_slot.add_child(poison_effect.instantiate())
 
                 weapon_owner.fsm.set_state(weapon_owner.fsm.previous_state)
+            elif body is Plank:
+                body.destroy()
