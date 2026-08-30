@@ -74,7 +74,7 @@ func toggle_lock() -> void:
 func unlock() -> void:
     is_locked = false
 
-    for i in range(25):
+    for i in range(10):
         lock_sprite.position = Vector2(
             randf_range(-1.0, 1.0),
             randf_range(-1.0, 1.0)
@@ -87,8 +87,8 @@ func unlock() -> void:
     var unlock_tween = create_tween()
     unlock_tween.set_trans(Tween.TRANS_SINE)
     unlock_tween.set_ease(Tween.EASE_IN_OUT)
-    unlock_tween.tween_property(lock_sprite, "modulate", Color(18.892, 18.892, 18.892, 0.0), 1.0)
-    unlock_tween.parallel().tween_property(lock_sprite, "scale", Vector2(1.5, 1.5), 1.0)
+    unlock_tween.tween_property(lock_sprite, "modulate", Color(18.892, 18.892, 18.892, 0.0), 0.5)
+    unlock_tween.parallel().tween_property(lock_sprite, "scale", Vector2(1.5, 1.5), 0.5)
 
     await unlock_tween.finished
 
@@ -107,7 +107,7 @@ func lock() -> void:
 
     lock_sprite.visible = true
 
-    for i in range(25):
+    for i in range(10):
         lock_sprite.position = Vector2(
             randf_range(-1.0, 1.0),
             randf_range(-1.0, 1.0)
@@ -120,8 +120,8 @@ func lock() -> void:
     var lock_tween = create_tween()
     lock_tween.set_trans(Tween.TRANS_SINE)
     lock_tween.set_ease(Tween.EASE_IN_OUT)
-    lock_tween.tween_property(lock_sprite, "modulate", Color.WHITE, 1.0)
-    lock_tween.parallel().tween_property(lock_sprite, "scale", Vector2.ONE, 1.0)
+    lock_tween.tween_property(lock_sprite, "modulate", Color.WHITE, 0.5)
+    lock_tween.parallel().tween_property(lock_sprite, "scale", Vector2.ONE, 0.5)
 
 func toggle() -> void:
     if not is_locked:
