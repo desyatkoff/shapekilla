@@ -15,3 +15,6 @@ texture = ExtResource("2_flacj")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=565998978]
 shape = SubResource("RectangleShape2D_kax8i")
+
+[node name="NavigationObstacle2D" parent="." index="3" unique_id=1254458049]
+vertices = PackedVector2Array(-32, -5, 32, -5, 32, 5, -32, 5)

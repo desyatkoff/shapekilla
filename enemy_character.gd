@@ -55,9 +55,9 @@ func _process(delta: float) -> void:
 
 func _get_path_to_player() -> void:
     if fsm.state == fsm.states.CHASE and Game.player.fsm.state != Game.player.fsm.states.DEAD:
-        nav_agent.target_position = Game.player.position
+        nav_agent.target_position = Game.player.global_position
     else:
-        nav_agent.target_position = position
+        nav_agent.target_position = global_position
 
 func _on_navigation_timer_timeout() -> void:
     if should_chase_player:

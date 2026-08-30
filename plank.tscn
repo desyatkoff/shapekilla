@@ -46,5 +46,10 @@ texture = ExtResource("1_pkcor")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=565998978]
 shape = SubResource("RectangleShape2D_j2f77")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1254458049]
+vertices = PackedVector2Array(-16, -5, 16, -5, 16, 5, -16, 5)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
 [node name="DestroySFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1959835092]
 stream = ExtResource("3_uw3nf")
