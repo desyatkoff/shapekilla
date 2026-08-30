@@ -300,8 +300,10 @@ func save_progress() -> void:
 
         if cur is bool:
             merged_data[key] = cur or old
-        else:
+        elif cur is int or cur is float:
             merged_data[key] = max(cur, old)
+        else:
+            merged_data[key] = cur
 
     save_data(merged_data)
 
