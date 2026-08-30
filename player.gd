@@ -167,34 +167,34 @@ func _process(delta: float) -> void:
     else:
         match current_room_slot_id:
             0:
-                camera.limit_left = -3328
+                camera.limit_left = -3968
                 camera.limit_top = -256
-                camera.limit_right = -2784
+                camera.limit_right = -3424
                 camera.limit_bottom = 256
             1:
-                camera.limit_left = -2848
+                camera.limit_left = -3488
                 camera.limit_top = -256
-                camera.limit_right = -2272
+                camera.limit_right = -2912
                 camera.limit_bottom = 256
             2:
-                camera.limit_left = -2336
+                camera.limit_left = -2976
                 camera.limit_top = -256
-                camera.limit_right = -1760
+                camera.limit_right = -2400
                 camera.limit_bottom = 256
             3:
-                camera.limit_left = -1824
+                camera.limit_left = -2464
                 camera.limit_top = -256
-                camera.limit_right = -1248
+                camera.limit_right = -1888
                 camera.limit_bottom = 256
             4:
-                camera.limit_left = -1312
+                camera.limit_left = -1952
                 camera.limit_top = -256
-                camera.limit_right = -736
+                camera.limit_right = -1376
                 camera.limit_bottom = 256
             5:
-                camera.limit_left = -800
+                camera.limit_left = -1400
                 camera.limit_top = -256
-                camera.limit_right = -256
+                camera.limit_right = -896
                 camera.limit_bottom = 256
 
 func apply_noise_shake(noise_shake_strength) -> void:

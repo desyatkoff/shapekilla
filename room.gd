@@ -23,6 +23,7 @@ func _on_enemy_died(who: EnemyCharacter):
 
         var key_instance = key_scene.instantiate()
         key_instance.global_position = who.global_position
+        key_instance.z_index = 1
 
         Game.world.get_node("ItemsContainer").call_deferred("add_child", key_instance)
 
