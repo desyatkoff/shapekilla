@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b7e0b0id750dg" path="res://spawn_room_00.tscn" id="2_urblq"]
 [ext_resource type="PackedScene" uid="uid://c5ff7sygd66gb" path="res://room_00.tscn" id="2_wbpbn"]
 [ext_resource type="PackedScene" uid="uid://b3l6pv4w15xx2" path="res://room_05.tscn" id="3_71pa8"]
+[ext_resource type="PackedScene" uid="uid://d4idqso6niql3" path="res://spawn_room_01.tscn" id="3_meq34"]
 [ext_resource type="PackedScene" uid="uid://fweuoqp4stkk" path="res://room_01.tscn" id="4_05x41"]
 [ext_resource type="PackedScene" uid="uid://dme38il7imfr1" path="res://end_room_00.tscn" id="4_71pa8"]
+[ext_resource type="PackedScene" uid="uid://i0hpe517ck27" path="res://spawn_room_02.tscn" id="4_a454a"]
 [ext_resource type="PackedScene" uid="uid://bg1ldrwti7p6p" path="res://room_02.tscn" id="5_gqbix"]
+[ext_resource type="PackedScene" uid="uid://baelk2ebbnq4t" path="res://spawn_room_03.tscn" id="5_te172"]
 [ext_resource type="PackedScene" uid="uid://b1p1suvebevx2" path="res://room_03.tscn" id="6_oysan"]
 [ext_resource type="TileSet" uid="uid://chdfj4r6pjvo4" path="res://tile_set.tres" id="7_71pa8"]
 [ext_resource type="PackedScene" uid="uid://3woa4atj353h" path="res://room_04.tscn" id="7_sb2pt"]
@@ -34,7 +37,7 @@
 
 [node name="Map" type="Node2D" unique_id=1249936917]
 script = ExtResource("1_urblq")
-room_scenes = Array[PackedScene]([ExtResource("2_urblq"), ExtResource("2_wbpbn"), ExtResource("4_05x41"), ExtResource("5_gqbix"), ExtResource("6_oysan"), ExtResource("7_sb2pt"), ExtResource("3_71pa8"), ExtResource("9_2wwcf"), ExtResource("10_wbpbn"), ExtResource("11_a6rn7"), ExtResource("12_bssq0"), ExtResource("13_jk4ss"), ExtResource("14_r5om4"), ExtResource("15_jky6x"), ExtResource("16_4sf5t"), ExtResource("17_3mr0t"), ExtResource("18_6sq2s"), ExtResource("19_4v3wx"), ExtResource("20_y1wlr"), ExtResource("4_71pa8"), ExtResource("22_h75vw"), ExtResource("23_7vxqa"), ExtResource("24_qw8h8")])
+room_scenes = Array[PackedScene]([ExtResource("2_urblq"), ExtResource("3_meq34"), ExtResource("4_a454a"), ExtResource("5_te172"), ExtResource("2_wbpbn"), ExtResource("4_05x41"), ExtResource("5_gqbix"), ExtResource("6_oysan"), ExtResource("7_sb2pt"), ExtResource("3_71pa8"), ExtResource("9_2wwcf"), ExtResource("10_wbpbn"), ExtResource("11_a6rn7"), ExtResource("12_bssq0"), ExtResource("13_jk4ss"), ExtResource("14_r5om4"), ExtResource("15_jky6x"), ExtResource("16_4sf5t"), ExtResource("17_3mr0t"), ExtResource("18_6sq2s"), ExtResource("19_4v3wx"), ExtResource("20_y1wlr"), ExtResource("4_71pa8"), ExtResource("22_h75vw"), ExtResource("23_7vxqa"), ExtResource("24_qw8h8")])
 
 [node name="DoorSlots" type="Node2D" parent="." unique_id=156098974]
 
