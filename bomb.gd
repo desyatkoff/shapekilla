@@ -76,6 +76,11 @@ func _on_cooldown_timer_timeout() -> void:
         elif body is Plank:
             body.destroy()
 
+    for area in explosion_hitbox.get_overlapping_areas():
+        if area.get_parent() is Doors:
+            if Game.pick_tier() >= area.get_parent().lock_tier:
+                area.get_parent().unlock()
+
     Game.hitstop(0.1 * damaged_body_count, 0.1 * damaged_body_count)
     Game.player.apply_noise_shake(16.0 * clamp(damaged_body_count, 1, damaged_body_count))
 
