@@ -13,9 +13,10 @@ func _on_body_entered(body: Node2D) -> void:
         body.velocity = Vector2.RIGHT
         body.direction = Vector2.RIGHT
 
-        await body.create_tween().tween_property(body, "max_speed", 0.0, 2.5).finished
-
-        body.velocity = Vector2.ZERO
-        body.direction = Vector2.ZERO
-
-        body.max_speed = previous_speed
+        body.create_tween().tween_property(body, "max_speed", 0.0, 2.5).connect(
+            "finished",
+            func():
+                body.velocity = Vector2.ZERO
+                body.direction = Vector2.ZERO
+                body.max_speed = previous_speed
+        )

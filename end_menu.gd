@@ -106,14 +106,16 @@ func _on_try_again_button_pressed() -> void:
 
     Game.player.current_floor = 1
 
-    Game.player.current_room_slot_id = 0
-
     Game.reload_world()
     Game.reload_player()
 
     Game.player.revive()
 
     hide_menu()
+
+    await get_tree().process_frame
+
+    Game.player.current_room_slot_id = 0
 
 func _on_next_floor_button_pressed() -> void:
     Game.hud.click_sfx_player.play()
