@@ -15,6 +15,7 @@ metadata/_custom_type_script = "uid://c4i2yv3tqnxlh"
 
 [node name="KillLabel" type="RichTextLabel" unique_id=13257300]
 light_mask = 0
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
