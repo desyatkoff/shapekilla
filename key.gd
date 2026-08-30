@@ -23,11 +23,13 @@ func _ready() -> void:
         tween.kill()
 
     sprite.self_modulate = Color.TRANSPARENT
+    sprite.scale = Vector2.ZERO
 
     tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
-    tween.tween_property(sprite, "self_modulate", Color.WHITE, 0.25)
+    tween.tween_property(sprite, "self_modulate", Color.WHITE, 0.5)
+    tween.parallel().tween_property(sprite, "scale", Vector2.ONE, 0.5)
 
 func use() -> void:
     for area in hitbox.get_overlapping_areas():
@@ -61,7 +63,8 @@ func use() -> void:
             tween = create_tween()
             tween.set_trans(Tween.TRANS_SINE)
             tween.set_ease(Tween.EASE_IN_OUT)
-            tween.tween_property(sprite, "self_modulate", Color.TRANSPARENT, 0.25)
+            tween.tween_property(sprite, "self_modulate", Color.TRANSPARENT, 0.5)
+            tween.parallel().tween_property(sprite, "scale", Vector2.ZERO, 0.5)
 
             area.get_parent().unlock()
             area.get_parent().open()

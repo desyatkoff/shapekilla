@@ -33,7 +33,8 @@ func use() -> void:
     tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
-    tween.tween_property(sprite, "self_modulate", Color.TRANSPARENT, 0.25)
+    tween.tween_property(sprite, "self_modulate", Color.TRANSPARENT, 0.5)
+    tween.parallel().tween_property(sprite, "scale", Vector2.ZERO, 0.5)
 
     await use_sfx_player.finished
 
