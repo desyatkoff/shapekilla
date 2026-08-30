@@ -3,8 +3,6 @@ class_name Projectile
 
 @onready var lifetime_timer = $LifetimeTimer
 
-@onready var blood_scene = preload("res://blood_particles.tscn")
-
 var projectile_owner: Character
 
 var damage: int
