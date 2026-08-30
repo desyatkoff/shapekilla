@@ -88,20 +88,28 @@ func _on_max_fps_hslider_value_changed(value: float) -> void:
 
     update_settings_values()
 
+    Game.hud.click_sfx_player.play()
+
 func _on_fullscreen_check_box_toggled(toggled_on: bool) -> void:
     Game.set_fullscreen(toggled_on)
 
     update_settings_values()
+
+    Game.hud.click_sfx_player.play()
 
 func _on_v_sync_check_box_toggled(toggled_on: bool) -> void:
     Game.set_vsync(toggled_on)
 
     update_settings_values()
 
+    Game.hud.click_sfx_player.play()
+
 func _on_audio_volume_hslider_value_changed(value: float) -> void:
     Game.set_audio_volume(value)
 
     update_settings_values()
+
+    Game.hud.click_sfx_player.play()
 
 func _on_close_settings_button_pressed() -> void:
     play_button.disabled = false
