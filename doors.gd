@@ -4,6 +4,7 @@ class_name Doors
 @onready var door0 = $Door_00
 @onready var door1 = $Door_01
 @onready var lock_sprite = $Lock
+@onready var detector = $Detector
 @onready var doors_sfx_player = $DoorsSFXPlayer
 
 @export var move_offset = 32
@@ -35,6 +36,35 @@ func _ready() -> void:
     else:
         close()
 
+func _process(_delta: float) -> void:
+    for body in detector.get_overlapping_bodies():
+        if body is Character and not is_locked:
+            open()
+
+            break
+
+func _on_detector_body_entered(body: Node2D) -> void:
+    if body is Character and not is_locked:
+        open()
+
+func _on_detector_body_exited(body: Node2D) -> void:
+    if body is Character:
+        close()
+
+func move_doors(door0_y: float, door1_y: float) -> void:
+    if move_offset > 0:
+        doors_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+        doors_sfx_player.play()
+
+    if tween and tween.is_running():
+        tween.kill()
+
+    tween = create_tween()
+    tween.set_trans(Tween.TRANS_SINE)
+    tween.set_ease(Tween.EASE_IN_OUT)
+    tween.tween_property(door0, "position:y", door0_y, move_time)
+    tween.parallel().tween_property(door1, "position:y", door1_y, move_time)
+
 func toggle_lock() -> void:
     if is_locked:
         lock()
@@ -43,6 +73,16 @@ func toggle_lock() -> void:
 
 func unlock() -> void:
     is_locked = false
+
+    for i in range(25):
+        lock_sprite.position = Vector2(
+            randf_range(-1.0, 1.0),
+            randf_range(-1.0, 1.0)
+        )
+
+        await get_tree().create_timer(0.01).timeout
+
+    lock_sprite.position = Vector2.ZERO
 
     var unlock_tween = create_tween()
     unlock_tween.set_trans(Tween.TRANS_SINE)
@@ -67,6 +107,16 @@ func lock() -> void:
 
     lock_sprite.visible = true
 
+    for i in range(25):
+        lock_sprite.position = Vector2(
+            randf_range(-1.0, 1.0),
+            randf_range(-1.0, 1.0)
+        )
+
+        await get_tree().create_timer(0.01).timeout
+
+    lock_sprite.position = Vector2.ZERO
+
     var lock_tween = create_tween()
     lock_tween.set_trans(Tween.TRANS_SINE)
     lock_tween.set_ease(Tween.EASE_IN_OUT)
@@ -82,40 +132,12 @@ func toggle() -> void:
 
 func open() -> void:
     if not is_open and not is_locked:
-        _move_doors(
-            door0_closed_y - move_offset,
-            door1_closed_y + move_offset
-        )
-
         is_open = true
+
+        move_doors(door0_closed_y - move_offset, door1_closed_y + move_offset)
 
 func close() -> void:
     if is_open:
-        _move_doors(
-            door0_closed_y,
-            door1_closed_y
-        )
-
         is_open = false
 
-func _move_doors(door0_y: float, door1_y: float) -> void:
-    if move_offset > 0:
-        doors_sfx_player.pitch_scale = randf_range(0.9, 1.1)
-        doors_sfx_player.play()
-
-    if tween and tween.is_running():
-        tween.kill()
-
-    tween = create_tween()
-    tween.set_trans(Tween.TRANS_SINE)
-    tween.set_ease(Tween.EASE_IN_OUT)
-    tween.tween_property(door0, "position:y", door0_y, move_time)
-    tween.parallel().tween_property(door1, "position:y", door1_y, move_time)
-
-func _on_detector_body_entered(body: Node2D) -> void:
-    if body is Character and not is_locked:
-        open()
-
-func _on_detector_body_exited(body: Node2D) -> void:
-    if body is Character:
-        close()
+        move_doors(door0_closed_y, door1_closed_y)
