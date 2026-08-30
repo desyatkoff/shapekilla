@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c8a6ug81mbv6b" path="res://fsm.gd" id="3_wa5vi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
-size = Vector2(24, 24)
+size = Vector2(22, 22)
 
 [node name="Character" type="CharacterBody2D" unique_id=757774300]
 y_sort_enabled = true
