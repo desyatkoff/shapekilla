@@ -27,7 +27,7 @@ func _ready() -> void:
 
         var matching_rooms = []
 
-        for room_scene in room_scenes:
+        for room_scene in pool:
             var temp_room_instance = room_scene.instantiate()
 
             if temp_room_instance.type == slot.type:
@@ -38,6 +38,8 @@ func _ready() -> void:
         var room_scene = matching_rooms.pick_random()
 
         if room_scene:
+            pool.erase(room_scene)
+
             var room_instance = room_scene.instantiate()
             room_instance.position = Vector2.ZERO
 

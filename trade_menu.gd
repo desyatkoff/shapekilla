@@ -116,42 +116,35 @@ func load_menu_items() -> void:
             var scene = pool.pick_random()
 
             if scene:
-                var is_unique = true
+                pool.erase(scene)
 
                 var instance = scene.instantiate()
                 var item_card = item_card_scene.instantiate()
 
-                for slot in slots:
-                    if slot.get_child_count() != 0:
-                        if instance.get_script() == slot.get_child(0).item.get_script():
-                            is_unique = false
-                            pool.erase(scene)
+                if instance is Key:
+                    instance.item_tier = -1
 
-                if is_unique:
-                    if instance is Key:
-                        instance.item_tier = -1
+                instance._ready()
 
-                    instance._ready()
+                if instance is Item:
+                    if instance.item_tier == Game.pick_tier():
+                        item_card.item = instance
+                        fslot.add_child(item_card)
+                        free_slots.erase(fslot)
+                        item_card.connect("purchased", _on_item_purchased)
+                elif instance is PlayerUpgrade:
+                    if instance.upgrade_tier == Game.pick_tier():
+                        var current_stacks = 0
 
-                    if instance is Item:
-                        if instance.item_tier == Game.pick_tier():
+                        for upgrade in Game.player.upgrades:
+                            if upgrade.get_script() == instance.get_script():
+                                current_stacks += 1
+
+                        if current_stacks < instance.max_stacks or instance.max_stacks == -1:
                             item_card.item = instance
                             fslot.add_child(item_card)
                             free_slots.erase(fslot)
                             item_card.connect("purchased", _on_item_purchased)
-                    elif instance is PlayerUpgrade:
-                        if instance.upgrade_tier == Game.pick_tier():
-                            var current_stacks = 0
-
-                            for upgrade in Game.player.upgrades:
-                                if upgrade.get_script() == instance.get_script():
-                                    current_stacks += 1
-
-                            if current_stacks < instance.max_stacks or instance.max_stacks == -1:
-                                item_card.item = instance
-                                fslot.add_child(item_card)
-                                free_slots.erase(fslot)
-                                item_card.connect("purchased", _on_item_purchased)
 
 func show_menu() -> void:
     message_label.text = ""
