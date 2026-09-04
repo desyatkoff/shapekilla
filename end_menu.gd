@@ -229,8 +229,6 @@ func show_menu() -> void:
 
     Game.hud.main.visible = false
 
-    Game.hud.trade_menu.load_menu_items()
-
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
     quit_button.disabled = true
