@@ -5,6 +5,9 @@ extends Node2D
 @export var room_scenes: Array[PackedScene]
 
 func _ready() -> void:
+    if Game.hud:
+        Game.hud.trade_menu.load_menu_items()
+
     Game.update_values()
 
     if Game.data["is_tutorial_complete"]:
