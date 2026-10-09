@@ -22,6 +22,9 @@ extends CanvasLayer
 
 @onready var upgrades_container = $MainHUD/UpgradesContainer
 
+@onready var deadly_speedometer_bg = $MainHUD/DeadlySpeedometerBG
+@onready var deadly_speedometer_label = $MainHUD/DeadlySpeedometerBG/DeadlySpeedometerLabel
+
 @onready var health_bar = $MainHUD/HealthBar
 @onready var health_value_label = $MainHUD/HealthBar/HealthValueLabel
 
@@ -106,7 +109,7 @@ current_floor = %s
         Game.player.speed_multi * Game.player.acceleration,
         Game.player.friction,
         Game.player.weapon,
-        Game.player.damage_multi * Game.player.weapon.damage if Game.player.weapon else 0.0,
+        Game.player.weapon.damage * Game.player.damage_multi * Game.player.weapon.damage_multi if Game.player.weapon else 0.0,
         Game.player.effects,
         Game.player.upgrades,
         Game.player.item,
@@ -201,6 +204,18 @@ current_floor = %s
         item_name.text = ""
 
     previous_player_item = Game.player.item
+
+    var player_has_deadly_speedometer = false
+
+    for upgrade in Game.player.upgrades:
+        if upgrade is DeadlySpeedometerUpgrade:
+            player_has_deadly_speedometer = true
+
+            break
+
+    deadly_speedometer_bg.visible = player_has_deadly_speedometer
+
+    deadly_speedometer_label.text = "%s px/s - x%.1f Damage" % [int(Game.player.velocity.length()), Game.player.weapon.damage_multi]
 
     var health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(health_bar, "value", Game.player.health, 0.1)
     var max_health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(health_bar, "max_value", Game.player.max_health, 0.1)

@@ -1,0 +1,2 @@
+extends PlayerUpgrade
+class_name DeadlySpeedometerUpgrade

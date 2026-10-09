@@ -9,8 +9,8 @@ class_name Character
 @onready var fsm = $FiniteStateMachine
 @onready var blood_scene = preload("res://blood_particles.tscn")
 
-@export var max_health = 10
-@export var health = 10
+@export var max_health = 10.0
+@export var health = 10.0
 @export var max_speed = 80
 @export var acceleration = 40
 @export var friction = 0.16
@@ -32,9 +32,9 @@ var current_room_slot_id: int
 var move_time = 0.0
 
 func _process(_delta: float) -> void:
-    health = int(clamp(health, 0, max_health))
+    health = clamp(health, 0, max_health)
 
-    if health == 0 and fsm.state != fsm.states.DEAD:
+    if health == 0.0 and fsm.state != fsm.states.DEAD:
         die()
 
 func _physics_process(delta: float) -> void:
@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 func move() -> void:
     velocity += (direction.normalized() * acceleration * speed_multi).limit_length(max_speed * speed_multi)
 
-func take_damage(damage: int) -> void:
+func take_damage(damage: float) -> void:
     hurt_sfx_player.pitch_scale = randf_range(0.9, 1.1)
     hurt_sfx_player.play()
 

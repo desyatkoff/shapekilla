@@ -5,7 +5,7 @@ class_name Projectile
 
 var projectile_owner: Character
 
-var damage: int
+var damage: float
 var speed: int
 var knockback: int
 

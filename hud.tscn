@@ -12,6 +12,19 @@
 script = ExtResource("3_a2258")
 metadata/_custom_type_script = "uid://crth0bc1x417s"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2258"]
+bg_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+border_width_left = 64
+border_width_top = 64
+border_width_right = 64
+border_width_bottom = 64
+border_color = Color(0.12941177, 0.12941177, 0.12941177, 0)
+border_blend = true
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
 [node name="HUD" type="CanvasLayer" unique_id=93772059]
 process_mode = 3
 script = ExtResource("1_64ctp")
@@ -153,6 +166,34 @@ theme = ExtResource("1_37p78")
 theme_override_constants/separation = 16
 alignment = 2
 
+[node name="DeadlySpeedometerBG" type="Panel" parent="MainHUD" unique_id=2129650763]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 388.0
+offset_right = 192.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_a2258")
+
+[node name="DeadlySpeedometerLabel" type="Label" parent="MainHUD/DeadlySpeedometerBG" unique_id=898260020]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8666667, 0.09803922, 0.11372549, 1)
+text = "123 px/s - x1.23 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HealthBar" type="ProgressBar" parent="MainHUD" unique_id=2013988028]
 layout_mode = 1
 anchors_preset = 7
@@ -169,6 +210,7 @@ grow_vertical = 0
 theme = ExtResource("1_37p78")
 max_value = 10.0
 value = 5.0
+rounded = true
 show_percentage = false
 
 [node name="HealthValueLabel" type="Label" parent="MainHUD/HealthBar" unique_id=222750694]

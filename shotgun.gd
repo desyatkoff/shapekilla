@@ -9,6 +9,7 @@ class_name Shotgun
 
 var shotgun_shots = 4
 var knockback = 64
+var damage_multi = 1.0
 
 func _process(delta: float) -> void:
     if weapon_owner:
@@ -16,6 +17,12 @@ func _process(delta: float) -> void:
             weapon_owner.weapon_slot.global_position + Vector2(0.0, 5.0),
             32 * delta
         )
+
+    damage_multi = 1.0
+
+    for upgrade in Game.player.upgrades:
+        if upgrade is DeadlySpeedometerUpgrade:
+            damage_multi = clamp(1.0 + Game.player.velocity.length() / 256.0, 1.0, 4.0)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
     if body is Player and not body.weapon:
@@ -54,7 +61,7 @@ func attack():
         for i in range(ceili(shotgun_shots / -2.0), ceili(shotgun_shots / 2.0)):
             var shotgun_projectile_instance = shotgun_projectile_scene.instantiate()
             shotgun_projectile_instance.projectile_owner = weapon_owner
-            shotgun_projectile_instance.damage = damage * weapon_owner.damage_multi
+            shotgun_projectile_instance.damage = damage * weapon_owner.damage_multi * damage_multi
             shotgun_projectile_instance.speed = 256 * weapon_owner.projectile_speed_multi
             shotgun_projectile_instance.knockback = knockback * 2
             shotgun_projectile_instance.global_position = sprite.get_node("ProjectileSpawnPoint").global_position - Vector2(0.0, 3.0)

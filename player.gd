@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
         health = clamp(health, 1, max_health)
 
     health = int(round(health))
+    max_health = int(round(max_health))
 
     Game.canvas_modulate.color = Color.WHITE.lerp(Color(1.0, 0.5, 0.5), pow(1.0 - float(health) / float(max_health), 2.0))
 
