@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://2fdiq0rhw0pm"]
 
-[ext_resource type="Script" uid="uid://cwajcf8lhhqwx" path="res://particles.gd" id="1_h5v43"]
+[ext_resource type="Script" uid="uid://buxit30clx8rr" path="res://blood_particles.gd" id="1_h5v43"]
+[ext_resource type="AudioStream" uid="uid://wvxmj03ivnmr" path="res://vampirism.wav" id="2_tnyvy"]
 
 [sub_resource type="Gradient" id="Gradient_h5v43"]
 interpolation_mode = 2
 colors = PackedColorArray(0.8666667, 0.09803922, 0.11372549, 1, 0.6901961, 0.07058824, 0.039215688, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hcu6"]
+size = Vector2(64, 64)
 
 [node name="BloodParticles" type="CPUParticles2D" unique_id=1563915323]
 light_mask = 0
@@ -28,9 +32,19 @@ scale_amount_max = 4.0
 color_initial_ramp = SubResource("Gradient_h5v43")
 script = ExtResource("1_h5v43")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1643485379]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1024105224]
+shape = SubResource("RectangleShape2D_1hcu6")
+
+[node name="VampirismSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=346693233]
+stream = ExtResource("2_tnyvy")
+
 [node name="Timer" type="Timer" parent="." unique_id=1381359349]
 wait_time = 0.3
 one_shot = true
 autostart = true
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

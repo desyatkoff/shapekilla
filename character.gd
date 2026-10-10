@@ -73,9 +73,11 @@ func take_damage(damage: float) -> void:
         var blood_instance = blood_scene.instantiate()
         blood_instance.global_position = global_position
 
-        Game.world.get_node("DebrisContainer").add_child(blood_instance)
+        Game.world.get_node("DebrisContainer").call_deferred("add_child", blood_instance)
 
         if get_script() == Player:
+            blood_instance.consumable = false
+
             Game.player.run_points -= 1
             Game.player.run_points_earned -= 1
             Game.player.run_points_spent -= 1

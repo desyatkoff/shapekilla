@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://wdo56am6kw4b" path="res://knockback_upgrade.tscn" id="18_i2th7"]
 [ext_resource type="PackedScene" uid="uid://bocy4cv3vcali" path="res://faster_cooldown_upgrade.tscn" id="19_cl3k2"]
 [ext_resource type="PackedScene" uid="uid://cx1ysfmvlx36k" path="res://deadly_speedometer_upgrade.tscn" id="20_ul54b"]
+[ext_resource type="PackedScene" uid="uid://bkhxq44mnusn6" path="res://vampirism_upgrade.tscn" id="21_x064k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2f77"]
 atlas = ExtResource("11_e1suj")
@@ -46,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bkyvf")
 script = ExtResource("2_0txhl")
-scenes = Array[PackedScene]([ExtResource("8_e1suj"), ExtResource("3_xc6ql"), ExtResource("4_e1suj"), ExtResource("5_cn6nd"), ExtResource("6_7854k"), ExtResource("7_y3tfe"), ExtResource("9_y3tfe"), ExtResource("10_qnl85"), ExtResource("11_06buk"), ExtResource("5_7r38b"), ExtResource("4_7r38b"), ExtResource("14_g8b4r"), ExtResource("15_isv8s"), ExtResource("16_h7nyu"), ExtResource("17_3v8km"), ExtResource("18_i2th7"), ExtResource("19_cl3k2"), ExtResource("20_ul54b")])
+scenes = Array[PackedScene]([ExtResource("8_e1suj"), ExtResource("3_xc6ql"), ExtResource("4_e1suj"), ExtResource("5_cn6nd"), ExtResource("6_7854k"), ExtResource("7_y3tfe"), ExtResource("9_y3tfe"), ExtResource("10_qnl85"), ExtResource("11_06buk"), ExtResource("5_7r38b"), ExtResource("4_7r38b"), ExtResource("14_g8b4r"), ExtResource("15_isv8s"), ExtResource("16_h7nyu"), ExtResource("17_3v8km"), ExtResource("18_i2th7"), ExtResource("19_cl3k2"), ExtResource("20_ul54b"), ExtResource("21_x064k")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1996814276]
 layout_mode = 1
