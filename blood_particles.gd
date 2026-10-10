@@ -15,7 +15,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
                     vampirism_sfx_player.pitch_scale = randf_range(0.9, 1.1)
                     vampirism_sfx_player.play()
 
-                    body.health += 1.0 / body.weapon.shotgun_shots
+                    body.health += 1.0 / body.weapon.shotgun_shots * 2.0
 
                     break
 
