@@ -23,7 +23,7 @@ func _ready() -> void:
     item_tier = clamp(item_tier, 0, 4)
 
     if item_price == -1:
-        item_price = round(10 * (item_tier + 1) * randf_range(0.75, 1.25))
+        item_price = round(10 * (item_tier + 1) * randf_range(0.75, 1.25) * (2 if Game.insane_mode else 1))
 
     if tween and tween.is_running():
         tween.kill()

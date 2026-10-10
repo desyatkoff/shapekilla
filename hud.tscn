@@ -210,7 +210,6 @@ grow_vertical = 0
 theme = ExtResource("1_37p78")
 max_value = 10.0
 value = 5.0
-rounded = true
 show_percentage = false
 
 [node name="HealthValueLabel" type="Label" parent="MainHUD/HealthBar" unique_id=222750694]

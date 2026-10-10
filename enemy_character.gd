@@ -14,10 +14,13 @@ func _ready() -> void:
     while not Game.player:
         await get_tree().process_frame
 
-    health_multi = clamp(1.0 + (Game.player.current_floor - 1) / 20.0, 1.0, 2.0)
+    health_multi = clamp(1.0 + (Game.player.current_floor - 1) / (10.0 if Game.insane_mode else 20.0), 1.0, (4.0 if Game.insane_mode else 2.0))
     max_health *= health_multi
     health = max_health
-    speed_multi = clamp(1.0 + (Game.player.current_floor - 1) / 20.0, 1.0, 2.0)
+
+    damage_multi = clamp(1.0 + (Game.player.current_floor - 1) / (10.0 if Game.insane_mode else 20.0), 1.0, (4.0 if Game.insane_mode else 2.0))
+
+    speed_multi = clamp(1.0 + (Game.player.current_floor - 1) / (10.0 if Game.insane_mode else 20.0), 1.0, (4.0 if Game.insane_mode else 2.0))
     max_speed /= 4
 
     if get_parent() is Room:

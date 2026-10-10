@@ -215,7 +215,8 @@ current_floor = %s
 
     deadly_speedometer_bg.visible = player_has_deadly_speedometer
 
-    deadly_speedometer_label.text = "%s px/s - x%.1f Damage" % [int(Game.player.velocity.length()), Game.player.weapon.damage_multi]
+    if Game.player.weapon:
+        deadly_speedometer_label.text = "%s px/s - x%.1f Damage" % [int(Game.player.velocity.length()), Game.player.weapon.damage_multi]
 
     var health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(health_bar, "value", Game.player.health, 0.1)
     var max_health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).tween_property(health_bar, "max_value", Game.player.max_health, 0.1)

@@ -19,7 +19,7 @@ func _on_cooldown_timer_timeout() -> void:
 
                 if body is Player:
                     body.velocity += Vector2.RIGHT.rotated(rotation) * 128
-                    body.take_damage(damage)
+                    body.take_damage(damage * weapon_owner.damage_multi)
                 elif body is Plank:
                     body.destroy()
 

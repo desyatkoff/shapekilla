@@ -12,7 +12,7 @@ func _ready() -> void:
     upgrade_tier = clamp(upgrade_tier, 0, 4)
 
     if upgrade_price == -1:
-        upgrade_price = round(10 * (upgrade_tier + 1) * randf_range(0.75, 1.25))
+        upgrade_price = round(10 * (upgrade_tier + 1) * randf_range(0.75, 1.25) * (2 if Game.insane_mode else 1))
 
     if get_parent() != null and get_parent().get_parent() is Player:
         gain_upgrade()

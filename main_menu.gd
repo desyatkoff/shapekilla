@@ -5,7 +5,9 @@ extends Control
 @onready var logo_panel = $LogoPanel
 @onready var logo = $LogoPanel/Logo
 
-@onready var play_button = $VBoxContainer/PlayButton
+@onready var play_button = $VBoxContainer/HBoxContainer/PlayButton
+@onready var insane_mode_button = $VBoxContainer/HBoxContainer/InsaneModeButton
+@onready var insane_mode_sfx_player = $VBoxContainer/HBoxContainer/InsaneModeButton/InsaneModeSFXPlayer
 @onready var settings_button = $VBoxContainer/SettingsButton
 @onready var stats_button = $VBoxContainer/StatsButton
 @onready var quit_button = $VBoxContainer/QuitButton
@@ -38,6 +40,9 @@ extends Control
 func _ready() -> void:
     visible = true
 
+    insane_mode_button.visible = Game.data["best_floors_cleared"] >= 20
+    insane_mode_button.button_pressed = Game.insane_mode
+
     if Game.data["is_tutorial_complete"]:
         fade_out()
 
@@ -66,6 +71,21 @@ func _on_play_button_pressed() -> void:
     tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5)
 
     tween.finished.connect(play)
+
+func _on_insane_mode_button_pressed() -> void:
+    insane_mode_sfx_player.play()
+
+func _on_insane_mode_button_toggled(toggled_on: bool) -> void:
+    Game.insane_mode = toggled_on
+
+    await get_tree().process_frame
+
+    Game.custom_seed = Game.run_seed
+
+    Game.reload_world()
+    Game.reload_player()
+
+    Game.custom_seed = null
 
 func _on_settings_button_pressed() -> void:
     play_button.disabled = true

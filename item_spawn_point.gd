@@ -7,6 +7,10 @@ class_name ItemSpawnPoint
 var tried_spawning = false
 var did_spawn = false
 
+func _ready() -> void:
+    if Game.insane_mode:
+        probability /= 2
+
 func spawn_item():
     if not tried_spawning:
         tried_spawning = true

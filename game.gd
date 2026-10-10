@@ -3,6 +3,8 @@ extends Node2D
 var custom_seed = null
 var run_seed = null
 
+var insane_mode = false
+
 var canvas_modulate: CanvasModulate
 var world: Node2D
 var player: Player
@@ -127,10 +129,7 @@ func hitstop(hitstop_duration: float, screen_flash_time: float) -> void:
         tween.tween_property(Game.hud.hitstop, "modulate", Color.TRANSPARENT, screen_flash_time)
 
 func update_values() -> void:
-    if custom_seed and run_seed != custom_seed:
-        run_seed = custom_seed
-    else:
-        run_seed = randi()
+    run_seed = custom_seed if custom_seed else randi()
 
     seed(run_seed)
 
