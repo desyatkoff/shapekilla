@@ -40,7 +40,7 @@ extends Control
 func _ready() -> void:
     visible = true
 
-    insane_mode_button.visible = Game.data["best_floors_cleared"] >= 20
+    insane_mode_button.visible = Game.data["best_floors_cleared"] >= 10
     insane_mode_button.button_pressed = Game.insane_mode
 
     if Game.data["is_tutorial_complete"]:
