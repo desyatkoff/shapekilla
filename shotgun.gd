@@ -4,6 +4,7 @@ class_name Shotgun
 @onready var item_particles = $ItemParticles
 @onready var shoot_particles = $Sprite/ProjectileSpawnPoint/ShootParticles
 @onready var shoot_light = $Sprite/ProjectileSpawnPoint/ShootLight
+@onready var pickup_sfx_player = $PickupSFXPlayer
 
 @onready var shotgun_projectile_scene = preload("res://shotgun_projectile.tscn")
 
@@ -30,6 +31,10 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
         weapon_owner.weapon = self
         global_rotation = 0.0
         item_particles.queue_free()
+
+        if not Game.data["is_tutorial_complete"]:
+            pickup_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+            pickup_sfx_player.play()
 
         call_deferred("reparent", body.weapon_slot)
 

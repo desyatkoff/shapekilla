@@ -192,11 +192,6 @@ func _process(delta: float) -> void:
                 camera.limit_top = -256
                 camera.limit_right = -1376
                 camera.limit_bottom = 256
-            5:
-                camera.limit_left = -1400
-                camera.limit_top = -256
-                camera.limit_right = -896
-                camera.limit_bottom = 256
 
 func apply_noise_shake(noise_shake_strength) -> void:
     shake_strength += noise_shake_strength
